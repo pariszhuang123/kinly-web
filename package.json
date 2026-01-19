@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "tokens:build": "style-dictionary build --config style-dictionary.config.json",
+    "tokens:build": "style-dictionary build --config style-dictionary.config.mjs",
     "dev": "npm run tokens:build && next dev",
     "build": "npm run tokens:build && next build",
     "start": "next start -p 3000",

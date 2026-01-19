@@ -28,8 +28,8 @@ body {
 }
 
 body {
-  background: var(--color-foundation-surface-light, #fafaf9);
-  color: var(--color-foundation-neutral-ink, #101312);
+  background: var(--color-surface);
+  color: var(--color-on-surface);
   font-family: var(
     --typography-font-family-body,
     system-ui,
