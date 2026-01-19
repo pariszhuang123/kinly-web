@@ -4,15 +4,28 @@ type KinlyCardVariant = "action" | "section";
 
 type Props = {
   variant?: KinlyCardVariant;
+  title?: string;
   children: React.ReactNode;
   className?: string;
 };
 
-export function KinlyCard({ variant = "action", children, className }: Props) {
+export function KinlyCard({
+  variant = "action",
+  title,
+  children,
+  className,
+}: Props) {
   const variantClass =
     variant === "section" ? styles.section : styles.action;
 
-  const cn = [styles.base, variantClass, className].filter(Boolean).join(" ");
+  const cn = [styles.base, variantClass, className]
+    .filter(Boolean)
+    .join(" ");
 
-  return <div className={cn}>{children}</div>;
+  return (
+    <div className={cn}>
+      {title && <h2 className={styles.title}>{title}</h2>}
+      {children}
+    </div>
+  );
 }

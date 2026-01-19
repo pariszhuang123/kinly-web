@@ -28,3 +28,9 @@
   /* elevation.level2-ish */
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
+
+.title {
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
