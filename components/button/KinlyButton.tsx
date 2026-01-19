@@ -21,33 +21,43 @@ type LinkProps = CommonProps & {
   rel?: string;
 };
 
+function isLinkProps(p: ButtonProps | LinkProps): p is LinkProps {
+  return "href" in p && typeof (p as LinkProps).href === "string";
+}
+
 export function KinlyButton(props: ButtonProps | LinkProps) {
-  const {
-    variant = "filled",
-    children,
-    className,
-    disabled,
-    ...rest
-  } = props as any;
+  const variant = props.variant ?? "filled";
 
   const variantClass =
     variant === "filled"
       ? styles.filled
       : variant === "outlined"
-      ? styles.outlined
-      : styles.text;
+        ? styles.outlined
+        : styles.text;
 
-  const cn = [styles.base, variantClass, className].filter(Boolean).join(" ");
+  const cn = [styles.base, variantClass, props.className]
+    .filter(Boolean)
+    .join(" ");
+
+  const disabled = Boolean(props.disabled);
 
   // Link mode
-  if ("href" in props && typeof props.href === "string") {
+  if (isLinkProps(props)) {
+    const { href, children, target, rel } = props;
+
     return (
       <Link
-        href={props.href}
+        href={href}
         className={cn}
+        target={target}
+        rel={rel}
         aria-disabled={disabled ? "true" : undefined}
         tabIndex={disabled ? -1 : undefined}
-        onClick={disabled ? (e) => e.preventDefault() : undefined}
+        onClick={
+          disabled
+            ? (e: React.MouseEvent<HTMLAnchorElement>) => e.preventDefault()
+            : undefined
+        }
       >
         {children}
       </Link>
@@ -55,13 +65,10 @@ export function KinlyButton(props: ButtonProps | LinkProps) {
   }
 
   // Button mode
+  const { children, variant: _variant, className: _className, disabled: _disabled, ...rest } = props;
+
   return (
-    <button
-      type="button"
-      className={cn}
-      disabled={disabled}
-      {...(rest as React.ButtonHTMLAttributes<HTMLButtonElement>)}
-    >
+    <button type="button" className={cn} disabled={disabled} {...rest}>
       {children}
     </button>
   );
