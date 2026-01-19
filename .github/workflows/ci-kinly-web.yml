@@ -1,0 +1,135 @@
+name: Kinly-web CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-web-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  web_ci:
+    name: Lint • Typecheck • Test • Build • E2E
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    env:
+      CI: true
+      NEXT_TELEMETRY_DISABLED: "1"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node (npm)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      # Cache Next build artifacts between runs (speeds up next build)
+      - name: Cache Next.js build cache
+        uses: actions/cache@v4
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-nextcache-${{ hashFiles('package-lock.json', 'next.config.*', 'tsconfig.json', 'eslint.config.*', 'app/**', 'pages/**', 'components/**', 'lib/**', 'public/**') }}
+          restore-keys: |
+            ${{ runner.os }}-nextcache-
+
+      - name: "Guard: lockfile present"
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f package-lock.json
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Print versions
+        run: |
+          node -v
+          npm -v
+
+      # ---- Quality gates ----
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck (if present)
+        run: npm run typecheck --if-present
+
+      - name: Unit tests (if present)
+        run: npm test --if-present
+
+      # ---- Build ----
+      - name: Build
+        run: npm run build
+
+      # ---- E2E (Playwright) ----
+      - name: Detect Playwright
+        id: pw
+        shell: bash
+        run: |
+          set -euo pipefail
+          if npm ls --depth=0 @playwright/test >/dev/null 2>&1; then
+            echo "installed=true" >> $GITHUB_OUTPUT
+          else
+            echo "installed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Install Playwright browsers
+        if: steps.pw.outputs.installed == 'true'
+        run: npx playwright install --with-deps
+
+      - name: E2E (Playwright) against local Next server
+        if: steps.pw.outputs.installed == 'true'
+        shell: bash
+        env:
+          NEXT_PUBLIC_ENV: "ci"
+          PLAYWRIGHT_BASE_URL: "http://127.0.0.1:3000"
+        run: |
+          set -euo pipefail
+
+          # Start Next prod server (requires build already ran)
+          npm run start -- -p 3000 &
+          SERVER_PID=$!
+
+          cleanup() {
+            kill "$SERVER_PID" >/dev/null 2>&1 || true
+          }
+          trap cleanup EXIT
+
+          # Wait for server to be ready
+          for i in {1..60}; do
+            if curl -sSf "http://127.0.0.1:3000" >/dev/null 2>&1; then
+              echo "Next server is up"
+              break
+            fi
+            sleep 2
+          done
+
+          if ! curl -sSf "http://127.0.0.1:3000" >/dev/null 2>&1; then
+            echo "::error::Next server did not become ready"
+            exit 1
+          fi
+
+          # Run Playwright via your script (preferred)
+          npm run e2e
+
+      - name: Upload Playwright report (always)
+        if: always() && steps.pw.outputs.installed == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: |
+            playwright-report
+            test-results
+          if-no-files-found: ignore
+          retention-days: 7

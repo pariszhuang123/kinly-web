@@ -1,0 +1,102 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --color-foundation-surface-light: #fafaf9;
+  --color-foundation-surface-dark: #101312;
+  --color-foundation-brand-primary: #366d59; /** Kinly Teal */
+  --color-foundation-brand-secondary: #8baa91; /** Sage */
+  --color-foundation-brand-accent: #f6b73c; /** Honey */
+  --color-foundation-neutral-ink: #101312;
+  --color-foundation-neutral-outline: #b7c7c0;
+  --color-foundation-semantic-error: #e53935;
+  --color-semantic-primary: #366d59;
+  --color-semantic-secondary: #8baa91;
+  --color-semantic-accent: #f6b73c;
+  --color-semantic-error: #e53935;
+  --color-semantic-success: #8baa91;
+  --color-semantic-warning: #f6b73c;
+  --color-semantic-info: #366d59;
+  --color-semantic-surface: #fafaf9;
+  --color-semantic-on-surface: #101312;
+  --color-semantic-outline: #b7c7c0;
+  --color-semantic-on-primary: #ffffff; /** Foreground text/icon color on primary surfaces */
+  --color-semantic-on-secondary: #101312;
+  --color-semantic-on-accent: #101312;
+  --color-semantic-on-error: #ffffff;
+  --color-semantic-surface-container-low: #fafaf9; /** Card backgrounds (low emphasis) */
+  --color-semantic-surface-container: #fafaf9; /** Default container surface */
+  --color-brand-text-sage: #4a6650; /** 40% black mix with sage */
+  --color-brand-text-honey: #6f5019; /** 55% black mix with honey */
+  --color-brand-text-teal: #1f4133; /** 40% black mix with teal */
+  --typography-font-family-display: DM Sans; /** Headings and titles */
+  --typography-font-family-body: Inter; /** Body text and labels */
+  --typography-font-weight-regular: 400;
+  --typography-font-weight-medium: 600;
+  --typography-font-weight-bold: 700;
+  --typography-styles-display-large-font-size: 40px;
+  --typography-styles-display-medium-font-size: 32px;
+  --typography-styles-headline-large-font-size: 28px;
+  --typography-styles-headline-medium-font-size: 24px;
+  --typography-styles-title-large-font-size: 20px;
+  --typography-styles-title-medium-font-size: 18px;
+  --typography-styles-title-small-font-size: 16px;
+  --typography-styles-body-large-font-size: 16px;
+  --typography-styles-body-medium-font-size: 14px;
+  --typography-styles-body-small-font-size: 12px;
+  --typography-styles-label-medium-font-size: 14px;
+  --typography-styles-label-small-font-size: 12px;
+  --spacing-xxs: 2px;
+  --spacing-xs: 4px;
+  --spacing-s: 8px;
+  --spacing-m: 12px;
+  --spacing-l: 16px;
+  --spacing-xl: 24px;
+  --spacing-xxl: 32px;
+  --spacing-xxxl: 40px;
+  --radius-xs: 4px; /** Chips, tags */
+  --radius-sm: 8px; /** Text fields, small buttons */
+  --radius-md: 12px; /** Cards, list items */
+  --radius-lg: 16px; /** Bottom sheets, section containers */
+  --radius-xl: 24px; /** Hero elements, modals */
+  --radius-pill: 999px; /** Full pill badges, pill buttons */
+  --elevation-level0: 0;
+  --elevation-level1: 1; /** Cards, list items */
+  --elevation-level2: 3; /** Prominent cards */
+  --elevation-level3: 6; /** FAB, bottom sheets */
+  --elevation-level4: 10; /** Dialogs, modals */
+  --elevation-level5: 16; /** Hero/large modal surfaces */
+  --opacity-xxs: 0.05; /** Hairline dividers/ink hints */
+  --opacity-xs: 0.08; /** Very light overlays/badges */
+  --opacity-sm: 0.12; /** Light overlays/hover/subtle fills */
+  --opacity-md: 0.16; /** Light badge/background tints */
+  --opacity-lg: 0.2; /** Soft cards/overlays */
+  --opacity-xl: 0.24; /** Standard overlay/elevation */
+  --opacity-xxl: 0.28; /** Strong overlay/hero gradients */
+  --opacity-shadow: 0.3; /** Shadow tint */
+  --opacity-halo: 0.35; /** Focus/halo glows */
+  --opacity-muted: 0.4; /** Muted/disabled tints */
+  --opacity-scrim: 0.5; /** Scrims/backdrops */
+  --opacity-dim: 0.6; /** Dim layers */
+  --opacity-faint: 0.7; /** Faded/disabled text/icons */
+  --opacity-faint-strong: 0.72; /** Strong faded state */
+  --opacity-opaque: 0.9; /** Near-opaque surfaces */
+  --opacity-opaque-high: 0.92; /** Very near-opaque surfaces */
+  --motion-duration-fast: 120ms;
+  --motion-duration-medium: 200ms;
+  --motion-duration-slow: 300ms;
+  --motion-duration-snappy: 160ms;
+  --motion-easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-easing-accelerate: cubic-bezier(0.4, 0, 1, 1);
+  --motion-easing-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --motion-easing-emotional: cubic-bezier(0.25, 1, 0.5, 1);
+  --size-icon-sm: 16px;
+  --size-icon-md: 24px;
+  --size-icon-lg: 40px;
+  --size-touch-target-min: 48px; /** Minimum touch target for accessibility */
+  --size-toolbar: 56px;
+  --size-bottom-nav: 64px;
+  --size-fab: 56px;
+  --size-max-content-width: 640px;
+}
