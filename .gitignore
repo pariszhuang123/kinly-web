@@ -11,3 +11,8 @@ out/
 
 # misc
 .DS_Store
+
+# Playwright (generated)
+playwright-report/
+test-results/
+*.zip

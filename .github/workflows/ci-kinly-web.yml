@@ -84,6 +84,15 @@ jobs:
             echo "installed=false" >> $GITHUB_OUTPUT
           fi
 
+      - name: Cache Playwright browsers
+        if: steps.pw.outputs.installed == 'true'
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-playwright-
+
       - name: Install Playwright browsers
         if: steps.pw.outputs.installed == 'true'
         run: npx playwright install --with-deps
@@ -98,7 +107,7 @@ jobs:
           set -euo pipefail
 
           # Start Next prod server (requires build already ran)
-          npm run start -- -p 3000 &
+          npm run start &
           SERVER_PID=$!
 
           cleanup() {
