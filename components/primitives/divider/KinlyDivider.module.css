@@ -1,0 +1,43 @@
+.base {
+  border: 0;
+  background: color-mix(
+    in srgb,
+    var(--color-outline, #79747e) 40%,
+    transparent
+  );
+  flex-shrink: 0;
+}
+
+.horizontal {
+  width: 100%;
+  height: 1px;
+}
+
+.vertical {
+  width: 1px;
+  height: 100%;
+}
+
+.spacingS.horizontal {
+  margin-block: var(--spacing-s, 8px);
+}
+
+.spacingM.horizontal {
+  margin-block: var(--spacing-m, 12px);
+}
+
+.spacingL.horizontal {
+  margin-block: var(--spacing-l, 16px);
+}
+
+.spacingS.vertical {
+  margin-inline: var(--spacing-s, 8px);
+}
+
+.spacingM.vertical {
+  margin-inline: var(--spacing-m, 12px);
+}
+
+.spacingL.vertical {
+  margin-inline: var(--spacing-l, 16px);
+}

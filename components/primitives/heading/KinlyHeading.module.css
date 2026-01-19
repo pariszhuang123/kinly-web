@@ -1,0 +1,20 @@
+.heading {
+  font-family: var(--typography-font-family-display);
+  color: var(--color-on-surface);
+  margin: 0;
+}
+
+.level1 {
+  font-size: var(--typography-styles-display-large-font-size);
+  font-weight: var(--typography-font-weight-bold);
+}
+
+.level2 {
+  font-size: var(--typography-styles-headline-large-font-size);
+  font-weight: var(--typography-font-weight-bold);
+}
+
+.level3 {
+  font-size: var(--typography-styles-headline-medium-font-size);
+  font-weight: var(--typography-font-weight-medium);
+}

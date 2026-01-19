@@ -23,6 +23,50 @@ Behavioral changes require a contract version bump.
 ## Dependency Direction (Hard Rule)
 Direct DB writes from Web UI or Edge Functions are forbidden.
 
+## Commands
+
+After making changes, run:
+
+```bash
+npm run check:all    # All quality gates (required before commit)
+npm run build        # Full production build
+npm run e2e          # End-to-end tests (requires build first)
+```
+
+Individual checks (run via check:all):
+- `tokens:build` — compile design tokens
+- `typecheck` — TypeScript validation
+- `lint` — ESLint (includes primitive enforcement)
+- `check:contracts` — validate contract registry
+- `check:primitives` — ensure required primitives exist
+
+## UI Rules (Web Primitives Contract)
+
+All UI in `app/` MUST use primitives from `components/`:
+
+```tsx
+// ✗ Forbidden in app/
+<button>, <p>, <h1>-<h6>, <input>
+
+// ✓ Required
+<KinlyButton>, <KinlyText>, <KinlyHeading>, <KinlyInput>
+```
+
+Import from barrel only:
+```tsx
+import { KinlyButton, KinlyText } from "../components";
+```
+
+Primitives do NOT accept `className`. All styling via tokens.
+
+## Token System
+
+- Source: `contracts/design-system/tokens.json`
+- Generated: `app/styles/generated/tokens.css` (do not edit)
+- Derived vars: `--k-web-shadow-color`, `--k-web-scrim-color`, `--k-web-focus-ring`
+
+Run `npm run tokens:build` after editing tokens.json.
+
 ## Required Reading
 
 Before proposing or implementing changes, read:

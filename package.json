@@ -2,11 +2,22 @@
   "private": true,
   "scripts": {
     "tokens:build": "style-dictionary build --config style-dictionary.config.mjs",
+    "tokens:watch": "style-dictionary build --config style-dictionary.config.mjs --watch",
+    "tokens:clean": "node -e \"require('fs').rmSync('app/styles/generated', { recursive: true, force: true })\"",
+
     "dev": "npm run tokens:build && next dev",
+    "dev:tokens": "npm run tokens:watch",
+    "dev:all": "npm run tokens:build && (npm run dev:tokens & next dev)",
+
     "build": "npm run tokens:build && next build",
     "start": "next start -p 3000",
+
     "lint": "eslint \"{app,components,lib,tests}/**/*.{js,jsx,ts,tsx}\" --max-warnings 0",
     "typecheck": "tsc -p tsconfig.json --noEmit",
+
+    "check:all": "node scripts/check_all.mjs",
+    "check:contracts": "node scripts/check_contracts.mjs",
+    "check:primitives": "node scripts/check_primitives.mjs",
     "e2e": "playwright test",
     "e2e:ui": "playwright test --ui",
     "e2e:report": "playwright show-report"

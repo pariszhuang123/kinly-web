@@ -1,0 +1,65 @@
+.text {
+  font-family: var(--typography-font-family-body);
+  margin: 0;
+}
+
+/* Variants */
+.bodyLarge {
+  font-size: var(--typography-styles-body-large-font-size);
+  font-weight: var(--typography-styles-body-large-font-weight);
+  line-height: var(--typography-styles-body-large-line-height);
+  letter-spacing: var(--typography-styles-body-large-letter-spacing);
+}
+
+.bodyMedium {
+  font-size: var(--typography-styles-body-medium-font-size);
+  font-weight: var(--typography-styles-body-medium-font-weight);
+  line-height: var(--typography-styles-body-medium-line-height);
+  letter-spacing: var(--typography-styles-body-medium-letter-spacing);
+}
+
+.bodySmall {
+  font-size: var(--typography-styles-body-small-font-size);
+  font-weight: var(--typography-styles-body-small-font-weight);
+  line-height: var(--typography-styles-body-small-line-height);
+  letter-spacing: var(--typography-styles-body-small-letter-spacing);
+}
+
+.labelMedium {
+  font-size: var(--typography-styles-label-medium-font-size);
+  font-weight: var(--typography-styles-label-medium-font-weight);
+  line-height: var(--typography-styles-label-medium-line-height);
+  letter-spacing: var(--typography-styles-label-medium-letter-spacing);
+}
+
+.labelSmall {
+  font-size: var(--typography-styles-label-small-font-size);
+  font-weight: var(--typography-styles-label-small-font-weight);
+  line-height: var(--typography-styles-label-small-line-height);
+  letter-spacing: var(--typography-styles-label-small-letter-spacing);
+}
+
+/* Tones */
+.default {
+  color: var(--color-on-surface);
+}
+
+.muted {
+  color: var(--color-disabled);
+}
+
+.danger {
+  color: var(--color-error);
+}
+
+.success {
+  color: var(--color-success);
+}
+
+.warning {
+  color: var(--color-warning);
+}
+
+.info {
+  color: var(--color-info);
+}

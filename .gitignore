@@ -17,3 +17,6 @@ playwright-report/
 test-results/
 *.zip
 .vercel
+
+# Generated tokens (built fresh via tokens:build)
+app/styles/generated/

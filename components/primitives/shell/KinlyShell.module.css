@@ -1,0 +1,7 @@
+.shell {
+  width: 100%;
+  max-width: var(--size-max-content-width, 640px);
+  margin: 0 auto;
+  padding-left: var(--spacing-l, 16px);
+  padding-right: var(--spacing-l, 16px);
+}

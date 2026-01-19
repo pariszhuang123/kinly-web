@@ -1,0 +1,112 @@
+.base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs, 4px);
+  position: relative;
+
+  border-radius: var(--radius-md, 12px);
+
+  font-weight: 600;
+  line-height: 1;
+
+  text-decoration: none;
+  user-select: none;
+  cursor: pointer;
+
+  transition:
+    transform var(--motion-duration-fast, 120ms) var(--motion-easing-standard, ease-out),
+    box-shadow var(--motion-duration-fast, 120ms) var(--motion-easing-standard, ease-out),
+    opacity var(--motion-duration-fast, 120ms) var(--motion-easing-standard, ease-out);
+}
+
+.base:active:not(:disabled):not([aria-disabled="true"]) {
+  transform: translateY(1px);
+}
+
+.base:focus-visible {
+  outline: 3px solid var(--k-web-focus-ring, var(--color-semantic-primary, #366d59));
+  outline-offset: 2px;
+}
+
+/* Sizes */
+.sm {
+  min-height: 36px;
+  padding: 0 var(--spacing-m, 12px);
+  font-size: 13px;
+}
+
+.md {
+  min-height: var(--size-touch-target-min, 48px);
+  padding: 0 var(--spacing-l, 16px);
+  font-size: 14px;
+}
+
+.lg {
+  min-height: var(--size-touch-target-min, 48px);
+  padding: 0 var(--spacing-xl, 24px);
+  font-size: 16px;
+}
+
+/* Variants */
+.filled {
+  background: var(--color-semantic-primary, #366d59);
+  color: var(--color-semantic-on-primary, #ffffff);
+  border: 0;
+}
+
+.outlined {
+  background: transparent;
+  color: var(--color-semantic-primary, #366d59);
+  border: 1px solid var(--color-semantic-primary, #366d59);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--color-semantic-primary, #366d59);
+  border: 0;
+}
+
+/* Disabled */
+.base:disabled,
+.base[aria-disabled="true"] {
+  opacity: var(--opacity-muted, 0.4);
+  pointer-events: none;
+}
+
+/* Loading */
+.loading {
+  pointer-events: none;
+}
+
+.spinner {
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin var(--motion-duration-slow, 600ms) linear infinite;
+}
+
+.contentHidden {
+  visibility: hidden;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .base {
+    transition: none;
+  }
+
+  .spinner {
+    animation: none;
+    border-top-color: currentColor;
+    opacity: 0.5;
+  }
+}

@@ -45,6 +45,49 @@ export default [
     },
   },
 
+  // Web Primitives Contract Enforcement (app/ only)
+  // Forbid raw elements that should use primitives
+  {
+    files: ["app/**/*.{jsx,tsx}"],
+    plugins: { react },
+    rules: {
+      "react/forbid-elements": [
+        "error",
+        {
+          forbid: [
+            { element: "button", message: "Use <KinlyButton> instead" },
+            { element: "p", message: "Use <KinlyText> instead" },
+            { element: "h1", message: "Use <KinlyHeading level={1}> instead" },
+            { element: "h2", message: "Use <KinlyHeading level={2}> instead" },
+            { element: "h3", message: "Use <KinlyHeading level={3}> instead" },
+            { element: "h4", message: "Use <KinlyHeading> instead" },
+            { element: "h5", message: "Use <KinlyHeading> instead" },
+            { element: "h6", message: "Use <KinlyHeading> instead" },
+            { element: "input", message: "Use <KinlyInput> instead" },
+          ],
+        },
+      ],
+    },
+  },
+
+  // Prevent deep imports into primitives (use components/index.ts barrel)
+  {
+    files: ["app/**/*.{js,jsx,ts,tsx}"],
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          patterns: [
+            {
+              group: ["**/components/primitives/**"],
+              message: "Import from '@/components' or '../../components' barrel instead.",
+            },
+          ],
+        },
+      ],
+    },
+  },
+
   // Next.js core-web-vitals rules
   {
     files: ["**/*.{js,jsx,ts,tsx}"],

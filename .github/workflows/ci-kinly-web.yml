@@ -59,11 +59,8 @@ jobs:
           npm -v
 
       # ---- Quality gates ----
-      - name: Lint
-        run: npm run lint
-
-      - name: Typecheck (if present)
-        run: npm run typecheck --if-present
+      - name: All checks (lint, typecheck, contracts, primitives)
+        run: npm run check:all
 
       - name: Unit tests (if present)
         run: npm test --if-present

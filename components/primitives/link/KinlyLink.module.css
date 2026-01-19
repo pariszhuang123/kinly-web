@@ -1,0 +1,14 @@
+.link {
+  color: var(--color-link, var(--color-semantic-primary, #366d59));
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.link:focus-visible {
+  outline: 3px solid var(--k-web-focus-ring, var(--color-semantic-primary, #366d59));
+  outline-offset: 2px;
+}

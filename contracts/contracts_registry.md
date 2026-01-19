@@ -48,10 +48,10 @@ or join capability may be implied outside supported regions.
 
 | Domain | Capability | Contract | Status |
 |---|---|---|---|
-| Links | Share Links | `links_share_links_v1.md` | Active |
-| Links | Deep Links | `links_deep_links_v1.md` | Active |
-| Links | Region Gating | `links_region_gate_v1_1.md` | Active |
-| Links | Fallback Behavior | `links_fallback_v1.md` | Active |
+| Links | Share Links | `links/links_share_links_v1.md` | Active |
+| Links | Deep Links | `links/links_deep_links_v1.md` | Active |
+| Links | Region Gating | `links/links_region_gate_v1_1.md` | Active |
+| Links | Fallback Behavior | `links/links_fallback_v1.md` | Active |
 
 ---
 
@@ -59,7 +59,23 @@ or join capability may be implied outside supported regions.
 
 | Domain | Capability | Contract | Status |
 |---|---|---|---|
-| Norms | Public House Norms | `norms_public_norms_v1.md` | Active |
+| Norms | Public House Norms | `norms/norms_public_norms_v1.md` | Active |
+
+---
+
+### Design System
+
+| Domain | Capability | Contract | Status |
+|---|---|---|---|
+| Web Design System | Token compilation + theme delivery | `design-system/web_tokens_build_v1.md` | Active |
+
+---
+
+### UI
+
+| Domain | Capability | Contract | Status |
+|---|---|---|---|
+| Web UI | Primitive-based UI composition | `ui/web_primitives_v1.md` | Active |
 
 ---
 
