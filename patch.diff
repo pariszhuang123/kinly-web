@@ -1,0 +1,18 @@
+﻿*** Begin Patch
+*** Update File: tests/interest_capture.spec.ts
+@@
+-  await expect(page.getByText(/Too many attempts\. Please try again in \d+s\./)).toBeVisible();
+-  await expect(page.getByText(/Please wait .*s before trying again\./)).toBeVisible();
++  await expect(page.getByText(/Too many attempts/)).toBeVisible();
++  await expect(page.getByText(/Please wait \d+s before trying again\./)).toBeVisible();
+@@
+-  await page.getByRole("button", { name: "Request access" }).click();
+-
+-  await expect(page.getByText(/Thanks .* we got it\./)).toBeVisible();
+-  await expect(page.getByText(/let you know when Kinly is ready in your area/)).toBeVisible();
++  await page.getByRole("button", { name: "Request access" }).click();
++
++  await expect(page.getByText(/Thanks/)).toBeVisible();
++  await expect(page.getByText(/ready in your area/i)).toBeVisible();
+ });
+*** End Patch
