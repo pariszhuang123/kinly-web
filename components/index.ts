@@ -7,6 +7,7 @@ export { KinlyShell } from "./primitives/shell/KinlyShell";
 export { KinlyStack } from "./primitives/stack/KinlyStack";
 export { KinlyLink } from "./primitives/link/KinlyLink";
 export { KinlyDivider } from "./primitives/divider/KinlyDivider";
+export { KinlyInput } from "./primitives/input/KinlyInput";
 
 // Composites
 // (add composite exports here as they are created)

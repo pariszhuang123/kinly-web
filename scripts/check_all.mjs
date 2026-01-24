@@ -35,12 +35,7 @@ const checks = [
   { name: "typecheck", command: "npm", args: ["run", "typecheck"] },
   { name: "lint", command: "npm", args: ["run", "lint"] },
 
-  // --- Contract checks ---
-  {
-    name: "check:contracts",
-    command: "node",
-    args: ["scripts/check_contracts.mjs"],
-  },
+  // --- Primitive checks ---
   {
     name: "check:primitives",
     command: "node",

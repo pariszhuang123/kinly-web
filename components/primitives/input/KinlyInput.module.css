@@ -1,0 +1,77 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxs, 6px);
+  width: 100%;
+}
+
+.labelRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-xs, 8px);
+}
+
+.label {
+  font-size: var(--typography-styles-label-medium-font-size);
+  font-weight: var(--typography-styles-label-medium-font-weight);
+  line-height: var(--typography-styles-label-medium-line-height);
+  letter-spacing: var(--typography-styles-label-medium-letter-spacing);
+  color: var(--color-on-surface);
+}
+
+.hint {
+  font-size: var(--typography-styles-label-small-font-size);
+  font-weight: var(--typography-styles-label-small-font-weight);
+  line-height: var(--typography-styles-label-small-line-height);
+  letter-spacing: var(--typography-styles-label-small-letter-spacing);
+  color: var(--color-disabled);
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  height: var(--size-touch-target-min, 48px);
+  padding: 0 var(--spacing-m, 12px);
+  border-radius: var(--radius-md, 12px);
+  border: 1px solid var(--color-semantic-outline, var(--color-foundation-neutral-outline, #b7c7c0));
+  background: var(--color-surface);
+  color: var(--color-on-surface);
+  font-size: var(--typography-styles-body-medium-font-size);
+  line-height: var(--typography-styles-body-medium-line-height);
+  letter-spacing: var(--typography-styles-body-medium-letter-spacing);
+  font-family: var(--typography-font-family-body);
+  transition: border-color var(--motion-duration-fast, 120ms)
+      var(--motion-easing-standard, ease-out),
+    box-shadow var(--motion-duration-fast, 120ms) var(--motion-easing-standard, ease-out);
+}
+
+.input::placeholder {
+  color: var(--color-disabled);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-semantic-primary, #366d59);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--k-web-focus-ring, #366d59) 25%, transparent);
+}
+
+.input:disabled {
+  background: color-mix(in srgb, var(--color-surface-container-high, #ffffff) 70%, var(--color-foundation-neutral-surface-dim, #f3f4f6));
+  color: var(--color-disabled, #94a3b8);
+  cursor: not-allowed;
+}
+
+.errorMessage {
+  color: var(--color-error);
+  font-size: var(--typography-styles-label-small-font-size);
+  line-height: var(--typography-styles-label-small-line-height);
+}
+
+.inputError {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-error) 20%, transparent);
+}

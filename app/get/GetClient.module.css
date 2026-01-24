@@ -1,0 +1,31 @@
+.form {
+  width: 100%;
+}
+
+.countrySection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s, 10px);
+}
+
+.countryPicker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s, 10px);
+  padding: var(--spacing-m, 12px);
+  border: 1px solid var(--color-semantic-outline, var(--color-foundation-neutral-outline, #b7c7c0));
+  border-radius: var(--radius-md, 12px);
+  background: var(--color-surface, #ffffff);
+}
+
+.countryList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xs, 8px);
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.countryName {
+  text-align: left;
+}

@@ -21,7 +21,29 @@ Implementation MUST conform to active contract versions.
 Behavioral changes require a contract version bump.
 
 ## Dependency Direction (Hard Rule)
-Direct DB writes from Web UI or Edge Functions are forbidden.
+
+Web UI and Edge Functions MUST NOT perform direct database writes.
+This means:
+- No client-side INSERT / UPDATE / DELETE on tables
+- No direct table access for anon or authenticated roles
+
+Web UI MAY call explicitly-approved Supabase RPC functions
+as its public API surface, provided ALL of the following are true:
+
+- RPCs are SECURITY DEFINER
+- anon/authenticated roles have NO table write privileges
+  (tables are REVOKE ALL; no write RLS paths)
+- Only whitelisted RPCs are GRANTed EXECUTE to anon
+- RPCs enforce:
+  - input validation
+  - abuse/rate limiting
+  - stable error codes/messages
+- RPCs are treated as versioned, contract-defined APIs
+
+RPC calls from Web are considered API calls, NOT direct DB writes.
+
+System-derived fields (e.g. ui_locale) may be auto-detected by Web
+and sent invisibly to RPCs if required by contract.
 
 ## Commands
 
