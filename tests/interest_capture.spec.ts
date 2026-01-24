@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+﻿import { test, expect } from "@playwright/test";
 
 const RPC_ROUTE = "**/rest/v1/rpc/leads_upsert_v1";
 
@@ -41,8 +41,8 @@ test("rate limit response shows cooldown messaging and disables submit", async (
   const submit = page.getByRole("button", { name: "Request access" });
   await submit.click();
 
-  await expect(page.getByText(/Too many attempts/)).toBeVisible();
-  await expect(page.getByText(/Please wait .*s/)).toBeVisible();
+  await expect(page.getByText(/Too many attempts\. Please try again in \d+s\./)).toBeVisible();
+  await expect(page.getByText(/Please wait .*s before trying again\./)).toBeVisible();
   await expect(submit).toBeDisabled();
 });
 
@@ -66,6 +66,6 @@ test("successful submission shows confirmation", async ({ page }) => {
 
   await page.getByRole("button", { name: "Request access" }).click();
 
-  await expect(page.getByText("Thanks — we got it.")).toBeVisible();
-  await expect(page.getByText(/prioritize access/)).toBeVisible();
+  await expect(page.getByText(/Thanks .* we got it\./)).toBeVisible();
+  await expect(page.getByText(/let you know when Kinly is ready in your area/)).toBeVisible();
 });
