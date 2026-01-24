@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
 test("validation gating blocks submit until email and country are valid", async ({ page }) => {
   await page.goto("/get");
 
-  const submit = page.getByRole("button", { name: "Submit interest" });
+  const submit = page.getByRole("button", { name: "Request access" });
   await expect(submit).toBeDisabled();
 
   await page.getByPlaceholder("you@example.com").fill("not-an-email");
@@ -38,7 +38,7 @@ test("rate limit response shows cooldown messaging and disables submit", async (
   await page.getByPlaceholder("you@example.com").fill("user@example.com");
   await page.getByPlaceholder("Country code (e.g., US)").fill("US");
 
-  const submit = page.getByRole("button", { name: "Submit interest" });
+  const submit = page.getByRole("button", { name: "Request access" });
   await submit.click();
 
   await expect(page.getByText(/Too many attempts/)).toBeVisible();
@@ -64,7 +64,7 @@ test("successful submission shows confirmation", async ({ page }) => {
   await page.getByPlaceholder("you@example.com").fill("user@example.com");
   await page.getByPlaceholder("Country code (e.g., US)").fill("US");
 
-  await page.getByRole("button", { name: "Submit interest" }).click();
+  await page.getByRole("button", { name: "Request access" }).click();
 
   await expect(page.getByText("Thanks — we got it.")).toBeVisible();
   await expect(page.getByText(/prioritize access/)).toBeVisible();
