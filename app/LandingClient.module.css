@@ -165,3 +165,9 @@
   line-height: 0;
   pointer-events: auto;
 }
+
+/* Make sure the always-mounted backdrop never intercepts clicks */
+.backdrop {
+  pointer-events: none;
+}
+

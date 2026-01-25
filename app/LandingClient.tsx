@@ -13,10 +13,10 @@ type InterestMarker = {
 
 const SUPPORTED_REGIONS = ["NZ", "SG"];
 const APP_STORE_URL =
-  (process.env.NEXT_PUBLIC_IOS_STORE_URL?.trim() || "https://apps.apple.com/app/idXXXXXXXXX") as string;
+  (process.env.NEXT_PUBLIC_IOS_STORE_URL?.trim() || "https://apps.apple.com/app/kinly/id6756508378") as string;
 const PLAY_STORE_URL =
   (process.env.NEXT_PUBLIC_ANDROID_STORE_URL?.trim() ||
-    "https://play.google.com/store/apps/details?id=com.example") as string;
+    "https://play.google.com/store/apps/details?id=com.makinglifeeasie.kinly") as string;
 
 function readInterestMarker(): InterestMarker | null {
   if (typeof window === "undefined") return null;
@@ -87,7 +87,13 @@ export default function LandingClient() {
 
   return (
     <main className={styles.page}>
-      <div className={styles.backdrop} />
+      {/* IMPORTANT:
+          The previous always-mounted backdrop was intercepting clicks (e.g. store badges).
+          If you want a visual backdrop, keep it but ensure CSS uses pointer-events: none.
+          Otherwise, remove it entirely.
+      */}
+      <div className={styles.backdrop} aria-hidden="true" />
+
       <KinlyShell as="section">
         <KinlyStack direction="vertical" gap="xl">
           <section className={styles.recognition}>
@@ -148,9 +154,6 @@ export default function LandingClient() {
           <section className={styles.section}>
             <KinlyStack direction="vertical" gap="s">
               <KinlyHeading level={2}>Does this sound like your place?</KinlyHeading>
-              <KinlyText variant="bodyMedium" tone="muted">
-                Shared living realities, stated plainly:
-              </KinlyText>
               <div className={styles.chips}>
                 <KinlyCard variant="surface">
                   <KinlyText variant="bodyMedium">
@@ -213,64 +216,63 @@ export default function LandingClient() {
           </section>
 
           <section className={styles.section}>
-            <KinlyStack direction="horizontal" gap="m" wrap align="center">
-              <KinlyStack direction="vertical" gap="s" as="div">
-                <KinlyHeading level={2}>Weekly reflection, human-paced</KinlyHeading>
+            <KinlyStack direction="vertical" gap="s">
+              <KinlyHeading level={2}>Weekly reflection, human-paced</KinlyHeading>
+
+              <KinlyText variant="bodyMedium">
+                Kinly moves on weekly rhythm. It notices the home mood without streaks, checklists, or pressure.
+              </KinlyText>
+
+              <KinlyStack direction="vertical" gap="xs">
                 <KinlyText variant="bodyMedium">
-                  Kinly moves on weekly rhythm. It notices the home mood without streaks, checklists, or pressure.
+                  You can check in weekly, not daily. No streaks, no pressure to keep up.
                 </KinlyText>
-                <KinlyStack direction="vertical" gap="xs">
-                  <KinlyText variant="bodyMedium">
-                    You can check in weekly, not daily. No streaks, no pressure to keep up.
-                  </KinlyText>
-                  <KinlyText variant="bodyMedium">Reflections are for understanding, not grading.</KinlyText>
-                </KinlyStack>
+                <KinlyText variant="bodyMedium">
+                  Reflections are for understanding, not grading.
+                </KinlyText>
               </KinlyStack>
-              <div className={styles.weeklyImage}>
-                <img
-                  src="https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/weekly_feedback.png"
-                  alt="Weekly reflection screen"
-                  loading="lazy"
-                />
-              </div>
             </KinlyStack>
           </section>
 
+        {!suppressStoreCtas && (
           <section className={styles.storeSection}>
             <KinlyCard variant="surfaceContainerHigh">
               <KinlyStack direction="vertical" gap="m">
                 <KinlyHeading level={2}>When you are ready</KinlyHeading>
-                {suppressStoreCtas ? (
-                  <KinlyText variant="bodyMedium" tone="muted">
-                    We will let you in when Kinly opens in your area. 
-                  </KinlyText>
-                ) : (
-                  <>
-                    <KinlyStack direction="horizontal" gap="s" wrap>
-                      <a
-                        className={styles.storeBadgeLink}
-                        href={APP_STORE_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Download on the App Store"
-                      >
-                        <img src="/apple-store.svg" alt="Download on the App Store" className={styles.storeBadge} />
-                      </a>
-                      <a
-                        className={styles.storeBadgeLink}
-                        href={PLAY_STORE_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Get it on Google Play"
-                      >
-                        <img src="/google-play.svg" alt="Get it on Google Play" className={styles.storeBadge} />
-                      </a>
-                    </KinlyStack>
-                  </>
-                )}
+
+                <KinlyStack direction="horizontal" gap="s" wrap>
+                  <a
+                    className={styles.storeBadgeLink}
+                    href={APP_STORE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Download on the App Store"
+                  >
+                    <img
+                      src="/apple-store.svg"
+                      alt="Download on the App Store"
+                      className={styles.storeBadge}
+                    />
+                  </a>
+
+                  <a
+                    className={styles.storeBadgeLink}
+                    href={PLAY_STORE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Get it on Google Play"
+                  >
+                    <img
+                      src="/google-play.svg"
+                      alt="Get it on Google Play"
+                      className={styles.storeBadge}
+                    />
+                  </a>
+                </KinlyStack>
               </KinlyStack>
             </KinlyCard>
           </section>
+        )}
         </KinlyStack>
       </KinlyShell>
     </main>
