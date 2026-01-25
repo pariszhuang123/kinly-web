@@ -81,8 +81,16 @@ jobs:
       - name: All checks (lint, typecheck, contracts, primitives)
         run: npm run check:all
 
-      - name: Unit tests (if present)
-        run: npm test --if-present
+      - name: Unit tests with coverage
+        run: npm run test:coverage
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/
+          if-no-files-found: ignore
+          retention-days: 7
 
       # ---- Build ----
       - name: Build

@@ -13,10 +13,16 @@ type SubmitResult = {
   error?: string;
 };
 
-const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+function getSupabaseConfig() {
+  return {
+    url: process.env.NEXT_PUBLIC_SUPABASE_URL,
+    anonKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+  };
+}
 
 export async function submitInterest(payload: SubmitPayload): Promise<SubmitResult> {
+  const { url: SUPABASE_URL, anonKey: SUPABASE_ANON_KEY } = getSupabaseConfig();
+
   const body = {
     p_email: payload.email.trim(),
     p_country_code: payload.country_code.trim().toUpperCase(),
