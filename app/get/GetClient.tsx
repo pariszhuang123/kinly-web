@@ -70,6 +70,8 @@ export default function GetClient() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [cooldownUntil, setCooldownUntil] = useState<number | null>(null);
   const [nowTs, setNowTs] = useState<number>(() => Date.now());
+  const [showRedirectNotice, setShowRedirectNotice] = useState(false);
+  const [redirectCountdown, setRedirectCountdown] = useState<number | null>(null);
 
   const inviteCode = searchParams.get("code");
   const home = searchParams.get("home");
@@ -100,6 +102,23 @@ export default function GetClient() {
       setCooldownUntil(null);
     }
   }, [cooldownUntil, nowTs]);
+
+  useEffect(() => {
+    if (!showRedirectNotice || redirectCountdown === null) return;
+    if (redirectCountdown <= 0) return;
+    const id = window.setTimeout(() => {
+      setRedirectCountdown((prev) => (typeof prev === "number" ? Math.max(0, prev - 1) : prev));
+    }, 1000);
+    return () => window.clearTimeout(id);
+  }, [redirectCountdown, showRedirectNotice]);
+
+  useEffect(() => {
+    if (!showRedirectNotice) return;
+    const id = window.setTimeout(() => {
+      window.location.assign("/");
+    }, 3000);
+    return () => window.clearTimeout(id);
+  }, [showRedirectNotice]);
 
   const resolvedLocale = useMemo(() => {
     if (isValidLocale(uiLocale)) {
@@ -158,9 +177,11 @@ export default function GetClient() {
     setErrorMessage(null);
 
     try {
+      const trimmedEmail = email.trim();
+      const trimmedCountry = countryCode.trim().toUpperCase();
       const result = await submitInterest({
-        email: email.trim(),
-        country_code: countryCode.trim().toUpperCase(),
+        email: trimmedEmail,
+        country_code: trimmedCountry,
         ui_locale: resolvedLocale,
         source: "kinly_web_get",
       });
@@ -174,6 +195,21 @@ export default function GetClient() {
       }
 
       setStatus("success");
+      setShowRedirectNotice(true);
+      setRedirectCountdown(3);
+
+      if (typeof window !== "undefined") {
+        const interestMarker = {
+          country_code: trimmedCountry,
+          ui_locale: resolvedLocale,
+          captured_at: new Date().toISOString(),
+        };
+        try {
+          window.localStorage.setItem("kinly_interest_status", JSON.stringify(interestMarker));
+        } catch {
+          // best effort; ignore storage failures
+        }
+      }
     } catch (err) {
       setStatus("error");
       setErrorMessage(err instanceof Error ? err.message : "Unable to submit right now.");
@@ -283,7 +319,7 @@ export default function GetClient() {
                     <KinlyStack direction="vertical" gap="xs">
                       <KinlyHeading level={3}>Thanks — we got it.</KinlyHeading>
                       <KinlyText variant="bodyMedium">
-                        We’ll let you know when Kinly is ready in your area.
+                        We will let you know when Kinly is ready in your area.
                       </KinlyText>
                     </KinlyStack>
                   </KinlyCard>
@@ -302,6 +338,30 @@ export default function GetClient() {
           </KinlyCard>
         </KinlyStack>
       </KinlyShell>
+
+      {showRedirectNotice ? (
+        <div className={styles.overlay} role="dialog" aria-modal="true">
+          <KinlyCard variant="surfaceContainerHigh">
+            <KinlyStack direction="vertical" gap="m" align="start">
+              <KinlyHeading level={3}>You are on the list.</KinlyHeading>
+              <KinlyText variant="bodyMedium">
+                We saved your spot and will take you to the Kinly story next so you can see what to expect.
+              </KinlyText>
+              <KinlyText variant="bodySmall" tone="muted">
+                Redirecting in {redirectCountdown ?? 0}s...
+              </KinlyText>
+              <KinlyStack direction="horizontal" gap="s">
+                <KinlyButton variant="filled" onClick={() => window.location.assign("/")}>
+                  Go now
+                </KinlyButton>
+                <KinlyButton variant="ghost" onClick={() => setShowRedirectNotice(false)}>
+                  Stay here
+                </KinlyButton>
+              </KinlyStack>
+            </KinlyStack>
+          </KinlyCard>
+        </div>
+      ) : null}
     </main>
   );
 }

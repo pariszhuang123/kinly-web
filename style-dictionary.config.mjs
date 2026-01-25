@@ -136,7 +136,8 @@ ${darkTokens.join("\n")}
 });
 
 export default {
-  source: ["contracts/design-system/tokens.json"],
+  // Source tokens for web (current repo path)
+  source: ["contracts/contracts/design/tokens/shared/tokens.json"],
   platforms: {
     css: {
       transformGroup: "css",

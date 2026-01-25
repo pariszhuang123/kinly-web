@@ -1,0 +1,278 @@
+"use client";
+/* eslint-disable @next/next/no-img-element */
+
+import { useEffect, useMemo, useState } from "react";
+import { KinlyCard, KinlyHeading, KinlyShell, KinlyStack, KinlyText } from "../components";
+import styles from "./LandingClient.module.css";
+
+type InterestMarker = {
+  country_code?: string;
+  ui_locale?: string;
+  captured_at?: string;
+};
+
+const SUPPORTED_REGIONS = ["NZ", "SG"];
+const APP_STORE_URL =
+  (process.env.NEXT_PUBLIC_IOS_STORE_URL?.trim() || "https://apps.apple.com/app/idXXXXXXXXX") as string;
+const PLAY_STORE_URL =
+  (process.env.NEXT_PUBLIC_ANDROID_STORE_URL?.trim() ||
+    "https://play.google.com/store/apps/details?id=com.example") as string;
+
+function readInterestMarker(): InterestMarker | null {
+  if (typeof window === "undefined") return null;
+  const raw = window.localStorage.getItem("kinly_interest_status");
+  if (!raw) return null;
+
+  try {
+    const parsed = JSON.parse(raw) as InterestMarker;
+    if (!parsed || typeof parsed !== "object") return null;
+    return {
+      country_code: parsed.country_code ? String(parsed.country_code).toUpperCase() : undefined,
+      ui_locale: parsed.ui_locale ? String(parsed.ui_locale) : undefined,
+      captured_at: parsed.captured_at ? String(parsed.captured_at) : undefined,
+    };
+  } catch {
+    return null;
+  }
+}
+
+export default function LandingClient() {
+  const [hasHydrated, setHasHydrated] = useState(false);
+
+  useEffect(() => {
+    // Mark hydration complete so client-only reads (localStorage, navigator) happen after first paint.
+    setHasHydrated(true); // eslint-disable-line react-hooks/set-state-in-effect
+  }, []);
+
+  const interestMarker = useMemo<InterestMarker | null>(
+    () => (hasHydrated ? readInterestMarker() : null),
+    [hasHydrated],
+  );
+
+  const interestCountry = interestMarker?.country_code ?? null;
+  const suppressStoreCtas = useMemo(() => {
+    if (!interestCountry) return false;
+    return !SUPPORTED_REGIONS.includes(interestCountry);
+  }, [interestCountry]);
+
+  const appScreens = useMemo(
+    () => [
+      {
+        title: "Today",
+        eyebrow: "Observation",
+        headline: "See what's happening today",
+        copy: "What's flowing in your home right now",
+        footer: "Check-ins, shared flows, and anything that needs attention — all in one place.",
+        image: "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/today.png",
+      },
+      {
+        title: "Explore",
+        eyebrow: "Gentle ideas",
+        headline: "Explore what your home can do",
+        copy: "All the ways Kinly supports shared living",
+        footer: "Skimmable, optional ideas only.",
+        image: "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/explore.png",
+      },
+      {
+        title: "Hub",
+        eyebrow: "Presence",
+        headline: "See the bigger picture",
+        copy: "How the home is doing, together",
+        footer: "House mood, shared moments, and who's here — without scores or pressure.",
+        image: "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
+      },
+    ],
+    [],
+  );
+
+  return (
+    <main className={styles.page}>
+      <div className={styles.backdrop} />
+      <KinlyShell as="section">
+        <KinlyStack direction="vertical" gap="xl">
+          <section className={styles.recognition}>
+            <KinlyStack direction="vertical" gap="xs">
+              <KinlyHeading level={1}>Shared living gets heavy.</KinlyHeading>
+              <KinlyText variant="bodyLarge" tone="muted">
+                Even when no one is doing anything wrong.
+              </KinlyText>
+            </KinlyStack>
+          </section>
+
+          <section className={styles.hero}>
+            <KinlyStack direction="vertical" gap="m">
+              <KinlyStack direction="horizontal" gap="s" align="center">
+                <img src="/logo-kinly.svg" alt="Kinly logo" className={styles.logo} />
+                <KinlyHeading level={2}>Living together feels lighter.</KinlyHeading>
+              </KinlyStack>
+              <KinlyText variant="bodyLarge" tone="muted">
+                A calm, shared place to notice how the home feels before anyone asks you to do anything.
+              </KinlyText>
+            </KinlyStack>
+          </section>
+
+          <section className={styles.section}>
+            <KinlyStack direction="vertical" gap="m">
+              <KinlyHeading level={2}>How Kinly works</KinlyHeading>
+              <div className={styles.screenGrid}>
+                {appScreens.map((screen) => (
+                  <KinlyCard key={screen.title} variant="surfaceContainer">
+                    <div className={styles.screen}>
+                      <div className={styles.screenHeader}>
+                        <KinlyText variant="labelSmall" tone="muted" as="div">
+                          {screen.eyebrow}
+                        </KinlyText>
+                        <KinlyText variant="labelSmall" tone="muted" as="div">
+                          {screen.title}
+                        </KinlyText>
+                      </div>
+                      <div className={styles.screenImage}>
+                        <img src={screen.image} alt={`${screen.title} screen`} loading="lazy" />
+                      </div>
+                      <KinlyStack direction="vertical" gap="s">
+                        <KinlyHeading level={3}>{screen.headline}</KinlyHeading>
+                        <KinlyText variant="bodyMedium">{screen.copy}</KinlyText>
+                        <div className={styles.screenFooter}>
+                          <KinlyText variant="labelSmall" tone="muted" as="div">
+                            {screen.footer}
+                          </KinlyText>
+                        </div>
+                      </KinlyStack>
+                    </div>
+                  </KinlyCard>
+                ))}
+              </div>
+            </KinlyStack>
+          </section>
+
+          <section className={styles.section}>
+            <KinlyStack direction="vertical" gap="s">
+              <KinlyHeading level={2}>Does this sound like your place?</KinlyHeading>
+              <KinlyText variant="bodyMedium" tone="muted">
+                Shared living realities, stated plainly:
+              </KinlyText>
+              <div className={styles.chips}>
+                <KinlyCard variant="surface">
+                  <KinlyText variant="bodyMedium">
+                    We care about each other, but chore charts make things tense.
+                  </KinlyText>
+                </KinlyCard>
+                <KinlyCard variant="surface">
+                  <KinlyText variant="bodyMedium">
+                    We want to know how the house feels without assigning blame.
+                  </KinlyText>
+                </KinlyCard>
+                <KinlyCard variant="surface">
+                  <KinlyText variant="bodyMedium">
+                    We avoid drama, but we still want to be seen.
+                  </KinlyText>
+                </KinlyCard>
+              </div>
+            </KinlyStack>
+          </section>
+
+          <section className={styles.section}>
+            <KinlyStack direction="vertical" gap="s">
+              <KinlyHeading level={2}>Kinly role: reflection first</KinlyHeading>
+              <KinlyText variant="bodyMedium">
+                Kinly reflects how a home is feeling and makes care visible without asking for work. It lowers emotional
+                load before it asks for action.
+              </KinlyText>
+            </KinlyStack>
+          </section>
+
+          <section className={styles.section}>
+            <KinlyStack direction="vertical" gap="s">
+              <KinlyHeading level={2}>If your home is still forming</KinlyHeading>
+              <KinlyText variant="bodyMedium">
+                It is normal to be unsure. Kinly treats figuring it out as healthy, not a problem to fix.
+              </KinlyText>
+            </KinlyStack>
+          </section>
+
+          <section className={styles.section}>
+            <KinlyStack direction="vertical" gap="s">
+              <KinlyHeading level={2}>Who this is for</KinlyHeading>
+              <KinlyStack direction="vertical" gap="xs">
+                <KinlyText variant="bodyMedium">Flatmates who did not choose each other but want calm.</KinlyText>
+                <KinlyText variant="bodyMedium">Homes adjusting to change or new rhythms.</KinlyText>
+                <KinlyText variant="bodyMedium">People who care but do not want pressure tactics.</KinlyText>
+              </KinlyStack>
+            </KinlyStack>
+          </section>
+
+          <section className={styles.section}>
+            <KinlyStack direction="vertical" gap="s">
+              <KinlyHeading level={2}>Kinly is not...</KinlyHeading>
+              <KinlyStack direction="vertical" gap="xxs">
+                <KinlyText variant="bodyMedium">...a surveillance tool.</KinlyText>
+                <KinlyText variant="bodyMedium">...a scorecard or leaderboard.</KinlyText>
+                <KinlyText variant="bodyMedium">...a chore boss.</KinlyText>
+              </KinlyStack>
+            </KinlyStack>
+          </section>
+
+          <section className={styles.section}>
+            <KinlyStack direction="horizontal" gap="m" wrap align="center">
+              <KinlyStack direction="vertical" gap="s" as="div">
+                <KinlyHeading level={2}>Weekly reflection, human-paced</KinlyHeading>
+                <KinlyText variant="bodyMedium">
+                  Kinly moves on weekly rhythm. It notices the home mood without streaks, checklists, or pressure.
+                </KinlyText>
+                <KinlyStack direction="vertical" gap="xs">
+                  <KinlyText variant="bodyMedium">
+                    You can check in weekly, not daily. No streaks, no pressure to keep up.
+                  </KinlyText>
+                  <KinlyText variant="bodyMedium">Reflections are for understanding, not grading.</KinlyText>
+                </KinlyStack>
+              </KinlyStack>
+              <div className={styles.weeklyImage}>
+                <img
+                  src="https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/weekly_feedback.png"
+                  alt="Weekly reflection screen"
+                  loading="lazy"
+                />
+              </div>
+            </KinlyStack>
+          </section>
+
+          <section className={styles.storeSection}>
+            <KinlyCard variant="surfaceContainerHigh">
+              <KinlyStack direction="vertical" gap="m">
+                <KinlyHeading level={2}>When you are ready</KinlyHeading>
+                {suppressStoreCtas ? (
+                  <KinlyText variant="bodyMedium" tone="muted">
+                    We will let you in when Kinly opens in your area. 
+                  </KinlyText>
+                ) : (
+                  <>
+                    <KinlyStack direction="horizontal" gap="s" wrap>
+                      <a
+                        className={styles.storeBadgeLink}
+                        href={APP_STORE_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Download on the App Store"
+                      >
+                        <img src="/apple-store.svg" alt="Download on the App Store" className={styles.storeBadge} />
+                      </a>
+                      <a
+                        className={styles.storeBadgeLink}
+                        href={PLAY_STORE_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Get it on Google Play"
+                      >
+                        <img src="/google-play.svg" alt="Get it on Google Play" className={styles.storeBadge} />
+                      </a>
+                    </KinlyStack>
+                  </>
+                )}
+              </KinlyStack>
+            </KinlyCard>
+          </section>
+        </KinlyStack>
+      </KinlyShell>
+    </main>
+  );
+}
