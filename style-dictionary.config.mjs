@@ -110,26 +110,23 @@ StyleDictionary.registerFormat({
     return `/**
  * Do not edit directly, this file was auto-generated.
  * Generated from contracts/design-system/tokens.json
+ *
+ * Theme selection via data-theme attribute per theme_resolution_v1 contract.
  */
 
 :root {
-  /* Shared tokens */
+  /* Shared tokens (theme-independent) */
 ${sharedTokens.join("\n")}
+}
 
-  /* Light mode (default) */
+:root[data-theme="light"] {
+  /* Light mode tokens */
 ${lightTokens.join("\n")}
 }
 
-[data-theme="dark"] {
-  /* Dark mode overrides */
+:root[data-theme="dark"] {
+  /* Dark mode tokens */
 ${darkTokens.join("\n")}
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    /* Auto dark mode when no explicit theme set */
-${darkTokens.join("\n")}
-  }
 }
 `;
   }

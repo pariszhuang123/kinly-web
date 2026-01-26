@@ -1,10 +1,12 @@
 /**
  * Do not edit directly, this file was auto-generated.
  * Generated from contracts/design-system/tokens.json
+ *
+ * Theme selection via data-theme attribute per theme_resolution_v1 contract.
  */
 
 :root {
-  /* Shared tokens */
+  /* Shared tokens (theme-independent) */
   --color-foundation-brand-primary: #366d59;
   --color-foundation-brand-secondary: #8baa91;
   --color-foundation-brand-accent: #f6b73c;
@@ -87,8 +89,10 @@
   --size-bottom-nav: 64px;
   --size-fab: 56px;
   --size-max-content-width: 640px;
+}
 
-  /* Light mode (default) */
+:root[data-theme="light"] {
+  /* Light mode tokens */
   --color-foundation-surface: #fafaf9;
   --color-surface: #fafaf9;
   --color-surface-container: #f5f5f4;
@@ -117,7 +121,7 @@
   --color-success: #7a9680;
   --color-warning: #d9a134;
   --color-info: #3d7a66;
-  --color-disabled: #8f9c96;
+  --color-disabled: #343b38;
   --color-link: #366d59;
   --color-link-icon: #366d59;
   --k-web-shadow-color: rgba(16, 19, 18, 0.18);
@@ -125,8 +129,8 @@
   --k-web-focus-ring: var(--color-primary);
 }
 
-[data-theme="dark"] {
-  /* Dark mode overrides */
+:root[data-theme="dark"] {
+  /* Dark mode tokens */
   --color-foundation-surface: #101312;
   --color-surface: #101312;
   --color-surface-container: #1c1f1e;
@@ -155,50 +159,10 @@
   --color-success: #8baa91;
   --color-warning: #f6b73c;
   --color-info: #4a8a73;
-  --color-disabled: #6b7671;
+  --color-disabled: #9cada6;
   --color-link: #e8eae9;
   --color-link-icon: #e8eae9;
   --k-web-shadow-color: rgba(16, 19, 18, 0.45);
   --k-web-scrim-color: rgba(16, 19, 18, 0.6);
   --k-web-focus-ring: var(--color-primary);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    /* Auto dark mode when no explicit theme set */
-  --color-foundation-surface: #101312;
-  --color-surface: #101312;
-  --color-surface-container: #1c1f1e;
-  --color-surface-container-high: #262a28;
-  --color-on-surface: #e8eae9;
-  --color-primary: #5a9478;
-  --color-on-primary: #ffffff;
-  --color-primary-container: #1f3d30;
-  --color-on-primary-container: #e8eae9;
-  --color-secondary: #a4bda9;
-  --color-on-secondary: #101312;
-  --color-secondary-container: #2a3a2d;
-  --color-on-secondary-container: #e8eae9;
-  --color-tertiary: #f6b73c;
-  --color-on-tertiary: #101312;
-  --color-tertiary-container: #3d2f14;
-  --color-on-tertiary-container: #e8eae9;
-  --color-error: #ef5350;
-  --color-on-error: #ffffff;
-  --color-error-container: #3d1c1c;
-  --color-on-error-container: #e8eae9;
-  --color-outline: #5a6b62;
-  --color-outline-variant: #3a4540;
-  --color-inverse-surface: #fafaf9;
-  --color-on-inverse-surface: #101312;
-  --color-success: #8baa91;
-  --color-warning: #f6b73c;
-  --color-info: #4a8a73;
-  --color-disabled: #6b7671;
-  --color-link: #e8eae9;
-  --color-link-icon: #e8eae9;
-  --k-web-shadow-color: rgba(16, 19, 18, 0.45);
-  --k-web-scrim-color: rgba(16, 19, 18, 0.6);
-  --k-web-focus-ring: var(--color-primary);
-  }
 }
