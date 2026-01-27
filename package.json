@@ -1,9 +1,10 @@
 {
   "private": true,
+  "type": "module",
   "scripts": {
     "tokens:build": "style-dictionary build --config style-dictionary.config.mjs",
     "tokens:watch": "style-dictionary build --config style-dictionary.config.mjs --watch",
-    "tokens:clean": "node -e \"require('fs').rmSync('app/styles/generated', { recursive: true, force: true })\"",
+    "tokens:clean": "node -e \"import('fs').then(fs => fs.rmSync('app/styles/generated', { recursive: true, force: true }))\"",
     "dev": "npm run tokens:build && next dev",
     "dev:tokens": "npm run tokens:watch",
     "dev:all": "npm run tokens:build && (npm run dev:tokens & next dev)",
