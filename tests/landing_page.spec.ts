@@ -55,11 +55,10 @@ test.describe("Marketing landing page", () => {
     await expect(page.getByRole("link", { name: "Get it on Google Play" })).toHaveCount(0);
   });
 
-  test("weekly reflection shows image and copy side by side", async ({ page }) => {
+  test("weekly reflection section displays heading and copy", async ({ page }) => {
     await page.goto("/");
 
     await expect(page.getByRole("heading", { name: "Weekly reflection, human-paced" })).toBeVisible();
-    await expect(page.getByRole("img", { name: "Weekly reflection screen" })).toBeVisible();
     await expect(page.getByText(/You can check in weekly/i)).toBeVisible();
   });
 });
