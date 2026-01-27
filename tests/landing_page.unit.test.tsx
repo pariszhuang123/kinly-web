@@ -5,6 +5,12 @@ import { afterEach, beforeEach, expect, test } from "vitest";
 import { createRoot } from "react-dom/client";
 import LandingClient from "../app/LandingClient";
 
+declare global {
+  // Provided by React to silence act warnings in tests.
+  var IS_REACT_ACT_ENVIRONMENT: boolean;
+}
+globalThis.IS_REACT_ACT_ENVIRONMENT = true;
+
 type RenderResult = {
   container: HTMLElement;
   unmount: () => void;
@@ -45,7 +51,7 @@ afterEach(() => {
 });
 
 test("shows store badges when no suppression marker exists", async () => {
-  const { container, unmount } = render(<LandingClient />);
+  const { container, unmount } = render(<LandingClient detectedCountryCode={null} />);
   await flushEffects();
 
   const ios = container.querySelectorAll('a[aria-label="Download on the App Store"]');
@@ -55,6 +61,21 @@ test("shows store badges when no suppression marker exists", async () => {
   expect(android.length).toBe(1);
   expect(ios[0].getAttribute("href")).toContain("apps.apple.com");
   expect(android[0].getAttribute("href")).toContain("play.google.com");
+
+  unmount();
+});
+
+test("shows store badges when detected country is supported", async () => {
+  const { container, unmount } = render(<LandingClient detectedCountryCode="NZ" />);
+  await flushEffects();
+
+  const ios = container.querySelectorAll('a[aria-label="Download on the App Store"]');
+  const android = container.querySelectorAll('a[aria-label="Get it on Google Play"]');
+  const availability = container.querySelectorAll("section");
+
+  expect(ios.length).toBe(1);
+  expect(android.length).toBe(1);
+  expect((availability?.item(0)?.textContent || "")).not.toMatch(/opens in your area/i);
 
   unmount();
 });
@@ -69,7 +90,21 @@ test("suppresses store badges when interest marker is unsupported", async () => 
     }),
   );
 
-  const { container, unmount } = render(<LandingClient />);
+  const { container, unmount } = render(<LandingClient detectedCountryCode={null} />);
+  await flushEffects();
+
+  const ios = container.querySelectorAll('a[aria-label="Download on the App Store"]');
+  const android = container.querySelectorAll('a[aria-label="Get it on Google Play"]');
+
+  expect(ios.length).toBe(0);
+  expect(android.length).toBe(0);
+  expect(container.textContent || "").toMatch(/opens in your area/i);
+
+  unmount();
+});
+
+test("suppresses store badges when detected country is unsupported", async () => {
+  const { container, unmount } = render(<LandingClient detectedCountryCode="US" />);
   await flushEffects();
 
   const ios = container.querySelectorAll('a[aria-label="Download on the App Store"]');

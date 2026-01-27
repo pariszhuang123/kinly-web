@@ -2,13 +2,17 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { useEffect, useMemo, useState } from "react";
-import { KinlyCard, KinlyHeading, KinlyShell, KinlyStack, KinlyText } from "../components";
+import { KinlyButton, KinlyCard, KinlyHeading, KinlyShell, KinlyStack, KinlyText } from "../components";
 import styles from "./LandingClient.module.css";
 
 type InterestMarker = {
   country_code?: string;
   ui_locale?: string;
   captured_at?: string;
+};
+
+type LandingClientProps = {
+  detectedCountryCode?: string | null;
 };
 
 const SUPPORTED_REGIONS = ["NZ", "SG"];
@@ -36,7 +40,7 @@ function readInterestMarker(): InterestMarker | null {
   }
 }
 
-export default function LandingClient() {
+export default function LandingClient({ detectedCountryCode = null }: LandingClientProps) {
   const [hasHydrated, setHasHydrated] = useState(false);
 
   useEffect(() => {
@@ -50,10 +54,15 @@ export default function LandingClient() {
   );
 
   const interestCountry = interestMarker?.country_code ?? null;
+  const regionCountry = useMemo(
+    () => (interestCountry ? interestCountry : detectedCountryCode ? detectedCountryCode.toUpperCase() : null),
+    [detectedCountryCode, interestCountry],
+  );
+
   const suppressStoreCtas = useMemo(() => {
-    if (!interestCountry) return false;
-    return !SUPPORTED_REGIONS.includes(interestCountry);
-  }, [interestCountry]);
+    if (!regionCountry) return false;
+    return !SUPPORTED_REGIONS.includes(regionCountry);
+  }, [regionCountry]);
 
   const appScreens = useMemo(
     () => [
@@ -62,7 +71,7 @@ export default function LandingClient() {
         eyebrow: "Observation",
         headline: "See what's happening today",
         copy: "What's flowing in your home right now",
-        footer: "Check-ins, shared flows, and anything that needs attention — all in one place.",
+        footer: "Check-ins, shared flows, and anything that needs attention - all in one place.",
         image: "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/today.png",
       },
       {
@@ -78,7 +87,7 @@ export default function LandingClient() {
         eyebrow: "Presence",
         headline: "See the bigger picture",
         copy: "How the home is doing, together",
-        footer: "House mood, shared moments, and who's here — without scores or pressure.",
+        footer: "House mood, shared moments, and who's here - without scores or pressure.",
         image: "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
       },
     ],
@@ -233,6 +242,23 @@ export default function LandingClient() {
               </KinlyStack>
             </KinlyStack>
           </section>
+
+          {suppressStoreCtas && (
+            <section className={styles.section}>
+              <KinlyCard variant="surfaceContainer">
+                <KinlyStack direction="vertical" gap="s">
+                  <KinlyHeading level={2}>Availability</KinlyHeading>
+                  <KinlyText variant="bodyMedium">
+                    Kinly is currently available in New Zealand and Singapore. If you are elsewhere, we will let you in
+                    when Kinly opens in your area.
+                  </KinlyText>
+                  <KinlyButton variant="outlined" href="/get">
+                    Go to /get to share your interest.
+                  </KinlyButton>
+                </KinlyStack>
+              </KinlyCard>
+            </section>
+          )}
 
         {!suppressStoreCtas && (
           <section className={styles.storeSection}>

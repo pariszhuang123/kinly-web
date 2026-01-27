@@ -15,6 +15,11 @@ import { getCountries } from "../../lib/countries";
 import { submitInterest } from "../../lib/interestCapture";
 import styles from "./GetClient.module.css";
 
+type GetClientProps = {
+  detectedCountryCode: string | null;
+  sourcePath: string | null;
+};
+
 type SubmitState = "idle" | "submitting" | "success" | "error";
 
 const COOLDOWN_MS = 30_000;
@@ -59,11 +64,22 @@ function isValidLocale(tag: string) {
   return /^[A-Za-z]{2,3}(-[A-Za-z0-9]{2,8})*$/.test(trimmed);
 }
 
-export default function GetClient() {
+export default function GetClient({ detectedCountryCode, sourcePath }: GetClientProps) {
   const searchParams = useSearchParams();
 
   const [email, setEmail] = useState("");
-  const [countryCode, setCountryCode] = useState("");
+  const [countryCode, setCountryCode] = useState(() => {
+    const detectedFromParams = searchParams?.get("country");
+    const normalizedParam =
+      detectedFromParams && countryRegex.test(detectedFromParams.trim().toUpperCase())
+        ? detectedFromParams.trim().toUpperCase()
+        : null;
+    if (normalizedParam) return normalizedParam;
+    if (detectedCountryCode && countryRegex.test(detectedCountryCode.trim().toUpperCase())) {
+      return detectedCountryCode.trim().toUpperCase();
+    }
+    return "";
+  });
   const [uiLocale, setUiLocale] = useState("en");
   const [searchTerm, setSearchTerm] = useState("");
   const [status, setStatus] = useState<SubmitState>("idle");
@@ -75,6 +91,10 @@ export default function GetClient() {
 
   const inviteCode = searchParams.get("code");
   const home = searchParams.get("home");
+  const detectedCountry = useMemo(
+    () => (detectedCountryCode ? detectedCountryCode.trim().toUpperCase() : null),
+    [detectedCountryCode],
+  );
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -148,6 +168,11 @@ export default function GetClient() {
   const canSubmit =
     emailValid && countryValid && localeValid && status !== "submitting" && cooldownRemaining === 0;
 
+  useEffect(() => {
+    if (countryCode || !detectedCountry) return;
+    setCountryCode(detectedCountry);
+  }, [countryCode, detectedCountry]);
+
   function mapErrorMessage(code?: string | null) {
     if (!code) return "Something went wrong. Please try again.";
     if (code.startsWith("LEADS_RATE_LIMIT")) {
@@ -203,6 +228,8 @@ export default function GetClient() {
           country_code: trimmedCountry,
           ui_locale: resolvedLocale,
           captured_at: new Date().toISOString(),
+          detected_country_code: detectedCountry ?? null,
+          source_path: sourcePath ?? null,
         };
         try {
           window.localStorage.setItem("kinly_interest_status", JSON.stringify(interestMarker));
@@ -263,6 +290,11 @@ export default function GetClient() {
                     required
                     error={countryCode ? (countryValid ? undefined : "Use a 2-letter code.") : undefined}
                   />
+                  {detectedCountry ? (
+                    <KinlyText variant="bodySmall" tone="muted">
+                      Detected country: {detectedCountry}
+                    </KinlyText>
+                  ) : null}
 
                   <div className={styles.countryPicker}>
                     <KinlyInput
@@ -317,7 +349,7 @@ export default function GetClient() {
                 {status === "success" ? (
                   <KinlyCard variant="surface">
                     <KinlyStack direction="vertical" gap="xs">
-                      <KinlyHeading level={3}>Thanks — we got it.</KinlyHeading>
+                      <KinlyHeading level={3}>Thanks - we got it.</KinlyHeading>
                       <KinlyText variant="bodyMedium">
                         We will let you know when Kinly is ready in your area.
                       </KinlyText>
