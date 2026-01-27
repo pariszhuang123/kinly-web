@@ -253,7 +253,7 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
                     when Kinly opens in your area.
                   </KinlyText>
                   <KinlyButton variant="outlined" href="/get">
-                    Go to /get to share your interest.
+                    Express interest when Kinly is available in your area. 
                   </KinlyButton>
                 </KinlyStack>
               </KinlyCard>
