@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
-import JoinClient from "../JoinClient";
 import { getDetectedCountryCode } from "../../../../lib/geo";
+import { getDetectedPlatform } from "../../../../lib/platform";
 
 const SUPPORTED_REGIONS = ["NZ", "SG"];
 const INVITE_CODE_REGEX = /^[A-HJ-NP-Z2-9]{6}$/i;
@@ -42,7 +42,11 @@ export default async function JoinPage({ params }: { params: Params }) {
     redirect("/fallback");
   }
 
-  const detectedCountryCode = await getDetectedCountryCode();
+  const [detectedCountryCode, platform] = await Promise.all([
+    getDetectedCountryCode(),
+    getDetectedPlatform(),
+  ]);
+
   const isSupported = Boolean(
     detectedCountryCode && SUPPORTED_REGIONS.includes(detectedCountryCode.toUpperCase()),
   );
@@ -53,11 +57,15 @@ export default async function JoinPage({ params }: { params: Params }) {
     redirect(`/get?next=${encodedNext}&intent=join&code=${encodedCode}&source=${INVITE_SOURCE_TAG}`);
   }
 
-  return (
-    <JoinClient
-      inviteCode={sanitizedInvite}
-      appStoreUrl={process.env.NEXT_PUBLIC_IOS_STORE_URL?.trim() || DEFAULT_APP_STORE_URL}
-      playStoreUrl={buildPlayStoreUrl(process.env.NEXT_PUBLIC_ANDROID_STORE_URL, sanitizedInvite)}
-    />
-  );
+  if (platform === "ios") {
+    const appStoreUrl = process.env.NEXT_PUBLIC_IOS_STORE_URL?.trim() || DEFAULT_APP_STORE_URL;
+    redirect(appStoreUrl);
+  }
+
+  if (platform === "android") {
+    const playStoreUrl = buildPlayStoreUrl(process.env.NEXT_PUBLIC_ANDROID_STORE_URL, sanitizedInvite);
+    redirect(playStoreUrl);
+  }
+
+  redirect("/");
 }
