@@ -31,12 +31,13 @@ function buildPlayStoreUrl(baseUrl: string | undefined, inviteCode: string) {
   }
 }
 
-type Params = {
+type Params = Promise<{
   inviteCode: string;
-};
+}>;
 
 export default async function JoinPage({ params }: { params: Params }) {
-  const sanitizedInvite = sanitizeInviteCode(params?.inviteCode);
+  const resolvedParams = await params;
+  const sanitizedInvite = sanitizeInviteCode(resolvedParams?.inviteCode);
   if (!sanitizedInvite) {
     redirect("/fallback");
   }
