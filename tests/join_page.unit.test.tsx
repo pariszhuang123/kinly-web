@@ -10,7 +10,7 @@ vi.mock("next/navigation", () => ({
   redirect: (...args: unknown[]) => redirectMock(...args),
 }));
 
-import JoinPage from "../app/join/[inviteCode]/page";
+import JoinPage from "../app/kinly/join/[inviteCode]/page";
 
 beforeEach(() => {
   redirectMock.mockReset();
@@ -27,7 +27,7 @@ test("redirects to /get with next when region unsupported", async () => {
   geoMock.mockResolvedValue("US");
   await JoinPage({ params: { inviteCode: "ABCDEF" } as { inviteCode: string } });
   expect(redirectMock).toHaveBeenCalledWith(
-    "/get?next=%2Fjoin%2FABCDEF&intent=join&code=ABCDEF&source=web_join",
+    "/get?next=%2Fkinly%2Fjoin%2FABCDEF&intent=join&code=ABCDEF&source=web_join",
   );
 });
 

@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import JoinClient from "../JoinClient";
-import { getDetectedCountryCode } from "../../../lib/geo";
+import { getDetectedCountryCode } from "../../../../lib/geo";
 
 const SUPPORTED_REGIONS = ["NZ", "SG"];
 const INVITE_CODE_REGEX = /^[A-HJ-NP-Z2-9]{6}$/i;
@@ -47,7 +47,7 @@ export default async function JoinPage({ params }: { params: Params }) {
   );
 
   if (!isSupported) {
-    const encodedNext = encodeURIComponent(`/join/${sanitizedInvite}`);
+    const encodedNext = encodeURIComponent(`/kinly/join/${sanitizedInvite}`);
     const encodedCode = encodeURIComponent(sanitizedInvite);
     redirect(`/get?next=${encodedNext}&intent=join&code=${encodedCode}&source=${INVITE_SOURCE_TAG}`);
   }

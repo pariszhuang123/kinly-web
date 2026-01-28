@@ -9,7 +9,7 @@ import {
   KinlyShell,
   KinlyStack,
   KinlyText,
-} from "../../components";
+} from "../../../components";
 import styles from "./JoinClient.module.css";
 
 type JoinClientProps = {
