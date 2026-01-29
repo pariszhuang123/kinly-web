@@ -54,7 +54,7 @@ export default async function JoinPage({ params }: { params: Params }) {
   if (!isSupported) {
     const encodedNext = encodeURIComponent(`/kinly/join/${sanitizedInvite}`);
     const encodedCode = encodeURIComponent(sanitizedInvite);
-    redirect(`/get?next=${encodedNext}&intent=join&code=${encodedCode}&source=${INVITE_SOURCE_TAG}`);
+    redirect(`/kinly/get?next=${encodedNext}&intent=join&code=${encodedCode}&source=${INVITE_SOURCE_TAG}`);
   }
 
   if (platform === "ios") {
@@ -67,5 +67,5 @@ export default async function JoinPage({ params }: { params: Params }) {
     redirect(playStoreUrl);
   }
 
-  redirect("/");
+  redirect("/kinly/general");
 }

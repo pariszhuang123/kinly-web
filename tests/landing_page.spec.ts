@@ -7,14 +7,14 @@ test.describe("Marketing landing page", () => {
   });
 
   test("renders recognition-first hero and three app screenshots", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/kinly/general");
 
     await expect(page.getByRole("heading", { name: "Shared living gets heavy." })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Living together feels lighter." })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Together feels lighter." })).toBeVisible();
 
     const screenshots = [
       page.getByRole("img", { name: "Today screen" }),
-      page.getByRole("img", { name: "Explore screen" }),
+      page.getByRole("img", { name: "Manage screen" }),
       page.getByRole("img", { name: "Hub screen" }),
     ];
 
@@ -24,7 +24,7 @@ test.describe("Marketing landing page", () => {
   });
 
   test("shows store badges with hrefs when no suppressed marker exists", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/kinly/general");
 
     const ios = page.getByRole("link", { name: "Download on the App Store" });
     const android = page.getByRole("link", { name: "Get it on Google Play" });
@@ -48,7 +48,7 @@ test.describe("Marketing landing page", () => {
       );
     });
 
-    await page.goto("/");
+    await page.goto("/kinly/general");
 
     await expect(page.getByText(/We will let you in when Kinly opens in your area/i)).toBeVisible();
     await expect(page.getByRole("link", { name: "Download on the App Store" })).toHaveCount(0);
@@ -56,7 +56,7 @@ test.describe("Marketing landing page", () => {
   });
 
   test("weekly reflection section displays heading and copy", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/kinly/general");
 
     await expect(page.getByRole("heading", { name: "Weekly reflection, human-paced" })).toBeVisible();
     await expect(page.getByText(/You can check in weekly/i)).toBeVisible();

@@ -10,9 +10,9 @@ import {
   KinlyStack,
   KinlyText,
   KinlyInput,
-} from "../../components";
-import { getCountries } from "../../lib/countries";
-import { submitInterest } from "../../lib/interestCapture";
+} from "../../../components";
+import { getCountries } from "../../../lib/countries";
+import { submitInterest } from "../../../lib/interestCapture";
 import styles from "./GetClient.module.css";
 
 type GetClientProps = {
@@ -135,7 +135,7 @@ export default function GetClient({ detectedCountryCode, sourcePath }: GetClient
   useEffect(() => {
     if (!showRedirectNotice) return;
     const id = window.setTimeout(() => {
-      window.location.assign("/");
+      window.location.assign("/kinly/general");
     }, 3000);
     return () => window.clearTimeout(id);
   }, [showRedirectNotice]);
@@ -371,7 +371,7 @@ export default function GetClient({ detectedCountryCode, sourcePath }: GetClient
                   <KinlyButton type="submit" variant="filled" disabled={!canSubmit} isLoading={status === "submitting"}>
                     Request access
                   </KinlyButton>
-                  <KinlyButton variant="outlined" href="/">
+                  <KinlyButton variant="outlined" href="/kinly/general">
                     Back to home
                   </KinlyButton>
                 </KinlyStack>
@@ -393,7 +393,7 @@ export default function GetClient({ detectedCountryCode, sourcePath }: GetClient
                 Redirecting in {redirectCountdown ?? 0}s...
               </KinlyText>
               <KinlyStack direction="horizontal" gap="s">
-                <KinlyButton variant="filled" onClick={() => window.location.assign("/")}>
+                <KinlyButton variant="filled" onClick={() => window.location.assign("/kinly/general")}>
                   Go now
                 </KinlyButton>
                 <KinlyButton variant="ghost" onClick={() => setShowRedirectNotice(false)}>

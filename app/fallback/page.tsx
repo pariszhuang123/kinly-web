@@ -14,10 +14,10 @@ export default function FallbackPage() {
             This link could not be completed. You can still explore Kinly, or tell us you are interested.
           </KinlyText>
           <KinlyStack direction="horizontal" gap="s" wrap>
-            <KinlyButton variant="filled" href="/">
-              Go to landing
+            <KinlyButton variant="filled" href="/kinly/general">
+              Go to Kinly
             </KinlyButton>
-            <KinlyButton variant="outlined" href="/get">
+            <KinlyButton variant="outlined" href="/kinly/get">
               Share interest
             </KinlyButton>
           </KinlyStack>

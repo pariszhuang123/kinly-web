@@ -3,7 +3,7 @@
 import { act } from "react";
 import { afterEach, beforeEach, expect, test } from "vitest";
 import { createRoot } from "react-dom/client";
-import LandingClient from "../app/LandingClient";
+import LandingClient from "../app/kinly/general/LandingClient";
 
 declare global {
   // Provided by React to silence act warnings in tests.

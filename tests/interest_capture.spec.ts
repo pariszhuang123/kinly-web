@@ -7,7 +7,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test("validation gating blocks submit until email and country are valid", async ({ page }) => {
-  await page.goto("/get");
+  await page.goto("/kinly/get");
 
   const submit = page.getByRole("button", { name: "Request access" });
   await expect(submit).toBeDisabled();
@@ -33,7 +33,7 @@ test("rate limit response shows cooldown messaging and disables submit", async (
     });
   });
 
-  await page.goto("/get");
+  await page.goto("/kinly/get");
 
   await page.getByPlaceholder("you@example.com").fill("user@example.com");
   await page.getByPlaceholder("Country code (e.g., US)").fill("US");
@@ -59,7 +59,7 @@ test("successful submission shows confirmation", async ({ page }) => {
     });
   });
 
-  await page.goto("/get");
+  await page.goto("/kinly/get");
 
   await page.getByPlaceholder("you@example.com").fill("user@example.com");
   await page.getByPlaceholder("Country code (e.g., US)").fill("US");

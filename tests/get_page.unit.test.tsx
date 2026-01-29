@@ -4,7 +4,7 @@ import type { ChangeEvent } from "react";
 import { act } from "react";
 import { beforeEach, expect, test, vi } from "vitest";
 import { createRoot } from "react-dom/client";
-import GetClient from "../app/get/GetClient";
+import GetClient from "../app/kinly/get/GetClient";
 
 declare global {
   // Provided by React to silence act warnings in tests.

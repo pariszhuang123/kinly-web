@@ -2,7 +2,14 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { useEffect, useMemo, useState } from "react";
-import { KinlyButton, KinlyCard, KinlyHeading, KinlyShell, KinlyStack, KinlyText } from "../components";
+import {
+  KinlyButton,
+  KinlyCard,
+  KinlyHeading,
+  KinlyShell,
+  KinlyStack,
+  KinlyText,
+} from "../../../components";
 import styles from "./LandingClient.module.css";
 
 type InterestMarker = {
@@ -79,7 +86,7 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
         eyebrow: "Make changes",
         headline: "Change how things work",
         copy: "Edit, assign, comment on, or remove flows and shares",
-        footer: "You're always in control — nothing is locked in.",
+        footer: "You're always in control - nothing is locked in.",
         image: "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/explore.png",
       },
       {
@@ -87,7 +94,7 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
         eyebrow: "Shared home",
         headline: "What matters in our home",
         copy: "Moments, norms, and shared references",
-        footer: "Gratitude, house vibe, and important notes — shared by everyone.",
+        footer: "Gratitude, house vibe, and important notes - shared by everyone.",
         image: "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
       },
     ],
@@ -252,8 +259,8 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
                     Kinly is currently available in New Zealand and Singapore. If you are elsewhere, we will let you in
                     when Kinly opens in your area.
                   </KinlyText>
-                  <KinlyButton variant="outlined" href="/get">
-                    Express interest when Kinly is available in your area. 
+                  <KinlyButton variant="outlined" href="/kinly/get">
+                    Express interest when Kinly is available in your area.
                   </KinlyButton>
                 </KinlyStack>
               </KinlyCard>
@@ -304,3 +311,7 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
     </main>
   );
 }
+
+
+
+

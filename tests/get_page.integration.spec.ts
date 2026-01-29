@@ -8,7 +8,7 @@ test.describe("Get Page Integration", () => {
   });
 
   test("page loads with all form elements", async ({ page }) => {
-    await page.goto("/get");
+    await page.goto("/kinly/get");
 
     await expect(page.getByPlaceholder("you@example.com")).toBeVisible();
     await expect(page.getByPlaceholder("Country code (e.g., US)")).toBeVisible();
@@ -16,7 +16,7 @@ test.describe("Get Page Integration", () => {
   });
 
   test("email field validates format correctly", async ({ page }) => {
-    await page.goto("/get");
+    await page.goto("/kinly/get");
 
     const emailInput = page.getByPlaceholder("you@example.com");
     const countryInput = page.getByPlaceholder("Country code (e.g., US)");
@@ -35,7 +35,7 @@ test.describe("Get Page Integration", () => {
   });
 
   test("country code field validates format correctly", async ({ page }) => {
-    await page.goto("/get");
+    await page.goto("/kinly/get");
 
     const emailInput = page.getByPlaceholder("you@example.com");
     const countryInput = page.getByPlaceholder("Country code (e.g., US)");
@@ -66,7 +66,7 @@ test.describe("Get Page Integration", () => {
       });
     });
 
-    await page.goto("/get");
+    await page.goto("/kinly/get");
 
     await page.getByPlaceholder("you@example.com").fill("  user@example.com  ");
     await page.getByPlaceholder("Country code (e.g., US)").fill("  us  ");
@@ -88,7 +88,7 @@ test.describe("Get Page Integration", () => {
       });
     });
 
-    await page.goto("/get");
+    await page.goto("/kinly/get");
 
     await page.getByPlaceholder("you@example.com").fill("existing@example.com");
     await page.getByPlaceholder("Country code (e.g., US)").fill("US");
@@ -102,7 +102,7 @@ test.describe("Get Page Integration", () => {
       await route.abort("failed");
     });
 
-    await page.goto("/get");
+    await page.goto("/kinly/get");
 
     await page.getByPlaceholder("you@example.com").fill("user@example.com");
     await page.getByPlaceholder("Country code (e.g., US)").fill("US");
@@ -120,7 +120,7 @@ test.describe("Get Page Integration", () => {
       });
     });
 
-    await page.goto("/get");
+    await page.goto("/kinly/get");
 
     await page.getByPlaceholder("you@example.com").fill("user@example.com");
     await page.getByPlaceholder("Country code (e.g., US)").fill("US");
@@ -138,7 +138,7 @@ test.describe("Get Page Integration", () => {
       });
     });
 
-    await page.goto("/get");
+    await page.goto("/kinly/get");
 
     await page.getByPlaceholder("you@example.com").fill("user@example.com");
     await page.getByPlaceholder("Country code (e.g., US)").fill("US");
@@ -159,7 +159,7 @@ test.describe("Get Page Integration", () => {
       });
     });
 
-    await page.goto("/get");
+    await page.goto("/kinly/get");
 
     await page.getByPlaceholder("you@example.com").fill("user@example.com");
     await page.getByPlaceholder("Country code (e.g., US)").fill("US");

@@ -31,12 +31,12 @@ test("redirects to /fallback when invite code is invalid", async () => {
   expect(redirectMock).toHaveBeenCalledWith("/fallback");
 });
 
-test("redirects to /get with next when region unsupported", async () => {
+test("redirects to /kinly/get with next when region unsupported", async () => {
   geoMock.mockResolvedValue("US");
   platformMock.mockResolvedValue("web");
   await JoinPage({ params: Promise.resolve({ inviteCode: "ABCDEF" }) });
   expect(redirectMock).toHaveBeenCalledWith(
-    "/get?next=%2Fkinly%2Fjoin%2FABCDEF&intent=join&code=ABCDEF&source=web_join",
+    "/kinly/get?next=%2Fkinly%2Fjoin%2FABCDEF&intent=join&code=ABCDEF&source=web_join",
   );
 });
 
@@ -63,7 +63,7 @@ test("redirects to landing on desktop in supported region", async () => {
   geoMock.mockResolvedValue("NZ");
   platformMock.mockResolvedValue("web");
   await JoinPage({ params: Promise.resolve({ inviteCode: "ABCDEF" }) });
-  expect(redirectMock).toHaveBeenCalledWith("/");
+  expect(redirectMock).toHaveBeenCalledWith("/kinly/general");
 });
 
 test("uses custom iOS store URL from env if set", async () => {

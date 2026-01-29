@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import GetClient from "./GetClient";
-import { KinlyShell, KinlyText } from "../../components";
-import { getDetectedCountryCode } from "../../lib/geo";
+import { KinlyShell, KinlyText } from "../../../components";
+import { getDetectedCountryCode } from "../../../lib/geo";
 
 export const metadata: Metadata = {
   title: "Get the app",
