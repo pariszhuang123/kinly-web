@@ -148,6 +148,13 @@ export default function GetClient({ detectedCountryCode, sourcePath }: GetClient
   }, [uiLocale]);
 
   const countries = useMemo(() => getCountries(resolvedLocale || "en"), [resolvedLocale]);
+  const countryNameMap = useMemo(() => {
+    const map = new Map<string, string>();
+    for (const c of countries) {
+      map.set(c.code, c.name);
+    }
+    return map;
+  }, [countries]);
   const filteredCountries = useMemo(() => {
     const query = searchTerm.trim().toLowerCase();
     if (!query) return countries;
@@ -293,6 +300,9 @@ export default function GetClient({ detectedCountryCode, sourcePath }: GetClient
                   {detectedCountry ? (
                     <KinlyText variant="bodySmall" tone="muted">
                       Detected country: {detectedCountry}
+                      {countryNameMap.get(detectedCountry)
+                        ? ` (${countryNameMap.get(detectedCountry)})`
+                        : null}
                     </KinlyText>
                   ) : null}
 

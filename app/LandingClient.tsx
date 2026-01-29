@@ -68,26 +68,26 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
     () => [
       {
         title: "Today",
-        eyebrow: "Observation",
-        headline: "See what's happening today",
-        copy: "What's flowing in your home right now",
-        footer: "Check-ins, shared flows, and anything that needs attention - all in one place.",
+        eyebrow: "Right now",
+        headline: "What needs your attention",
+        copy: "Things to do, things to notice, and gentle next steps",
+        footer: "Today's tasks, unfinished items, and updates from your home.",
         image: "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/today.png",
       },
       {
-        title: "Explore",
-        eyebrow: "Gentle ideas",
-        headline: "Explore what your home can do",
-        copy: "All the ways Kinly supports shared living",
-        footer: "Skimmable, optional ideas only.",
+        title: "Manage",
+        eyebrow: "Make changes",
+        headline: "Change how things work",
+        copy: "Edit, assign, comment on, or remove flows and shares",
+        footer: "You're always in control — nothing is locked in.",
         image: "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/explore.png",
       },
       {
-        title: "Hub",
-        eyebrow: "Presence",
-        headline: "See the bigger picture",
-        copy: "How the home is doing, together",
-        footer: "House mood, shared moments, and who's here - without scores or pressure.",
+        title: "Home Hub",
+        eyebrow: "Shared home",
+        headline: "What matters in our home",
+        copy: "Moments, norms, and shared references",
+        footer: "Gratitude, house vibe, and important notes — shared by everyone.",
         image: "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
       },
     ],
@@ -118,7 +118,7 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
             <KinlyStack direction="vertical" gap="m">
               <KinlyStack direction="horizontal" gap="s" align="center">
                 <img src="/logo-kinly.svg" alt="Kinly logo" className={styles.logo} />
-                <KinlyHeading level={2}>Living together feels lighter.</KinlyHeading>
+                <KinlyHeading level={2}>Together feels lighter.</KinlyHeading>
               </KinlyStack>
               <KinlyText variant="bodyLarge" tone="muted">
                 A calm, shared place to notice how the home feels before anyone asks you to do anything.
