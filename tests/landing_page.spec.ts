@@ -10,7 +10,7 @@ test.describe("Marketing landing page", () => {
     await page.goto("/kinly/general");
 
     await expect(page.getByRole("heading", { name: "Shared living gets heavy." })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Together feels lighter." })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "A calmer way to live together." })).toBeVisible();
 
     const screenshots = [
       page.getByRole("img", { name: "Today screen" }),
@@ -29,11 +29,10 @@ test.describe("Marketing landing page", () => {
     const ios = page.getByRole("link", { name: "Download on the App Store" });
     const android = page.getByRole("link", { name: "Get it on Google Play" });
 
-    await expect(ios).toBeVisible();
-    await expect(android).toBeVisible();
-
-    await expect(ios).toHaveAttribute("href", /https?:\/\//);
-    await expect(android).toHaveAttribute("href", /https?:\/\//);
+    await expect(ios).toHaveCount(2);
+    await expect(android).toHaveCount(2);
+    await expect(ios.first()).toHaveAttribute("href", /https?:\/\//);
+    await expect(android.first()).toHaveAttribute("href", /https?:\/\//);
   });
 
   test("suppresses store badges when unsupported region marker is present", async ({ page }) => {
@@ -50,7 +49,7 @@ test.describe("Marketing landing page", () => {
 
     await page.goto("/kinly/general");
 
-    await expect(page.getByText(/We will let you in when Kinly opens in your area/i)).toBeVisible();
+    await expect(page.getByText(/We(’|')ll email you when Kinly opens in your area/i)).toBeVisible();
     await expect(page.getByRole("link", { name: "Download on the App Store" })).toHaveCount(0);
     await expect(page.getByRole("link", { name: "Get it on Google Play" })).toHaveCount(0);
   });

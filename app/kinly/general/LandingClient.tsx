@@ -41,6 +41,43 @@ const PLAY_STORE_URL =
   (process.env.NEXT_PUBLIC_ANDROID_STORE_URL?.trim() ||
     "https://play.google.com/store/apps/details?id=com.makinglifeeasie.kinly") as string;
 const PAGE_KEY = "kinly_general";
+const APP_STORE_LABEL = "Download on the App Store";
+const PLAY_STORE_LABEL = "Get it on Google Play";
+
+type StoreCtasProps = {
+  suppress: boolean;
+  onClick: (store: OutreachStore) => void;
+};
+
+function StoreCtas({ suppress, onClick }: StoreCtasProps) {
+  if (suppress) return null;
+  return (
+    <div className={styles.storeCtas}>
+      <KinlyStack direction="horizontal" gap="s" wrap>
+        <a
+          className={styles.storeBadgeLink}
+          href={APP_STORE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={APP_STORE_LABEL}
+          onClick={() => onClick("ios_app_store")}
+        >
+          <img src="/apple-store.svg" alt={APP_STORE_LABEL} className={styles.storeBadge} />
+        </a>
+        <a
+          className={styles.storeBadgeLink}
+          href={PLAY_STORE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={PLAY_STORE_LABEL}
+          onClick={() => onClick("google_play")}
+        >
+          <img src="/google-play.svg" alt={PLAY_STORE_LABEL} className={styles.storeBadge} />
+        </a>
+      </KinlyStack>
+    </div>
+  );
+}
 
 function readInterestMarker(): InterestMarker | null {
   if (typeof window === "undefined") return null;
@@ -174,6 +211,9 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
               <KinlyText variant="bodyLarge" tone="muted">
                 Even when no one is doing anything wrong.
               </KinlyText>
+              <KinlyText variant="bodyMedium">
+                Kinly helps you notice what the home needs — before anyone feels blamed.
+              </KinlyText>
             </KinlyStack>
           </section>
 
@@ -181,17 +221,34 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
             <KinlyStack direction="vertical" gap="m">
               <KinlyStack direction="horizontal" gap="s" align="center">
                 <img src="/logo-kinly.svg" alt="Kinly logo" className={styles.logo} />
-                <KinlyHeading level={2}>Together feels lighter.</KinlyHeading>
+                <KinlyHeading level={2}>A calmer way to live together.</KinlyHeading>
               </KinlyStack>
               <KinlyText variant="bodyLarge" tone="muted">
                 A calm, shared place to notice how the home feels before anyone asks you to do anything.
               </KinlyText>
+              <KinlyText variant="bodyMedium">
+                You open Kinly to see what matters in the home right now — without pressure, chasing, or judgement.
+              </KinlyText>
+              {!suppressStoreCtas ? (
+                <div className={styles.heroCtas}>
+                  <div className={styles.heroCtaHeading}>
+                    <KinlyHeading level={3}>Ready to start</KinlyHeading>
+                  </div>
+                  <StoreCtas suppress={suppressStoreCtas} onClick={handleCtaClick} />
+                  <KinlyText variant="bodySmall" tone="muted">
+                    Private by default. No ads. No surveillance.
+                  </KinlyText>
+                </div>
+              ) : null}
             </KinlyStack>
           </section>
 
           <section className={styles.section}>
             <KinlyStack direction="vertical" gap="m">
               <KinlyHeading level={2}>How Kinly works</KinlyHeading>
+              <KinlyText variant="bodySmall" tone="muted">
+                Nothing is shared without intent.
+              </KinlyText>
               <div className={styles.screenGrid}>
                 {appScreens.map((screen) => (
                   <KinlyCard key={screen.title} variant="surfaceContainer">
@@ -242,6 +299,11 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
                     We avoid drama, but we still want to be seen.
                   </KinlyText>
                 </KinlyCard>
+                <KinlyCard variant="surface">
+                  <KinlyText variant="bodyMedium">
+                    If you want streaks, scores, or accountability pressure — Kinly isn’t that.
+                  </KinlyText>
+                </KinlyCard>
               </div>
             </KinlyStack>
           </section>
@@ -249,19 +311,22 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
           <section className={styles.section}>
             <KinlyStack direction="vertical" gap="s">
               <KinlyHeading level={2}>Kinly role: reflection first</KinlyHeading>
-              <KinlyText variant="bodyMedium">
-                Kinly reflects how a home is feeling and makes care visible without asking for work. It lowers emotional
-                load before it asks for action.
-              </KinlyText>
+              <KinlyStack direction="vertical" gap="xxs">
+                <KinlyText variant="bodyMedium">Reflects how the home is feeling before asking for action.</KinlyText>
+                <KinlyText variant="bodyMedium">Makes care visible without assigning responsibility.</KinlyText>
+              </KinlyStack>
             </KinlyStack>
           </section>
 
           <section className={styles.section}>
             <KinlyStack direction="vertical" gap="s">
               <KinlyHeading level={2}>If your home is still forming</KinlyHeading>
-              <KinlyText variant="bodyMedium">
-                It is normal to be unsure. Kinly treats figuring it out as healthy, not a problem to fix.
-              </KinlyText>
+              <KinlyStack direction="vertical" gap="xxs">
+                <KinlyText variant="bodyMedium">Uncertainty is normal — not a failure.</KinlyText>
+                <KinlyText variant="bodyMedium">
+                  Kinly treats figuring it out as healthy, not something to fix.
+                </KinlyText>
+              </KinlyStack>
             </KinlyStack>
           </section>
 
@@ -302,18 +367,21 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
                 <KinlyText variant="bodyMedium">
                   Reflections are for understanding, not grading.
                 </KinlyText>
+                <KinlyText variant="bodyMedium">
+                  Kinly never forces conversations — it helps you understand before you decide whether to talk.
+                </KinlyText>
               </KinlyStack>
             </KinlyStack>
           </section>
 
           {suppressStoreCtas && (
             <section className={styles.section}>
-              <KinlyCard variant="surfaceContainer">
+              <KinlyCard variant="surface">
                 <KinlyStack direction="vertical" gap="s">
                   <KinlyHeading level={2}>Availability</KinlyHeading>
                   <KinlyText variant="bodyMedium">
-                    Kinly is currently available in New Zealand and Singapore. If you are elsewhere, we will let you in
-                    when Kinly opens in your area.
+                    Kinly is currently available in New Zealand and Singapore. We’ll email you when Kinly opens in your
+                    area — no spam.
                   </KinlyText>
                   <KinlyButton
                     variant="outlined"
@@ -335,38 +403,10 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
             <KinlyCard variant="surfaceContainerHigh">
               <KinlyStack direction="vertical" gap="m">
                 <KinlyHeading level={2}>When you are ready</KinlyHeading>
-
-                <KinlyStack direction="horizontal" gap="s" wrap>
-                  <a
-                    className={styles.storeBadgeLink}
-                    href={APP_STORE_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Download on the App Store"
-                    onClick={() => handleCtaClick("ios_app_store")}
-                  >
-                    <img
-                      src="/apple-store.svg"
-                      alt="Download on the App Store"
-                      className={styles.storeBadge}
-                    />
-                  </a>
-
-                  <a
-                    className={styles.storeBadgeLink}
-                    href={PLAY_STORE_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Get it on Google Play"
-                    onClick={() => handleCtaClick("google_play")}
-                  >
-                    <img
-                      src="/google-play.svg"
-                      alt="Get it on Google Play"
-                      className={styles.storeBadge}
-                    />
-                  </a>
-                </KinlyStack>
+                <KinlyText variant="bodySmall" tone="muted">
+                  Kinly lives in the app — start on iOS or Android.
+                </KinlyText>
+                <StoreCtas suppress={suppressStoreCtas} onClick={handleCtaClick} />
               </KinlyStack>
             </KinlyCard>
           </section>

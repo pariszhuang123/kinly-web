@@ -1,9 +1,17 @@
 // @vitest-environment jsdom
 
 import { act } from "react";
-import { afterEach, beforeEach, expect, test } from "vitest";
+import { afterEach, beforeEach, expect, test, vi } from "vitest";
 import { createRoot } from "react-dom/client";
 import LandingClient from "../app/kinly/general/LandingClient";
+
+vi.mock("next/navigation", () => {
+  const params = new URLSearchParams("");
+  return {
+    useRouter: () => ({ push: vi.fn(), replace: vi.fn(), prefetch: vi.fn() }),
+    useSearchParams: () => params,
+  };
+});
 
 declare global {
   // Provided by React to silence act warnings in tests.
@@ -57,8 +65,8 @@ test("shows store badges when no suppression marker exists", async () => {
   const ios = container.querySelectorAll('a[aria-label="Download on the App Store"]');
   const android = container.querySelectorAll('a[aria-label="Get it on Google Play"]');
 
-  expect(ios.length).toBe(1);
-  expect(android.length).toBe(1);
+  expect(ios.length).toBe(2); // hero + footer CTA blocks
+  expect(android.length).toBe(2);
   expect(ios[0].getAttribute("href")).toContain("apps.apple.com");
   expect(android[0].getAttribute("href")).toContain("play.google.com");
 
@@ -73,8 +81,8 @@ test("shows store badges when detected country is supported", async () => {
   const android = container.querySelectorAll('a[aria-label="Get it on Google Play"]');
   const availability = container.querySelectorAll("section");
 
-  expect(ios.length).toBe(1);
-  expect(android.length).toBe(1);
+  expect(ios.length).toBe(2);
+  expect(android.length).toBe(2);
   expect((availability?.item(0)?.textContent || "")).not.toMatch(/opens in your area/i);
 
   unmount();

@@ -41,8 +41,15 @@ test("rate limit response shows cooldown messaging and disables submit", async (
   const submit = page.getByRole("button", { name: "Request access" });
   await submit.click();
 
-  await expect(page.getByText(/Too many attempts/)).toBeVisible();
-  await expect(page.getByText(/Please wait \d+s before trying again\./)).toBeVisible();
+  const rateLimitMessages = page.getByText(/Too many tries right now/);
+  await expect(rateLimitMessages).toHaveCount(2);
+  await expect(rateLimitMessages.first()).toBeVisible();
+  await expect(rateLimitMessages.nth(1)).toBeVisible();
+
+  const waitMessage = page.getByText(/wait 30 seconds and try again/i);
+  await expect(waitMessage).toHaveCount(2);
+  await expect(waitMessage.first()).toBeVisible();
+  await expect(waitMessage.nth(1)).toBeVisible();
   await expect(submit).toBeDisabled();
 });
 

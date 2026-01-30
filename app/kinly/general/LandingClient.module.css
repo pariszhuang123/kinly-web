@@ -47,6 +47,19 @@
     );
 }
 
+.heroCtas {
+  display: grid;
+  gap: var(--spacing-s, 10px);
+  padding: var(--spacing-m, 12px);
+  border-radius: var(--radius-md, 12px);
+  background: color-mix(in srgb, var(--color-surface, #ffffff) 86%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-semantic-primary, #366d59) 12%, transparent);
+}
+
+.heroCtaHeading {
+  line-height: 1;
+}
+
 .logo {
   width: 72px;
   height: 72px;
@@ -75,8 +88,8 @@
 
 .screenGrid {
   display: grid;
-  gap: var(--spacing-m, 12px);
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--spacing-l, 16px);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
 .screen {
@@ -119,8 +132,15 @@
 
 .chips {
   display: grid;
-  gap: var(--spacing-s, 10px);
+  gap: var(--spacing-m, 12px);
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  padding: var(--spacing-m, 12px);
+  border-radius: var(--radius-md, 12px);
+  background: color-mix(
+      in srgb,
+      var(--color-semantic-primary, #366d59) 4%,
+      var(--color-surface, #ffffff)
+    );
 }
 
 .weeklyImage {
@@ -172,3 +192,7 @@
   pointer-events: none;
 }
 
+.storeCtas {
+  display: grid;
+  gap: var(--spacing-s, 10px);
+}

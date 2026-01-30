@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import {
   KinlyCard,
@@ -88,6 +88,9 @@ export default function GetClient({ detectedCountryCode, sourcePath }: GetClient
   const [nowTs, setNowTs] = useState<number>(() => Date.now());
   const [showRedirectNotice, setShowRedirectNotice] = useState(false);
   const [redirectCountdown, setRedirectCountdown] = useState<number | null>(null);
+  const overlayRef = useRef<HTMLDivElement | null>(null);
+  const dialogTitleId = "redirect-dialog-title";
+  const dialogDescId = "redirect-dialog-description";
 
   const inviteCode = searchParams.get("code");
   const home = searchParams.get("home");
@@ -140,6 +143,11 @@ export default function GetClient({ detectedCountryCode, sourcePath }: GetClient
     return () => window.clearTimeout(id);
   }, [showRedirectNotice]);
 
+  useEffect(() => {
+    if (!showRedirectNotice) return;
+    overlayRef.current?.focus();
+  }, [showRedirectNotice]);
+
   const resolvedLocale = useMemo(() => {
     if (isValidLocale(uiLocale)) {
       return normalizeLocale(uiLocale);
@@ -183,8 +191,7 @@ export default function GetClient({ detectedCountryCode, sourcePath }: GetClient
   function mapErrorMessage(code?: string | null) {
     if (!code) return "Something went wrong. Please try again.";
     if (code.startsWith("LEADS_RATE_LIMIT")) {
-      const waitSeconds = Math.round(COOLDOWN_MS / 1000);
-      return `Too many attempts. Please try again in ${waitSeconds}s.`;
+      return "Too many tries right now — wait 30 seconds and try again.";
     }
     if (code === "LEADS_EMAIL_INVALID" || code === "LEADS_EMAIL_TOO_SHORT" || code === "LEADS_EMAIL_TOO_LONG") {
       return "Enter a valid email.";
@@ -270,9 +277,9 @@ export default function GetClient({ detectedCountryCode, sourcePath }: GetClient
           <KinlyCard variant="surface">
             <form className={styles.form} onSubmit={handleSubmit}>
               <KinlyStack direction="vertical" gap="m">
-                <KinlyStack direction="vertical" gap="xxs">
+              <KinlyStack direction="vertical" gap="xxs">
                   <KinlyText variant="bodyMedium" tone="muted">
-                    So we know when Kinly is available where you live..
+                    We’ll email you when Kinly opens in your area — no spam.
                   </KinlyText>
                 </KinlyStack>
 
@@ -316,28 +323,25 @@ export default function GetClient({ detectedCountryCode, sourcePath }: GetClient
 
                     <div className={styles.countryList} role="listbox" aria-label="Countries">
                       {filteredCountries.slice(0, 3).map((country) => (
-                        <KinlyButton
-                          key={country.code}
-                          type="button"
-                          variant={country.code === countryCode ? "filled" : "ghost"}
-                          size="md"
-                          onClick={() => {
-                            setCountryCode(country.code);
-                            setSearchTerm("");
-                          }}
-                          aria-selected={country.code === countryCode ? "true" : "false"}
-                          style={{
-                            justifyContent: "space-between",
-                            width: "100%",
-                          }}
-                        >
-                          <span className={styles.countryName}>
-                            {country.name}{" "}
-                            <KinlyText variant="labelSmall" as="span" tone="muted">
-                              ({country.code})
-                            </KinlyText>
-                          </span>
-                        </KinlyButton>
+                        <div key={country.code} className={styles.countryOption}>
+                          <KinlyButton
+                            type="button"
+                            variant={country.code === countryCode ? "filled" : "ghost"}
+                            size="md"
+                            onClick={() => {
+                              setCountryCode(country.code);
+                              setSearchTerm("");
+                            }}
+                            aria-selected={country.code === countryCode ? "true" : "false"}
+                          >
+                            <span className={styles.countryName}>
+                              {country.name}{" "}
+                              <KinlyText variant="labelSmall" as="span" tone="muted">
+                                ({country.code})
+                              </KinlyText>
+                            </span>
+                          </KinlyButton>
+                        </div>
                       ))}
                       {filteredCountries.length > 3 ? null : null}
                     </div>
@@ -352,7 +356,7 @@ export default function GetClient({ detectedCountryCode, sourcePath }: GetClient
 
                 {cooldownRemaining > 0 ? (
                   <KinlyText variant="bodySmall" tone="warning">
-                    Please wait {cooldownRemaining}s before trying again.
+                    Too many tries right now — wait 30 seconds and try again.
                   </KinlyText>
                 ) : null}
 
@@ -382,26 +386,52 @@ export default function GetClient({ detectedCountryCode, sourcePath }: GetClient
       </KinlyShell>
 
       {showRedirectNotice ? (
-        <div className={styles.overlay} role="dialog" aria-modal="true">
-          <KinlyCard variant="surfaceContainerHigh">
-            <KinlyStack direction="vertical" gap="m" align="start">
-              <KinlyHeading level={3}>You are on the list.</KinlyHeading>
-              <KinlyText variant="bodyMedium">
-                We saved your spot and will take you to the Kinly story next so you can see what to expect.
-              </KinlyText>
-              <KinlyText variant="bodySmall" tone="muted">
-                Redirecting in {redirectCountdown ?? 0}s...
-              </KinlyText>
-              <KinlyStack direction="horizontal" gap="s">
-                <KinlyButton variant="filled" onClick={() => window.location.assign("/kinly/general")}>
-                  Go now
-                </KinlyButton>
-                <KinlyButton variant="ghost" onClick={() => setShowRedirectNotice(false)}>
-                  Stay here
-                </KinlyButton>
+        <div
+          className={styles.overlay}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby={dialogTitleId}
+          aria-describedby={dialogDescId}
+          ref={overlayRef}
+          tabIndex={-1}
+          onKeyDown={(event) => {
+            if (event.key === "Escape") {
+              setShowRedirectNotice(false);
+              setRedirectCountdown(null);
+            }
+          }}
+        >
+          <div className={styles.overlayCard}>
+            <KinlyCard variant="surfaceContainerHigh">
+              <KinlyStack direction="vertical" gap="m" align="start">
+                <div id={dialogTitleId}>
+                  <KinlyHeading level={3}>You are on the list.</KinlyHeading>
+                </div>
+                <div id={dialogDescId}>
+                  <KinlyText variant="bodyMedium">
+                    We saved your spot and will take you to the Kinly story next so you can see what to expect.
+                  </KinlyText>
+                </div>
+                <KinlyText variant="bodySmall" tone="muted">
+                  Redirecting in {redirectCountdown ?? 0}s...
+                </KinlyText>
+                <KinlyStack direction="horizontal" gap="s">
+                  <KinlyButton variant="filled" onClick={() => window.location.assign("/kinly/general")}>
+                    Go now
+                  </KinlyButton>
+                  <KinlyButton
+                    variant="ghost"
+                    onClick={() => {
+                      setShowRedirectNotice(false);
+                      setRedirectCountdown(null);
+                    }}
+                  >
+                    Stay here
+                  </KinlyButton>
+                </KinlyStack>
               </KinlyStack>
-            </KinlyStack>
-          </KinlyCard>
+            </KinlyCard>
+          </div>
         </div>
       ) : null}
     </main>
