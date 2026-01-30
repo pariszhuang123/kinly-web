@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { useEffect, useMemo, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
   KinlyButton,
   KinlyCard,
@@ -10,6 +11,17 @@ import {
   KinlyStack,
   KinlyText,
 } from "../../../components";
+import {
+  buildClientEventId,
+  detectUiLocale,
+  ensureSessionId,
+  hasPageViewBeenSent,
+  logOutreachEvent,
+  markPageViewSent,
+  normalizeCountryCode,
+  OutreachStore,
+  readUtmParams,
+} from "../../../lib/outreachTracking";
 import styles from "./LandingClient.module.css";
 
 type InterestMarker = {
@@ -28,6 +40,7 @@ const APP_STORE_URL =
 const PLAY_STORE_URL =
   (process.env.NEXT_PUBLIC_ANDROID_STORE_URL?.trim() ||
     "https://play.google.com/store/apps/details?id=com.makinglifeeasie.kinly") as string;
+const PAGE_KEY = "kinly_general";
 
 function readInterestMarker(): InterestMarker | null {
   if (typeof window === "undefined") return null;
@@ -50,10 +63,17 @@ function readInterestMarker(): InterestMarker | null {
 export default function LandingClient({ detectedCountryCode = null }: LandingClientProps) {
   const [hasHydrated, setHasHydrated] = useState(false);
 
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const utmParams = useMemo(() => readUtmParams(searchParams), [searchParams]);
+
   useEffect(() => {
     // Mark hydration complete so client-only reads (localStorage, navigator) happen after first paint.
     setHasHydrated(true); // eslint-disable-line react-hooks/set-state-in-effect
   }, []);
+
+  const sessionId = useMemo(() => (hasHydrated ? ensureSessionId() : null), [hasHydrated]);
+  const uiLocale = useMemo(() => (hasHydrated ? detectUiLocale() : null), [hasHydrated]);
 
   const interestMarker = useMemo<InterestMarker | null>(
     () => (hasHydrated ? readInterestMarker() : null),
@@ -65,6 +85,7 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
     () => (interestCountry ? interestCountry : detectedCountryCode ? detectedCountryCode.toUpperCase() : null),
     [detectedCountryCode, interestCountry],
   );
+  const normalizedCountry = useMemo(() => normalizeCountryCode(regionCountry), [regionCountry]);
 
   const suppressStoreCtas = useMemo(() => {
     if (!regionCountry) return false;
@@ -100,6 +121,41 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
     ],
     [],
   );
+
+  useEffect(() => {
+    if (!sessionId) return;
+    if (hasPageViewBeenSent(PAGE_KEY, sessionId)) return;
+
+    markPageViewSent(PAGE_KEY, sessionId);
+
+    void logOutreachEvent({
+      event: "page_view",
+      page_key: PAGE_KEY,
+      utm_campaign: utmParams.utm_campaign,
+      utm_medium: utmParams.utm_medium,
+      utm_source: utmParams.utm_source,
+      session_id: sessionId,
+      country: normalizedCountry,
+      ui_locale: uiLocale,
+    });
+  }, [normalizedCountry, sessionId, uiLocale, utmParams.utm_campaign, utmParams.utm_medium, utmParams.utm_source]);
+
+  function handleCtaClick(store: OutreachStore) {
+    if (!sessionId) return;
+
+    void logOutreachEvent({
+      event: "cta_click",
+      page_key: PAGE_KEY,
+      utm_campaign: utmParams.utm_campaign,
+      utm_medium: utmParams.utm_medium,
+      utm_source: utmParams.utm_source,
+      session_id: sessionId,
+      country: normalizedCountry,
+      ui_locale: uiLocale,
+      store,
+      client_event_id: buildClientEventId(),
+    });
+  }
 
   return (
     <main className={styles.page}>
@@ -259,7 +315,14 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
                     Kinly is currently available in New Zealand and Singapore. If you are elsewhere, we will let you in
                     when Kinly opens in your area.
                   </KinlyText>
-                  <KinlyButton variant="outlined" href="/kinly/get">
+                  <KinlyButton
+                    variant="outlined"
+                    type="button"
+                    onClick={() => {
+                      handleCtaClick("web");
+                      router.push("/kinly/get");
+                    }}
+                  >
                     Express interest when Kinly is available in your area.
                   </KinlyButton>
                 </KinlyStack>
@@ -280,6 +343,7 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Download on the App Store"
+                    onClick={() => handleCtaClick("ios_app_store")}
                   >
                     <img
                       src="/apple-store.svg"
@@ -294,6 +358,7 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Get it on Google Play"
+                    onClick={() => handleCtaClick("google_play")}
                   >
                     <img
                       src="/google-play.svg"
