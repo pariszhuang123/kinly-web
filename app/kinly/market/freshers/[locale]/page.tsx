@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import ScenarioLandingClient from "../../ScenarioLandingClient";
 import { freshersConfig } from "../../configs/freshers";
 
@@ -6,5 +7,9 @@ type Props = {
 };
 
 export default function FreshersLocalePage({ params }: Props) {
-  return <ScenarioLandingClient config={freshersConfig} localeOverride={params.locale} />;
+  return (
+    <Suspense fallback={null}>
+      <ScenarioLandingClient config={freshersConfig} localeOverride={params.locale} />
+    </Suspense>
+  );
 }

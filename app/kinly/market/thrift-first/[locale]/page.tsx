@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import ScenarioLandingClient from "../../ScenarioLandingClient";
 import { thriftFirstConfig } from "../../configs/thriftFirst";
 
@@ -6,5 +7,9 @@ type Props = {
 };
 
 export default function ThriftFirstLocalePage({ params }: Props) {
-  return <ScenarioLandingClient config={thriftFirstConfig} localeOverride={params.locale} />;
+  return (
+    <Suspense fallback={null}>
+      <ScenarioLandingClient config={thriftFirstConfig} localeOverride={params.locale} />
+    </Suspense>
+  );
 }

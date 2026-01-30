@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import ScenarioLandingClient from "../../ScenarioLandingClient";
 import { takeawayBudgetConfig } from "../../configs/takeawayBudget";
 
@@ -6,5 +7,9 @@ type Props = {
 };
 
 export default function TakeawayBudgetLocalePage({ params }: Props) {
-  return <ScenarioLandingClient config={takeawayBudgetConfig} localeOverride={params.locale} />;
+  return (
+    <Suspense fallback={null}>
+      <ScenarioLandingClient config={takeawayBudgetConfig} localeOverride={params.locale} />
+    </Suspense>
+  );
 }

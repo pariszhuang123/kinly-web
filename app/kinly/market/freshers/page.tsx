@@ -1,6 +1,11 @@
+import { Suspense } from "react";
 import ScenarioLandingClient from "../ScenarioLandingClient";
 import { freshersConfig } from "../configs/freshers";
 
 export default function FreshersPage() {
-  return <ScenarioLandingClient config={freshersConfig} />;
+  return (
+    <Suspense fallback={null}>
+      <ScenarioLandingClient config={freshersConfig} />
+    </Suspense>
+  );
 }
