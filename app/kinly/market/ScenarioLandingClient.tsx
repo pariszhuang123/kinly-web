@@ -207,6 +207,8 @@ export default function ScenarioLandingClient({
     return !SUPPORTED_REGIONS.includes(regionCountry);
   }, [regionCountry]);
 
+  const isRtl = lang === "ar" || lang === "he" || lang === "fa" || lang === "ur";
+
   const resolvedConfig = useMemo(() => {
     const localeKey = lang && config.translations ? lang : null;
     const defaultKey = config.defaultLocale ?? "en";
@@ -267,7 +269,7 @@ export default function ScenarioLandingClient({
   }
 
   return (
-    <main className={styles.page}>
+    <main className={styles.page} dir={isRtl ? "rtl" : "ltr"}>
       <div className={styles.backdrop} aria-hidden="true" />
 
       <KinlyShell as="section">

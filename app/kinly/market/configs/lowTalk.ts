@@ -159,5 +159,89 @@ export const lowTalkConfig: ScenarioConfig = {
         body: "Kinly esta disponible en Nueva Zelanda y Singapur. Te avisaremos cuando abra en tu region.",
       },
     } satisfies LocaleCopy,
+    ar: {
+      recognition: {
+        heading: "إشارات بدلاً من خطابات.",
+        subtitle: "حافظ على الوضوح بدون محادثات طويلة.",
+        body: "كينلي يعطي إشارات هادئة عما يحتاجه المنزل فلا أحد يحتاج لعقد اجتماع أو إلقاء محاضرة.",
+      },
+      hero: {
+        headline: "وضوح بدون محادثات طويلة.",
+        subhead: "اعرف ما يحتاج إنجازه وما يمكن أن ينتظر، بدون مقالات في الدردشة الجماعية.",
+        body: "كينلي يُظهر الإشارات المهمة ويزيل الضغط لـ\"مناقشة الأمور\" كل مرة. لا لوحات نقاط، لا مراقبة، لا ذنب.",
+        ctaHeading: "احصل على الإشارة، تجاوز الخطاب",
+      },
+      screens: [
+        {
+          title: "اليوم",
+          eyebrow: "إشارة",
+          headline: "ما يحتاج انتباه الآن",
+          copy: "تنبيهات خفيفة للضوضاء، الضيوف، أو إعادة ضبط سريعة قبل بدء اليوم.",
+          footer: "قابل للتنفيذ بدون التحول لاجتماع.",
+          image:
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/today.png",
+        },
+        {
+          title: "إدارة",
+          eyebrow: "تعديل",
+          headline: "عدّل بدون نقاش",
+          copy: "بدّل الأدوار أو أوقف مهمة عندما يكون شخص مشغول - بدون تأنيب ضمير.",
+          footer: "الجميع على علم بدون تذكيرات.",
+          image:
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/explore.png",
+        },
+        {
+          title: "مركز المنزل",
+          eyebrow: "مرجع",
+          headline: "وضوح مشترك في مكان واحد",
+          copy: "ساعات الهدوء، إشارات الضيوف، وقواعد سريعة تحافظ على الأجواء مستقرة.",
+          footer: "الإشارات تبقى مرئية؛ لا حاجة لخطابات.",
+          image:
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
+        },
+      ],
+      chips: [
+        "نحتاج وضوح بدون مقالات في الدردشة.",
+        "لا أحد يريد أن يُزعج - أو يُزعَج.",
+        "نفضل الإشارات على الجلسات الطويلة.",
+        "ابق هادئاً حتى عندما الناس مشغولون.",
+      ],
+      rolePoints: [
+        "يُظهر ما يهم بإشارات لطيفة، ليس خطابات.",
+        "يبقي الخطط عادلة بدون لوم أو لوحات نقاط أو ذنب.",
+      ],
+      formingPoints: [
+        "الناس يأتون ويذهبون - كينلي يحافظ على الإشارات المشتركة ثابتة.",
+        "الأسابيع المشغولة تحدث؛ إيقاف المهام طبيعي، ليس فشل.",
+      ],
+      audience: [
+        "منازل تريد وضوح هادئ بدون محادثات طويلة.",
+        "مشاركون مشغولون يفضلون الإشارات على التذكيرات.",
+      ],
+      notList: ["ليس لوحة نقاط.", "ليس مراقبة.", "ليس أداة إزعاج."],
+      weekly: {
+        intro: "كينلي يعمل بإيقاع أسبوعي فتبقى الإشارات هادئة، ليست مستمرة.",
+        points: [
+          "راجع أسبوعياً - لا سلاسل، لا ضغط للمتابعة.",
+          "التأملات للفهم، ليس لتقييم أحد.",
+          "أوقف، عدّل، أو تخطى أسبوع بدون ذنب.",
+        ],
+        heading: "تأمل أسبوعي، بإيقاع بشري",
+      },
+      sectionHeadings: {
+        howItWorks: "كيف يعمل كينلي",
+        howItWorksSubtitle: "لا شيء يُشارك بدون قصد.",
+        soundsLikeYou: "هل يبدو هذا مثل مكانك؟",
+        roleHeading: "دور كينلي: التأمل أولاً",
+        formingHeading: "إذا كان منزلك لا يزال يتشكل",
+        audienceHeading: "لمن هذا",
+        notListHeading: "كينلي ليس...",
+        readyHeading: "عندما تكون جاهزاً",
+        readySubtitle: "كينلي موجود في التطبيق - ابدأ على iOS أو Android.",
+      },
+      availability: {
+        body: "كينلي متاح حالياً في نيوزيلندا وسنغافورة. سنراسلك عندما يفتح كينلي في منطقتك.",
+      },
+    } satisfies LocaleCopy,
   },
 };

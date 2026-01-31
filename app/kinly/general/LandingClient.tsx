@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 /* eslint-disable @next/next/no-img-element */
 
 import { useEffect, useMemo, useState } from "react";
@@ -113,6 +113,7 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
   const uiLocale = useMemo(() => (hasHydrated ? detectUiLocale() : null), [hasHydrated]);
   const lang = useMemo(() => (uiLocale ? uiLocale.split("-")[0]?.toLowerCase() ?? null : null), [uiLocale]);
   const copy = useMemo(() => resolveLandingCopy(lang), [lang]);
+  const isRtl = lang === "ar" || lang === "he" || lang === "fa" || lang === "ur";
 
   const interestMarker = useMemo<InterestMarker | null>(
     () => (hasHydrated ? readInterestMarker() : null),
@@ -167,7 +168,7 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
   }
 
   return (
-    <main className={styles.page}>
+    <main className={styles.page} dir={isRtl ? "rtl" : "ltr"}>
       {/* IMPORTANT:
           The previous always-mounted backdrop was intercepting clicks (e.g. store badges).
           If you want a visual backdrop, keep it but ensure CSS uses pointer-events: none.

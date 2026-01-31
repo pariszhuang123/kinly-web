@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
@@ -154,6 +154,7 @@ export default function GetClient({ detectedCountryCode, sourcePath }: GetClient
     [resolvedLocale],
   );
   const copy = useMemo(() => resolveGetCopy(language), [language]);
+  const isRtl = language === "ar" || language === "he" || language === "fa" || language === "ur";
 
   const countries = useMemo(() => getCountries(resolvedLocale || "en"), [resolvedLocale]);
   const countryNameMap = useMemo(() => {
@@ -258,7 +259,7 @@ export default function GetClient({ detectedCountryCode, sourcePath }: GetClient
   }
 
   return (
-    <main>
+    <main dir={isRtl ? "rtl" : "ltr"}>
       <KinlyShell as="section">
         <KinlyStack direction="vertical" gap="l">
           <KinlyStack direction="vertical" gap="xs">
