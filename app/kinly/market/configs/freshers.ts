@@ -1,5 +1,5 @@
 import { ScenarioConfig } from "../ScenarioLandingClient";
-import { EsCopy } from "./shared/es";
+import { LocaleCopy } from "./shared/locale";
 
 export const freshersConfig: ScenarioConfig = {
   pageKey: "kinly_market_freshers",
@@ -112,7 +112,7 @@ export const freshersConfig: ScenarioConfig = {
           image:
             "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
         },
-      ] satisfies EsCopy["screens"],
+      ],
       chips: [
         "Nunca acordamos reglas de limpieza.",
         "Las semanas de examenes necesitan silencio sin resentimiento.",
@@ -140,10 +140,22 @@ export const freshersConfig: ScenarioConfig = {
           "Reflexiones para entender, no para juzgar.",
           "Kinly nunca fuerza conversaciones - te ayuda a decidir cuando hablar.",
         ],
+        heading: "Reflexion semanal, a ritmo humano",
+      },
+      sectionHeadings: {
+        howItWorks: "Como funciona Kinly",
+        howItWorksSubtitle: "Nada se comparte sin intencion.",
+        soundsLikeYou: "¿Te suena familiar?",
+        roleHeading: "El rol de Kinly: reflexion primero",
+        formingHeading: "Si tu hogar aun se esta formando",
+        audienceHeading: "Para quien es esto",
+        notListHeading: "Kinly no es...",
+        readyHeading: "Cuando estes listo",
+        readySubtitle: "Kinly vive en la app - empieza en iOS o Android.",
       },
       availability: {
         body: "Kinly esta disponible en Nueva Zelanda y Singapur. Te avisaremos cuando abra en tu region.",
       },
-    },
+    } satisfies LocaleCopy,
   },
 };

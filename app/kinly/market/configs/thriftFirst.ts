@@ -1,5 +1,5 @@
 import { ScenarioConfig } from "../ScenarioLandingClient";
-import { EsCopy } from "./shared/es";
+import { LocaleCopy } from "./shared/locale";
 
 export const thriftFirstConfig: ScenarioConfig = {
   pageKey: "kinly_market_thrift_first",
@@ -115,7 +115,7 @@ export const thriftFirstConfig: ScenarioConfig = {
           image:
             "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
         },
-      ] satisfies EsCopy["screens"],
+      ],
       chips: [
         "Un buen hallazgo puede volverse trasto sin acuerdo compartido.",
         "Precio y calidad varían — la claridad ayuda a sentirse bien.",
@@ -142,10 +142,22 @@ export const thriftFirstConfig: ScenarioConfig = {
           "Reflexiones para entender, no para juzgar compras.",
           "Puedes pausar, cambiar o pasar sin presión.",
         ],
+        heading: "Reflexión semanal, a ritmo humano",
+      },
+      sectionHeadings: {
+        howItWorks: "Cómo funciona Kinly",
+        howItWorksSubtitle: "Nada se comparte sin intención.",
+        soundsLikeYou: "¿Te suena familiar?",
+        roleHeading: "El rol de Kinly: reflexión primero",
+        formingHeading: "Si tu hogar aún se está formando",
+        audienceHeading: "Para quién es esto",
+        notListHeading: "Kinly no es...",
+        readyHeading: "Cuando estés listo",
+        readySubtitle: "Kinly vive en la app - empieza en iOS o Android.",
       },
       availability: {
         body: "Kinly está disponible en Nueva Zelanda y Singapur. Te avisaremos cuando abra en tu región.",
       },
-    },
+    } satisfies LocaleCopy,
   },
 };

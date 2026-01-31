@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
@@ -13,6 +13,8 @@ import {
 } from "../../../components";
 import { getCountries } from "../../../lib/countries";
 import { submitInterest } from "../../../lib/interestCapture";
+import { detectUiLocale } from "../../../lib/outreachTracking";
+import { resolveGetCopy } from "./copy";
 import styles from "./GetClient.module.css";
 
 type GetClientProps = {
@@ -100,16 +102,9 @@ export default function GetClient({ detectedCountryCode, sourcePath }: GetClient
   );
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    const detected =
-      window.navigator.languages?.[0] ??
-      window.navigator.language ??
-      "";
-
-    if (detected) {
-      const normalized = normalizeLocale(detected);
-      setUiLocale((current) => (current === "en" ? normalized || "en" : current));
-    }
+    const detected = detectUiLocale();
+    if (!detected) return;
+    setUiLocale((current) => (current === "en" ? detected : current));
   }, []);
 
   useEffect(() => {
@@ -154,6 +149,11 @@ export default function GetClient({ detectedCountryCode, sourcePath }: GetClient
     }
     return "en";
   }, [uiLocale]);
+  const language = useMemo(
+    () => resolvedLocale.split("-")[0]?.toLowerCase() ?? "en",
+    [resolvedLocale],
+  );
+  const copy = useMemo(() => resolveGetCopy(language), [language]);
 
   const countries = useMemo(() => getCountries(resolvedLocale || "en"), [resolvedLocale]);
   const countryNameMap = useMemo(() => {
@@ -189,23 +189,23 @@ export default function GetClient({ detectedCountryCode, sourcePath }: GetClient
   }, [countryCode, detectedCountry]);
 
   function mapErrorMessage(code?: string | null) {
-    if (!code) return "Something went wrong. Please try again.";
+    if (!code) return copy.errorGeneric;
     if (code.startsWith("LEADS_RATE_LIMIT")) {
-      return "Too many tries right now — wait 30 seconds and try again.";
+      return copy.errorRateLimit;
     }
     if (code === "LEADS_EMAIL_INVALID" || code === "LEADS_EMAIL_TOO_SHORT" || code === "LEADS_EMAIL_TOO_LONG") {
-      return "Enter a valid email.";
+      return copy.errorEmailInvalid;
     }
     if (code === "LEADS_COUNTRY_CODE_INVALID") {
-      return "Use a 2-letter country code.";
+      return copy.errorCountryInvalid;
     }
     if (code === "LEADS_UI_LOCALE_INVALID") {
-      return "Locale detection failed. Please refresh and try again.";
+      return copy.errorLocaleInvalid;
     }
     if (code === "SUPABASE_CONFIG_MISSING") {
-      return "Form not ready yet. Please try again later.";
+      return copy.errorConfigMissing;
     }
-    return "Something went wrong. Please try again.";
+    return copy.errorGeneric;
   }
 
   async function handleSubmit(event: React.FormEvent) {
@@ -253,7 +253,7 @@ export default function GetClient({ detectedCountryCode, sourcePath }: GetClient
       }
     } catch (err) {
       setStatus("error");
-      setErrorMessage(err instanceof Error ? err.message : "Unable to submit right now.");
+      setErrorMessage(err instanceof Error ? err.message : copy.errorGeneric);
     }
   }
 
@@ -262,13 +262,13 @@ export default function GetClient({ detectedCountryCode, sourcePath }: GetClient
       <KinlyShell as="section">
         <KinlyStack direction="vertical" gap="l">
           <KinlyStack direction="vertical" gap="xs">
-            <KinlyHeading level={1}>Get Kinly</KinlyHeading>
+            <KinlyHeading level={1}>{copy.title}</KinlyHeading>
             {inviteCode || home ? (
               <KinlyText variant="bodySmall" tone="info">
                 {inviteCode
-                  ? `Invite code detected: ${inviteCode}`
+                  ? `${copy.inviteDetected} ${inviteCode}`
                   : home
-                    ? `Home detected: ${home}`
+                    ? `${copy.homeDetected} ${home}`
                     : null}
               </KinlyText>
             ) : null}
@@ -277,36 +277,34 @@ export default function GetClient({ detectedCountryCode, sourcePath }: GetClient
           <KinlyCard variant="surface">
             <form className={styles.form} onSubmit={handleSubmit}>
               <KinlyStack direction="vertical" gap="m">
-              <KinlyStack direction="vertical" gap="xxs">
-                  <KinlyText variant="bodyMedium" tone="muted">
-                    We’ll email you when Kinly opens in your area — no spam.
-                  </KinlyText>
+                <KinlyStack direction="vertical" gap="xxs">
+                  <KinlyText variant="bodyMedium" tone="muted">{copy.lead}</KinlyText>
                 </KinlyStack>
 
                 <KinlyInput
-                  label="Email"
+                  label={copy.emailLabel}
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   autoComplete="email"
                   required
-                  placeholder="you@example.com"
-                  error={email ? (emailValid ? undefined : "Enter a valid email.") : undefined}
+                  placeholder={copy.emailPlaceholder}
+                  error={email ? (emailValid ? undefined : copy.emailError) : undefined}
                 />
 
                 <div className={styles.countrySection}>
                   <KinlyInput
-                    label="Country"
+                    label={copy.countryLabel}
                     value={countryCode}
                     onChange={(e) => setCountryCode(e.target.value.toUpperCase())}
-                    placeholder="Country code (e.g., US)"
+                    placeholder={copy.countryPlaceholder}
                     autoComplete="country"
                     required
-                    error={countryCode ? (countryValid ? undefined : "Use a 2-letter code.") : undefined}
+                    error={countryCode ? (countryValid ? undefined : copy.countryError) : undefined}
                   />
                   {detectedCountry ? (
                     <KinlyText variant="bodySmall" tone="muted">
-                      Detected country: {detectedCountry}
+                      {copy.detectedCountryPrefix} {detectedCountry}
                       {countryNameMap.get(detectedCountry)
                         ? ` (${countryNameMap.get(detectedCountry)})`
                         : null}
@@ -315,13 +313,13 @@ export default function GetClient({ detectedCountryCode, sourcePath }: GetClient
 
                   <div className={styles.countryPicker}>
                     <KinlyInput
-                      label="Search countries"
+                      label={copy.searchLabel}
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      placeholder="Type to filter"
+                      placeholder={copy.searchPlaceholder}
                     />
 
-                    <div className={styles.countryList} role="listbox" aria-label="Countries">
+                    <div className={styles.countryList} role="listbox" aria-label={copy.searchAriaLabel}>
                       {filteredCountries.slice(0, 3).map((country) => (
                         <div key={country.code} className={styles.countryOption}>
                           <KinlyButton
@@ -356,27 +354,25 @@ export default function GetClient({ detectedCountryCode, sourcePath }: GetClient
 
                 {cooldownRemaining > 0 ? (
                   <KinlyText variant="bodySmall" tone="warning">
-                    Too many tries right now — wait 30 seconds and try again.
+                    {copy.cooldownMessage}
                   </KinlyText>
                 ) : null}
 
                 {status === "success" ? (
                   <KinlyCard variant="surface">
                     <KinlyStack direction="vertical" gap="xs">
-                      <KinlyHeading level={3}>Thanks - we got it.</KinlyHeading>
-                      <KinlyText variant="bodyMedium">
-                        We will let you know when Kinly is ready in your area.
-                      </KinlyText>
+                      <KinlyHeading level={3}>{copy.successHeading}</KinlyHeading>
+                      <KinlyText variant="bodyMedium">{copy.successBody}</KinlyText>
                     </KinlyStack>
                   </KinlyCard>
                 ) : null}
 
                 <KinlyStack direction="horizontal" gap="m" align="center">
                   <KinlyButton type="submit" variant="filled" disabled={!canSubmit} isLoading={status === "submitting"}>
-                    Request access
+                    {copy.submitCta}
                   </KinlyButton>
                   <KinlyButton variant="outlined" href="/kinly/general">
-                    Back to home
+                    {copy.backCta}
                   </KinlyButton>
                 </KinlyStack>
               </KinlyStack>
@@ -405,19 +401,17 @@ export default function GetClient({ detectedCountryCode, sourcePath }: GetClient
             <KinlyCard variant="surfaceContainerHigh">
               <KinlyStack direction="vertical" gap="m" align="start">
                 <div id={dialogTitleId}>
-                  <KinlyHeading level={3}>You are on the list.</KinlyHeading>
+                  <KinlyHeading level={3}>{copy.redirectTitle}</KinlyHeading>
                 </div>
                 <div id={dialogDescId}>
-                  <KinlyText variant="bodyMedium">
-                    We saved your spot and will take you to the Kinly story next so you can see what to expect.
-                  </KinlyText>
+                  <KinlyText variant="bodyMedium">{copy.redirectBody}</KinlyText>
                 </div>
                 <KinlyText variant="bodySmall" tone="muted">
-                  Redirecting in {redirectCountdown ?? 0}s...
+                  {copy.redirectCountdown.replace("{seconds}", String(redirectCountdown ?? 0))}
                 </KinlyText>
                 <KinlyStack direction="horizontal" gap="s">
                   <KinlyButton variant="filled" onClick={() => window.location.assign("/kinly/general")}>
-                    Go now
+                    {copy.redirectGoNow}
                   </KinlyButton>
                   <KinlyButton
                     variant="ghost"
@@ -426,7 +420,7 @@ export default function GetClient({ detectedCountryCode, sourcePath }: GetClient
                       setRedirectCountdown(null);
                     }}
                   >
-                    Stay here
+                    {copy.redirectStay}
                   </KinlyButton>
                 </KinlyStack>
               </KinlyStack>
@@ -437,3 +431,4 @@ export default function GetClient({ detectedCountryCode, sourcePath }: GetClient
     </main>
   );
 }
+

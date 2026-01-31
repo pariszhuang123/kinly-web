@@ -62,6 +62,18 @@ export type ScenarioConfig = {
   weekly: {
     intro: string;
     points: string[];
+    heading?: string;
+  };
+  sectionHeadings?: {
+    howItWorks?: string;
+    howItWorksSubtitle?: string;
+    soundsLikeYou?: string;
+    roleHeading?: string;
+    formingHeading?: string;
+    audienceHeading?: string;
+    notListHeading?: string;
+    readyHeading?: string;
+    readySubtitle?: string;
   };
   availability?: {
     heading?: string;
@@ -296,9 +308,11 @@ export default function ScenarioLandingClient({
 
           <section className={styles.section}>
             <KinlyStack direction="vertical" gap="m">
-              <KinlyHeading level={2}>How Kinly works</KinlyHeading>
+              <KinlyHeading level={2}>
+                {resolvedConfig.sectionHeadings?.howItWorks ?? "How Kinly works"}
+              </KinlyHeading>
               <KinlyText variant="bodySmall" tone="muted">
-                Nothing is shared without intent.
+                {resolvedConfig.sectionHeadings?.howItWorksSubtitle ?? "Nothing is shared without intent."}
               </KinlyText>
               <div className={styles.screenGrid}>
                 {resolvedConfig.screens.map((screen) => (
@@ -333,7 +347,9 @@ export default function ScenarioLandingClient({
 
           <section className={styles.section}>
             <KinlyStack direction="vertical" gap="s">
-              <KinlyHeading level={2}>Does this sound like your place?</KinlyHeading>
+              <KinlyHeading level={2}>
+                {resolvedConfig.sectionHeadings?.soundsLikeYou ?? "Does this sound like your place?"}
+              </KinlyHeading>
               <div className={styles.chips}>
                 {resolvedConfig.chips.map((chip) => (
                   <KinlyCard key={chip} variant="surface">
@@ -346,7 +362,9 @@ export default function ScenarioLandingClient({
 
           <section className={styles.section}>
             <KinlyStack direction="vertical" gap="s">
-              <KinlyHeading level={2}>Kinly role: reflection first</KinlyHeading>
+              <KinlyHeading level={2}>
+                {resolvedConfig.sectionHeadings?.roleHeading ?? "Kinly role: reflection first"}
+              </KinlyHeading>
               <KinlyStack direction="vertical" gap="xxs">
                 {resolvedConfig.rolePoints.map((point) => (
                   <KinlyText key={point} variant="bodyMedium">
@@ -359,7 +377,9 @@ export default function ScenarioLandingClient({
 
           <section className={styles.section}>
             <KinlyStack direction="vertical" gap="s">
-              <KinlyHeading level={2}>If your home is still forming</KinlyHeading>
+              <KinlyHeading level={2}>
+                {resolvedConfig.sectionHeadings?.formingHeading ?? "If your home is still forming"}
+              </KinlyHeading>
               <KinlyStack direction="vertical" gap="xxs">
                 {resolvedConfig.formingPoints.map((point) => (
                   <KinlyText key={point} variant="bodyMedium">
@@ -372,7 +392,9 @@ export default function ScenarioLandingClient({
 
           <section className={styles.section}>
             <KinlyStack direction="vertical" gap="s">
-              <KinlyHeading level={2}>Who this is for</KinlyHeading>
+              <KinlyHeading level={2}>
+                {resolvedConfig.sectionHeadings?.audienceHeading ?? "Who this is for"}
+              </KinlyHeading>
               <KinlyStack direction="vertical" gap="xs">
                 {resolvedConfig.audience.map((entry) => (
                   <KinlyText key={entry} variant="bodyMedium">
@@ -385,7 +407,9 @@ export default function ScenarioLandingClient({
 
           <section className={styles.section}>
             <KinlyStack direction="vertical" gap="s">
-              <KinlyHeading level={2}>Kinly is not...</KinlyHeading>
+              <KinlyHeading level={2}>
+                {resolvedConfig.sectionHeadings?.notListHeading ?? "Kinly is not..."}
+              </KinlyHeading>
               <KinlyStack direction="vertical" gap="xxs">
                 {resolvedConfig.notList.map((item) => (
                   <KinlyText key={item} variant="bodyMedium">
@@ -398,7 +422,9 @@ export default function ScenarioLandingClient({
 
           <section className={styles.section}>
             <KinlyStack direction="vertical" gap="s">
-              <KinlyHeading level={2}>Weekly reflection, human-paced</KinlyHeading>
+              <KinlyHeading level={2}>
+                {resolvedConfig.weekly.heading ?? "Weekly reflection, human-paced"}
+              </KinlyHeading>
 
               <KinlyText variant="bodyMedium">{resolvedConfig.weekly.intro}</KinlyText>
 
@@ -437,9 +463,12 @@ export default function ScenarioLandingClient({
             <section className={styles.storeSection}>
               <KinlyCard variant="surfaceContainerHigh">
                 <KinlyStack direction="vertical" gap="m">
-                  <KinlyHeading level={2}>When you are ready</KinlyHeading>
+                  <KinlyHeading level={2}>
+                    {resolvedConfig.sectionHeadings?.readyHeading ?? "When you are ready"}
+                  </KinlyHeading>
                   <KinlyText variant="bodySmall" tone="muted">
-                    Kinly lives in the app - start on iOS or Android.
+                    {resolvedConfig.sectionHeadings?.readySubtitle ??
+                      "Kinly lives in the app - start on iOS or Android."}
                   </KinlyText>
                   <StoreCtas suppress={suppressStoreCtas} onClick={handleCtaClick} />
                 </KinlyStack>

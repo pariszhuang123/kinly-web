@@ -1,6 +1,10 @@
 import { ScenarioScreen } from "../../ScenarioLandingClient";
 
-export type EsCopy = {
+/**
+ * Type for locale-specific copy. Used to enforce complete translations
+ * for any language (es, zh, fr, etc.).
+ */
+export type LocaleCopy = {
   recognition: {
     heading: string;
     subtitle: string;
@@ -22,6 +26,18 @@ export type EsCopy = {
   weekly: {
     intro: string;
     points: string[];
+    heading?: string;
+  };
+  sectionHeadings?: {
+    howItWorks?: string;
+    howItWorksSubtitle?: string;
+    soundsLikeYou?: string;
+    roleHeading?: string;
+    formingHeading?: string;
+    audienceHeading?: string;
+    notListHeading?: string;
+    readyHeading?: string;
+    readySubtitle?: string;
   };
   availability?: {
     heading?: string;

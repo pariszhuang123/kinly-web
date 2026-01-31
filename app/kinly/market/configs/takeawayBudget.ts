@@ -1,5 +1,5 @@
 import { ScenarioConfig } from "../ScenarioLandingClient";
-import { EsCopy } from "./shared/es";
+import { LocaleCopy } from "./shared/locale";
 
 export const takeawayBudgetConfig: ScenarioConfig = {
   pageKey: "kinly_market_takeaway_budget",
@@ -116,7 +116,7 @@ export const takeawayBudgetConfig: ScenarioConfig = {
           image:
             "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
         },
-      ] satisfies EsCopy["screens"],
+      ],
       chips: [
         "Fish and chips es solo el momento — el problema real es la tensión en casa compartida.",
         "Decidir quién cubre esta semana sin incomodidad.",
@@ -143,11 +143,23 @@ export const takeawayBudgetConfig: ScenarioConfig = {
           "Reflexiones para entender, no para juzgar.",
           "Los planes pueden cambiar sin drama cuando la semana está ajustada.",
         ],
+        heading: "Reflexión semanal, a ritmo humano",
+      },
+      sectionHeadings: {
+        howItWorks: "Cómo funciona Kinly",
+        howItWorksSubtitle: "Nada se comparte sin intención.",
+        soundsLikeYou: "¿Te suena familiar?",
+        roleHeading: "El rol de Kinly: reflexión primero",
+        formingHeading: "Si tu hogar aún se está formando",
+        audienceHeading: "Para quién es esto",
+        notListHeading: "Kinly no es...",
+        readyHeading: "Cuando estés listo",
+        readySubtitle: "Kinly vive en la app - empieza en iOS o Android.",
       },
       availability: {
         body: "Kinly está disponible en Nueva Zelanda y Singapur. Te avisaremos cuando abra en tu región.",
         ctaLabel: "Apúntate para tu región.",
       },
-    },
+    } satisfies LocaleCopy,
   },
 };

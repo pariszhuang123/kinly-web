@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 type Props = {
-  searchParams: Record<string, string | string[] | undefined>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 };
 
 function sanitizeNextParam(next?: string | string[] | null): string | null {
@@ -23,7 +23,8 @@ function sanitizeNextParam(next?: string | string[] | null): string | null {
 
 export default async function GetPage({ searchParams }: Props) {
   const detectedCountryCode = await getDetectedCountryCode();
-  const nextParam = sanitizeNextParam(searchParams?.next ?? null);
+  const params = await searchParams;
+  const nextParam = sanitizeNextParam(params?.next ?? null);
 
   return (
     <Suspense

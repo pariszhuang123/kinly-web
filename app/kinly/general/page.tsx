@@ -12,12 +12,13 @@ export const metadata: Metadata = {
 };
 
 type PageProps = {
-  searchParams?: { entry?: string | string[] | null } | null;
+  searchParams: Promise<{ entry?: string | string[] | null }>;
 };
 
 export default async function KinlyGeneralPage({ searchParams }: PageProps) {
   const detectedCountryCode = await getDetectedCountryCode();
-  const rawEntry = searchParams?.entry ?? null;
+  const params = await searchParams;
+  const rawEntry = params?.entry ?? null;
   const entry = Array.isArray(rawEntry) ? rawEntry[0] ?? null : rawEntry;
   const scenarioConfig = getScenarioConfig(entry);
 
