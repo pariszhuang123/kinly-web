@@ -7,18 +7,35 @@ const DEFAULT_APP_STORE_URL = "https://apps.apple.com/app/kinly/id6756508378";
 const DEFAULT_PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=com.makinglifeeasie.kinly";
 
-export default async function KinlyIndexPage() {
+type PageProps = {
+  searchParams?: Record<string, string | string[] | undefined>;
+};
+
+export default async function KinlyIndexPage({ searchParams }: PageProps) {
   const [countryCode, platform] = await Promise.all([
     getDetectedCountryCode(),
     getDetectedPlatform(),
   ]);
+
+  const query = new URLSearchParams();
+  if (searchParams) {
+    for (const [key, value] of Object.entries(searchParams)) {
+      if (Array.isArray(value)) {
+        value.forEach((v) => query.append(key, v));
+      } else if (typeof value === "string") {
+        query.append(key, value);
+      }
+    }
+  }
+
+  const querySuffix = query.toString() ? `?${query.toString()}` : "";
 
   const isSupported = Boolean(
     countryCode && SUPPORTED_REGIONS.includes(countryCode.toUpperCase()),
   );
 
   if (!isSupported) {
-    redirect("/kinly/get");
+    redirect(`/kinly/get${querySuffix}`);
   }
 
   const appStoreUrl =
@@ -36,5 +53,5 @@ export default async function KinlyIndexPage() {
     redirect(playStoreUrl);
   }
 
-  redirect("/kinly/general");
+  redirect(`/kinly/general${querySuffix}`);
 }

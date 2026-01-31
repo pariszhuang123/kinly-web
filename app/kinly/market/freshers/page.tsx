@@ -1,11 +1,13 @@
 import { Suspense } from "react";
 import ScenarioLandingClient from "../ScenarioLandingClient";
 import { freshersConfig } from "../configs/freshers";
+import { getDetectedCountryCode } from "../../../../lib/geo";
 
-export default function FreshersPage() {
+export default async function FreshersPage() {
+  const detectedCountryCode = await getDetectedCountryCode();
   return (
     <Suspense fallback={null}>
-      <ScenarioLandingClient config={freshersConfig} />
+      <ScenarioLandingClient config={freshersConfig} detectedCountryCode={detectedCountryCode} />
     </Suspense>
   );
 }

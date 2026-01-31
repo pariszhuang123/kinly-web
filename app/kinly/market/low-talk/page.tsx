@@ -1,13 +1,13 @@
 import { Suspense } from "react";
 import ScenarioLandingClient from "../ScenarioLandingClient";
-import { takeawayBudgetConfig } from "../configs/takeawayBudget";
+import { lowTalkConfig } from "../configs/lowTalk";
 import { getDetectedCountryCode } from "../../../../lib/geo";
 
-export default async function TakeawayBudgetPage() {
+export default async function LowTalkPage() {
   const detectedCountryCode = await getDetectedCountryCode();
   return (
     <Suspense fallback={null}>
-      <ScenarioLandingClient config={takeawayBudgetConfig} detectedCountryCode={detectedCountryCode} />
+      <ScenarioLandingClient config={lowTalkConfig} detectedCountryCode={detectedCountryCode} />
     </Suspense>
   );
 }
