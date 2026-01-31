@@ -22,6 +22,7 @@ import {
   OutreachStore,
   readUtmParams,
 } from "../../../lib/outreachTracking";
+import { resolveStoreBadges } from "../../../lib/storeBadges";
 import styles from "../general/LandingClient.module.css";
 
 type InterestMarker = {
@@ -117,9 +118,11 @@ const PLAY_STORE_LABEL = "Get it on Google Play";
 type StoreCtasProps = {
   suppress: boolean;
   onClick: (store: OutreachStore) => void;
+  badges: { apple: string; play: string };
+  labels: { apple: string; play: string };
 };
 
-function StoreCtas({ suppress, onClick }: StoreCtasProps) {
+function StoreCtas({ suppress, onClick, badges, labels }: StoreCtasProps) {
   if (suppress) return null;
   return (
     <div className={styles.storeCtas}>
@@ -129,20 +132,20 @@ function StoreCtas({ suppress, onClick }: StoreCtasProps) {
           href={APP_STORE_URL}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={APP_STORE_LABEL}
+          aria-label={labels.apple}
           onClick={() => onClick("ios_app_store")}
         >
-          <img src="/apple-store.svg" alt={APP_STORE_LABEL} className={styles.storeBadge} />
+          <img src={badges.apple} alt={labels.apple} className={styles.storeBadge} />
         </a>
         <a
           className={styles.storeBadgeLink}
           href={PLAY_STORE_URL}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={PLAY_STORE_LABEL}
+          aria-label={labels.play}
           onClick={() => onClick("google_play")}
         >
-          <img src="/google-play.svg" alt={PLAY_STORE_LABEL} className={styles.storeBadge} />
+          <img src={badges.play} alt={labels.play} className={styles.storeBadge} />
         </a>
       </KinlyStack>
     </div>
@@ -208,6 +211,14 @@ export default function ScenarioLandingClient({
   }, [regionCountry]);
 
   const isRtl = lang === "ar" || lang === "he" || lang === "fa" || lang === "ur";
+  const storeBadges = useMemo(() => resolveStoreBadges(lang), [lang]);
+  const storeLabels = useMemo(
+    () => ({
+      apple: lang === "ar" ? "تحميل من App Store" : lang === "es" ? "Descargar en App Store" : APP_STORE_LABEL,
+      play: lang === "ar" ? "احصل عليه من Google Play" : lang === "es" ? "Obtener en Google Play" : PLAY_STORE_LABEL,
+    }),
+    [lang],
+  );
 
   const resolvedConfig = useMemo(() => {
     const localeKey = lang && config.translations ? lang : null;
@@ -299,7 +310,7 @@ export default function ScenarioLandingClient({
                   <div className={styles.heroCtaHeading}>
                     <KinlyHeading level={3}>{resolvedConfig.hero.ctaHeading ?? "Ready to start"}</KinlyHeading>
                   </div>
-                  <StoreCtas suppress={suppressStoreCtas} onClick={handleCtaClick} />
+                  <StoreCtas suppress={suppressStoreCtas} onClick={handleCtaClick} badges={storeBadges} labels={storeLabels} />
                   <KinlyText variant="bodySmall" tone="muted">
                     {resolvedConfig.hero.privacyNote ?? "Private by default. No ads. No surveillance."}
                   </KinlyText>
@@ -472,7 +483,7 @@ export default function ScenarioLandingClient({
                     {resolvedConfig.sectionHeadings?.readySubtitle ??
                       "Kinly lives in the app - start on iOS or Android."}
                   </KinlyText>
-                  <StoreCtas suppress={suppressStoreCtas} onClick={handleCtaClick} />
+                  <StoreCtas suppress={suppressStoreCtas} onClick={handleCtaClick} badges={storeBadges} labels={storeLabels} />
                 </KinlyStack>
               </KinlyCard>
             </section>

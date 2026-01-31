@@ -23,6 +23,7 @@ import {
   readUtmParams,
 } from "../../../lib/outreachTracking";
 import { resolveLandingCopy } from "./copy";
+import { resolveStoreBadges } from "../../../lib/storeBadges";
 import styles from "./LandingClient.module.css";
 
 type InterestMarker = {
@@ -47,9 +48,10 @@ type StoreCtasProps = {
   suppress: boolean;
   onClick: (store: OutreachStore) => void;
   labels: { app: string; play: string };
+  badges: { apple: string; play: string };
 };
 
-function StoreCtas({ suppress, onClick, labels }: StoreCtasProps) {
+function StoreCtas({ suppress, onClick, labels, badges }: StoreCtasProps) {
   if (suppress) return null;
   return (
     <div className={styles.storeCtas}>
@@ -62,7 +64,7 @@ function StoreCtas({ suppress, onClick, labels }: StoreCtasProps) {
           aria-label={labels.app}
           onClick={() => onClick("ios_app_store")}
         >
-          <img src="/apple-store.svg" alt={labels.app} className={styles.storeBadge} />
+          <img src={badges.apple} alt={labels.app} className={styles.storeBadge} />
         </a>
         <a
           className={styles.storeBadgeLink}
@@ -72,7 +74,7 @@ function StoreCtas({ suppress, onClick, labels }: StoreCtasProps) {
           aria-label={labels.play}
           onClick={() => onClick("google_play")}
         >
-          <img src="/google-play.svg" alt={labels.play} className={styles.storeBadge} />
+          <img src={badges.play} alt={labels.play} className={styles.storeBadge} />
         </a>
       </KinlyStack>
     </div>
@@ -114,6 +116,7 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
   const lang = useMemo(() => (uiLocale ? uiLocale.split("-")[0]?.toLowerCase() ?? null : null), [uiLocale]);
   const copy = useMemo(() => resolveLandingCopy(lang), [lang]);
   const isRtl = lang === "ar" || lang === "he" || lang === "fa" || lang === "ur";
+  const storeBadges = useMemo(() => resolveStoreBadges(lang), [lang]);
 
   const interestMarker = useMemo<InterestMarker | null>(
     () => (hasHydrated ? readInterestMarker() : null),
@@ -203,7 +206,7 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
                   <div className={styles.heroCtaHeading}>
                     <KinlyHeading level={3}>{copy.hero.ctaHeading}</KinlyHeading>
                   </div>
-                  <StoreCtas suppress={suppressStoreCtas} onClick={handleCtaClick} labels={copy.storeLabels} />
+                  <StoreCtas suppress={suppressStoreCtas} onClick={handleCtaClick} labels={copy.storeLabels} badges={storeBadges} />
                   <KinlyText variant="bodySmall" tone="muted">
                     {copy.hero.privacyNote}
                   </KinlyText>
@@ -359,7 +362,7 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
                 <KinlyText variant="bodySmall" tone="muted">
                   {copy.storeSectionSubhead}
                 </KinlyText>
-                <StoreCtas suppress={suppressStoreCtas} onClick={handleCtaClick} labels={copy.storeLabels} />
+                <StoreCtas suppress={suppressStoreCtas} onClick={handleCtaClick} labels={copy.storeLabels} badges={storeBadges} />
               </KinlyStack>
             </KinlyCard>
           </section>
