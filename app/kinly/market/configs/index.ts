@@ -1,11 +1,13 @@
 import { ScenarioConfig } from "../ScenarioLandingClient";
 import { freshersConfig } from "./freshers";
+import { internationalStartConfig } from "./internationalStart";
 import { takeawayBudgetConfig } from "./takeawayBudget";
 import { thriftFirstConfig } from "./thriftFirst";
 import { lowTalkConfig } from "./lowTalk";
 
 export const scenarioConfigs: Record<string, ScenarioConfig> = {
   freshers: freshersConfig,
+  "new-place": internationalStartConfig,
   "takeaway-budget": takeawayBudgetConfig,
   "thrift-first": thriftFirstConfig,
   "low-talk": lowTalkConfig,
@@ -13,6 +15,7 @@ export const scenarioConfigs: Record<string, ScenarioConfig> = {
 
 export const ENTRY_TO_SCENARIO: Record<string, keyof typeof scenarioConfigs> = {
   freshers: "freshers",
+  "new-place": "new-place",
   "takeaway-budget": "takeaway-budget",
   "thrift-first": "thrift-first",
   "low-talk": "low-talk",
