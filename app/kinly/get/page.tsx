@@ -5,7 +5,9 @@ import { KinlyShell, KinlyText } from "../../../components";
 import { getDetectedCountryCode } from "../../../lib/geo";
 
 export const metadata: Metadata = {
-  title: "Get the app",
+  title: "Kinly | Get the app",
+  description:
+    "Download Kinly for iOS or Android. Express interest if Kinly is not yet available in your area — we will email you when it opens.",
 };
 
 type Props = {

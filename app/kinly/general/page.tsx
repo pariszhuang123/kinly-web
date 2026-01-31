@@ -8,7 +8,8 @@ import { getScenarioConfig } from "../market/configs";
 
 export const metadata: Metadata = {
   title: { absolute: "Kinly | Shared living gets lighter" },
-  description: "Recognition-first marketing surface for Kinly.",
+  description:
+    "A calmer way to live together. Notice what the home needs before anyone feels blamed. Private by default, no ads, no surveillance.",
 };
 
 type PageProps = {

@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import { Suspense } from "react";
 import ScenarioLandingClient from "../ScenarioLandingClient";
 import { takeawayBudgetConfig } from "../configs/takeawayBudget";
 import { getDetectedCountryCode } from "../../../../lib/geo";
+
+export const metadata: Metadata = {
+  title: "Kinly | Takeaway nights without awkwardness",
+  description:
+    "Take turns on dinner without tracking who owes what. Kinly shows who covers tonight and keeps things fair over time.",
+};
 
 export default async function TakeawayBudgetPage() {
   const detectedCountryCode = await getDetectedCountryCode();
