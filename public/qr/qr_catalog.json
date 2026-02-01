@@ -3,12 +3,12 @@
   "generatedAt": "2026-02-01T12:00:00Z",
   "options": {
     "pageKeys": [
-      { "key": "freshers", "valueStatement": "Simplify your student life with Kinly." },
-      { "key": "kinly_market_takeaway_budget", "valueStatement": "Eat well, spend less. Takeaway budget tracking made easy." },
-      { "key": "new-place", "valueStatement": "Moving in? Track your shared expenses effortlessly." },
-      { "key": "thrift-first", "valueStatement": "Save more, spend smarter. Join the thrift-first movement." },
-      { "key": "low-talk", "valueStatement": "Spend more time living, less time talking about bills." },
-      { "key": "kinly_general", "valueStatement": "Shared spending, simplified." }
+      { "key": "freshers", "valueStatement": "First flat? Keep the house calm and organised." },
+      { "key": "kinly_market_takeaway_budget", "valueStatement": "Stretch your budget without household drama." },
+      { "key": "new-place", "valueStatement": "New country, new house—learn the vibe without awkwardness." },
+      { "key": "thrift-first", "valueStatement": "Use what you have—share life, not pressure." },
+      { "key": "low-talk", "valueStatement": "Live together quietly—needs stay clear without small talk." },
+      { "key": "kinly_general", "valueStatement": "A calmer way to live together." }
     ],
     "utm_campaigns": [
       "singapore_working_holiday",
