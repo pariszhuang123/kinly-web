@@ -3,26 +3,24 @@
   "generatedAt": "2026-02-01T12:00:00Z",
   "options": {
     "pageKeys": [
-      "freshers",
-      "kinly_market_takeaway_budget",
-      "new-place",
-      "thrift-first",
-      "low-talk",
-      "kinly_general"
+      { "key": "freshers", "valueStatement": "Simplify your student life with Kinly." },
+      { "key": "kinly_market_takeaway_budget", "valueStatement": "Eat well, spend less. Takeaway budget tracking made easy." },
+      { "key": "new-place", "valueStatement": "Moving in? Track your shared expenses effortlessly." },
+      { "key": "thrift-first", "valueStatement": "Save more, spend smarter. Join the thrift-first movement." },
+      { "key": "low-talk", "valueStatement": "Spend more time living, less time talking about bills." },
+      { "key": "kinly_general", "valueStatement": "Shared spending, simplified." }
     ],
     "utm_campaigns": [
-      "singapore_working_holdiay",
+      "singapore_working_holiday",
       "first_year_2026",
       "early_interest_2026",
       "nepal_students"
     ],
     "utm_sources": [
-      "telegram",
-      "flyer",
       "facebook",
       "whatsapp",
       "private_social_media_group"
-        ]
+    ]
   },
   "items": [
     {
@@ -31,7 +29,8 @@
       "utm_campaign": "first_year_2026",
       "utm_medium": "qr",
       "utm_source": "telegram",
-      "url": "https://go.makinglifeeasie.com/kinly/market/freshers?utm_campaign=first_year_2026&utm_medium=qr&utm_source=telegram"
+      "url": "https://go.makinglifeeasie.com/kinly/market/freshers?utm_campaign=first_year_2026&utm_medium=qr&utm_source=telegram",
+      "valueStatement": "Simplify your student life with Kinly."
     },
     {
       "qr_id": "international_people",
@@ -39,7 +38,8 @@
       "utm_campaign": "nepal_students",
       "utm_medium": "qr",
       "utm_source": "private_social_media_group",
-      "url": "https://go.makinglifeeasie.com/kinly/market/new-place?utm_campaign=nepal_students&utm_medium=qr&utm_source=private_social_media_group"
+      "url": "https://go.makinglifeeasie.com/kinly/market/new-place?utm_campaign=nepal_students&utm_medium=qr&utm_source=private_social_media_group",
+      "valueStatement": "Moving in? Track your shared expenses effortlessly."
     }
   ]
 }

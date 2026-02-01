@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { QrCatalogV1, validateItem, CATALOG_URL } from "../_types";
-import { generateQrDataUrl, generateQrSvg } from "../_utils";
+import { generateQrCardPng, generateQrCardSvg } from "../_utils";
 import { saveAs } from "file-saver";
 import { KinlyStack, KinlyButton, KinlyText, KinlyHeading } from "../../../../components";
 import Image from "next/image";
@@ -17,6 +17,7 @@ export default function QrHub() {
   const [pageKey, setPageKey] = useState("");
   const [utmCampaign, setUtmCampaign] = useState("");
   const [utmSource, setUtmSource] = useState("");
+  const [valueStatement, setValueStatement] = useState("");
 
   // Generation State
   const [generatedUrl, setGeneratedUrl] = useState<string | null>(null);
@@ -41,8 +42,6 @@ export default function QrHub() {
       });
   }, []);
 
-
-
   const handleSubmit = async () => {
     if (!pageKey || !utmCampaign || !utmSource) return;
     
@@ -56,36 +55,38 @@ export default function QrHub() {
     const fullUrl = url.toString();
     setGeneratedUrl(fullUrl);
 
-    // Generate Preview
-    const preview = await generateQrDataUrl(fullUrl);
+    // Generate Preview - use card version
+    const preview = await generateQrCardPng(fullUrl, valueStatement || "Shared spending, simplified.");
     setQrPreviewUrl(preview);
   };
 
-  const handleDownloadPng = () => {
-    if (!qrPreviewUrl || !selectedId) return; // Use selectedId as filename part
-    saveAs(qrPreviewUrl, `${selectedId || "qr_code"}.png`);
+  const handleDownloadPng = async () => {
+    if (!generatedUrl || !selectedId) return;
+    const png = await generateQrCardPng(generatedUrl, valueStatement || "Shared spending, simplified.");
+    saveAs(png, `${selectedId || "qr_code"}_card.png`);
   };
 
   const handleDownloadSvg = async () => {
     if (!generatedUrl || !selectedId) return;
-    const svgContent = await generateQrSvg(generatedUrl);
+    const svgContent = await generateQrCardSvg(generatedUrl, valueStatement || "Shared spending, simplified.");
     const blob = new Blob([svgContent], { type: "image/svg+xml;charset=utf-8" });
-    saveAs(blob, `${selectedId || "qr_code"}.svg`);
+    saveAs(blob, `${selectedId || "qr_code"}_card.svg`);
   };
 
   if (loading) return <div style={{ padding: 40 }}>Loading Tools...</div>;
   if (error) return <div style={{ padding: 40, color: "red" }}>Error: {error}</div>;
 
   // Uniques for dropdowns
-  // Uniques for dropdowns
   const items = catalog?.items || [];
   const options = catalog?.options;
 
   const qrIds = Array.from(new Set(items.map(i => i.qr_id))).sort();
   
-  const pageKeys = Array.from(new Set([
-    ...(items.map(i => i.pageKey)),
-    ...(options?.pageKeys || [])
+  const pageKeyOptions = options?.pageKeys || [];
+  const itemsPageKeys = items.map(i => i.pageKey);
+  const allPageKeys = Array.from(new Set([
+    ...itemsPageKeys,
+    ...pageKeyOptions.map(o => o.key)
   ])).sort();
 
   const campaigns = Array.from(new Set([
@@ -117,6 +118,7 @@ export default function QrHub() {
                         setPageKey(item.pageKey);
                         setUtmCampaign(item.utm_campaign);
                         setUtmSource(item.utm_source);
+                        setValueStatement(item.valueStatement || "");
                       }
                     }}
                     style={inputStyle}
@@ -131,11 +133,18 @@ export default function QrHub() {
                 <KinlyText variant="labelMedium">Page Key</KinlyText>
                 <select 
                     value={pageKey}
-                    onChange={(e) => setPageKey(e.target.value)}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      setPageKey(val);
+                      const opt = pageKeyOptions.find(o => o.key === val);
+                      if (opt) {
+                        setValueStatement(opt.valueStatement);
+                      }
+                    }}
                     style={inputStyle}
                 >
                     <option value="">-- Select Page --</option>
-                    {pageKeys.map(k => <option key={k} value={k}>{k}</option>)}
+                    {allPageKeys.map(k => <option key={k} value={k}>{k}</option>)}
                 </select>
             </div>
 

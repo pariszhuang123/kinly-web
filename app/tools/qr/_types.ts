@@ -5,11 +5,17 @@ export type QrItemV1 = {
   utm_medium: "qr";
   utm_source: string;
   url: string;
+  valueStatement?: string;
   notes?: string;
 };
 
+export type PageKeyOption = {
+  key: string;
+  valueStatement: string;
+};
+
 export type QrOptions = {
-  pageKeys: string[];
+  pageKeys: PageKeyOption[];
   utm_campaigns: string[];
   utm_sources: string[];
 };
