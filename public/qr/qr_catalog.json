@@ -1,0 +1,45 @@
+{
+  "version": "v1.0",
+  "generatedAt": "2026-02-01T12:00:00Z",
+  "options": {
+    "pageKeys": [
+      "freshers",
+      "kinly_market_takeaway_budget",
+      "new-place",
+      "thrift-first",
+      "low-talk",
+      "kinly_general"
+    ],
+    "utm_campaigns": [
+      "singapore_working_holdiay",
+      "first_year_2026",
+      "early_interest_2026",
+      "nepal_students"
+    ],
+    "utm_sources": [
+      "telegram",
+      "flyer",
+      "facebook",
+      "whatsapp",
+      "private_social_media_group"
+        ]
+  },
+  "items": [
+    {
+      "qr_id": "uc_freshers",
+      "pageKey": "freshers",
+      "utm_campaign": "first_year_2026",
+      "utm_medium": "qr",
+      "utm_source": "telegram",
+      "url": "https://go.makinglifeeasie.com/kinly/market/freshers?utm_campaign=first_year_2026&utm_medium=qr&utm_source=telegram"
+    },
+    {
+      "qr_id": "international_people",
+      "pageKey": "new-place",
+      "utm_campaign": "nepal_students",
+      "utm_medium": "qr",
+      "utm_source": "private_social_media_group",
+      "url": "https://go.makinglifeeasie.com/kinly/market/new-place?utm_campaign=nepal_students&utm_medium=qr&utm_source=private_social_media_group"
+    }
+  ]
+}
