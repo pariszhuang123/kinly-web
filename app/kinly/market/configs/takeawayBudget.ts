@@ -1,147 +1,168 @@
 import { ScenarioConfig } from "../ScenarioLandingClient";
 import { LocaleCopy } from "./shared/locale";
 
-export const takeawayBudgetConfig: ScenarioConfig = {
-  pageKey: "kinly_market_takeaway_budget",
+export const takeawayBudgetFlatsConfig: ScenarioConfig = {
+  pageKey: "takeaway_budget_flats",
+
   recognition: {
-    heading: "Cheap nights can feel heavier in shared houses.",
-    subtitle: "Especially when no one wants to make it awkward.",
-    body: "Kinly keeps plans, turns, and paybacks clear so no one feels taken for granted.",
+    heading: "When money is tight, small unfairness becomes big tension.",
+    subtitle: "Power, heating, and shared groceries shouldn’t turn into quiet resentment.",
+    body: "Kinly keeps shared expectations visible — so money-stress arguments don’t start in the first place.",
   },
+
   hero: {
-    headline: "A calmer way to coordinate budget nights together.",
-    subhead: "Nights like this — fish and chips, something quick, something cheap — are common in shared homes.",
-    body: "See tonight’s plan, who’s in, who’s covering it, and what changes if plans shift. No pressure. No chasing.",
-    ctaHeading: "Keep tonight simple",
-    privacyNote: "Private by default. No ads. No surveillance. Kinly doesn’t move money — it just keeps things clear.",
+    headline: "Fair shared living — even on a tight budget.",
+    subhead: "Light structure for shared costs and shared standards, without awkward call-outs.",
+    body: "Agree what’s shared, what’s personal, and how to handle uneven weeks. Kinly helps the house reset calmly — so it stays fair.",
+    ctaHeading: "Keep it fair this week",
   },
+
   screens: [
     {
       title: "Today",
-      eyebrow: "Tonight",
-      headline: "What’s the plan?",
-      copy: "A simple option, who’s in, and whose turn it is — without awkward messages.",
-      footer: "If someone can’t cover it, Kinly adjusts without blame.",
+      eyebrow: "Right now",
+      headline: "What’s stressing the house this week?",
+      copy: "Groceries, heating, power — and the little things that quietly add up.",
+      footer: "Notice friction early, before it turns into an argument.",
       image:
         "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/today.png",
     },
     {
       title: "Manage",
-      eyebrow: "Switch",
-      headline: "Swap turns fast",
-      copy: "Reassign buying or pickup when shifts change or someone’s week is tight.",
-      footer: "No streaks, no scorekeeping — just clarity.",
+      eyebrow: "Reset",
+      headline: "Set the baseline once",
+      copy: "What counts as shared, how to handle uneven usage, and how to adjust when someone is stretched.",
+      footer: "Less blaming. More clarity. Everyone stays on the same page.",
       image:
         "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/explore.png",
     },
     {
       title: "Home Hub",
       eyebrow: "Shared norms",
-      headline: "Agree what works once",
-      copy: "Set price caps, sides, and timing before anyone feels uncomfortable.",
-      footer: "House norms and shared context in one calm place.",
+      headline: "Make expectations easy to see",
+      copy: "Simple house standards — so nobody has to hint, nag, or keep score.",
+      footer: "Fairness feels lighter when it’s visible.",
       image:
         "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
     },
   ],
+
   chips: [
-    "Fish and chips is just the moment — the real problem is shared-house tension.",
-    "Decide who covers it this week without awkwardness.",
-    "Keep a shared list of low-cost options everyone’s okay with.",
-    "Kinly shows who owes what — but never handles payments.",
+    "When budgets are tight, small unfairness feels personal.",
+    "Unequal usage (food, power, heating) builds resentment fast.",
+    "Most people avoid confrontation — tension goes quiet first.",
+    "Weekly resets keep one hard week from becoming a house conflict.",
   ],
+
   rolePoints: [
-    "Surfaces a simple plan before everyone is hungry.",
-    "Keeps turns and paybacks clear so it feels fair without nagging.",
+    "Makes shared expectations visible so you don’t have to ‘call people out.’",
+    "Helps the house adjust fairly when someone is week-to-week.",
   ],
+
   formingPoints: [
-    "People come and go each term — Kinly keeps the context.",
-    "Late shifts or tight weeks are normal, not a failure.",
+    "New flatmates and changing schedules — the baseline stays clear.",
+    "If it slips, you reset next week without shame or blame.",
   ],
-  audience: ["Students and roommates coordinating cheap nights.", "Shared homes where money is tight this week."],
-  notList: ["Not a budgeting lecture.", "Not a payment app.", "Not a leaderboard or debt collector.", "Not a chore chart."],
+
+  audience: [
+    "Student flats living week-to-week.",
+    "Shared homes where groceries, heating, or power cause repeated tension.",
+  ],
+
+  notList: [
+    "Not a budgeting app.",
+    "Not a debt tracker.",
+    "Not a scorecard or leaderboard.",
+    "Not a chore boss.",
+  ],
+
   weekly: {
-    intro: "Kinly moves at a weekly rhythm to keep things human-paced.",
+    intro: "Kinly uses a weekly rhythm so money conversations stay calm and fair.",
     points: [
-      "Check in weekly, not daily — no streaks to maintain.",
-      "Reflections are for understanding, not grading anyone.",
-      "Plans can change without drama when someone’s week is tight.",
+      "Check in weekly so small issues don’t stack up.",
+      "Adjust expectations without blame — just clarity.",
+      "Agree next week’s baseline and move on.",
     ],
   },
+
   availability: {
     body: "Kinly is currently available in New Zealand and Singapore. We will email you when Kinly opens in your area.",
-    ctaLabel: "Express interest for your region.",
   },
+
   defaultLocale: "en",
+
   translations: {
     es: {
       recognition: {
-        heading: "Las noches baratas pueden sentirse más pesadas en pisos compartidos.",
-        subtitle: "Sobre todo cuando nadie quiere que sea incómodo.",
-        body: "Kinly deja claros los planes, turnos y reembolsos para que nadie se sienta aprovechado.",
+        heading: "Cuando el dinero está justo, una pequeña injusticia se vuelve una gran tensión.",
+        subtitle: "Luz, calefacción y compras compartidas no deberían convertirse en resentimiento silencioso.",
+        body: "Kinly deja claras las expectativas compartidas — para que las discusiones por dinero no empiecen.",
       },
       hero: {
-        headline: "Una forma tranquila de coordinar noches baratas juntos.",
-        subhead:
-          "Noches como esta — fish and chips, algo rápido, algo barato — son comunes en casas compartidas.",
-        body: "Mira el plan de esta noche, quién se apunta, quién cubre y qué cambia si el plan se mueve. Sin presión. Sin persecución.",
-        ctaHeading: "Hacer la noche más simple",
-        privacyNote: "Privado por defecto. Sin anuncios. Sin vigilancia. Kinly no mueve dinero — solo mantiene claridad.",
+        headline: "Convivencia justa — incluso con presupuesto ajustado.",
+        subhead: "Estructura ligera para costos y estándares compartidos, sin indirectas incómodas.",
+        body: "Acordad qué es compartido, qué es personal y cómo manejar semanas desiguales. Kinly ayuda a reiniciar con calma — para que siga siendo justo.",
+        ctaHeading: "Mantenerlo justo esta semana",
       },
       screens: [
         {
           title: "Hoy",
-          eyebrow: "Esta noche",
-          headline: "¿Cuál es el plan?",
-          copy: "Una opción simple, quién se apunta y a quién le toca — sin mensajes incómodos.",
-          footer: "Si alguien no puede pagar, Kinly ajusta sin culpas.",
+          eyebrow: "Ahora",
+          headline: "¿Qué está estresando al piso esta semana?",
+          copy: "Compras, calefacción, luz — y esas cosas pequeñas que se acumulan.",
+          footer: "Detecta fricción temprano, antes de que se convierta en discusión.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/today.png",
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/today.png",
         },
         {
           title: "Gestionar",
-          eyebrow: "Cambiar",
-          headline: "Cambia turnos rápido",
-          copy: "Reasigna pago o recogida cuando cambian turnos o la semana está ajustada.",
-          footer: "Sin rachas ni marcadores — solo claridad.",
+          eyebrow: "Reiniciar",
+          headline: "Acordar la base una vez",
+          copy: "Qué cuenta como compartido, cómo manejar usos desiguales y cómo ajustar cuando alguien va justo.",
+          footer: "Menos reproches. Más claridad. Misma página para todos.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/explore.png",
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/explore.png",
         },
         {
           title: "Hub",
           eyebrow: "Normas compartidas",
-          headline: "Acordar qué funciona una vez",
-          copy: "Define topes de precio, acompañamientos y horarios antes de que sea incómodo.",
-          footer: "Normas del piso y contexto compartido en un solo lugar tranquilo.",
+          headline: "Expectativas fáciles de ver",
+          copy: "Normas simples del piso — para no tener que insinuar, insistir o llevar la cuenta.",
+          footer: "La equidad se siente más ligera cuando es visible.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/hub.png",
         },
       ],
       chips: [
-        "Fish and chips es solo el momento — el problema real es la tensión en casa compartida.",
-        "Decidir quién cubre esta semana sin incomodidad.",
-        "Lista compartida de opciones baratas con las que todos están bien.",
-        "Kinly muestra quién debe qué — pero nunca gestiona pagos.",
+        "Con presupuestos ajustados, una pequeña injusticia se siente personal.",
+        "El uso desigual (comida, luz, calefacción) genera resentimiento rápido.",
+        "La mayoría evita confrontar — la tensión se vuelve silenciosa primero.",
+        "Reinicios semanales evitan que una semana dura se vuelva conflicto.",
       ],
       rolePoints: [
-        "Muestra un plan simple antes de que llegue el hambre.",
-        "Mantiene claros turnos y reembolsos sin regañar.",
+        "Hace visibles las expectativas para no tener que “señalar” a nadie.",
+        "Ayuda a ajustar de forma justa cuando alguien vive semana a semana.",
       ],
       formingPoints: [
-        "Gente entra y sale cada semestre — Kinly guarda el contexto.",
-        "Turnos tarde o semanas ajustadas son normales, no fallos.",
+        "Cambian los compis y horarios — la base sigue clara.",
+        "Si se desordena, se reinicia la próxima semana sin culpas.",
       ],
       audience: [
-        "Estudiantes y compis de piso coordinando noches baratas.",
-        "Casas compartidas con dinero justo esta semana.",
+        "Pisos de estudiantes viviendo al día.",
+        "Casas compartidas donde compras, calefacción o luz causan tensión repetida.",
       ],
-      notList: ["No es una clase de finanzas.", "No es una app de pagos.", "No es marcador ni cobrador.", "No es un cuadro de tareas."],
+      notList: [
+        "No es una app de presupuesto.",
+        "No es un registro de deudas.",
+        "No es marcador ni ranking.",
+        "No es un jefe de tareas.",
+      ],
       weekly: {
-        intro: "Kinly usa un ritmo semanal para mantener lo humano primero.",
+        intro: "Kinly usa un ritmo semanal para que hablar de dinero sea calmado y justo.",
         points: [
-          "Revisa cada semana, no cada día — sin rachas.",
-          "Reflexiones para entender, no para juzgar.",
-          "Los planes pueden cambiar sin drama cuando la semana está ajustada.",
+          "Revisa semanalmente para que lo pequeño no se acumule.",
+          "Ajusta expectativas sin reproches — solo claridad.",
+          "Acordad la base de la semana y seguid adelante.",
         ],
         heading: "Reflexión semanal, a ritmo humano",
       },
@@ -149,7 +170,7 @@ export const takeawayBudgetConfig: ScenarioConfig = {
         howItWorks: "Cómo funciona Kinly",
         howItWorksSubtitle: "Nada se comparte sin intención.",
         soundsLikeYou: "¿Te suena familiar?",
-        roleHeading: "El rol de Kinly: reflexión primero",
+        roleHeading: "El rol de Kinly: claridad primero",
         formingHeading: "Si tu hogar aún se está formando",
         audienceHeading: "Para quién es esto",
         notListHeading: "Kinly no es...",
@@ -158,75 +179,80 @@ export const takeawayBudgetConfig: ScenarioConfig = {
       },
       availability: {
         body: "Kinly está disponible en Nueva Zelanda y Singapur. Te avisaremos cuando abra en tu región.",
-        ctaLabel: "Apúntate para tu región.",
       },
     } satisfies LocaleCopy,
+
     ar: {
       recognition: {
-        heading: "ليالي الطلبات الخارجية بدون الإحراج.",
-        subtitle: "تناوبوا على العشاء بدون متابعة من يدين لمن.",
-        body: "كينلي يُظهر من يغطي الليلة وكيف تتوازن الأمور مع مرور الوقت - بدون جداول أو تذكيرات.",
+        heading: "عندما يكون المال محدوداً، يصبح عدم العدل الصغير توتراً كبيراً.",
+        subtitle: "الكهرباء والتدفئة ومشتريات البيت المشتركة لا يجب أن تتحول إلى استياء صامت.",
+        body: "كينلي يجعل التوقعات المشتركة واضحة — حتى لا تبدأ خلافات ضغط المصروف من الأساس.",
       },
       hero: {
-        headline: "ليالي الطلبات الخارجية، بدون حسابات.",
-        subhead: "اعرف من يغطي ومتى يتوازن الأمر، بدون متابعة.",
-        body: "كينلي يُظهر نوبات الطلبات الخارجية بلطف حتى لا أحد يشعر بالاستغلال. لا جداول، لا حسابات، لا ذنب.",
-        ctaHeading: "ابدأ ليالي طلبات خارجية أعدل",
+        headline: "سكن مشترك عادل — حتى مع ميزانية ضيقة.",
+        subhead: "تنظيم خفيف للمصاريف والمعايير المشتركة، بدون إحراج أو تلميحات.",
+        body: "اتفقوا على ما هو مشترك وما هو شخصي، وكيف تتعاملون مع الأسابيع غير المتساوية. كينلي يساعدكم على إعادة الضبط بهدوء — ليبقى الأمر عادلاً.",
+        ctaHeading: "خلّوه عادلاً هذا الأسبوع",
       },
       screens: [
         {
           title: "اليوم",
-          eyebrow: "الليلة",
-          headline: "من يغطي العشاء",
-          copy: "شاهد من دوره ومن غطى آخر مرة - بدون سؤال.",
-          footer: "بسيط وواضح، بدون إحراج.",
+          eyebrow: "الآن",
+          headline: "ما الذي يضغط على البيت هذا الأسبوع؟",
+          copy: "مشتريات مشتركة، تدفئة، كهرباء — وأشياء صغيرة تتراكم بهدوء.",
+          footer: "لاحظوا الاحتكاك مبكراً قبل أن يتحول إلى خلاف.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/today.png",
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/today.png",
         },
         {
           title: "إدارة",
-          eyebrow: "تبديل",
-          headline: "بدّل الأدوار بدون دراما",
-          copy: "إذا كان شخص ضيق هذا الأسبوع، عدّل بهدوء.",
-          footer: "الجميع يبقى على علم.",
+          eyebrow: "إعادة ضبط",
+          headline: "حددوا الأساس مرة واحدة",
+          copy: "ما الذي يُحسب مشتركاً، وكيف تتعاملون مع الاستخدام غير المتساوي، وكيف تعدّلون عندما يكون أحدكم مضغوطاً.",
+          footer: "لوم أقل. وضوح أكثر. الكل على نفس الصفحة.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/explore.png",
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/explore.png",
         },
         {
           title: "مركز المنزل",
-          eyebrow: "قواعد المنزل",
-          headline: "الخيارات المشتركة في مكان واحد",
-          copy: "الأماكن المفضلة، نطاقات الميزانية، والقواعد المتفق عليها.",
-          footer: "قواعد المنزل والسياق المشترك في مكان واحد هادئ.",
+          eyebrow: "معايير مشتركة",
+          headline: "اجعلوا التوقعات سهلة الرؤية",
+          copy: "معايير بسيطة للبيت — بدون تلميح أو إلحاح أو عدّ للنقاط.",
+          footer: "العدل يصبح أخف عندما يكون واضحاً.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/hub.png",
         },
       ],
       chips: [
-        "السمك والبطاطس مجرد لحظة - المشكلة الحقيقية هي التوتر في السكن المشترك.",
-        "تحديد من يغطي هذا الأسبوع بدون إحراج.",
-        "قائمة مشتركة بالخيارات الرخيصة التي يوافق عليها الجميع.",
-        "عندما يكون شخص ضيق، يمكن للآخرين التغطية بدون ضغط.",
+        "عندما تكون الميزانية ضيقة، يبدو عدم العدل الصغير شخصياً.",
+        "الاستخدام غير المتساوي (الطعام، الكهرباء، التدفئة) يبني استياء بسرعة.",
+        "معظم الناس يتجنبون المواجهة — فيصبح التوتر صامتاً أولاً.",
+        "إعادة الضبط أسبوعياً تمنع أسبوعاً صعباً من أن يصبح صراعاً في البيت.",
       ],
       rolePoints: [
-        "يُظهر نوبات الطلبات الخارجية بلطف حتى لا أحد يشعر بالاستغلال.",
-        "يبقي الخطط خفيفة - لا جداول، لا متابعة، لا ذنب.",
+        "يجعل التوقعات المشتركة واضحة حتى لا تضطروا لإحراج أحد.",
+        "يساعد البيت على التكيف بعدل عندما يعيش أحدكم أسبوعاً بأسبوع.",
       ],
       formingPoints: [
-        "زملاء السكن يتغيرون - كينلي يحفظ السياق المشترك مستمر.",
-        "الأسابيع الضيقة طبيعية؛ التعديل أو التخطي ليس فشل.",
+        "زملاء سكن جدد وجداول تتغير — الأساس يبقى واضحاً.",
+        "إذا حصل خلل، تعيدون الضبط الأسبوع القادم بدون لوم.",
       ],
       audience: [
-        "الطلاب وزملاء الشقق ينسقون ليالي رخيصة.",
-        "المنازل المشتركة بميزانية ضيقة هذا الأسبوع.",
+        "شقق طلاب يعيشون أسبوعاً بأسبوع.",
+        "منازل مشتركة تتكرر فيها توترات حول المشتريات أو التدفئة أو الكهرباء.",
       ],
-      notList: ["ليس درس مالي.", "ليس تطبيق دفع.", "ليس لوحة نقاط أو محصّل.", "ليس جدول مهام."],
+      notList: [
+        "ليس تطبيق ميزانية.",
+        "ليس سجل ديون.",
+        "ليس لوحة نقاط أو ترتيب.",
+        "ليس رئيس مهام.",
+      ],
       weekly: {
-        intro: "كينلي يستخدم إيقاعاً أسبوعياً للحفاظ على الإنسانية أولاً.",
+        intro: "كينلي يستخدم إيقاعاً أسبوعياً حتى تبقى أحاديث المصروف هادئة وعادلة.",
         points: [
-          "راجع كل أسبوع، ليس كل يوم - لا سلاسل.",
-          "التأملات للفهم، ليس للحكم.",
-          "الخطط يمكن أن تتغير بدون دراما عندما يكون الأسبوع ضيق.",
+          "تفقدوا أسبوعياً حتى لا تتراكم الأمور الصغيرة.",
+          "عدّلوا التوقعات بدون لوم — فقط وضوح.",
+          "اتفقوا على أساس الأسبوع القادم وامضوا قدماً.",
         ],
         heading: "تأمل أسبوعي، بإيقاع بشري",
       },
@@ -234,7 +260,7 @@ export const takeawayBudgetConfig: ScenarioConfig = {
         howItWorks: "كيف يعمل كينلي",
         howItWorksSubtitle: "لا شيء يُشارك بدون قصد.",
         soundsLikeYou: "هل يبدو هذا مثل مكانك؟",
-        roleHeading: "دور كينلي: التأمل أولاً",
+        roleHeading: "دور كينلي: وضوح أولاً",
         formingHeading: "إذا كان منزلك لا يزال يتشكل",
         audienceHeading: "لمن هذا",
         notListHeading: "كينلي ليس...",
@@ -243,7 +269,6 @@ export const takeawayBudgetConfig: ScenarioConfig = {
       },
       availability: {
         body: "كينلي متاح حالياً في نيوزيلندا وسنغافورة. سنراسلك عندما يفتح كينلي في منطقتك.",
-        ctaLabel: "سجّل لمنطقتك.",
       },
     } satisfies LocaleCopy,
   },

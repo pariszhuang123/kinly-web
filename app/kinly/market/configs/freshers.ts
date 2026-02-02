@@ -92,7 +92,7 @@ export const freshersConfig: ScenarioConfig = {
           copy: "Horas de silencio en examenes, sacar basura, quien recibe visitas.",
           footer: "Cosas por hacer o notar sin culpas.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/today.png",
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/today.png",
         },
         {
           title: "Gestionar",
@@ -101,7 +101,7 @@ export const freshersConfig: ScenarioConfig = {
           copy: "Si alguien tiene turno tarde o poco dinero esta semana, reasigna en silencio.",
           footer: "Siempre en control - nada queda fijo.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/explore.png",
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/explore.png",
         },
         {
           title: "Hub",
@@ -110,7 +110,7 @@ export const freshersConfig: ScenarioConfig = {
           copy: "Silencio, visitas, estandares de limpieza y gastos compartidos en un solo lugar.",
           footer: "Sin sorpresas, sin cuadros de tareas.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/hub.png",
         },
       ],
       chips: [
@@ -177,7 +177,7 @@ export const freshersConfig: ScenarioConfig = {
           copy: "ساعات الهدوء لأسابيع الامتحانات، إخراج القمامة، من يستضيف الليلة.",
           footer: "أشياء للقيام بها وملاحظتها بدون لوم.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/today.png",
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/today.png",
         },
         {
           title: "إدارة",
@@ -186,7 +186,7 @@ export const freshersConfig: ScenarioConfig = {
           copy: "إذا كان شخص في وردية متأخرة أو ضيق مادياً هذا الأسبوع، أعد التوزيع بهدوء.",
           footer: "أنت دائماً مسيطر - لا شيء مقفل.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/explore.png",
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/explore.png",
         },
         {
           title: "مركز المنزل",
@@ -195,7 +195,7 @@ export const freshersConfig: ScenarioConfig = {
           copy: "ساعات الهدوء، الضيوف، معايير النظافة، والتكاليف المشتركة في مكان واحد هادئ.",
           footer: "لا مفاجآت، لا جداول مهام.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/hub.png",
         },
       ],
       chips: [

@@ -95,7 +95,7 @@ export const lowTalkConfig: ScenarioConfig = {
           copy: "Avisos ligeros para ruido, visitas o un reset rapido antes del dia.",
           footer: "Accionable sin convertirse en reunion.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/today.png",
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/today.png",
         },
         {
           title: "Gestionar",
@@ -104,7 +104,7 @@ export const lowTalkConfig: ScenarioConfig = {
           copy: "Cambia turnos o pausa tareas cuando alguien esta a tope, sin culpas.",
           footer: "Todos informados sin recordatorios.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/explore.png",
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/explore.png",
         },
         {
           title: "Hub",
@@ -113,7 +113,7 @@ export const lowTalkConfig: ScenarioConfig = {
           copy: "Horas de silencio, senales de visitas y normas rapidas que mantienen el ambiente estable.",
           footer: "Las senales siguen visibles; no hacen falta discursos.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/hub.png",
         },
       ],
       chips: [
@@ -179,7 +179,7 @@ export const lowTalkConfig: ScenarioConfig = {
           copy: "تنبيهات خفيفة للضوضاء، الضيوف، أو إعادة ضبط سريعة قبل بدء اليوم.",
           footer: "قابل للتنفيذ بدون التحول لاجتماع.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/today.png",
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/today.png",
         },
         {
           title: "إدارة",
@@ -188,7 +188,7 @@ export const lowTalkConfig: ScenarioConfig = {
           copy: "بدّل الأدوار أو أوقف مهمة عندما يكون شخص مشغول - بدون تأنيب ضمير.",
           footer: "الجميع على علم بدون تذكيرات.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/explore.png",
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/explore.png",
         },
         {
           title: "مركز المنزل",
@@ -197,7 +197,7 @@ export const lowTalkConfig: ScenarioConfig = {
           copy: "ساعات الهدوء، إشارات الضيوف، وقواعد سريعة تحافظ على الأجواء مستقرة.",
           footer: "الإشارات تبقى مرئية؛ لا حاجة لخطابات.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/hub.png",
         },
       ],
       chips: [

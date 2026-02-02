@@ -96,7 +96,7 @@ export const internationalStartConfig: ScenarioConfig = {
           copy: "Horas de silencio, comidas compartidas, quién está en casa esta noche.",
           footer: "Cosas para notar sin necesidad de preguntar.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/today.png",
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/today.png",
         },
         {
           title: "Gestionar",
@@ -105,7 +105,7 @@ export const internationalStartConfig: ScenarioConfig = {
           copy: "Toma tareas cuando puedas, intercambia cuando la vida cambie.",
           footer: "Siempre tienes el control - nada queda fijo.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/explore.png",
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/explore.png",
         },
         {
           title: "Hub",
@@ -114,7 +114,7 @@ export const internationalStartConfig: ScenarioConfig = {
           copy: "Silencio, visitas, expectativas de limpieza - todo en un lugar tranquilo.",
           footer: "Sin sorpresas, sin preguntas incómodas.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/hub.png",
         },
       ],
       chips: [
@@ -181,7 +181,7 @@ export const internationalStartConfig: ScenarioConfig = {
           copy: "ساعات الهدوء، الوجبات المشتركة، من موجود الليلة.",
           footer: "أشياء لملاحظتها بدون الحاجة للسؤال.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/today.png",
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/today.png",
         },
         {
           title: "إدارة",
@@ -190,7 +190,7 @@ export const internationalStartConfig: ScenarioConfig = {
           copy: "تولَّ المهام عندما تستطيع، بدّل عندما تتغير الحياة.",
           footer: "أنت دائماً مسيطر - لا شيء مقفل.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/explore.png",
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/explore.png",
         },
         {
           title: "مركز المنزل",
@@ -199,7 +199,7 @@ export const internationalStartConfig: ScenarioConfig = {
           copy: "ساعات الهدوء، الضيوف، توقعات النظافة - كلها في مكان واحد هادئ.",
           footer: "لا مفاجآت، لا أسئلة محرجة.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
+            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/hub.png",
         },
       ],
       chips: [

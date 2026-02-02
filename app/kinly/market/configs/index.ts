@@ -1,24 +1,36 @@
 import { ScenarioConfig } from "../ScenarioLandingClient";
 import { freshersConfig } from "./freshers";
 import { internationalStartConfig } from "./internationalStart";
-import { takeawayBudgetConfig } from "./takeawayBudget";
-import { thriftFirstConfig } from "./thriftFirst";
+import { takeawayBudgetFlatsConfig } from "./takeawayBudget";
 import { lowTalkConfig } from "./lowTalk";
+import { studentWellbeingInfrastructureConfig } from "./studentWellbeingInfrastructure";
+import { liveInLandlordConfig } from "./liveInLandlord";
+import { homestayOwnerConfig } from "./homestayOwner";
+import { headTenantConfig } from "./headTenant";
+import { flatAgreementsConfig } from "./flatAgreements";
 
 export const scenarioConfigs: Record<string, ScenarioConfig> = {
   freshers: freshersConfig,
   "new-place": internationalStartConfig,
-  "takeaway-budget": takeawayBudgetConfig,
-  "thrift-first": thriftFirstConfig,
+  "takeaway-budget": takeawayBudgetFlatsConfig,
   "low-talk": lowTalkConfig,
+  "student-wellbeing-infrastructure": studentWellbeingInfrastructureConfig,
+  "live-in-landlord": liveInLandlordConfig,
+  "homestay-owner": homestayOwnerConfig,
+  "head-tenant": headTenantConfig,
+  "flat-agreements": flatAgreementsConfig,
 };
 
 export const ENTRY_TO_SCENARIO: Record<string, keyof typeof scenarioConfigs> = {
   freshers: "freshers",
   "new-place": "new-place",
   "takeaway-budget": "takeaway-budget",
-  "thrift-first": "thrift-first",
   "low-talk": "low-talk",
+  "student-wellbeing-infrastructure": "student-wellbeing-infrastructure",
+  "live-in-landlord": "live-in-landlord",
+  "homestay-owner": "homestay-owner",
+  "head-tenant": "head-tenant",
+  "flat-agreements": "flat-agreements",
 };
 
 export function getScenarioConfig(entry?: string | string[] | null): ScenarioConfig | null {
