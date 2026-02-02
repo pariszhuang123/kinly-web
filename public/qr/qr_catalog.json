@@ -14,12 +14,15 @@
       "singapore_working_holiday",
       "first_year_2026",
       "early_interest_2026",
-      "nepal_students"
+      "nepal_students",
+      "fish_and_chips_campaign"
     ],
     "utm_sources": [
       "facebook",
       "whatsapp",
-      "private_social_media_group"
+      "private_social_media_group",
+      "offline_event",
+      "linkedin"
     ]
   },
   "items": [
@@ -30,7 +33,7 @@
       "utm_medium": "qr",
       "utm_source": "telegram",
       "url": "https://go.makinglifeeasie.com/kinly/market/freshers?utm_campaign=first_year_2026&utm_medium=qr&utm_source=telegram",
-      "valueStatement": "Simplify your student life with Kinly."
+      "valueStatement": "First flat? Keep the house calm and organised."
     },
     {
       "qr_id": "international_people",
@@ -39,7 +42,43 @@
       "utm_medium": "qr",
       "utm_source": "private_social_media_group",
       "url": "https://go.makinglifeeasie.com/kinly/market/new-place?utm_campaign=nepal_students&utm_medium=qr&utm_source=private_social_media_group",
-      "valueStatement": "Moving in? Track your shared expenses effortlessly."
+      "valueStatement": "New country, new house—learn the vibe without awkwardness."
+    },
+    {
+      "qr_id": "fish_&_chips",
+      "pageKey": "kinly_market_takeaway_budget",
+      "utm_campaign": "fish_and_chips_campaign",
+      "utm_medium": "qr",
+      "utm_source": "offline_event",
+      "url": "https://go.makinglifeeasie.com/kinly/market/kinly_market_takeaway_budget?utm_campaign=fish_and_chips_campaign&utm_medium=qr&utm_source=offline_event",
+      "valueStatement": "Stretch your budget without household drama."
+    },
+    {
+      "qr_id": "thrift_shoppers",
+      "pageKey": "thrift-first",
+      "utm_campaign": "thrift_shop_nz",
+      "utm_medium": "qr",
+      "utm_source": "offline_event",
+      "url": "https://go.makinglifeeasie.com/kinly/market/thrift-first?utm_campaign=thrift_shop_nz&utm_medium=qr&utm_source=offline_event",
+      "valueStatement": "Use what you have—share life, not pressure."
+    },
+    {
+      "qr_id": "introverts_unite",
+      "pageKey": "low-talk",
+      "utm_campaign": "introvert_nz",
+      "utm_medium": "qr",
+      "utm_source": "offline_event",
+      "url": "https://go.makinglifeeasie.com/kinly/market/low-talk?utm_campaign=introvert_nz&utm_medium=qr&utm_source=offline_event",
+      "valueStatement": "Live together quietly—needs stay clear without small talk."
+    },
+    {
+      "qr_id": "general_calm_living",
+      "pageKey": "kinly_general",
+      "utm_campaign": "general_2026",
+      "utm_medium": "qr",
+      "utm_source": "offline_event",
+      "url": "https://go.makinglifeeasie.com/kinly/market/kinly_general?utm_campaign=general_2026&utm_medium=qr&utm_source=offline_event",
+      "valueStatement": "A calmer way to live together."
     }
   ]
 }
