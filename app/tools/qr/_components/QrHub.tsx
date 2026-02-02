@@ -22,6 +22,7 @@ export default function QrHub() {
   // Generation State
   const [generatedUrl, setGeneratedUrl] = useState<string | null>(null);
   const [qrPreviewUrl, setQrPreviewUrl] = useState<string | null>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   // Load Catalog
   useEffect(() => {
@@ -182,7 +183,18 @@ export default function QrHub() {
         {qrPreviewUrl && (
             <div style={{ marginTop: "2rem", padding: "2rem", border: "1px solid #eee", background: "#fafafa", borderRadius: "8px" }}>
                 <KinlyStack direction="vertical" gap="m" align="center">
-                    <div style={{ position: "relative", width: "300px", height: "300px", background: "white", padding: "1rem", boxShadow: "0 2px 8px rgba(0,0,0,0.1)" }}>
+                    <div 
+                        onClick={() => setIsFullscreen(true)}
+                        style={{ 
+                            position: "relative", 
+                            width: "300px", 
+                            height: "300px", 
+                            background: "white", 
+                            padding: "1rem", 
+                            boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+                            cursor: "pointer"
+                        }}
+                    >
                         <Image 
                             src={qrPreviewUrl} 
                             alt="QR Code" 
@@ -192,8 +204,7 @@ export default function QrHub() {
                             sizes="300px"
                         />
                     </div>
-                    
-
+                    <KinlyText variant="bodySmall">Tap to expand</KinlyText>
 
                     <div style={{ display: "flex", gap: "1rem" }}>
                         <KinlyButton variant="filled" onClick={handleDownloadPng}>
@@ -204,6 +215,36 @@ export default function QrHub() {
                         </KinlyButton>
                     </div>
                 </KinlyStack>
+            </div>
+        )}
+
+        {isFullscreen && qrPreviewUrl && (
+            <div 
+                onClick={() => setIsFullscreen(false)}
+                style={{
+                    position: "fixed",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background: "rgba(0, 0, 0, 0.9)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    zIndex: 9999,
+                    cursor: "pointer"
+                }}
+            >
+                <div style={{ position: "relative", width: "90vmin", height: "90vmin", maxWidth: "600px", maxHeight: "600px" }}>
+                    <Image 
+                        src={qrPreviewUrl} 
+                        alt="QR Code Fullscreen" 
+                        fill
+                        style={{ objectFit: "contain", imageRendering: "pixelated" }} 
+                        unoptimized
+                        sizes="90vmin"
+                    />
+                </div>
             </div>
         )}
 
