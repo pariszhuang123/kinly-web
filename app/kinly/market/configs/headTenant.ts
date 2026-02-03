@@ -1,4 +1,4 @@
-import { ScenarioConfig } from "../ScenarioLandingClient";
+﻿import { ScenarioConfig } from "../ScenarioLandingClient";
 import { LocaleCopy } from "./shared/locale";
 
 export const headTenantConfig: ScenarioConfig = {
@@ -10,12 +10,31 @@ export const headTenantConfig: ScenarioConfig = {
     body: "Kinly keeps shared expectations clear so the load is not on one person.",
   },
 
+  whatHeading: "What Kinly is",
+  whatBody:
+    "Kinly is a shared living app designed for people who live together. It keeps expectations visible and neutral so one person does not become the enforcer.",
+
   hero: {
     headline: "A calmer way to share responsibility in your flat.",
     subhead: "One neutral reference point, less personal confrontation.",
     body: "Kinly reduces the pressure of being the default organiser without turning you into the boss. No surveillance, no reporting, no enforcement tools.",
     ctaHeading: "Share the load calmly",
   },
+
+  howSteps: [
+    {
+      title: "Agree expectations with photos",
+      body: "Show what “done” looks like for shared spaces so the baseline is clear without you carrying it.",
+    },
+    {
+      title: "Reset weekly, lightly",
+      body: "Once a week, surface noise, guests, and upkeep so tension does not land on one person.",
+    },
+    {
+      title: "Keep shared visibility",
+      body: "Everyone can see norms and light tasks, so reminders are shared — not personalised.",
+    },
+  ],
 
   screens: [
     {
@@ -51,7 +70,6 @@ export const headTenantConfig: ScenarioConfig = {
     "If I do nothing, things fall apart.",
     "If I step in, people resent me.",
     "I just want the flat to run smoothly.",
-    "I am carrying risk for everyone.",
   ],
 
   rolePoints: [
@@ -85,6 +103,15 @@ export const headTenantConfig: ScenarioConfig = {
     ],
   },
 
+  toolsHeading: "Supported by practical tools",
+  toolsIntro:
+    "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction — without turning shared living into a task system.",
+  toolsList: [
+    "Shared flows (with assignments if you want) for shared spaces and routines so reminders are shared.",
+    "Shared bills so amounts and due dates are clear without awkward chasing.",
+    "Calm check-ins so everyone feels seen without putting it on one person.",
+  ],
+
   availability: {
     body: "Kinly is currently available in New Zealand and Singapore. We will email you when Kinly opens in your area.",
   },
@@ -93,6 +120,9 @@ export const headTenantConfig: ScenarioConfig = {
 
   translations: {
     es: {
+      whatHeading: "Qué es Kinly",
+      whatBody:
+        "Kinly es una app de convivencia para quienes viven juntos. Mantiene las expectativas visibles y neutrales para que una sola persona no cargue con hacerlas cumplir.",
       recognition: {
         heading: "No te apuntaste para dirigir el piso.",
         subtitle: "Si intervienes, te culpan. Si no, todo se desordena.",
@@ -104,6 +134,20 @@ export const headTenantConfig: ScenarioConfig = {
         body: "Kinly reduce la presión de ser el organizador por defecto sin convertirte en jefe. Sin vigilancia, sin reportes, sin herramientas de control.",
         ctaHeading: "Compartir la carga con calma",
       },
+      howSteps: [
+        {
+          title: "Acordar expectativas con fotos",
+          body: "Muestren cómo se ve “listo” en los espacios comunes para que la base sea clara sin que la cargue una persona.",
+        },
+        {
+          title: "Reajuste semanal, sin fricción",
+          body: "Cada semana, pongan ruido, visitas y mantenimiento sobre la mesa para que la tensión no caiga en una sola persona.",
+        },
+        {
+          title: "Mantener visibilidad compartida",
+          body: "Todos ven normas y tareas ligeras, así los recordatorios se comparten y no se personalizan.",
+        },
+      ],
       screens: [
         {
           title: "Hoy",
@@ -137,7 +181,6 @@ export const headTenantConfig: ScenarioConfig = {
         "Si no hago nada, todo se desordena.",
         "Si intervengo, la gente me resiente.",
         "Solo quiero que el piso funcione bien.",
-        "Estoy cargando el riesgo de todos.",
       ],
       rolePoints: [
         "Mantiene visibles las expectativas sin convertirte en jefe.",
@@ -166,9 +209,17 @@ export const headTenantConfig: ScenarioConfig = {
         ],
         heading: "Reflexión semanal, a ritmo humano",
       },
+      toolsHeading: "Apoyado por herramientas prácticas",
+      toolsIntro:
+        "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la fricción diaria — sin convertir la vida compartida en un sistema de tareas.",
+      toolsList: [
+        "Flujos compartidos (con asignaciones si quieren) para espacios y rutinas, así los recordatorios se comparten.",
+        "Cuentas compartidas para que montos y fechas sean claros sin persecuciones incómodas.",
+        "Revisiones calmadas para que todos se sientan vistos sin cargarlo en una persona.",
+      ],
       sectionHeadings: {
         howItWorks: "Cómo funciona Kinly",
-        howItWorksSubtitle: "Nada se comparte sin intención.",
+        howItWorksSubtitle: "Tres pasos simples que mantienen a todos alineados.",
         soundsLikeYou: "¿Te suena familiar?",
         roleHeading: "El rol de Kinly: claridad primero",
         formingHeading: "Si tu hogar aún se está formando",
@@ -183,22 +234,39 @@ export const headTenantConfig: ScenarioConfig = {
     } satisfies LocaleCopy,
 
     ar: {
+      whatHeading: "ما هو كينلي",
+      whatBody:
+        "كينلي هو تطبيق للعيش المشترك صُمم لمن يعيشون معاً. يبقي التوقعات واضحة ومحايدة حتى لا يتحول شخص واحد إلى منفّذ القواعد.",
       recognition: {
-        heading: "لم توقع لتدير البيت.",
+        heading: "لم تتوقع لتدير البيت.",
         subtitle: "إذا تدخلت، يلومك الآخرون. وإذا لم تتدخل، تتفكك الأمور.",
-        body: "كينلي يُبقي التوقعات المشتركة واضحة حتى لا يقع الحمل على شخص واحد.",
+        body: "كينلي يبقي التوقعات المشتركة واضحة حتى لا يقع الحمل على شخص واحد.",
       },
       hero: {
         headline: "طريقة أهدأ لتقاسم المسؤولية في شقتك.",
         subhead: "مرجع محايد وتقليل المواجهات الشخصية.",
-        body: "كينلي يخفف ضغط أن تكون المنظم الافتراضي دون أن يجعلك المدير. بدون مراقبة، بدون تقارير، بدون أدوات فرض.",
+        body: "كينلي يخفف ضغط أن تكون المنظم الافتراضي دون أن يجعلك المدير. بلا مراقبة، بلا تقارير، بلا أدوات فرض.",
         ctaHeading: "شارك الحمل بهدوء",
       },
+      howSteps: [
+        {
+          title: "اتفقوا على التوقعات بالصور",
+          body: "أروا كيف يبدو “الإنجاز” في المساحات المشتركة ليكون الأساس واضحاً دون أن تحمله وحدك.",
+        },
+        {
+          title: "إعادة ضبط أسبوعية وخفيفة",
+          body: "مرة في الأسبوع، أظهروا الضجيج والضيوف والصيانة حتى لا يقع التوتر على شخص واحد.",
+        },
+        {
+          title: "حافظوا على وضوح مشترك",
+          body: "يرى الجميع المعايير والمهام الخفيفة، فيتشارك الجميع التذكير بدلاً من تخصيصه لشخص واحد.",
+        },
+      ],
       screens: [
         {
           title: "اليوم",
           eyebrow: "إشارة",
-          headline: "ما يحتاج انتباهاً بدون لوم",
+          headline: "ما يحتاج انتباهاً دون لوم",
           copy: "إعادات ضبط صغيرة ومساحات مشتركة وما يتراكم بهدوء.",
           footer: "الوضوح المبكر يحافظ على الهدوء.",
           image:
@@ -227,19 +295,18 @@ export const headTenantConfig: ScenarioConfig = {
         "إذا لم أتدخل، تتفكك الأمور.",
         "إذا تدخلت، يستاء مني الآخرون.",
         "أريد فقط أن يعمل البيت بسلاسة.",
-        "أنا أحمل المخاطر للجميع.",
       ],
       rolePoints: [
-        "يبقي التوقعات واضحة بدون جعلك المدير.",
+        "يبقي التوقعات واضحة دون أن يجعلك المدير.",
         "يقلل المواجهة الشخصية بمرجع محايد.",
       ],
       formingPoints: [
         "ديناميكيات البيت تتغير؛ الأساس يبقى واضحاً.",
-        "الاحتراق الهادئ يخف عندما تتقاسمون المسؤولية.",
+        "الإرهاق الهادئ يخف عندما تُشارك المسؤولية.",
       ],
       audience: [
         "من يديرون التفاصيل ليبقى البيت يعمل.",
-        "منظمون يريدون مسؤولية مشتركة بدون تصعيد الأدوار.",
+        "منظمون يريدون مسؤولية مشتركة بلا تصعيد للأدوار.",
       ],
       notList: [
         "ليس محرك قواعد.",
@@ -251,14 +318,22 @@ export const headTenantConfig: ScenarioConfig = {
         intro: "كينلي يستخدم إيقاعاً أسبوعياً لتبقى المسؤولية بشرية.",
         points: [
           "راجعوا أسبوعياً حتى لا تتراكم المشكلات.",
-          "أعيدوا ضبط التوقعات بدون جعلها شخصية.",
-          "حافظوا على الهدوء بدون تصعيد.",
+          "أعيدوا ضبط التوقعات دون جعلها شخصية.",
+          "حافظوا على الهدوء دون تصعيد.",
         ],
         heading: "تأمل أسبوعي، بإيقاع بشري",
       },
+      toolsHeading: "مدعوم بأدوات عملية",
+      toolsIntro:
+        "بعد أن تتفقوا على التوقعات، يقدم كينلي أدوات بسيطة تقلل الاحتكاكات اليومية — بدون تحويل العيش المشترك إلى نظام مهام.",
+      toolsList: [
+        "تدفّقات مشتركة (مع تعيينات إذا أردتم) للمساحات والروتين لتتشاركوا التذكير.",
+        "فواتير مشتركة لعرض المبالغ والمواعيد بدون ملاحقة محرجة.",
+        "مراجعات هادئة ليشعر الجميع بأنهم مرئيون بدون تحميل شخص واحد.",
+      ],
       sectionHeadings: {
         howItWorks: "كيف يعمل كينلي",
-        howItWorksSubtitle: "لا شيء يُشارك بدون قصد.",
+        howItWorksSubtitle: "ثلاث خطوات بسيطة تبقي الجميع على توافق.",
         soundsLikeYou: "هل يبدو هذا مثل مكانك؟",
         roleHeading: "دور كينلي: وضوح أولاً",
         formingHeading: "إذا كان منزلك لا يزال يتشكل",

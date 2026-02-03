@@ -7,6 +7,11 @@ type LandingScreen = {
   image: string;
 };
 
+type HowStep = {
+  title: string;
+  body: string;
+};
+
 export type LandingCopy = {
   recognition: {
     heading: string;
@@ -20,9 +25,12 @@ export type LandingCopy = {
     ctaHeading: string;
     privacyNote: string;
   };
+  whatHeading: string;
+  whatBody: string;
   storeLabels: { app: string; play: string };
   howHeading: string;
   howSubhead: string;
+  howSteps: HowStep[];
   screens: LandingScreen[];
   chipsHeading: string;
   chips: string[];
@@ -37,6 +45,9 @@ export type LandingCopy = {
   weeklyHeading: string;
   weeklyIntro: string;
   weeklyPoints: string[];
+  toolsHeading: string;
+  toolsIntro: string;
+  toolsList: string[];
   availabilityHeading: string;
   availabilityBody: string;
   availabilityCta: string;
@@ -57,12 +68,29 @@ const LANDING_COPY_EN: LandingCopy = {
     ctaHeading: "Ready to start",
     privacyNote: "Private by default. No ads. No surveillance.",
   },
+  whatHeading: "What Kinly is",
+  whatBody:
+    "Kinly is a shared living app designed for people who live together. It keeps expectations visible and calm without turning home life into a task system.",
   storeLabels: {
     app: "Download on the App Store",
     play: "Get it on Google Play",
   },
   howHeading: "How Kinly works",
-  howSubhead: "Nothing is shared without intent.",
+  howSubhead: "Three simple steps that keep everyone aligned.",
+  howSteps: [
+    {
+      title: "Agree expectations with photos",
+      body: "Snap a quick photo of what “done” looks like for shared areas so everyone sees the same standard.",
+    },
+    {
+      title: "Reset weekly, lightly",
+      body: "Once a week, surface what feels off and choose what matters — no streaks, no pressure.",
+    },
+    {
+      title: "Keep shared visibility",
+      body: "Everyone can see gentle notes and updates about the home, so needs are clear without blame.",
+    },
+  ],
   screens: [
     {
       title: "Today",
@@ -96,8 +124,7 @@ const LANDING_COPY_EN: LandingCopy = {
   chips: [
     "We care about each other, but chore charts make things tense.",
     "We want to know how the house feels without assigning blame.",
-    "We avoid drama, but we still want to be seen.",
-    "If you want streaks, scores, or accountability pressure — Kinly isn't that.",
+    "We avoid drama but still want to be seen.",
   ],
   roleHeading: "Kinly role: reflection first",
   rolePoints: [
@@ -123,6 +150,14 @@ const LANDING_COPY_EN: LandingCopy = {
     "You can check in weekly, not daily. No streaks, no pressure to keep up.",
     "Reflections are for understanding, not grading.",
     "Kinly never forces conversations — it helps you understand before you decide whether to talk.",
+  ],
+  toolsHeading: "Supported by practical tools",
+  toolsIntro:
+    "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction — without turning shared living into a task system.",
+  toolsList: [
+    "Shared flows (with assignments if you want) so repeat tasks stay clear without policing.",
+    "Shared bills so due dates and amounts are visible without chasing.",
+    "Calm check-ins that keep everyone seen and supported without pointing fingers.",
   ],
   availabilityHeading: "Availability",
   availabilityBody:
@@ -151,7 +186,29 @@ const LANDING_COPY_OVERRIDES: Record<string, Partial<LandingCopy>> = {
       play: "احصل عليه من Google Play",
     },
     howHeading: "كيف يعمل كينلي",
-    howSubhead: "لا شيء يُشارك بدون قصد.",
+    howSubhead: "ثلاث خطوات بسيطة تبقي الجميع على توافق.",
+    howSteps: [
+      {
+        title: "اتفقوا على التوقعات بالصور",
+        body: "التقط صورة سريعة لما يبدو عليه \"الإنجاز\" في المساحات المشتركة ليرى الجميع نفس المعيار.",
+      },
+      {
+        title: "إعادة ضبط أسبوعية وخفيفة",
+        body: "مرة في الأسبوع، أظهروا ما يزعجكم واختاروا ما يهم — بدون سلاسل أو ضغط.",
+      },
+      {
+        title: "حافظوا على وضوح مشترك",
+        body: "يمكن للجميع رؤية ملاحظات وتحديثات لطيفة عن المنزل، لتكون الاحتياجات واضحة بلا لوم.",
+      },
+    ],
+    toolsHeading: "مدعوم بأدوات عملية",
+    toolsIntro:
+      "بعد أن تتفقوا على التوقعات، يقدم كينلي أدوات بسيطة تقلل الاحتكاكات اليومية — بدون تحويل العيش المشترك إلى نظام مهام.",
+    toolsList: [
+      "تدفّقات مشتركة (مع تعيينات إذا أردتم) لتبقى المهام المتكررة واضحة بدون رقابة.",
+      "فواتير مشتركة لعرض المبالغ والمواعيد بدون ملاحقة.",
+      "مراجعات هادئة تجعل الجميع مرئيين ومدعومين بدون توجيه أصابع الاتهام.",
+    ],
     screens: [
       {
         title: "اليوم",
@@ -180,13 +237,12 @@ const LANDING_COPY_OVERRIDES: Record<string, Partial<LandingCopy>> = {
         image:
           "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
       },
-    ],
+    ],    
     chipsHeading: "هل يبدو هذا مثل مكانك؟",
     chips: [
       "نهتم ببعض، لكن جداول المهام تجعل الأمور متوترة.",
       "نريد معرفة كيف يشعر المنزل بدون إلقاء اللوم.",
-      "نتجنب الدراما، لكننا نريد أن نُرى.",
-      "إذا كنت تريد سلاسل أو نقاط أو ضغط المساءلة — كينلي ليس ذلك.",
+      "نتجنب الدراما لكننا نريد أن نُرى.",
     ],
     roleHeading: "دور كينلي: التأمل أولاً",
     rolePoints: [
@@ -238,7 +294,29 @@ const LANDING_COPY_OVERRIDES: Record<string, Partial<LandingCopy>> = {
       play: "Obtener en Google Play",
     },
     howHeading: "Cómo funciona Kinly",
-    howSubhead: "Nada se comparte sin intención.",
+    howSubhead: "Tres pasos simples que mantienen a todos alineados.",
+    howSteps: [
+      {
+        title: "Acordar expectativas con fotos",
+        body: "Toma una foto rápida de cómo se ve \"listo\" en las áreas compartidas para que todos vean el mismo estándar.",
+      },
+      {
+        title: "Reajuste semanal, sin presión",
+        body: "Una vez por semana, pongan sobre la mesa lo que incomoda y elijan qué importa — sin rachas ni presión.",
+      },
+      {
+        title: "Mantener visibilidad compartida",
+        body: "Todos pueden ver notas y actualizaciones suaves sobre el hogar, así las necesidades son claras sin culpas.",
+      },
+    ],
+    toolsHeading: "Apoyado por herramientas prácticas",
+    toolsIntro:
+      "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la fricción diaria — sin convertir la vida compartida en un sistema de tareas.",
+    toolsList: [
+      "Flujos compartidos (con asignaciones si quieren) para que las tareas repetidas estén claras sin vigilar.",
+      "Cuentas compartidas para ver montos y fechas sin andar persiguiendo pagos.",
+      "Revisiones calmadas para que todos se sientan vistos y apoyados sin señalar a nadie.",
+    ],
     screens: [
       {
         title: "Hoy",
@@ -272,8 +350,7 @@ const LANDING_COPY_OVERRIDES: Record<string, Partial<LandingCopy>> = {
     chips: [
       "Nos importamos, pero las tablas de tareas tensan todo.",
       "Queremos saber cómo se siente la casa sin culpar a nadie.",
-      "Evitamos el drama, pero igual queremos ser vistos.",
-      "Si buscas rachas, puntajes o presión — Kinly no es eso.",
+      "Evitamos el drama pero igual queremos ser vistos.",
     ],
     roleHeading: "Rol de Kinly: primero reflexión",
     rolePoints: [
@@ -314,3 +391,4 @@ export function resolveLandingCopy(lang: string | null): LandingCopy {
   const overrides = LANDING_COPY_OVERRIDES[key] ?? null;
   return overrides ? { ...LANDING_COPY_EN, ...overrides } : LANDING_COPY_EN;
 }
+

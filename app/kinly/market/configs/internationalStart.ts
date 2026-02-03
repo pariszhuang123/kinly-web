@@ -1,4 +1,4 @@
-import { ScenarioConfig } from "../ScenarioLandingClient";
+﻿import { ScenarioConfig } from "../ScenarioLandingClient";
 import { LocaleCopy } from "./shared/locale";
 
 export const internationalStartConfig: ScenarioConfig = {
@@ -8,12 +8,29 @@ export const internationalStartConfig: ScenarioConfig = {
     subtitle: "You want to fit in without asking awkward questions.",
     body: "Kinly shows what matters in the home so you can contribute without guessing or overstepping.",
   },
+  whatHeading: "What Kinly is",
+  whatBody:
+    "Kinly is a shared living app designed for people who live together. When you move into a new place, it keeps expectations clear without turning the home into a checklist.",
   hero: {
     headline: "Clarity in a new place.",
     subhead: "See what the home needs before anyone has to explain it.",
     body: "New routines, new people, new expectations. Kinly surfaces what matters so you can settle in calmly.",
     ctaHeading: "Start settling in with clarity",
   },
+  howSteps: [
+    {
+      title: "Agree expectations with photos",
+      body: "Snap what “done” looks like for shared areas so you do not have to guess standards.",
+    },
+    {
+      title: "Reset weekly, lightly",
+      body: "Once a week, surface what feels off (noise, dishes, guests) so it is fixed before it becomes conflict.",
+    },
+    {
+      title: "Keep shared visibility",
+      body: "Everyone can see light tasks and norms, so you can help without overstepping or waiting to be asked.",
+    },
+  ],
   screens: [
     {
       title: "Today",
@@ -71,15 +88,26 @@ export const internationalStartConfig: ScenarioConfig = {
       "Kinly never forces conversations - it helps you decide when to talk.",
     ],
   },
+  toolsHeading: "Supported by practical tools",
+  toolsIntro:
+    "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction — without turning shared living into a task system.",
+  toolsList: [
+    "Shared flows (with assignments if you want) for dishes, bins, and guests so you can help without guessing.",
+    "Shared bills so amounts and due dates are visible without awkward chasing.",
+    "Calm check-ins so everyone feels seen while you are still settling in.",
+  ],
   availability: {
     body: "Kinly is currently available in New Zealand and Singapore. We will email you when Kinly opens in your area.",
   },
   defaultLocale: "en",
   translations: {
     es: {
+      whatHeading: "Que es Kinly",
+      whatBody:
+        "Kinly es una app de convivencia para quienes viven juntos. Al mudarte a un lugar nuevo, mantiene claras las expectativas sin convertir la casa en una lista de tareas.",
       recognition: {
         heading: "Lugar nuevo, normas poco claras.",
-        subtitle: "Quieres encajar sin hacer preguntas incómodas.",
+        subtitle: "Quieres encajar sin hacer preguntas incomodas.",
         body: "Kinly muestra lo que importa en casa para que puedas contribuir sin adivinar ni pasarte.",
       },
       hero: {
@@ -88,12 +116,26 @@ export const internationalStartConfig: ScenarioConfig = {
         body: "Nuevas rutinas, nuevas personas, nuevas expectativas. Kinly muestra lo que importa para que te adaptes con calma.",
         ctaHeading: "Empieza a instalarte con claridad",
       },
+      howSteps: [
+        {
+          title: "Acordar expectativas con fotos",
+          body: "Toma una foto de como se ve “listo” en las zonas compartidas para no adivinar los estandares.",
+        },
+        {
+          title: "Reajuste semanal, sin presion",
+          body: "Cada semana, pongan ruido, platos o visitas sobre la mesa para resolverlo antes de que sea conflicto.",
+        },
+        {
+          title: "Mantener visibilidad compartida",
+          body: "Todos ven tareas ligeras y normas, asi puedes ayudar sin pasarte ni esperar a que te pidan.",
+        },
+      ],
       screens: [
         {
           title: "Hoy",
           eyebrow: "Ahora",
-          headline: "Qué necesita atención",
-          copy: "Horas de silencio, comidas compartidas, quién está en casa esta noche.",
+          headline: "Que necesita atencion",
+          copy: "Horas de silencio, comidas compartidas, quien esta en casa esta noche.",
           footer: "Cosas para notar sin necesidad de preguntar.",
           image:
             "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/today.png",
@@ -112,56 +154,67 @@ export const internationalStartConfig: ScenarioConfig = {
           eyebrow: "Hogar",
           headline: "Normas que todos pueden ver",
           copy: "Silencio, visitas, expectativas de limpieza - todo en un lugar tranquilo.",
-          footer: "Sin sorpresas, sin preguntas incómodas.",
+          footer: "Sin sorpresas, sin preguntas incomodas.",
           image:
             "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/hub.png",
         },
       ],
       chips: [
-        "Quiero ayudar pero no sé qué se espera.",
-        "Preguntar sobre normas se siente incómodo.",
+        "Quiero ayudar pero no se que se espera.",
+        "Preguntar sobre normas se siente incomodo.",
         "No quiero pasarme ni quedarme corto.",
         "Me importa pero necesito claridad, no adivinanzas.",
       ],
       rolePoints: [
         "Muestra normas para que no tengas que preguntar.",
-        "Mantiene las contribuciones visibles sin presión ni juicios.",
+        "Mantiene las contribuciones visibles sin presion ni juicios.",
       ],
       formingPoints: [
         "Adaptarse lleva tiempo - Kinly guarda el contexto mientras te ajustas.",
         "Las nuevas rutinas son normales, no fallos.",
       ],
       audience: [
-        "Personas instalándose en un nuevo hogar compartido.",
-        "Cualquiera ajustándose a rutinas desconocidas.",
-        "Compañeros que quieren claridad tranquila, no conversaciones incómodas.",
+        "Personas instalandoce en un nuevo hogar compartido.",
+        "Cualquiera ajustandose a rutinas desconocidas.",
+        "Companeros que quieren claridad tranquila, no conversaciones incomodas.",
       ],
       notList: ["No es vigilancia.", "No es marcador ni ranking.", "No es un jefe de tareas."],
       weekly: {
-        intro: "Kinly usa un ritmo semanal para que te adaptes sin presión diaria.",
+        intro: "Kinly usa un ritmo semanal para que te adaptes sin presion diaria.",
         points: [
           "Revisa semanalmente, no a diario - sin rachas que mantener.",
           "Reflexiones para entender, no para juzgar.",
-          "Kinly nunca fuerza conversaciones - te ayuda a decidir cuándo hablar.",
+          "Kinly nunca fuerza conversaciones - te ayuda a decidir cuando hablar.",
         ],
-        heading: "Reflexión semanal, a ritmo humano",
+        heading: "Reflexion semanal, a ritmo humano",
       },
+      toolsHeading: "Apoyado por herramientas practicas",
+      toolsIntro:
+        "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la friccion diaria — sin convertir la vida compartida en un sistema de tareas.",
+      toolsList: [
+        "Flujos compartidos (con asignaciones si quieren) para platos, basura y visitas, sin adivinar.",
+        "Cuentas compartidas para ver montos y fechas sin tener que perseguir a nadie.",
+        "Revisiones calmadas para que todos se sientan vistos mientras te adaptas.",
+      ],
       sectionHeadings: {
-        howItWorks: "Cómo funciona Kinly",
-        howItWorksSubtitle: "Nada se comparte sin intención.",
-        soundsLikeYou: "¿Te suena familiar?",
-        roleHeading: "El rol de Kinly: reflexión primero",
-        formingHeading: "Si tu hogar aún se está formando",
-        audienceHeading: "Para quién es esto",
+        howItWorks: "Como funciona Kinly",
+        howItWorksSubtitle: "Tres pasos simples que mantienen a todos alineados.",
+        soundsLikeYou: "Te suena familiar?",
+        roleHeading: "El rol de Kinly: reflexion primero",
+        formingHeading: "Si tu hogar aun se esta formando",
+        audienceHeading: "Para quien es esto",
         notListHeading: "Kinly no es...",
-        readyHeading: "Cuando estés listo",
+        readyHeading: "Cuando estes listo",
         readySubtitle: "Kinly vive en la app - empieza en iOS o Android.",
       },
       availability: {
-        body: "Kinly está disponible en Nueva Zelanda y Singapur. Te avisaremos cuando abra en tu región.",
+        body: "Kinly esta disponible en Nueva Zelanda y Singapur. Te avisaremos cuando abra en tu region.",
       },
     } satisfies LocaleCopy,
     ar: {
+      whatHeading: "ما هو كينلي",
+      whatBody:
+        "كينلي هو تطبيق للعيش المشترك صُمم لمن يعيشون معاً. عند الانتقال لمكان جديد يبقي التوقعات واضحة بدون تحويل المنزل إلى قائمة مهام.",
       recognition: {
         heading: "مكان جديد، قواعد غير واضحة.",
         subtitle: "تريد الانسجام بدون طرح أسئلة محرجة.",
@@ -173,13 +226,27 @@ export const internationalStartConfig: ScenarioConfig = {
         body: "روتين جديد، أشخاص جدد، توقعات جديدة. كينلي يُظهر ما يهم حتى تستقر بهدوء.",
         ctaHeading: "ابدأ الاستقرار بوضوح",
       },
+      howSteps: [
+        {
+          title: "اتفقوا على التوقعات بالصور",
+          body: "التقط صورة لما يبدو عليه “الإنجاز” في المساحات المشتركة حتى لا تخمن المعايير.",
+        },
+        {
+          title: "إعادة ضبط أسبوعية وخفيفة",
+          body: "مرة في الأسبوع، أظهروا الضجيج أو الأطباق أو الضيوف لتُحل قبل أن تصبح خلافاً.",
+        },
+        {
+          title: "حافظوا على وضوح مشترك",
+          body: "يرى الجميع المهام الخفيفة والقواعد، لتستطيع المساعدة دون تجاوز أو انتظار الطلب.",
+        },
+      ],
       screens: [
         {
           title: "اليوم",
           eyebrow: "الآن",
           headline: "ما يحتاج انتباه",
           copy: "ساعات الهدوء، الوجبات المشتركة، من موجود الليلة.",
-          footer: "أشياء لملاحظتها بدون الحاجة للسؤال.",
+          footer: "أشياء لملاحظتها دون الحاجة للسؤال.",
           image:
             "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/today.png",
         },
@@ -187,7 +254,7 @@ export const internationalStartConfig: ScenarioConfig = {
           title: "إدارة",
           eyebrow: "تعديل",
           headline: "ساهم بإيقاعك الخاص",
-          copy: "تولَّ المهام عندما تستطيع، بدّل عندما تتغير الحياة.",
+          copy: "تولَّ المهام عندما تستطيع، بدّل عندما تتغير الحياة.",
           footer: "أنت دائماً مسيطر - لا شيء مقفل.",
           image:
             "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/explore.png",
@@ -206,34 +273,42 @@ export const internationalStartConfig: ScenarioConfig = {
         "أريد المساعدة لكن لست متأكداً مما هو متوقع.",
         "السؤال عن القواعد يبدو محرجاً.",
         "لا أريد التجاوز أو التقصير.",
-        "أهتم لكن أحتاج وضوح، ليس تخمين.",
+        "أهتم لكن أحتاج وضوحاً، ليس تخميناً.",
       ],
       rolePoints: [
         "يُظهر القواعد حتى لا تضطر للسؤال.",
         "يبقي المساهمات مرئية بدون ضغط أو حكم.",
       ],
       formingPoints: [
-        "الاستقرار يحتاج وقت - كينلي يحفظ السياق بينما تتأقلم.",
+        "الاستقرار يحتاج وقتاً - كينلي يحفظ السياق بينما تتأقلم.",
         "الروتين الجديد طبيعي، ليس فشلاً.",
       ],
       audience: [
         "أشخاص يستقرون في منزل مشترك جديد.",
         "أي شخص يتأقلم مع روتين غير مألوف.",
-        "زملاء السكن الذين يريدون وضوح هادئ، لا محادثات محرجة.",
+        "زملاء السكن الذين يريدون وضوحاً هادئاً، لا محادثات محرجة.",
       ],
       notList: ["ليس أداة مراقبة.", "ليس بطاقة نقاط أو لوحة صدارة.", "ليس رئيس مهام."],
       weekly: {
         intro: "كينلي يستخدم إيقاعاً أسبوعياً حتى تستقر بدون ضغط يومي.",
         points: [
           "راجع أسبوعياً، ليس يومياً - لا سلاسل للحفاظ عليها.",
-          "التأملات للفهم، ليس لتقييم أحد.",
+          "التأملات للفهم، ليست لتقييم أحد.",
           "كينلي لا يفرض محادثات - يساعدك تقرر متى تتكلم.",
         ],
         heading: "تأمل أسبوعي، بإيقاع بشري",
       },
+      toolsHeading: "مدعوم بأدوات عملية",
+      toolsIntro:
+        "بعد أن تتفقوا على التوقعات، يقدم كينلي أدوات بسيطة تقلل الاحتكاكات اليومية — بدون تحويل العيش المشترك إلى نظام مهام.",
+      toolsList: [
+        "تدفّقات مشتركة (مع تعيينات إذا أردتم) للأطباق والقمامة والضيوف دون تخمين.",
+        "فواتير مشتركة لعرض المبالغ والمواعيد بدون ملاحقة محرجة.",
+        "مراجعات هادئة ليشعر الجميع بأنهم مرئيون أثناء استقرارك.",
+      ],
       sectionHeadings: {
         howItWorks: "كيف يعمل كينلي",
-        howItWorksSubtitle: "لا شيء يُشارك بدون قصد.",
+        howItWorksSubtitle: "ثلاث خطوات بسيطة تبقي الجميع على توافق.",
         soundsLikeYou: "هل يبدو هذا مثل مكانك؟",
         roleHeading: "دور كينلي: التأمل أولاً",
         formingHeading: "إذا كان منزلك لا يزال يتشكل",

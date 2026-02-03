@@ -1,90 +1,116 @@
-import { ScenarioConfig } from "../ScenarioLandingClient";
+﻿import { ScenarioConfig } from "../ScenarioLandingClient";
 import { LocaleCopy } from "./shared/locale";
 
 export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
   pageKey: "student_wellbeing_infrastructure",
 
   recognition: {
-    heading: "When student conflict stays quiet, outcomes suffer.",
-    subtitle: "Mentors see the warning signs before anyone asks for help.",
-    body: "Kinly makes shared-living wellbeing visible so conflicts do not turn into dropouts.",
+    heading: "Wellbeing systems fail when they feel like surveillance.",
+    subtitle: "Students need calm visibility, not policing.",
+    body: "Kinly keeps shared norms visible and human-paced so student housing stays caring without pressure.",
   },
 
+  whatHeading: "What Kinly is",
+  whatBody:
+    "Kinly is a shared living app designed for people who live together. It keeps wellbeing expectations visible without turning student housing into monitoring.",
+
   hero: {
-    headline: "Preventative wellbeing infrastructure for shared living.",
-    subhead: "Give students a calm way to surface tension and reset norms.",
-    body: "Kinly helps cohorts align expectations, check in weekly, and reduce silent conflict, supporting retention and academic focus.",
-    ctaHeading: "Support student wellbeing early",
+    headline: "Calm shared living that supports wellbeing.",
+    subhead: "Visibility without surveillance; clarity without blame.",
+    body: "Kinly shows how the house is feeling and what needs attention — without scoreboards or enforcement.",
+    ctaHeading: "Keep the house steady",
   },
+
+  howSteps: [
+    {
+      title: "Agree expectations with photos",
+      body: "Show what “ready” and “quiet” look like for shared areas so wellbeing feels practical and fair.",
+    },
+    {
+      title: "Reset weekly, lightly",
+      body: "Once a week, surface noise, guests, cleanliness, and wellbeing signals so support is proactive, not reactive.",
+    },
+    {
+      title: "Keep shared visibility",
+      body: "Everyone sees light tasks and norms, so care is shared without policing.",
+    },
+  ],
 
   screens: [
     {
       title: "Today",
       eyebrow: "Signals",
-      headline: "What is stressing the house this week?",
-      copy: "Noise, guests, study pressure, or quiet friction that is building.",
-      footer: "Spot strain early before it becomes a crisis.",
+      headline: "What the house needs now",
+      copy: "Quiet hours, shared spaces, and any light tasks that keep the vibe steady.",
+      footer: "Support without pressure.",
       image:
         "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/today.png",
     },
     {
       title: "Manage",
-      eyebrow: "Reset",
-      headline: "Adjust without stigma",
-      copy: "Rebalance tasks, ease expectations, and make room when someone is overloaded.",
-      footer: "Low-friction resets keep the cohort steady.",
+      eyebrow: "Adjust",
+      headline: "Tweak norms without enforcement",
+      copy: "Update noise/guests/cleaning expectations as cohorts change — no one gets singled out.",
+      footer: "Neutral updates, student-friendly tone.",
       image:
         "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/explore.png",
     },
     {
       title: "Home Hub",
-      eyebrow: "Shared norms",
-      headline: "Make expectations easy to see",
-      copy: "Quiet hours, guest rules, and shared standards in one calm place.",
-      footer: "Clarity supports wellbeing and trust.",
+      eyebrow: "Reference",
+      headline: "One calm reference for everyone",
+      copy: "Noise, guests, wellbeing notes, and shared costs in one place — no streaks or scores.",
+      footer: "Clarity that feels caring, not monitoring.",
       image:
         "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
     },
   ],
 
   chips: [
-    "Conflicts go quiet before students disengage.",
-    "International students often struggle in silence.",
-    "Mental load leaks into academic performance.",
-    "Retention improves when expectations stay clear.",
+    "We want wellbeing without feeling watched.",
+    "Quiet hours, guests, and cleaning need one calm baseline.",
+    "Support should be proactive, not punitive.",
   ],
 
   rolePoints: [
-    "Surfaces early tension signals for mentors without surveillance.",
-    "Keeps shared expectations visible so students can self-correct.",
+    "Keeps expectations visible without surveillance.",
+    "Shares responsibility for care instead of singling people out.",
   ],
 
   formingPoints: [
-    "Cohorts change each term while the baseline stays clear.",
-    "Weekly resets keep one tough week from becoming a rupture.",
+    "Cohorts change; the baseline stays clear.",
+    "If things drift, reset next week without blame.",
   ],
 
   audience: [
-    "University residence teams and wellbeing staff.",
-    "Incubator or accelerator cohort managers.",
-    "Advisors supporting students in shared housing.",
+    "Student housing teams and resident advisors.",
+    "Shared student homes that want calm wellbeing signals.",
   ],
 
   notList: [
-    "Not a crisis hotline.",
-    "Not a disciplinary tool.",
     "Not surveillance.",
-    "Not a replacement for counseling.",
+    "Not a scorecard or leaderboard.",
+    "Not a chore boss.",
+    "Not a reporting tool.",
   ],
 
   weekly: {
-    intro: "Kinly uses a weekly rhythm so wellbeing signals stay light and consistent.",
+    intro: "Kinly uses a weekly rhythm so support stays human-paced.",
     points: [
-      "Check in weekly so issues stay small.",
-      "Reset expectations without blame.",
-      "Encourage self-led support before escalation.",
+      "Check in weekly, not daily — no streaks to maintain.",
+      "Reflections are for understanding, not grading.",
+      "Reset calmly when the vibe shifts.",
     ],
   },
+
+  toolsHeading: "Supported by practical tools",
+  toolsIntro:
+    "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction — without turning wellbeing into monitoring.",
+  toolsList: [
+    "Shared flows (with assignments if you want) for cleaning and quiet hours so standards stay clear.",
+    "Shared bills so utilities and shared supplies are visible without chasing.",
+    "Calm check-ins so everyone feels seen without pressure.",
+  ],
 
   availability: {
     body: "Kinly is currently available in New Zealand and Singapore. We will email you when Kinly opens in your area.",
@@ -94,86 +120,109 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
 
   translations: {
     es: {
+      whatHeading: "Qué es Kinly",
+      whatBody:
+        "Kinly es una app de convivencia para quienes viven juntos. Mantiene visibles las expectativas de bienestar sin convertir la vivienda estudiantil en monitoreo.",
       recognition: {
-        heading: "Cuando el conflicto estudiantil se queda en silencio, los resultados sufren.",
-        subtitle: "Los mentores ven las señales antes de que alguien pida ayuda.",
-        body: "Kinly hace visible el bienestar en la convivencia para que los conflictos no terminen en abandono.",
+        heading: "Los sistemas de bienestar fallan cuando se sienten vigilancia.",
+        subtitle: "Los estudiantes necesitan visibilidad tranquila, no control.",
+        body: "Kinly mantiene visibles las normas con ritmo humano para que la vivienda estudiantil sea cuidada sin presión.",
       },
       hero: {
-        headline: "Infraestructura preventiva de bienestar para la convivencia.",
-        subhead: "Da a los estudiantes una forma calmada de mostrar tensión y reajustar normas.",
-        body: "Kinly ayuda a las cohortes a alinear expectativas, revisar semanalmente y reducir el conflicto silencioso, apoyando la retención y el enfoque académico.",
-        ctaHeading: "Apoya el bienestar desde temprano",
+        headline: "Convivencia tranquila que apoya el bienestar.",
+        subhead: "Visibilidad sin vigilancia; claridad sin culpas.",
+        body: "Kinly muestra cómo se siente la casa y qué necesita atención — sin marcadores ni enforcement.",
+        ctaHeading: "Mantén la casa estable",
       },
+      howSteps: [
+        {
+          title: "Acordar expectativas con fotos",
+          body: "Muestren cómo se ve “listo” y “silencio” en las áreas compartidas para que el bienestar sea práctico y justo.",
+        },
+        {
+          title: "Reajuste semanal, sin presión",
+          body: "Cada semana, pongan ruido, visitas, limpieza y señales de bienestar sobre la mesa para apoyar antes de que haya conflicto.",
+        },
+        {
+          title: "Mantener visibilidad compartida",
+          body: "Todos ven tareas ligeras y normas, así el cuidado se comparte sin vigilancia.",
+        },
+      ],
       screens: [
         {
           title: "Hoy",
           eyebrow: "Señales",
-          headline: "¿Qué está estresando la casa esta semana?",
-          copy: "Ruido, visitas, presión de estudio o fricción silenciosa que se acumula.",
-          footer: "Detecta la tensión temprano antes de que sea crisis.",
+          headline: "Qué necesita la casa ahora",
+          copy: "Horas de silencio, espacios comunes y tareas ligeras que mantienen el ambiente estable.",
+          footer: "Apoyo sin presión.",
           image:
             "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/today.png",
         },
         {
           title: "Gestionar",
-          eyebrow: "Reiniciar",
-          headline: "Ajusta sin estigma",
-          copy: "Reequilibra tareas, baja expectativas y da espacio cuando alguien está saturado.",
-          footer: "Reinicios ligeros mantienen estable a la cohorte.",
+          eyebrow: "Ajustar",
+          headline: "Ajusta normas sin enforcement",
+          copy: "Actualiza ruido/visitas/limpieza cuando cambian las cohortes — nadie es señalado.",
+          footer: "Actualizaciones neutrales, tono estudiantil.",
           image:
             "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/explore.png",
         },
         {
           title: "Hub",
-          eyebrow: "Normas compartidas",
-          headline: "Expectativas fáciles de ver",
-          copy: "Horas de silencio, reglas de visitas y estándares compartidos en un lugar tranquilo.",
-          footer: "La claridad apoya el bienestar y la confianza.",
+          eyebrow: "Referencia",
+          headline: "Un referente tranquilo para todos",
+          copy: "Ruido, visitas, notas de bienestar y costos compartidos en un lugar — sin rachas ni puntajes.",
+          footer: "Claridad que se siente cuidado, no monitoreo.",
           image:
             "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/hub.png",
         },
       ],
       chips: [
-        "Los conflictos se vuelven silenciosos antes de la desconexión.",
-        "Los estudiantes internacionales suelen sufrir en silencio.",
-        "La carga mental afecta el rendimiento académico.",
-        "La retención mejora cuando las expectativas están claras.",
+        "Queremos bienestar sin sentirnos vigilados.",
+        "Silencio, visitas y limpieza necesitan una base tranquila.",
+        "El apoyo debe ser proactivo, no punitivo.",
       ],
       rolePoints: [
-        "Muestra señales tempranas de tensión para mentores sin vigilancia.",
-        "Mantiene expectativas visibles para que los estudiantes se autorregulen.",
+        "Mantiene las expectativas visibles sin vigilancia.",
+        "Comparte la responsabilidad del cuidado en lugar de señalar a personas.",
       ],
       formingPoints: [
-        "Las cohortes cambian cada ciclo y la base sigue clara.",
-        "Reinicios semanales evitan que una semana difícil rompa la convivencia.",
+        "Las cohortes cambian; la base sigue clara.",
+        "Si se desvía, se reinicia la próxima semana sin culpas.",
       ],
       audience: [
-        "Equipos de residencias universitarias y bienestar.",
-        "Gestores de cohortes en incubadoras o aceleradoras.",
-        "Asesores que apoyan estudiantes en vivienda compartida.",
+        "Equipos de vivienda estudiantil y RAs.",
+        "Casas de estudiantes que quieren señales de bienestar tranquilas.",
       ],
       notList: [
-        "No es una línea de crisis.",
-        "No es una herramienta disciplinaria.",
         "No es vigilancia.",
-        "No reemplaza el acompañamiento profesional.",
+        "No es un marcador.",
+        "No es un jefe de tareas.",
+        "No es una herramienta de reportes.",
       ],
       weekly: {
-        intro: "Kinly usa un ritmo semanal para mantener señales de bienestar ligeras y constantes.",
+        intro: "Kinly usa un ritmo semanal para que el apoyo sea a ritmo humano.",
         points: [
-          "Revisa semanalmente para que lo pequeño no crezca.",
-          "Ajusta expectativas sin culpa.",
-          "Fomenta apoyo autónomo antes de escalar.",
+          "Revisa semanalmente, no a diario — sin rachas que mantener.",
+          "Las reflexiones son para entender, no para calificar.",
+          "Reinicia con calma cuando cambie el ambiente.",
         ],
         heading: "Reflexión semanal, a ritmo humano",
       },
+      toolsHeading: "Apoyado por herramientas prácticas",
+      toolsIntro:
+        "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la fricción diaria — sin convertir el bienestar en monitoreo.",
+      toolsList: [
+        "Flujos compartidos (con asignaciones si quieren) para limpieza y horas de silencio para que los estándares sean claros.",
+        "Cuentas compartidas para que los servicios e insumos sean visibles sin persecución.",
+        "Revisiones calmadas para que todos se sientan vistos sin presión.",
+      ],
       sectionHeadings: {
         howItWorks: "Cómo funciona Kinly",
-        howItWorksSubtitle: "Nada se comparte sin intención.",
+        howItWorksSubtitle: "Tres pasos simples que mantienen a todos alineados.",
         soundsLikeYou: "¿Te suena familiar?",
         roleHeading: "El rol de Kinly: claridad primero",
-        formingHeading: "Si tu cohorte aún se está formando",
+        formingHeading: "Si tu hogar aún se está formando",
         audienceHeading: "Para quién es esto",
         notListHeading: "Kinly no es...",
         readyHeading: "Cuando estés listo",
@@ -185,86 +234,109 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
     } satisfies LocaleCopy,
 
     ar: {
+      whatHeading: "ما هو كينلي",
+      whatBody:
+        "كينلي هو تطبيق للعيش المشترك صُمم لمن يعيشون معاً. يبقي توقعات الرفاه واضحة دون أن يحول السكن الطلابي إلى مراقبة.",
       recognition: {
-        heading: "عندما يبقى الصراع الطلابي صامتاً، تتضرر النتائج.",
-        subtitle: "المرشدون يلاحظون الإشارات قبل أن يطلب أحد المساعدة.",
-        body: "كينلي يجعل رفاهية السكن المشترك واضحة حتى لا تتحول الخلافات إلى انسحاب.",
+        heading: "تفشل أنظمة الرفاه حين تشعر بالمراقبة.",
+        subtitle: "يحتاج الطلاب إلى وضوح هادئ، لا ضبط.",
+        body: "كينلي يبقي المعايير مرئية وبإيقاع بشري ليبقى السكن الطلابي داعماً دون ضغط.",
       },
       hero: {
-        headline: "بنية تحتية وقائية للرفاهية في السكن المشترك.",
-        subhead: "امنح الطلاب طريقة هادئة لإظهار التوتر وإعادة ضبط القواعد.",
-        body: "كينلي يساعد الأفواج على توحيد التوقعات، المراجعة أسبوعياً، وتقليل الصراع الصامت، لدعم الاستمرار والتركيز الأكاديمي.",
-        ctaHeading: "ادعم رفاهية الطلاب مبكراً",
+        headline: "معيشة مشتركة هادئة تدعم الرفاه.",
+        subhead: "وضوح بلا مراقبة؛ شفافية بلا لوم.",
+        body: "كينلي يُظهر شعور البيت وما يحتاجه — بلا لوحات نقاط أو فرض.",
+        ctaHeading: "أبقِ البيت مستقراً",
       },
+      howSteps: [
+        {
+          title: "اتفقوا على التوقعات بالصور",
+          body: "أروا كيف يبدو “جاهز” و“هادئ” في المساحات المشتركة ليكون الرفاه عملياً وعادلاً.",
+        },
+        {
+          title: "إعادة ضبط أسبوعية وخفيفة",
+          body: "مرة في الأسبوع، أظهروا الضوضاء والضيوف والنظافة وإشارات الرفاه لتقديم الدعم قبل أن يصبح خلافاً.",
+        },
+        {
+          title: "حافظوا على وضوح مشترك",
+          body: "يرى الجميع المهام الخفيفة والمعايير، فيتشارك الجميع العناية دون مراقبة.",
+        },
+      ],
       screens: [
         {
           title: "اليوم",
           eyebrow: "إشارات",
-          headline: "ما الذي يضغط على البيت هذا الأسبوع؟",
-          copy: "ضوضاء، ضيوف، ضغط الدراسة، أو احتكاك صامت يتراكم.",
-          footer: "لاحظ التوتر مبكراً قبل أن يصبح أزمة.",
+          headline: "ما يحتاجه البيت الآن",
+          copy: "ساعات هدوء، مساحات مشتركة، ومهام خفيفة تحافظ على استقرار الجو.",
+          footer: "دعم بلا ضغط.",
           image:
             "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/today.png",
         },
         {
           title: "إدارة",
-          eyebrow: "إعادة ضبط",
-          headline: "عدّل بدون وصمة",
-          copy: "أعد توازن المهام وخفف التوقعات عندما يكون أحدهم مثقلاً.",
-          footer: "إعادات ضبط خفيفة تبقي الفوج مستقراً.",
+          eyebrow: "تعديل",
+          headline: "عدّلوا المعايير بلا فرض",
+          copy: "حدثوا توقعات الضوضاء/الضيوف/النظافة مع تغير المجموعات — دون أن يُستهدف أحد.",
+          footer: "تحديثات محايدة، بلهجة صديقة للطلاب.",
           image:
             "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/explore.png",
         },
         {
           title: "مركز المنزل",
-          eyebrow: "معايير مشتركة",
-          headline: "اجعل التوقعات سهلة الرؤية",
-          copy: "ساعات الهدوء، قواعد الضيوف، ومعايير مشتركة في مكان هادئ واحد.",
-          footer: "الوضوح يدعم الرفاهية والثقة.",
+          eyebrow: "مرجع",
+          headline: "مرجع هادئ للجميع",
+          copy: "الضوضاء والضيوف وملاحظات الرفاه والتكاليف المشتركة في مكان واحد — بلا سلاسل أو نقاط.",
+          footer: "وضوح يشعر بالعناية، لا المراقبة.",
           image:
             "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/hub.png",
         },
       ],
       chips: [
-        "الخلافات تصبح صامتة قبل أن يبتعد الطلاب.",
-        "الطلاب الدوليون غالباً يعانون بصمت.",
-        "العبء الذهني يؤثر على الأداء الأكاديمي.",
-        "الاستمرار يتحسن عندما تبقى التوقعات واضحة.",
+        "نريد رفاه دون أن نشعر بالمراقبة.",
+        "ساعات الهدوء والضيوف والتنظيف تحتاج أساساً هادئاً.",
+        "يجب أن يكون الدعم استباقياً لا عقابياً.",
       ],
       rolePoints: [
-        "يُظهر إشارات التوتر المبكرة للمرشدين بدون مراقبة.",
-        "يبقي التوقعات المشتركة واضحة حتى يتمكن الطلاب من تصحيح المسار ذاتياً.",
+        "يبقي التوقعات مرئية دون مراقبة.",
+        "يشارك المسؤولية عن الرعاية بدلاً من استهداف الأفراد.",
       ],
       formingPoints: [
-        "الأفواج تتغير كل فصل والأساس يبقى واضحاً.",
-        "إعادات الضبط الأسبوعية تمنع أسبوعاً صعباً من أن يصبح شرخاً.",
+        "تتغير المجموعات؛ الأساس يبقى واضحاً.",
+        "إذا انحرف، تعيدونه الأسبوع القادم بلا لوم.",
       ],
       audience: [
-        "فرق السكن الجامعي ورفاهية الطلبة.",
-        "مديرو الأفواج في الحاضنات أو المسرعات.",
-        "مرشدون يدعمون الطلاب في السكن المشترك.",
+        "فرق السكن الطلابي والمشرفون.",
+        "بيوت طلابية تريد إشارات رفاه هادئة.",
       ],
       notList: [
-        "ليس خط أزمات.",
-        "ليس أداة تأديب.",
-        "ليس مراقبة.",
-        "ليس بديلاً عن الإرشاد.",
+        "ليست مراقبة.",
+        "ليست لوحة نقاط.",
+        "ليست رئيس مهام.",
+        "ليست أداة تقارير.",
       ],
       weekly: {
-        intro: "كينلي يستخدم إيقاعاً أسبوعياً لتبقى إشارات الرفاهية خفيفة وثابتة.",
+        intro: "كينلي يستخدم إيقاعاً أسبوعياً ليبقى الدعم بإيقاع بشري.",
         points: [
-          "راجع أسبوعياً حتى تبقى الأمور صغيرة.",
-          "أعد ضبط التوقعات بدون لوم.",
-          "شجع الدعم الذاتي قبل التصعيد.",
+          "راجعوا أسبوعياً، لا يومياً — بلا سلاسل للحفاظ عليها.",
+          "التأملات للفهم، لا للتقييم.",
+          "أعيدوا الضبط بهدوء عندما يتغير الجو.",
         ],
         heading: "تأمل أسبوعي، بإيقاع بشري",
       },
+      toolsHeading: "مدعوم بأدوات عملية",
+      toolsIntro:
+        "بعد أن تتفقوا على التوقعات، يقدم كينلي أدوات بسيطة تقلل الاحتكاكات اليومية — بدون تحويل الرفاه إلى مراقبة.",
+      toolsList: [
+        "تدفّقات مشتركة (مع تعيينات إذا أردتم) للتنظيف وساعات الهدوء للحفاظ على وضوح المعايير.",
+        "فواتير مشتركة لعرض الخدمات والإمدادات بدون ملاحقة.",
+        "مراجعات هادئة ليشعر الجميع بأنهم مرئيون بلا ضغط.",
+      ],
       sectionHeadings: {
         howItWorks: "كيف يعمل كينلي",
-        howItWorksSubtitle: "لا شيء يُشارك بدون قصد.",
+        howItWorksSubtitle: "ثلاث خطوات بسيطة تبقي الجميع على توافق.",
         soundsLikeYou: "هل يبدو هذا مثل مكانك؟",
         roleHeading: "دور كينلي: وضوح أولاً",
-        formingHeading: "إذا كانت مجموعتك لا تزال تتشكل",
+        formingHeading: "إذا كان منزلك لا يزال يتشكل",
         audienceHeading: "لمن هذا",
         notListHeading: "كينلي ليس...",
         readyHeading: "عندما تكون جاهزاً",

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 /* eslint-disable @next/next/no-img-element */
 
 import { useEffect, useMemo, useState } from "react";
@@ -216,11 +216,30 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
           </section>
 
           <section className={styles.section}>
+            <KinlyStack direction="vertical" gap="s">
+              <KinlyHeading level={2}>{copy.whatHeading}</KinlyHeading>
+              <KinlyText variant="bodyMedium">{copy.whatBody}</KinlyText>
+            </KinlyStack>
+          </section>
+
+          <section className={styles.section}>
             <KinlyStack direction="vertical" gap="m">
               <KinlyHeading level={2}>{copy.howHeading}</KinlyHeading>
               <KinlyText variant="bodySmall" tone="muted">
                 {copy.howSubhead}
               </KinlyText>
+              <div className={styles.screenGrid}>
+                {copy.howSteps.map((step) => (
+                  <KinlyCard key={step.title} variant="surfaceContainer">
+                    <KinlyStack direction="vertical" gap="xs">
+                      <KinlyText variant="labelMedium" as="div">
+                        {step.title}
+                      </KinlyText>
+                      <KinlyText variant="bodySmall">{step.body}</KinlyText>
+                    </KinlyStack>
+                  </KinlyCard>
+                ))}
+              </div>
               <div className={styles.screenGrid}>
                 {copy.screens.map((screen) => (
                   <KinlyCard key={screen.title} variant="surfaceContainer">
@@ -246,6 +265,20 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
                         </div>
                       </KinlyStack>
                     </div>
+                  </KinlyCard>
+                ))}
+              </div>
+            </KinlyStack>
+          </section>
+
+          <section className={styles.section}>
+            <KinlyStack direction="vertical" gap="s">
+              <KinlyHeading level={2}>{copy.toolsHeading}</KinlyHeading>
+              <KinlyText variant="bodyMedium">{copy.toolsIntro}</KinlyText>
+              <div className={styles.screenGrid}>
+                {copy.toolsList.map((item) => (
+                  <KinlyCard key={item} variant="surface">
+                    <KinlyText variant="bodySmall">{item}</KinlyText>
                   </KinlyCard>
                 ))}
               </div>
@@ -372,8 +405,6 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
     </main>
   );
 }
-
-
 
 
 

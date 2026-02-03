@@ -54,12 +54,21 @@ export type ScenarioConfig = {
     ctaHeading?: string;
     privacyNote?: string;
   };
+  whatHeading?: string;
+  whatBody?: string;
+  howSteps?: {
+    title: string;
+    body: string;
+  }[];
   screens: ScenarioScreen[];
   chips: string[];
   rolePoints: string[];
   formingPoints: string[];
   audience: string[];
   notList: string[];
+  toolsHeading?: string;
+  toolsIntro?: string;
+  toolsList?: string[];
   weekly: {
     intro: string;
     points: string[];
@@ -114,6 +123,32 @@ const PLAY_STORE_URL =
     "https://play.google.com/store/apps/details?id=com.makinglifeeasie.kinly") as string;
 const APP_STORE_LABEL = "Download on the App Store";
 const PLAY_STORE_LABEL = "Get it on Google Play";
+const DEFAULT_WHAT_HEADING = "What Kinly is";
+const DEFAULT_WHAT_BODY =
+  "Kinly is a shared living app designed for people who live together. It keeps expectations visible and calm without turning home life into a task system.";
+const DEFAULT_HOW_SUBHEAD = "Three simple steps that keep everyone aligned.";
+const DEFAULT_HOW_STEPS = [
+  {
+    title: "Agree expectations with photos",
+    body: "Snap a quick photo of what “done” looks like for shared areas so everyone sees the same standard.",
+  },
+  {
+    title: "Reset weekly, lightly",
+    body: "Once a week, surface what feels off and choose what matters — no streaks, no pressure.",
+  },
+  {
+    title: "Keep shared visibility",
+    body: "Everyone can see gentle notes and updates about the home, so needs are clear without blame.",
+  },
+] as const;
+const DEFAULT_TOOLS_HEADING = "Supported by practical tools";
+const DEFAULT_TOOLS_INTRO =
+  "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction — without turning shared living into a task system.";
+const DEFAULT_TOOLS_LIST = [
+  "Shared flows (with assignments if you want) so repeat tasks stay clear without policing.",
+  "Shared bills so due dates and amounts are visible without chasing.",
+  "Calm check-ins that keep everyone seen and supported without pointing fingers.",
+] as const;
 
 type StoreCtasProps = {
   suppress: boolean;
@@ -320,13 +355,32 @@ export default function ScenarioLandingClient({
           </section>
 
           <section className={styles.section}>
+            <KinlyStack direction="vertical" gap="s">
+              <KinlyHeading level={2}>{resolvedConfig.whatHeading ?? DEFAULT_WHAT_HEADING}</KinlyHeading>
+              <KinlyText variant="bodyMedium">{resolvedConfig.whatBody ?? DEFAULT_WHAT_BODY}</KinlyText>
+            </KinlyStack>
+          </section>
+
+          <section className={styles.section}>
             <KinlyStack direction="vertical" gap="m">
               <KinlyHeading level={2}>
                 {resolvedConfig.sectionHeadings?.howItWorks ?? "How Kinly works"}
               </KinlyHeading>
               <KinlyText variant="bodySmall" tone="muted">
-                {resolvedConfig.sectionHeadings?.howItWorksSubtitle ?? "Nothing is shared without intent."}
+                {resolvedConfig.sectionHeadings?.howItWorksSubtitle ?? DEFAULT_HOW_SUBHEAD}
               </KinlyText>
+              <div className={styles.screenGrid}>
+                {(resolvedConfig.howSteps ?? DEFAULT_HOW_STEPS).map((step) => (
+                  <KinlyCard key={step.title} variant="surfaceContainer">
+                    <KinlyStack direction="vertical" gap="xs">
+                      <KinlyText variant="labelMedium" as="div">
+                        {step.title}
+                      </KinlyText>
+                      <KinlyText variant="bodySmall">{step.body}</KinlyText>
+                    </KinlyStack>
+                  </KinlyCard>
+                ))}
+              </div>
               <div className={styles.screenGrid}>
                 {resolvedConfig.screens.map((screen) => (
                   <KinlyCard key={screen.title} variant="surfaceContainer">
@@ -352,6 +406,20 @@ export default function ScenarioLandingClient({
                         </div>
                       </KinlyStack>
                     </div>
+                  </KinlyCard>
+                ))}
+              </div>
+            </KinlyStack>
+          </section>
+
+          <section className={styles.section}>
+            <KinlyStack direction="vertical" gap="s">
+              <KinlyHeading level={2}>{resolvedConfig.toolsHeading ?? DEFAULT_TOOLS_HEADING}</KinlyHeading>
+              <KinlyText variant="bodyMedium">{resolvedConfig.toolsIntro ?? DEFAULT_TOOLS_INTRO}</KinlyText>
+              <div className={styles.screenGrid}>
+                {(resolvedConfig.toolsList ?? DEFAULT_TOOLS_LIST).map((item) => (
+                  <KinlyCard key={item} variant="surface">
+                    <KinlyText variant="bodySmall">{item}</KinlyText>
                   </KinlyCard>
                 ))}
               </div>

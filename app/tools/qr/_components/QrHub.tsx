@@ -56,7 +56,7 @@ export default function QrHub() {
     const fullUrl = url.toString();
     setGeneratedUrl(fullUrl);
 
-    // Generate Preview - use card version
+    // Generate Preview
     const preview = await generateQrCardPng(fullUrl, valueStatement || "Shared spending, simplified.");
     setQrPreviewUrl(preview);
   };
@@ -205,16 +205,46 @@ export default function QrHub() {
                         />
                     </div>
                     <KinlyText variant="bodySmall">Tap to expand</KinlyText>
-
-                    <div style={{ display: "flex", gap: "1rem" }}>
-                        <KinlyButton variant="filled" onClick={handleDownloadPng}>
-                            PNG (QR)
-                        </KinlyButton>
-                        <KinlyButton variant="outlined" onClick={handleDownloadSvg}>
-                            SVG (QR)
-                        </KinlyButton>
-                    </div>
                 </KinlyStack>
+            </div>
+        )}
+
+        {generatedUrl && (
+            <div style={{ marginTop: "1rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                <code style={{ 
+                    flex: 1, 
+                    padding: "8px 12px", 
+                    background: "#f5f5f5", 
+                    border: "1px solid #ddd", 
+                    borderRadius: "4px",
+                    fontSize: "12px",
+                    wordBreak: "break-all",
+                    color: "#111"
+                }}>
+                    {generatedUrl}
+                </code>
+                <KinlyButton
+                    variant="outlined"
+                    onClick={() => {
+                        navigator.clipboard.writeText(generatedUrl);
+                    }}
+                >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                    </svg>
+                </KinlyButton>
+            </div>
+        )}
+
+        {qrPreviewUrl && (
+            <div style={{ display: "flex", justifyContent: "center", gap: "1rem" }}>
+                <KinlyButton variant="filled" onClick={handleDownloadPng}>
+                    PNG (QR)
+                </KinlyButton>
+                <KinlyButton variant="outlined" onClick={handleDownloadSvg}>
+                    SVG (QR)
+                </KinlyButton>
             </div>
         )}
 

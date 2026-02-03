@@ -10,6 +10,8 @@ export type LocaleCopy = {
     subtitle: string;
     body: string;
   };
+  whatHeading?: string;
+  whatBody?: string;
   hero: {
     headline: string;
     subhead: string;
@@ -17,6 +19,10 @@ export type LocaleCopy = {
     ctaHeading?: string;
     privacyNote?: string;
   };
+  howSteps?: {
+    title: string;
+    body: string;
+  }[];
   screens: ScenarioScreen[];
   chips: string[];
   rolePoints: string[];
@@ -28,6 +34,9 @@ export type LocaleCopy = {
     points: string[];
     heading?: string;
   };
+  toolsHeading?: string;
+  toolsIntro?: string;
+  toolsList?: string[];
   sectionHeadings?: {
     howItWorks?: string;
     howItWorksSubtitle?: string;
