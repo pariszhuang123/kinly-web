@@ -28,7 +28,9 @@
       "whatsapp",
       "private_social_media_group",
       "offline_event",
-      "linkedin"
+      "linkedin", 
+      "email",
+      "slack"
     ]
   },
   "items": [
