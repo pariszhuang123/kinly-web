@@ -46,6 +46,7 @@
   background: color-mix(in srgb, var(--color-semantic-primary, #366d59) 6%, var(--color-surface, #ffffff));
   border: 1px solid color-mix(in srgb, var(--color-semantic-primary, #366d59) 16%, transparent);
   box-shadow: 0 24px 70px color-mix(in srgb, var(--color-semantic-primary, #366d59) 14%, transparent);
+  overflow: hidden;
 }
 
 .heroInner {
@@ -70,11 +71,13 @@
   display: grid;
   gap: var(--spacing-s, 10px);
   justify-items: center;
+  min-width: 0;
+  width: 100%;
 }
 
 .deviceFrame {
   position: relative;
-  width: min(360px, 82vw);
+  width: min(100%, 360px);
   aspect-ratio: 9 / 19.5;
   padding: var(--spacing-xs, 8px);
   border-radius: 44px;
@@ -119,7 +122,7 @@
 }
 
 .deviceThumbs {
-  width: min(360px, 82vw);
+  width: min(100%, 360px);
   display: grid;
   gap: var(--spacing-xs, 8px);
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -221,12 +224,8 @@
     grid-template-columns: 1fr;
   }
 
-  .heroVisual {
-    order: -1;
-  }
-
   .deviceFrame,
   .deviceThumbs {
-    width: min(360px, 92vw);
+    width: min(100%, 360px);
   }
 }
