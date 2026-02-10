@@ -2,9 +2,8 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { useEffect, useMemo, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import {
-  KinlyButton,
   KinlyCard,
   KinlyHeading,
   KinlyShell,
@@ -24,7 +23,7 @@ import {
 } from "../../../lib/outreachTracking";
 import { resolveLandingCopy } from "./copy";
 import { resolveStoreBadges } from "../../../lib/storeBadges";
-import styles from "./LandingClient.module.css";
+import styles from "./LandingClientGeneral.module.css";
 
 type InterestMarker = {
   country_code?: string;
@@ -102,12 +101,10 @@ function readInterestMarker(): InterestMarker | null {
 export default function LandingClient({ detectedCountryCode = null }: LandingClientProps) {
   const [hasHydrated, setHasHydrated] = useState(false);
 
-  const router = useRouter();
   const searchParams = useSearchParams();
   const utmParams = useMemo(() => readUtmParams(searchParams), [searchParams]);
 
   useEffect(() => {
-    // Mark hydration complete so client-only reads (localStorage, navigator) happen after first paint.
     setHasHydrated(true); // eslint-disable-line react-hooks/set-state-in-effect
   }, []);
 
@@ -117,6 +114,7 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
   const copy = useMemo(() => resolveLandingCopy(lang), [lang]);
   const isRtl = lang === "ar" || lang === "he" || lang === "fa" || lang === "ur";
   const storeBadges = useMemo(() => resolveStoreBadges(lang), [lang]);
+  const heroScreens = copy.screens.slice(0, 3);
 
   const interestMarker = useMemo<InterestMarker | null>(
     () => (hasHydrated ? readInterestMarker() : null),
@@ -172,11 +170,6 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
 
   return (
     <main className={styles.page} dir={isRtl ? "rtl" : "ltr"}>
-      {/* IMPORTANT:
-          The previous always-mounted backdrop was intercepting clicks (e.g. store badges).
-          If you want a visual backdrop, keep it but ensure CSS uses pointer-events: none.
-          Otherwise, remove it entirely.
-      */}
       <div className={styles.backdrop} aria-hidden="true" />
 
       <KinlyShell as="section">
@@ -192,46 +185,65 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
           </section>
 
           <section className={styles.hero}>
-            <KinlyStack direction="vertical" gap="m">
-              <KinlyStack direction="horizontal" gap="s" align="center">
-                <img src="/logo-kinly.svg" alt="Kinly logo" className={styles.logo} />
-                <KinlyHeading level={2}>{copy.hero.headline}</KinlyHeading>
-              </KinlyStack>
-              <KinlyText variant="bodyLarge" tone="muted">
-                {copy.hero.subhead}
-              </KinlyText>
-              <KinlyText variant="bodyMedium">{copy.hero.body}</KinlyText>
-              {!suppressStoreCtas ? (
-                <div className={styles.heroCtas}>
-                  <div className={styles.heroCtaHeading}>
-                    <KinlyHeading level={3}>{copy.hero.ctaHeading}</KinlyHeading>
-                  </div>
-                  <StoreCtas suppress={suppressStoreCtas} onClick={handleCtaClick} labels={copy.storeLabels} badges={storeBadges} />
+            <div className={styles.heroInner}>
+              <div className={styles.heroContent}>
+                <KinlyStack direction="vertical" gap="m">
+                  <KinlyStack direction="horizontal" gap="s" align="center">
+                    <img src="/logo-kinly.svg" alt="Kinly logo" className={styles.logo} />
+                    <KinlyHeading level={2}>{copy.hero.headline}</KinlyHeading>
+                  </KinlyStack>
+                  <KinlyText variant="bodyLarge" tone="muted">
+                    {copy.hero.subhead}
+                  </KinlyText>
+                  <KinlyText variant="bodyMedium">{copy.hero.body}</KinlyText>
                   <KinlyText variant="bodySmall" tone="muted">
                     {copy.hero.privacyNote}
                   </KinlyText>
-                </div>
-              ) : null}
-            </KinlyStack>
+                </KinlyStack>
+              </div>
+
+              <div className={styles.heroVisual}>
+                {heroScreens[0] ? (
+                  <div className={styles.deviceFrame}>
+                    <div className={styles.deviceScreen}>
+                      <img src={heroScreens[0].image} alt={`${heroScreens[0].title} screen`} loading="lazy" />
+                    </div>
+                  </div>
+                ) : null}
+
+                {heroScreens.length > 1 ? (
+                  <div className={styles.deviceThumbs}>
+                    {heroScreens.slice(1).map((screen) => (
+                      <div key={screen.title} className={styles.deviceThumb}>
+                        <img src={screen.image} alt={`${screen.title} screen`} loading="lazy" />
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+            </div>
           </section>
 
-          <section className={styles.section}>
+          <section className={`${styles.section} ${styles.sectionPanel}`}>
             <KinlyStack direction="vertical" gap="s">
               <KinlyHeading level={2}>{copy.whatHeading}</KinlyHeading>
               <KinlyText variant="bodyMedium">{copy.whatBody}</KinlyText>
             </KinlyStack>
           </section>
 
-          <section className={styles.section}>
+          <section className={`${styles.section} ${styles.sectionPanel}`}>
             <KinlyStack direction="vertical" gap="m">
               <KinlyHeading level={2}>{copy.howHeading}</KinlyHeading>
               <KinlyText variant="bodySmall" tone="muted">
                 {copy.howSubhead}
               </KinlyText>
-              <div className={styles.screenGrid}>
-                {copy.howSteps.map((step) => (
-                  <KinlyCard key={step.title} variant="surfaceContainer">
+              <div className={styles.stepGrid}>
+                {copy.howSteps.map((step, index) => (
+                  <KinlyCard key={step.title} variant="surfaceContainerHigh">
                     <KinlyStack direction="vertical" gap="xs">
+                      <KinlyText variant="labelSmall" tone="muted" as="div">
+                        Step {index + 1}
+                      </KinlyText>
                       <KinlyText variant="labelMedium" as="div">
                         {step.title}
                       </KinlyText>
@@ -240,44 +252,16 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
                   </KinlyCard>
                 ))}
               </div>
-              <div className={styles.screenGrid}>
-                {copy.screens.map((screen) => (
-                  <KinlyCard key={screen.title} variant="surfaceContainer">
-                    <div className={styles.screen}>
-                      <div className={styles.screenHeader}>
-                        <KinlyText variant="labelSmall" tone="muted" as="div">
-                          {screen.eyebrow}
-                        </KinlyText>
-                        <KinlyText variant="labelSmall" tone="muted" as="div">
-                          {screen.title}
-                        </KinlyText>
-                      </div>
-                      <div className={styles.screenImage}>
-                        <img src={screen.image} alt={`${screen.title} screen`} loading="lazy" />
-                      </div>
-                      <KinlyStack direction="vertical" gap="s">
-                        <KinlyHeading level={3}>{screen.headline}</KinlyHeading>
-                        <KinlyText variant="bodyMedium">{screen.copy}</KinlyText>
-                        <div className={styles.screenFooter}>
-                          <KinlyText variant="labelSmall" tone="muted" as="div">
-                            {screen.footer}
-                          </KinlyText>
-                        </div>
-                      </KinlyStack>
-                    </div>
-                  </KinlyCard>
-                ))}
-              </div>
             </KinlyStack>
           </section>
 
-          <section className={styles.section}>
+          <section className={`${styles.section} ${styles.sectionPanel}`}>
             <KinlyStack direction="vertical" gap="s">
               <KinlyHeading level={2}>{copy.toolsHeading}</KinlyHeading>
               <KinlyText variant="bodyMedium">{copy.toolsIntro}</KinlyText>
-              <div className={styles.screenGrid}>
+              <div className={styles.listGrid}>
                 {copy.toolsList.map((item) => (
-                  <KinlyCard key={item} variant="surface">
+                  <KinlyCard key={item} variant="surfaceContainer">
                     <KinlyText variant="bodySmall">{item}</KinlyText>
                   </KinlyCard>
                 ))}
@@ -285,12 +269,12 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
             </KinlyStack>
           </section>
 
-          <section className={styles.section}>
+          <section className={`${styles.section} ${styles.sectionPanel}`}>
             <KinlyStack direction="vertical" gap="s">
               <KinlyHeading level={2}>{copy.chipsHeading}</KinlyHeading>
-              <div className={styles.chips}>
+              <div className={styles.listGrid}>
                 {copy.chips.map((chip) => (
-                  <KinlyCard key={chip} variant="surface">
+                  <KinlyCard key={chip} variant="surfaceContainer">
                     <KinlyText variant="bodyMedium">{chip}</KinlyText>
                   </KinlyCard>
                 ))}
@@ -298,71 +282,69 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
             </KinlyStack>
           </section>
 
-          <section className={styles.section}>
+          <section className={`${styles.section} ${styles.sectionPanel}`}>
             <KinlyStack direction="vertical" gap="s">
               <KinlyHeading level={2}>{copy.roleHeading}</KinlyHeading>
-              <KinlyStack direction="vertical" gap="xxs">
+              <ul className={styles.bulletList}>
                 {copy.rolePoints.map((point) => (
-                  <KinlyText key={point} variant="bodyMedium">
-                    {point}
-                  </KinlyText>
+                  <li key={point} className={styles.bulletItem}>
+                    <KinlyText variant="bodyMedium">{point}</KinlyText>
+                  </li>
                 ))}
-              </KinlyStack>
+              </ul>
             </KinlyStack>
           </section>
 
-          <section className={styles.section}>
+          <section className={`${styles.section} ${styles.sectionPanel}`}>
             <KinlyStack direction="vertical" gap="s">
               <KinlyHeading level={2}>{copy.formingHeading}</KinlyHeading>
-              <KinlyStack direction="vertical" gap="xxs">
+              <ul className={styles.bulletList}>
                 {copy.formingPoints.map((point) => (
-                  <KinlyText key={point} variant="bodyMedium">
-                    {point}
-                  </KinlyText>
+                  <li key={point} className={styles.bulletItem}>
+                    <KinlyText variant="bodyMedium">{point}</KinlyText>
+                  </li>
                 ))}
-              </KinlyStack>
+              </ul>
             </KinlyStack>
           </section>
 
-          <section className={styles.section}>
+          <section className={`${styles.section} ${styles.sectionPanel}`}>
             <KinlyStack direction="vertical" gap="s">
               <KinlyHeading level={2}>{copy.audienceHeading}</KinlyHeading>
-              <KinlyStack direction="vertical" gap="xs">
+              <ul className={styles.bulletList}>
                 {copy.audience.map((entry) => (
-                  <KinlyText key={entry} variant="bodyMedium">
-                    {entry}
-                  </KinlyText>
+                  <li key={entry} className={styles.bulletItem}>
+                    <KinlyText variant="bodyMedium">{entry}</KinlyText>
+                  </li>
                 ))}
-              </KinlyStack>
+              </ul>
             </KinlyStack>
           </section>
 
-          <section className={styles.section}>
+          <section className={`${styles.section} ${styles.sectionPanel}`}>
             <KinlyStack direction="vertical" gap="s">
               <KinlyHeading level={2}>{copy.notHeading}</KinlyHeading>
-              <KinlyStack direction="vertical" gap="xxs">
+              <ul className={styles.bulletList}>
                 {copy.notList.map((item) => (
-                  <KinlyText key={item} variant="bodyMedium">
-                    {item}
-                  </KinlyText>
+                  <li key={item} className={styles.bulletItem}>
+                    <KinlyText variant="bodyMedium">{item}</KinlyText>
+                  </li>
                 ))}
-              </KinlyStack>
+              </ul>
             </KinlyStack>
           </section>
 
-          <section className={styles.section}>
+          <section className={`${styles.section} ${styles.sectionPanel}`}>
             <KinlyStack direction="vertical" gap="s">
               <KinlyHeading level={2}>{copy.weeklyHeading}</KinlyHeading>
-
               <KinlyText variant="bodyMedium">{copy.weeklyIntro}</KinlyText>
-
-              <KinlyStack direction="vertical" gap="xs">
+              <ul className={styles.bulletList}>
                 {copy.weeklyPoints.map((point) => (
-                  <KinlyText key={point} variant="bodyMedium">
-                    {point}
-                  </KinlyText>
+                  <li key={point} className={styles.bulletItem}>
+                    <KinlyText variant="bodyMedium">{point}</KinlyText>
+                  </li>
                 ))}
-              </KinlyStack>
+              </ul>
             </KinlyStack>
           </section>
 
@@ -372,39 +354,31 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
                 <KinlyStack direction="vertical" gap="s">
                   <KinlyHeading level={2}>{copy.availabilityHeading}</KinlyHeading>
                   <KinlyText variant="bodyMedium">{copy.availabilityBody}</KinlyText>
-                  <KinlyButton
-                    variant="outlined"
-                    type="button"
-                    onClick={() => {
-                      handleCtaClick("web");
-                      router.push("/kinly/get");
-                    }}
-                  >
-                    {copy.availabilityCta}
-                  </KinlyButton>
                 </KinlyStack>
               </KinlyCard>
             </section>
           )}
 
-        {!suppressStoreCtas && (
-          <section className={styles.storeSection}>
-            <KinlyCard variant="surfaceContainerHigh">
-              <KinlyStack direction="vertical" gap="m">
-                <KinlyHeading level={2}>{copy.storeSectionHeading}</KinlyHeading>
-                <KinlyText variant="bodySmall" tone="muted">
-                  {copy.storeSectionSubhead}
-                </KinlyText>
-                <StoreCtas suppress={suppressStoreCtas} onClick={handleCtaClick} labels={copy.storeLabels} badges={storeBadges} />
-              </KinlyStack>
-            </KinlyCard>
-          </section>
-        )}
+          {!suppressStoreCtas && (
+            <section className={styles.storeSection}>
+              <KinlyCard variant="surfaceContainerHigh">
+                <KinlyStack direction="vertical" gap="m">
+                  <KinlyHeading level={2}>{copy.storeSectionHeading}</KinlyHeading>
+                  <KinlyText variant="bodySmall" tone="muted">
+                    {copy.storeSectionSubhead}
+                  </KinlyText>
+                  <StoreCtas
+                    suppress={suppressStoreCtas}
+                    onClick={handleCtaClick}
+                    labels={copy.storeLabels}
+                    badges={storeBadges}
+                  />
+                </KinlyStack>
+              </KinlyCard>
+            </section>
+          )}
         </KinlyStack>
       </KinlyShell>
     </main>
   );
 }
-
-
-

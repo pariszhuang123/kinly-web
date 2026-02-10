@@ -65,10 +65,11 @@ test("shows store badges when no suppression marker exists", async () => {
   const ios = container.querySelectorAll('a[aria-label="Download on the App Store"]');
   const android = container.querySelectorAll('a[aria-label="Get it on Google Play"]');
 
-  expect(ios.length).toBe(2); // hero + footer CTA blocks
-  expect(android.length).toBe(2);
+  expect(ios.length).toBe(1);
+  expect(android.length).toBe(1);
   expect(ios[0].getAttribute("href")).toContain("apps.apple.com");
   expect(android[0].getAttribute("href")).toContain("play.google.com");
+  expect(container.textContent || "").not.toMatch(/Ready to start/i);
 
   unmount();
 });
@@ -81,9 +82,10 @@ test("shows store badges when detected country is supported", async () => {
   const android = container.querySelectorAll('a[aria-label="Get it on Google Play"]');
   const availability = container.querySelectorAll("section");
 
-  expect(ios.length).toBe(2);
-  expect(android.length).toBe(2);
+  expect(ios.length).toBe(1);
+  expect(android.length).toBe(1);
   expect((availability?.item(0)?.textContent || "")).not.toMatch(/opens in your area/i);
+  expect(container.textContent || "").not.toMatch(/Ready to start/i);
 
   unmount();
 });

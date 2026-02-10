@@ -11,16 +11,8 @@ test.describe("Marketing landing page", () => {
 
     await expect(page.getByRole("heading", { name: "Shared living gets heavy." })).toBeVisible();
     await expect(page.getByRole("heading", { name: "A calmer way to live together." })).toBeVisible();
-
-    const screenshots = [
-      page.getByRole("img", { name: "Today screen" }),
-      page.getByRole("img", { name: "Manage screen" }),
-      page.getByRole("img", { name: "Hub screen" }),
-    ];
-
-    for (const shot of screenshots) {
-      await expect(shot).toBeVisible();
-    }
+    await expect(page.locator('img[alt$=" screen"]')).toHaveCount(3);
+    await expect(page.getByText(/Ready to start/i)).toHaveCount(0);
   });
 
   test("shows store badges with hrefs when no suppressed marker exists", async ({ page }) => {
@@ -29,10 +21,11 @@ test.describe("Marketing landing page", () => {
     const ios = page.getByRole("link", { name: "Download on the App Store" });
     const android = page.getByRole("link", { name: "Get it on Google Play" });
 
-    await expect(ios).toHaveCount(2);
-    await expect(android).toHaveCount(2);
+    await expect(ios).toHaveCount(1);
+    await expect(android).toHaveCount(1);
     await expect(ios.first()).toHaveAttribute("href", /https?:\/\//);
     await expect(android.first()).toHaveAttribute("href", /https?:\/\//);
+    await expect(page.getByText(/Ready to start/i)).toHaveCount(0);
   });
 
   test("suppresses store badges when unsupported region marker is present", async ({ page }) => {

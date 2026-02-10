@@ -1,4 +1,4 @@
-type LandingScreen = {
+﻿type LandingScreen = {
   title: string;
   eyebrow: string;
   headline: string;
@@ -59,32 +59,32 @@ const LANDING_COPY_EN: LandingCopy = {
   recognition: {
     heading: "Shared living gets heavy.",
     subhead: "Even when no one is doing anything wrong.",
-    body: "Kinly helps you notice what the home needs — before anyone feels blamed.",
+    body: "Kinly helps you notice what the home needs before anyone feels blamed.",
   },
   hero: {
     headline: "A calmer way to live together.",
-    subhead: "A calm, shared place to notice how the home feels before anyone asks you to do anything.",
-    body: "You open Kinly to see what matters in the home right now — without pressure, chasing, or judgement.",
+    subhead: "A calm shared place to notice how the home feels before anyone has to ask.",
+    body: "Open Kinly to see what matters in your home right now, without pressure or blame.",
     ctaHeading: "Ready to start",
     privacyNote: "Private by default. No ads. No surveillance.",
   },
   whatHeading: "What Kinly is",
   whatBody:
-    "Kinly is a shared living app designed for people who live together. It keeps expectations visible and calm without turning home life into a task system.",
+    "Kinly is a shared living app for people who live together. It keeps expectations visible and calm without turning home life into a task system.",
   storeLabels: {
     app: "Download on the App Store",
     play: "Get it on Google Play",
   },
   howHeading: "How Kinly works",
-  howSubhead: "Three simple steps that keep everyone aligned.",
+  howSubhead: "Three simple steps to keep everyone aligned.",
   howSteps: [
     {
       title: "Agree expectations with photos",
-      body: "Snap a quick photo of what “done” looks like for shared areas so everyone sees the same standard.",
+      body: "Snap a photo of what done looks like in shared areas so everyone sees the same standard.",
     },
     {
       title: "Reset weekly, lightly",
-      body: "Once a week, surface what feels off and choose what matters — no streaks, no pressure.",
+      body: "Once a week, surface what feels off and choose what matters. No streaks, no pressure.",
     },
     {
       title: "Keep shared visibility",
@@ -133,7 +133,7 @@ const LANDING_COPY_EN: LandingCopy = {
   ],
   formingHeading: "If your home is still forming",
   formingPoints: [
-    "Uncertainty is normal — not a failure.",
+    "Uncertainty is normal, not a failure.",
     "Kinly treats figuring it out as healthy, not something to fix.",
   ],
   audienceHeading: "Who this is for",
@@ -145,15 +145,15 @@ const LANDING_COPY_EN: LandingCopy = {
   notHeading: "Kinly is not...",
   notList: ["...a surveillance tool.", "...a scorecard or leaderboard.", "...a chore boss."],
   weeklyHeading: "Weekly reflection, human-paced",
-  weeklyIntro: "Kinly moves on weekly rhythm. It notices the home mood without streaks, checklists, or pressure.",
+  weeklyIntro: "Kinly moves on a weekly rhythm. It notices the home mood without streaks, checklists, or pressure.",
   weeklyPoints: [
     "You can check in weekly, not daily. No streaks, no pressure to keep up.",
     "Reflections are for understanding, not grading.",
-    "Kinly never forces conversations — it helps you understand before you decide whether to talk.",
+    "Kinly never forces conversations. It helps you understand before you decide whether to talk.",
   ],
   toolsHeading: "Supported by practical tools",
   toolsIntro:
-    "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction — without turning shared living into a task system.",
+    "Once expectations are aligned, Kinly offers simple tools to reduce everyday friction without turning shared living into a task system.",
   toolsList: [
     "Shared flows (with assignments if you want) so repeat tasks stay clear without policing.",
     "Shared bills so due dates and amounts are visible without chasing.",
@@ -161,120 +161,120 @@ const LANDING_COPY_EN: LandingCopy = {
   ],
   availabilityHeading: "Availability",
   availabilityBody:
-    "Kinly is currently available in New Zealand and Singapore. We'll email you when Kinly opens in your area — no spam.",
+    "Kinly is currently available in New Zealand and Singapore. We'll email you when Kinly opens in your area. No spam.",
   availabilityCta: "Express interest when Kinly is available in your area.",
   storeSectionHeading: "When you are ready",
-  storeSectionSubhead: "Kinly lives in the app — start on iOS or Android.",
+  storeSectionSubhead: "Kinly lives in the app. Start on iOS or Android.",
 };
 
 const LANDING_COPY_OVERRIDES: Record<string, Partial<LandingCopy>> = {
   ar: {
     recognition: {
-      heading: "العيش المشترك يصبح ثقيلاً.",
-      subhead: "حتى عندما لا أحد يفعل شيئاً خاطئاً.",
-      body: "كينلي يساعدك على ملاحظة ما يحتاجه المنزل — قبل أن يشعر أحد بالّلوم.",
+      heading: "Ø§Ù„Ø¹ÙŠØ´ Ø§Ù„Ù…Ø´ØªØ±Ùƒ ÙŠØµØ¨Ø­ Ø«Ù‚ÙŠÙ„Ø§Ù‹.",
+      subhead: "Ø­ØªÙ‰ Ø¹Ù†Ø¯Ù…Ø§ Ù„Ø§ Ø£Ø­Ø¯ ÙŠÙØ¹Ù„ Ø´ÙŠØ¦Ø§Ù‹ Ø®Ø§Ø·Ø¦Ø§Ù‹.",
+      body: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠØ³Ø§Ø¹Ø¯Ùƒ Ø¹Ù„Ù‰ Ù…Ù„Ø§Ø­Ø¸Ø© Ù…Ø§ ÙŠØ­ØªØ§Ø¬Ù‡ Ø§Ù„Ù…Ù†Ø²Ù„ â€” Ù‚Ø¨Ù„ Ø£Ù† ÙŠØ´Ø¹Ø± Ø£Ø­Ø¯ Ø¨Ø§Ù„Ù‘Ù„ÙˆÙ….",
     },
     hero: {
-      headline: "طريقة أهدأ للعيش معاً.",
-      subhead: "مكان مشترك وهادئ لملاحظة كيف يشعر المنزل قبل أن يطلب منك أحد أي شيء.",
-      body: "تفتح كينلي لترى ما يهم في المنزل الآن — بدون ضغط أو ملاحقة أو حكم.",
-      ctaHeading: "جاهز للبدء",
-      privacyNote: "خاص بشكل افتراضي. بدون إعلانات. بدون مراقبة.",
+      headline: "Ø·Ø±ÙŠÙ‚Ø© Ø£Ù‡Ø¯Ø£ Ù„Ù„Ø¹ÙŠØ´ Ù…Ø¹Ø§Ù‹.",
+      subhead: "Ù…ÙƒØ§Ù† Ù…Ø´ØªØ±Ùƒ ÙˆÙ‡Ø§Ø¯Ø¦ Ù„Ù…Ù„Ø§Ø­Ø¸Ø© ÙƒÙŠÙ ÙŠØ´Ø¹Ø± Ø§Ù„Ù…Ù†Ø²Ù„ Ù‚Ø¨Ù„ Ø£Ù† ÙŠØ·Ù„Ø¨ Ù…Ù†Ùƒ Ø£Ø­Ø¯ Ø£ÙŠ Ø´ÙŠØ¡.",
+      body: "ØªÙØªØ­ ÙƒÙŠÙ†Ù„ÙŠ Ù„ØªØ±Ù‰ Ù…Ø§ ÙŠÙ‡Ù… ÙÙŠ Ø§Ù„Ù…Ù†Ø²Ù„ Ø§Ù„Ø¢Ù† â€” Ø¨Ø¯ÙˆÙ† Ø¶ØºØ· Ø£Ùˆ Ù…Ù„Ø§Ø­Ù‚Ø© Ø£Ùˆ Ø­ÙƒÙ….",
+      ctaHeading: "Ø¬Ø§Ù‡Ø² Ù„Ù„Ø¨Ø¯Ø¡",
+      privacyNote: "Ø®Ø§Øµ Ø¨Ø´ÙƒÙ„ Ø§ÙØªØ±Ø§Ø¶ÙŠ. Ø¨Ø¯ÙˆÙ† Ø¥Ø¹Ù„Ø§Ù†Ø§Øª. Ø¨Ø¯ÙˆÙ† Ù…Ø±Ø§Ù‚Ø¨Ø©.",
     },
     storeLabels: {
-      app: "تحميل من App Store",
-      play: "احصل عليه من Google Play",
+      app: "ØªØ­Ù…ÙŠÙ„ Ù…Ù† App Store",
+      play: "Ø§Ø­ØµÙ„ Ø¹Ù„ÙŠÙ‡ Ù…Ù† Google Play",
     },
-    howHeading: "كيف يعمل كينلي",
-    howSubhead: "ثلاث خطوات بسيطة تبقي الجميع على توافق.",
+    howHeading: "ÙƒÙŠÙ ÙŠØ¹Ù…Ù„ ÙƒÙŠÙ†Ù„ÙŠ",
+    howSubhead: "Ø«Ù„Ø§Ø« Ø®Ø·ÙˆØ§Øª Ø¨Ø³ÙŠØ·Ø© ØªØ¨Ù‚ÙŠ Ø§Ù„Ø¬Ù…ÙŠØ¹ Ø¹Ù„Ù‰ ØªÙˆØ§ÙÙ‚.",
     howSteps: [
       {
-        title: "اتفقوا على التوقعات بالصور",
-        body: "التقط صورة سريعة لما يبدو عليه \"الإنجاز\" في المساحات المشتركة ليرى الجميع نفس المعيار.",
+        title: "Ø§ØªÙÙ‚ÙˆØ§ Ø¹Ù„Ù‰ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§Øª Ø¨Ø§Ù„ØµÙˆØ±",
+        body: "Ø§Ù„ØªÙ‚Ø· ØµÙˆØ±Ø© Ø³Ø±ÙŠØ¹Ø© Ù„Ù…Ø§ ÙŠØ¨Ø¯Ùˆ Ø¹Ù„ÙŠÙ‡ \"Ø§Ù„Ø¥Ù†Ø¬Ø§Ø²\" ÙÙŠ Ø§Ù„Ù…Ø³Ø§Ø­Ø§Øª Ø§Ù„Ù…Ø´ØªØ±ÙƒØ© Ù„ÙŠØ±Ù‰ Ø§Ù„Ø¬Ù…ÙŠØ¹ Ù†ÙØ³ Ø§Ù„Ù…Ø¹ÙŠØ§Ø±.",
       },
       {
-        title: "إعادة ضبط أسبوعية وخفيفة",
-        body: "مرة في الأسبوع، أظهروا ما يزعجكم واختاروا ما يهم — بدون سلاسل أو ضغط.",
+        title: "Ø¥Ø¹Ø§Ø¯Ø© Ø¶Ø¨Ø· Ø£Ø³Ø¨ÙˆØ¹ÙŠØ© ÙˆØ®ÙÙŠÙØ©",
+        body: "Ù…Ø±Ø© ÙÙŠ Ø§Ù„Ø£Ø³Ø¨ÙˆØ¹ØŒ Ø£Ø¸Ù‡Ø±ÙˆØ§ Ù…Ø§ ÙŠØ²Ø¹Ø¬ÙƒÙ… ÙˆØ§Ø®ØªØ§Ø±ÙˆØ§ Ù…Ø§ ÙŠÙ‡Ù… â€” Ø¨Ø¯ÙˆÙ† Ø³Ù„Ø§Ø³Ù„ Ø£Ùˆ Ø¶ØºØ·.",
       },
       {
-        title: "حافظوا على وضوح مشترك",
-        body: "يمكن للجميع رؤية ملاحظات وتحديثات لطيفة عن المنزل، لتكون الاحتياجات واضحة بلا لوم.",
+        title: "Ø­Ø§ÙØ¸ÙˆØ§ Ø¹Ù„Ù‰ ÙˆØ¶ÙˆØ­ Ù…Ø´ØªØ±Ùƒ",
+        body: "ÙŠÙ…ÙƒÙ† Ù„Ù„Ø¬Ù…ÙŠØ¹ Ø±Ø¤ÙŠØ© Ù…Ù„Ø§Ø­Ø¸Ø§Øª ÙˆØªØ­Ø¯ÙŠØ«Ø§Øª Ù„Ø·ÙŠÙØ© Ø¹Ù† Ø§Ù„Ù…Ù†Ø²Ù„ØŒ Ù„ØªÙƒÙˆÙ† Ø§Ù„Ø§Ø­ØªÙŠØ§Ø¬Ø§Øª ÙˆØ§Ø¶Ø­Ø© Ø¨Ù„Ø§ Ù„ÙˆÙ….",
       },
     ],
-    toolsHeading: "مدعوم بأدوات عملية",
+    toolsHeading: "Ù…Ø¯Ø¹ÙˆÙ… Ø¨Ø£Ø¯ÙˆØ§Øª Ø¹Ù…Ù„ÙŠØ©",
     toolsIntro:
-      "بعد أن تتفقوا على التوقعات، يقدم كينلي أدوات بسيطة تقلل الاحتكاكات اليومية — بدون تحويل العيش المشترك إلى نظام مهام.",
+      "Ø¨Ø¹Ø¯ Ø£Ù† ØªØªÙÙ‚ÙˆØ§ Ø¹Ù„Ù‰ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§ØªØŒ ÙŠÙ‚Ø¯Ù… ÙƒÙŠÙ†Ù„ÙŠ Ø£Ø¯ÙˆØ§Øª Ø¨Ø³ÙŠØ·Ø© ØªÙ‚Ù„Ù„ Ø§Ù„Ø§Ø­ØªÙƒØ§ÙƒØ§Øª Ø§Ù„ÙŠÙˆÙ…ÙŠØ© â€” Ø¨Ø¯ÙˆÙ† ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ø¹ÙŠØ´ Ø§Ù„Ù…Ø´ØªØ±Ùƒ Ø¥Ù„Ù‰ Ù†Ø¸Ø§Ù… Ù…Ù‡Ø§Ù….",
     toolsList: [
-      "تدفّقات مشتركة (مع تعيينات إذا أردتم) لتبقى المهام المتكررة واضحة بدون رقابة.",
-      "فواتير مشتركة لعرض المبالغ والمواعيد بدون ملاحقة.",
-      "مراجعات هادئة تجعل الجميع مرئيين ومدعومين بدون توجيه أصابع الاتهام.",
+      "ØªØ¯ÙÙ‘Ù‚Ø§Øª Ù…Ø´ØªØ±ÙƒØ© (Ù…Ø¹ ØªØ¹ÙŠÙŠÙ†Ø§Øª Ø¥Ø°Ø§ Ø£Ø±Ø¯ØªÙ…) Ù„ØªØ¨Ù‚Ù‰ Ø§Ù„Ù…Ù‡Ø§Ù… Ø§Ù„Ù…ØªÙƒØ±Ø±Ø© ÙˆØ§Ø¶Ø­Ø© Ø¨Ø¯ÙˆÙ† Ø±Ù‚Ø§Ø¨Ø©.",
+      "ÙÙˆØ§ØªÙŠØ± Ù…Ø´ØªØ±ÙƒØ© Ù„Ø¹Ø±Ø¶ Ø§Ù„Ù…Ø¨Ø§Ù„Øº ÙˆØ§Ù„Ù…ÙˆØ§Ø¹ÙŠØ¯ Ø¨Ø¯ÙˆÙ† Ù…Ù„Ø§Ø­Ù‚Ø©.",
+      "Ù…Ø±Ø§Ø¬Ø¹Ø§Øª Ù‡Ø§Ø¯Ø¦Ø© ØªØ¬Ø¹Ù„ Ø§Ù„Ø¬Ù…ÙŠØ¹ Ù…Ø±Ø¦ÙŠÙŠÙ† ÙˆÙ…Ø¯Ø¹ÙˆÙ…ÙŠÙ† Ø¨Ø¯ÙˆÙ† ØªÙˆØ¬ÙŠÙ‡ Ø£ØµØ§Ø¨Ø¹ Ø§Ù„Ø§ØªÙ‡Ø§Ù….",
     ],
     screens: [
       {
-        title: "اليوم",
-        eyebrow: "الآن",
-        headline: "ما يحتاج انتباهك",
-        copy: "أشياء للقيام بها، أشياء للملاحظة، وخطوات لطيفة قادمة",
-        footer: "مهام اليوم، العناصر غير المكتملة، وتحديثات من منزلك.",
+        title: "Ø§Ù„ÙŠÙˆÙ…",
+        eyebrow: "Ø§Ù„Ø¢Ù†",
+        headline: "Ù…Ø§ ÙŠØ­ØªØ§Ø¬ Ø§Ù†ØªØ¨Ø§Ù‡Ùƒ",
+        copy: "Ø£Ø´ÙŠØ§Ø¡ Ù„Ù„Ù‚ÙŠØ§Ù… Ø¨Ù‡Ø§ØŒ Ø£Ø´ÙŠØ§Ø¡ Ù„Ù„Ù…Ù„Ø§Ø­Ø¸Ø©ØŒ ÙˆØ®Ø·ÙˆØ§Øª Ù„Ø·ÙŠÙØ© Ù‚Ø§Ø¯Ù…Ø©",
+        footer: "Ù…Ù‡Ø§Ù… Ø§Ù„ÙŠÙˆÙ…ØŒ Ø§Ù„Ø¹Ù†Ø§ØµØ± ØºÙŠØ± Ø§Ù„Ù…ÙƒØªÙ…Ù„Ø©ØŒ ÙˆØªØ­Ø¯ÙŠØ«Ø§Øª Ù…Ù† Ù…Ù†Ø²Ù„Ùƒ.",
         image:
           "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/today.png",
       },
       {
-        title: "إدارة",
-        eyebrow: "إجراء تغييرات",
-        headline: "غيّر كيف تعمل الأشياء",
-        copy: "عدّل، وزّع، علّق على، أو أزل التدفقات والمشاركات",
-        footer: "أنت دائماً مسيطر - لا شيء مقفل.",
+        title: "Ø¥Ø¯Ø§Ø±Ø©",
+        eyebrow: "Ø¥Ø¬Ø±Ø§Ø¡ ØªØºÙŠÙŠØ±Ø§Øª",
+        headline: "ØºÙŠÙ‘Ø± ÙƒÙŠÙ ØªØ¹Ù…Ù„ Ø§Ù„Ø£Ø´ÙŠØ§Ø¡",
+        copy: "Ø¹Ø¯Ù‘Ù„ØŒ ÙˆØ²Ù‘Ø¹ØŒ Ø¹Ù„Ù‘Ù‚ Ø¹Ù„Ù‰ØŒ Ø£Ùˆ Ø£Ø²Ù„ Ø§Ù„ØªØ¯ÙÙ‚Ø§Øª ÙˆØ§Ù„Ù…Ø´Ø§Ø±ÙƒØ§Øª",
+        footer: "Ø£Ù†Øª Ø¯Ø§Ø¦Ù…Ø§Ù‹ Ù…Ø³ÙŠØ·Ø± - Ù„Ø§ Ø´ÙŠØ¡ Ù…Ù‚ÙÙ„.",
         image:
           "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/explore.png",
       },
       {
-        title: "مركز المنزل",
-        eyebrow: "المنزل المشترك",
-        headline: "ما يهم في منزلنا",
-        copy: "لحظات، قواعد، ومراجع مشتركة",
-        footer: "الامتنان، أجواء المنزل، والملاحظات المهمة - مشتركة من الجميع.",
+        title: "Ù…Ø±ÙƒØ² Ø§Ù„Ù…Ù†Ø²Ù„",
+        eyebrow: "Ø§Ù„Ù…Ù†Ø²Ù„ Ø§Ù„Ù…Ø´ØªØ±Ùƒ",
+        headline: "Ù…Ø§ ÙŠÙ‡Ù… ÙÙŠ Ù…Ù†Ø²Ù„Ù†Ø§",
+        copy: "Ù„Ø­Ø¸Ø§ØªØŒ Ù‚ÙˆØ§Ø¹Ø¯ØŒ ÙˆÙ…Ø±Ø§Ø¬Ø¹ Ù…Ø´ØªØ±ÙƒØ©",
+        footer: "Ø§Ù„Ø§Ù…ØªÙ†Ø§Ù†ØŒ Ø£Ø¬ÙˆØ§Ø¡ Ø§Ù„Ù…Ù†Ø²Ù„ØŒ ÙˆØ§Ù„Ù…Ù„Ø§Ø­Ø¸Ø§Øª Ø§Ù„Ù…Ù‡Ù…Ø© - Ù…Ø´ØªØ±ÙƒØ© Ù…Ù† Ø§Ù„Ø¬Ù…ÙŠØ¹.",
         image:
           "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
       },
     ],    
-    chipsHeading: "هل يبدو هذا مثل مكانك؟",
+    chipsHeading: "Ù‡Ù„ ÙŠØ¨Ø¯Ùˆ Ù‡Ø°Ø§ Ù…Ø«Ù„ Ù…ÙƒØ§Ù†ÙƒØŸ",
     chips: [
-      "نهتم ببعض، لكن جداول المهام تجعل الأمور متوترة.",
-      "نريد معرفة كيف يشعر المنزل بدون إلقاء اللوم.",
-      "نتجنب الدراما لكننا نريد أن نُرى.",
+      "Ù†Ù‡ØªÙ… Ø¨Ø¨Ø¹Ø¶ØŒ Ù„ÙƒÙ† Ø¬Ø¯Ø§ÙˆÙ„ Ø§Ù„Ù…Ù‡Ø§Ù… ØªØ¬Ø¹Ù„ Ø§Ù„Ø£Ù…ÙˆØ± Ù…ØªÙˆØªØ±Ø©.",
+      "Ù†Ø±ÙŠØ¯ Ù…Ø¹Ø±ÙØ© ÙƒÙŠÙ ÙŠØ´Ø¹Ø± Ø§Ù„Ù…Ù†Ø²Ù„ Ø¨Ø¯ÙˆÙ† Ø¥Ù„Ù‚Ø§Ø¡ Ø§Ù„Ù„ÙˆÙ….",
+      "Ù†ØªØ¬Ù†Ø¨ Ø§Ù„Ø¯Ø±Ø§Ù…Ø§ Ù„ÙƒÙ†Ù†Ø§ Ù†Ø±ÙŠØ¯ Ø£Ù† Ù†ÙØ±Ù‰.",
     ],
-    roleHeading: "دور كينلي: التأمل أولاً",
+    roleHeading: "Ø¯ÙˆØ± ÙƒÙŠÙ†Ù„ÙŠ: Ø§Ù„ØªØ£Ù…Ù„ Ø£ÙˆÙ„Ø§Ù‹",
     rolePoints: [
-      "يعكس كيف يشعر المنزل قبل طلب أي إجراء.",
-      "يجعل الاهتمام مرئياً بدون تحديد المسؤولية.",
+      "ÙŠØ¹ÙƒØ³ ÙƒÙŠÙ ÙŠØ´Ø¹Ø± Ø§Ù„Ù…Ù†Ø²Ù„ Ù‚Ø¨Ù„ Ø·Ù„Ø¨ Ø£ÙŠ Ø¥Ø¬Ø±Ø§Ø¡.",
+      "ÙŠØ¬Ø¹Ù„ Ø§Ù„Ø§Ù‡ØªÙ…Ø§Ù… Ù…Ø±Ø¦ÙŠØ§Ù‹ Ø¨Ø¯ÙˆÙ† ØªØ­Ø¯ÙŠØ¯ Ø§Ù„Ù…Ø³Ø¤ÙˆÙ„ÙŠØ©.",
     ],
-    formingHeading: "إذا كان منزلك لا يزال يتشكل",
+    formingHeading: "Ø¥Ø°Ø§ ÙƒØ§Ù† Ù…Ù†Ø²Ù„Ùƒ Ù„Ø§ ÙŠØ²Ø§Ù„ ÙŠØªØ´ÙƒÙ„",
     formingPoints: [
-      "عدم اليقين طبيعي — ليس فشلاً.",
-      "كينلي يعامل اكتشاف الأمور كشيء صحي، ليس شيئاً يحتاج إصلاح.",
+      "Ø¹Ø¯Ù… Ø§Ù„ÙŠÙ‚ÙŠÙ† Ø·Ø¨ÙŠØ¹ÙŠ â€” Ù„ÙŠØ³ ÙØ´Ù„Ø§Ù‹.",
+      "ÙƒÙŠÙ†Ù„ÙŠ ÙŠØ¹Ø§Ù…Ù„ Ø§ÙƒØªØ´Ø§Ù Ø§Ù„Ø£Ù…ÙˆØ± ÙƒØ´ÙŠØ¡ ØµØ­ÙŠØŒ Ù„ÙŠØ³ Ø´ÙŠØ¦Ø§Ù‹ ÙŠØ­ØªØ§Ø¬ Ø¥ØµÙ„Ø§Ø­.",
     ],
-    audienceHeading: "لمن هذا",
+    audienceHeading: "Ù„Ù…Ù† Ù‡Ø°Ø§",
     audience: [
-      "زملاء السكن الذين لم يختاروا بعضهم لكن يريدون الهدوء.",
-      "المنازل التي تتكيف مع التغيير أو الإيقاعات الجديدة.",
-      "الناس الذين يهتمون لكن لا يريدون تكتيكات الضغط.",
+      "Ø²Ù…Ù„Ø§Ø¡ Ø§Ù„Ø³ÙƒÙ† Ø§Ù„Ø°ÙŠÙ† Ù„Ù… ÙŠØ®ØªØ§Ø±ÙˆØ§ Ø¨Ø¹Ø¶Ù‡Ù… Ù„ÙƒÙ† ÙŠØ±ÙŠØ¯ÙˆÙ† Ø§Ù„Ù‡Ø¯ÙˆØ¡.",
+      "Ø§Ù„Ù…Ù†Ø§Ø²Ù„ Ø§Ù„ØªÙŠ ØªØªÙƒÙŠÙ Ù…Ø¹ Ø§Ù„ØªØºÙŠÙŠØ± Ø£Ùˆ Ø§Ù„Ø¥ÙŠÙ‚Ø§Ø¹Ø§Øª Ø§Ù„Ø¬Ø¯ÙŠØ¯Ø©.",
+      "Ø§Ù„Ù†Ø§Ø³ Ø§Ù„Ø°ÙŠÙ† ÙŠÙ‡ØªÙ…ÙˆÙ† Ù„ÙƒÙ† Ù„Ø§ ÙŠØ±ÙŠØ¯ÙˆÙ† ØªÙƒØªÙŠÙƒØ§Øª Ø§Ù„Ø¶ØºØ·.",
     ],
-    notHeading: "كينلي ليس...",
-    notList: ["...أداة مراقبة.", "...بطاقة نقاط أو لوحة صدارة.", "...رئيس مهام."],
-    weeklyHeading: "تأمل أسبوعي، بإيقاع بشري",
-    weeklyIntro: "كينلي يتحرك بإيقاع أسبوعي. يلاحظ مزاج المنزل بدون سلاسل أو قوائم مراجعة أو ضغط.",
+    notHeading: "ÙƒÙŠÙ†Ù„ÙŠ Ù„ÙŠØ³...",
+    notList: ["...Ø£Ø¯Ø§Ø© Ù…Ø±Ø§Ù‚Ø¨Ø©.", "...Ø¨Ø·Ø§Ù‚Ø© Ù†Ù‚Ø§Ø· Ø£Ùˆ Ù„ÙˆØ­Ø© ØµØ¯Ø§Ø±Ø©.", "...Ø±Ø¦ÙŠØ³ Ù…Ù‡Ø§Ù…."],
+    weeklyHeading: "ØªØ£Ù…Ù„ Ø£Ø³Ø¨ÙˆØ¹ÙŠØŒ Ø¨Ø¥ÙŠÙ‚Ø§Ø¹ Ø¨Ø´Ø±ÙŠ",
+    weeklyIntro: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠØªØ­Ø±Ùƒ Ø¨Ø¥ÙŠÙ‚Ø§Ø¹ Ø£Ø³Ø¨ÙˆØ¹ÙŠ. ÙŠÙ„Ø§Ø­Ø¸ Ù…Ø²Ø§Ø¬ Ø§Ù„Ù…Ù†Ø²Ù„ Ø¨Ø¯ÙˆÙ† Ø³Ù„Ø§Ø³Ù„ Ø£Ùˆ Ù‚ÙˆØ§Ø¦Ù… Ù…Ø±Ø§Ø¬Ø¹Ø© Ø£Ùˆ Ø¶ØºØ·.",
     weeklyPoints: [
-      "يمكنك المراجعة أسبوعياً، ليس يومياً. لا سلاسل، لا ضغط للمتابعة.",
-      "التأملات للفهم، ليس للتقييم.",
-      "كينلي لا يفرض محادثات — يساعدك على الفهم قبل أن تقرر ما إذا كنت تريد التحدث.",
+      "ÙŠÙ…ÙƒÙ†Ùƒ Ø§Ù„Ù…Ø±Ø§Ø¬Ø¹Ø© Ø£Ø³Ø¨ÙˆØ¹ÙŠØ§Ù‹ØŒ Ù„ÙŠØ³ ÙŠÙˆÙ…ÙŠØ§Ù‹. Ù„Ø§ Ø³Ù„Ø§Ø³Ù„ØŒ Ù„Ø§ Ø¶ØºØ· Ù„Ù„Ù…ØªØ§Ø¨Ø¹Ø©.",
+      "Ø§Ù„ØªØ£Ù…Ù„Ø§Øª Ù„Ù„ÙÙ‡Ù…ØŒ Ù„ÙŠØ³ Ù„Ù„ØªÙ‚ÙŠÙŠÙ….",
+      "ÙƒÙŠÙ†Ù„ÙŠ Ù„Ø§ ÙŠÙØ±Ø¶ Ù…Ø­Ø§Ø¯Ø«Ø§Øª â€” ÙŠØ³Ø§Ø¹Ø¯Ùƒ Ø¹Ù„Ù‰ Ø§Ù„ÙÙ‡Ù… Ù‚Ø¨Ù„ Ø£Ù† ØªÙ‚Ø±Ø± Ù…Ø§ Ø¥Ø°Ø§ ÙƒÙ†Øª ØªØ±ÙŠØ¯ Ø§Ù„ØªØ­Ø¯Ø«.",
     ],
-    availabilityHeading: "التوفر",
+    availabilityHeading: "Ø§Ù„ØªÙˆÙØ±",
     availabilityBody:
-      "كينلي متاح حالياً في نيوزيلندا وسنغافورة. سنراسلك عندما يفتح كينلي في منطقتك — بدون رسائل مزعجة.",
-    availabilityCta: "أبدِ اهتمامك عندما يتوفر كينلي في منطقتك.",
-    storeSectionHeading: "عندما تكون جاهزاً",
-    storeSectionSubhead: "كينلي موجود في التطبيق — ابدأ على iOS أو Android.",
+      "ÙƒÙŠÙ†Ù„ÙŠ Ù…ØªØ§Ø­ Ø­Ø§Ù„ÙŠØ§Ù‹ ÙÙŠ Ù†ÙŠÙˆØ²ÙŠÙ„Ù†Ø¯Ø§ ÙˆØ³Ù†ØºØ§ÙÙˆØ±Ø©. Ø³Ù†Ø±Ø§Ø³Ù„Ùƒ Ø¹Ù†Ø¯Ù…Ø§ ÙŠÙØªØ­ ÙƒÙŠÙ†Ù„ÙŠ ÙÙŠ Ù…Ù†Ø·Ù‚ØªÙƒ â€” Ø¨Ø¯ÙˆÙ† Ø±Ø³Ø§Ø¦Ù„ Ù…Ø²Ø¹Ø¬Ø©.",
+    availabilityCta: "Ø£Ø¨Ø¯Ù Ø§Ù‡ØªÙ…Ø§Ù…Ùƒ Ø¹Ù†Ø¯Ù…Ø§ ÙŠØªÙˆÙØ± ÙƒÙŠÙ†Ù„ÙŠ ÙÙŠ Ù…Ù†Ø·Ù‚ØªÙƒ.",
+    storeSectionHeading: "Ø¹Ù†Ø¯Ù…Ø§ ØªÙƒÙˆÙ† Ø¬Ø§Ù‡Ø²Ø§Ù‹",
+    storeSectionSubhead: "ÙƒÙŠÙ†Ù„ÙŠ Ù…ÙˆØ¬ÙˆØ¯ ÙÙŠ Ø§Ù„ØªØ·Ø¨ÙŠÙ‚ â€” Ø§Ø¨Ø¯Ø£ Ø¹Ù„Ù‰ iOS Ø£Ùˆ Android.",
   },
   es: {
     recognition: {
@@ -283,9 +283,9 @@ const LANDING_COPY_OVERRIDES: Record<string, Partial<LandingCopy>> = {
       body: "Kinly te ayuda a notar lo que necesita la casa antes de que alguien se sienta culpado.",
     },
     hero: {
-      headline: "Una forma más tranquila de vivir juntos.",
-      subhead: "Un lugar compartido y calmado para notar cómo se siente la casa antes de que te pidan algo.",
-      body: "Abres Kinly para ver qué importa en casa ahora mismo, sin presión, persecución ni juicios.",
+      headline: "Una forma mÃ¡s tranquila de vivir juntos.",
+      subhead: "Un lugar compartido y calmado para notar cÃ³mo se siente la casa antes de que te pidan algo.",
+      body: "Abres Kinly para ver quÃ© importa en casa ahora mismo, sin presiÃ³n, persecuciÃ³n ni juicios.",
       ctaHeading: "Listo para empezar",
       privacyNote: "Privado por defecto. Sin anuncios. Sin vigilancia.",
     },
@@ -293,36 +293,36 @@ const LANDING_COPY_OVERRIDES: Record<string, Partial<LandingCopy>> = {
       app: "Descargar en App Store",
       play: "Obtener en Google Play",
     },
-    howHeading: "Cómo funciona Kinly",
+    howHeading: "CÃ³mo funciona Kinly",
     howSubhead: "Tres pasos simples que mantienen a todos alineados.",
     howSteps: [
       {
         title: "Acordar expectativas con fotos",
-        body: "Toma una foto rápida de cómo se ve \"listo\" en las áreas compartidas para que todos vean el mismo estándar.",
+        body: "Toma una foto rÃ¡pida de cÃ³mo se ve \"listo\" en las Ã¡reas compartidas para que todos vean el mismo estÃ¡ndar.",
       },
       {
-        title: "Reajuste semanal, sin presión",
-        body: "Una vez por semana, pongan sobre la mesa lo que incomoda y elijan qué importa — sin rachas ni presión.",
+        title: "Reajuste semanal, sin presiÃ³n",
+        body: "Una vez por semana, pongan sobre la mesa lo que incomoda y elijan quÃ© importa â€” sin rachas ni presiÃ³n.",
       },
       {
         title: "Mantener visibilidad compartida",
-        body: "Todos pueden ver notas y actualizaciones suaves sobre el hogar, así las necesidades son claras sin culpas.",
+        body: "Todos pueden ver notas y actualizaciones suaves sobre el hogar, asÃ­ las necesidades son claras sin culpas.",
       },
     ],
-    toolsHeading: "Apoyado por herramientas prácticas",
+    toolsHeading: "Apoyado por herramientas prÃ¡cticas",
     toolsIntro:
-      "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la fricción diaria — sin convertir la vida compartida en un sistema de tareas.",
+      "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la fricciÃ³n diaria â€” sin convertir la vida compartida en un sistema de tareas.",
     toolsList: [
-      "Flujos compartidos (con asignaciones si quieren) para que las tareas repetidas estén claras sin vigilar.",
+      "Flujos compartidos (con asignaciones si quieren) para que las tareas repetidas estÃ©n claras sin vigilar.",
       "Cuentas compartidas para ver montos y fechas sin andar persiguiendo pagos.",
-      "Revisiones calmadas para que todos se sientan vistos y apoyados sin señalar a nadie.",
+      "Revisiones calmadas para que todos se sientan vistos y apoyados sin seÃ±alar a nadie.",
     ],
     screens: [
       {
         title: "Hoy",
         eyebrow: "Ahora",
-        headline: "Qué necesita tu atención",
-        copy: "Cosas por hacer, cosas para notar y próximos pasos suaves",
+        headline: "QuÃ© necesita tu atenciÃ³n",
+        copy: "Cosas por hacer, cosas para notar y prÃ³ximos pasos suaves",
         footer: "Tareas de hoy, pendientes y novedades de tu hogar.",
         image:
           "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/today.png",
@@ -330,7 +330,7 @@ const LANDING_COPY_OVERRIDES: Record<string, Partial<LandingCopy>> = {
       {
         title: "Gestionar",
         eyebrow: "Cambios",
-        headline: "Cambia cómo funcionan las cosas",
+        headline: "Cambia cÃ³mo funcionan las cosas",
         copy: "Editar, asignar, comentar o quitar flujos y compartidos",
         footer: "Siempre tienes el control: nada queda bloqueado.",
         image:
@@ -346,43 +346,43 @@ const LANDING_COPY_OVERRIDES: Record<string, Partial<LandingCopy>> = {
           "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
       },
     ],
-    chipsHeading: "¿Suena como tu casa?",
+    chipsHeading: "Â¿Suena como tu casa?",
     chips: [
       "Nos importamos, pero las tablas de tareas tensan todo.",
-      "Queremos saber cómo se siente la casa sin culpar a nadie.",
+      "Queremos saber cÃ³mo se siente la casa sin culpar a nadie.",
       "Evitamos el drama pero igual queremos ser vistos.",
     ],
-    roleHeading: "Rol de Kinly: primero reflexión",
+    roleHeading: "Rol de Kinly: primero reflexiÃ³n",
     rolePoints: [
-      "Refleja cómo se siente la casa antes de pedir acción.",
+      "Refleja cÃ³mo se siente la casa antes de pedir acciÃ³n.",
       "Hace visible el cuidado sin asignar responsabilidad.",
     ],
-    formingHeading: "Si tu hogar aún se está formando",
+    formingHeading: "Si tu hogar aÃºn se estÃ¡ formando",
     formingPoints: [
       "La incertidumbre es normal, no un fallo.",
       "Kinly trata el proceso de descubrirlo como algo sano, no algo que arreglar.",
     ],
-    audienceHeading: "Para quién es",
+    audienceHeading: "Para quiÃ©n es",
     audience: [
-      "Compañeros de piso que no se eligieron pero quieren calma.",
-      "Hogares ajustándose a cambios o nuevos ritmos.",
-      "Personas que cuidan pero no quieren tácticas de presión.",
+      "CompaÃ±eros de piso que no se eligieron pero quieren calma.",
+      "Hogares ajustÃ¡ndose a cambios o nuevos ritmos.",
+      "Personas que cuidan pero no quieren tÃ¡cticas de presiÃ³n.",
     ],
     notHeading: "Kinly no es...",
     notList: ["...una herramienta de vigilancia.", "...un marcador o ranking.", "...un jefe de tareas."],
-    weeklyHeading: "Reflexión semanal, a ritmo humano",
-    weeklyIntro: "Kinly sigue un ritmo semanal. Nota el ánimo del hogar sin rachas, listas ni presión.",
+    weeklyHeading: "ReflexiÃ³n semanal, a ritmo humano",
+    weeklyIntro: "Kinly sigue un ritmo semanal. Nota el Ã¡nimo del hogar sin rachas, listas ni presiÃ³n.",
     weeklyPoints: [
-      "Puedes revisar semanalmente, no a diario. Sin rachas ni presión por mantenerlas.",
+      "Puedes revisar semanalmente, no a diario. Sin rachas ni presiÃ³n por mantenerlas.",
       "Las reflexiones son para entender, no para calificar.",
       "Kinly nunca fuerza conversaciones; te ayuda a entender antes de decidir hablar.",
     ],
     availabilityHeading: "Disponibilidad",
     availabilityBody:
-      "Kinly está disponible en Nueva Zelanda y Singapur. Te avisaremos cuando abra en tu zona; sin spam.",
-    availabilityCta: "Avísame cuando Kinly esté disponible en mi zona.",
-    storeSectionHeading: "Cuando estés listo",
-    storeSectionSubhead: "Kinly vive en la app — empieza en iOS o Android.",
+      "Kinly estÃ¡ disponible en Nueva Zelanda y Singapur. Te avisaremos cuando abra en tu zona; sin spam.",
+    availabilityCta: "AvÃ­same cuando Kinly estÃ© disponible en mi zona.",
+    storeSectionHeading: "Cuando estÃ©s listo",
+    storeSectionSubhead: "Kinly vive en la app â€” empieza en iOS o Android.",
   },
 };
 
@@ -391,4 +391,5 @@ export function resolveLandingCopy(lang: string | null): LandingCopy {
   const overrides = LANDING_COPY_OVERRIDES[key] ?? null;
   return overrides ? { ...LANDING_COPY_EN, ...overrides } : LANDING_COPY_EN;
 }
+
 
