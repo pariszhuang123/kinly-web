@@ -2,9 +2,8 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { useEffect, useMemo, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import {
-  KinlyButton,
   KinlyCard,
   KinlyHeading,
   KinlyShell,
@@ -23,7 +22,7 @@ import {
   readUtmParams,
 } from "../../../lib/outreachTracking";
 import { resolveStoreBadges } from "../../../lib/storeBadges";
-import styles from "../general/LandingClient.module.css";
+import styles from "../general/LandingClientGeneral.module.css";
 
 type InterestMarker = {
   country_code?: string;
@@ -125,16 +124,16 @@ const APP_STORE_LABEL = "Download on the App Store";
 const PLAY_STORE_LABEL = "Get it on Google Play";
 const DEFAULT_WHAT_HEADING = "What Kinly is";
 const DEFAULT_WHAT_BODY =
-  "Kinly is a shared living app designed for people who live together. It keeps expectations visible and calm without turning home life into a task system.";
-const DEFAULT_HOW_SUBHEAD = "Three simple steps that keep everyone aligned.";
+  "Kinly is a shared living app for people who live together. It keeps expectations visible and calm without turning home life into a task system.";
+const DEFAULT_HOW_SUBHEAD = "Three simple steps to keep everyone aligned.";
 const DEFAULT_HOW_STEPS = [
   {
     title: "Agree expectations with photos",
-    body: "Snap a quick photo of what “done” looks like for shared areas so everyone sees the same standard.",
+    body: "Snap a photo of what done looks like in shared areas so everyone sees the same standard.",
   },
   {
     title: "Reset weekly, lightly",
-    body: "Once a week, surface what feels off and choose what matters — no streaks, no pressure.",
+    body: "Once a week, surface what feels off and choose what matters. No streaks, no pressure.",
   },
   {
     title: "Keep shared visibility",
@@ -143,7 +142,7 @@ const DEFAULT_HOW_STEPS = [
 ] as const;
 const DEFAULT_TOOLS_HEADING = "Supported by practical tools";
 const DEFAULT_TOOLS_INTRO =
-  "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction — without turning shared living into a task system.";
+  "Once expectations are aligned, Kinly offers simple tools to reduce everyday friction without turning shared living into a task system.";
 const DEFAULT_TOOLS_LIST = [
   "Shared flows (with assignments if you want) so repeat tasks stay clear without policing.",
   "Shared bills so due dates and amounts are visible without chasing.",
@@ -212,7 +211,6 @@ export default function ScenarioLandingClient({
 }: ScenarioLandingProps) {
   const [hasHydrated, setHasHydrated] = useState(false);
 
-  const router = useRouter();
   const searchParams = useSearchParams();
   const utmParams = useMemo(() => readUtmParams(searchParams), [searchParams]);
 
@@ -270,6 +268,8 @@ export default function ScenarioLandingClient({
       pageKey: config.pageKey,
     };
   }, [config, lang]);
+
+  const heroScreens = resolvedConfig.screens.slice(0, 3);
 
   useEffect(() => {
     if (!sessionId) return;
@@ -331,37 +331,53 @@ export default function ScenarioLandingClient({
           </section>
 
           <section className={styles.hero}>
-            <KinlyStack direction="vertical" gap="m">
-              <KinlyStack direction="horizontal" gap="s" align="center">
-                <img src="/logo-kinly.svg" alt="Kinly logo" className={styles.logo} />
-                <KinlyHeading level={2}>{resolvedConfig.hero.headline}</KinlyHeading>
-              </KinlyStack>
-              <KinlyText variant="bodyLarge" tone="muted">
-                {resolvedConfig.hero.subhead}
-              </KinlyText>
-              <KinlyText variant="bodyMedium">{resolvedConfig.hero.body}</KinlyText>
-              {!suppressStoreCtas ? (
-                <div className={styles.heroCtas}>
-                  <div className={styles.heroCtaHeading}>
-                    <KinlyHeading level={3}>{resolvedConfig.hero.ctaHeading ?? "Ready to start"}</KinlyHeading>
-                  </div>
-                  <StoreCtas suppress={suppressStoreCtas} onClick={handleCtaClick} badges={storeBadges} labels={storeLabels} />
+            <div className={styles.heroInner}>
+              <div className={styles.heroContent}>
+                <KinlyStack direction="vertical" gap="m">
+                  <KinlyStack direction="horizontal" gap="s" align="center">
+                    <img src="/logo-kinly.svg" alt="Kinly logo" className={styles.logo} />
+                    <KinlyHeading level={2}>{resolvedConfig.hero.headline}</KinlyHeading>
+                  </KinlyStack>
+                  <KinlyText variant="bodyLarge" tone="muted">
+                    {resolvedConfig.hero.subhead}
+                  </KinlyText>
+                  <KinlyText variant="bodyMedium">{resolvedConfig.hero.body}</KinlyText>
                   <KinlyText variant="bodySmall" tone="muted">
                     {resolvedConfig.hero.privacyNote ?? "Private by default. No ads. No surveillance."}
                   </KinlyText>
-                </div>
-              ) : null}
-            </KinlyStack>
+                </KinlyStack>
+              </div>
+
+              <div className={styles.heroVisual}>
+                {heroScreens[0] ? (
+                  <div className={styles.deviceFrame}>
+                    <div className={styles.deviceScreen}>
+                      <img src={heroScreens[0].image} alt={`${heroScreens[0].title} screen`} loading="lazy" />
+                    </div>
+                  </div>
+                ) : null}
+
+                {heroScreens.length > 1 ? (
+                  <div className={styles.deviceThumbs}>
+                    {heroScreens.slice(1).map((screen) => (
+                      <div key={screen.title} className={styles.deviceThumb}>
+                        <img src={screen.image} alt={`${screen.title} screen`} loading="lazy" />
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+            </div>
           </section>
 
-          <section className={styles.section}>
+          <section className={`${styles.section} ${styles.sectionPanel}`}>
             <KinlyStack direction="vertical" gap="s">
               <KinlyHeading level={2}>{resolvedConfig.whatHeading ?? DEFAULT_WHAT_HEADING}</KinlyHeading>
               <KinlyText variant="bodyMedium">{resolvedConfig.whatBody ?? DEFAULT_WHAT_BODY}</KinlyText>
             </KinlyStack>
           </section>
 
-          <section className={styles.section}>
+          <section className={`${styles.section} ${styles.sectionPanel}`}>
             <KinlyStack direction="vertical" gap="m">
               <KinlyHeading level={2}>
                 {resolvedConfig.sectionHeadings?.howItWorks ?? "How Kinly works"}
@@ -369,10 +385,13 @@ export default function ScenarioLandingClient({
               <KinlyText variant="bodySmall" tone="muted">
                 {resolvedConfig.sectionHeadings?.howItWorksSubtitle ?? DEFAULT_HOW_SUBHEAD}
               </KinlyText>
-              <div className={styles.screenGrid}>
-                {(resolvedConfig.howSteps ?? DEFAULT_HOW_STEPS).map((step) => (
-                  <KinlyCard key={step.title} variant="surfaceContainer">
+              <div className={styles.stepGrid}>
+                {(resolvedConfig.howSteps ?? DEFAULT_HOW_STEPS).map((step, index) => (
+                  <KinlyCard key={step.title} variant="surfaceContainerHigh">
                     <KinlyStack direction="vertical" gap="xs">
+                      <KinlyText variant="labelSmall" tone="muted" as="div">
+                        Step {index + 1}
+                      </KinlyText>
                       <KinlyText variant="labelMedium" as="div">
                         {step.title}
                       </KinlyText>
@@ -381,44 +400,16 @@ export default function ScenarioLandingClient({
                   </KinlyCard>
                 ))}
               </div>
-              <div className={styles.screenGrid}>
-                {resolvedConfig.screens.map((screen) => (
-                  <KinlyCard key={screen.title} variant="surfaceContainer">
-                    <div className={styles.screen}>
-                      <div className={styles.screenHeader}>
-                        <KinlyText variant="labelSmall" tone="muted" as="div">
-                          {screen.eyebrow}
-                        </KinlyText>
-                        <KinlyText variant="labelSmall" tone="muted" as="div">
-                          {screen.title}
-                        </KinlyText>
-                      </div>
-                      <div className={styles.screenImage}>
-                        <img src={screen.image} alt={`${screen.title} screen`} loading="lazy" />
-                      </div>
-                      <KinlyStack direction="vertical" gap="s">
-                        <KinlyHeading level={3}>{screen.headline}</KinlyHeading>
-                        <KinlyText variant="bodyMedium">{screen.copy}</KinlyText>
-                        <div className={styles.screenFooter}>
-                          <KinlyText variant="labelSmall" tone="muted" as="div">
-                            {screen.footer}
-                          </KinlyText>
-                        </div>
-                      </KinlyStack>
-                    </div>
-                  </KinlyCard>
-                ))}
-              </div>
             </KinlyStack>
           </section>
 
-          <section className={styles.section}>
+          <section className={`${styles.section} ${styles.sectionPanel}`}>
             <KinlyStack direction="vertical" gap="s">
               <KinlyHeading level={2}>{resolvedConfig.toolsHeading ?? DEFAULT_TOOLS_HEADING}</KinlyHeading>
               <KinlyText variant="bodyMedium">{resolvedConfig.toolsIntro ?? DEFAULT_TOOLS_INTRO}</KinlyText>
-              <div className={styles.screenGrid}>
+              <div className={styles.listGrid}>
                 {(resolvedConfig.toolsList ?? DEFAULT_TOOLS_LIST).map((item) => (
-                  <KinlyCard key={item} variant="surface">
+                  <KinlyCard key={item} variant="surfaceContainer">
                     <KinlyText variant="bodySmall">{item}</KinlyText>
                   </KinlyCard>
                 ))}
@@ -426,14 +417,14 @@ export default function ScenarioLandingClient({
             </KinlyStack>
           </section>
 
-          <section className={styles.section}>
+          <section className={`${styles.section} ${styles.sectionPanel}`}>
             <KinlyStack direction="vertical" gap="s">
               <KinlyHeading level={2}>
                 {resolvedConfig.sectionHeadings?.soundsLikeYou ?? "Does this sound like your place?"}
               </KinlyHeading>
-              <div className={styles.chips}>
+              <div className={styles.listGrid}>
                 {resolvedConfig.chips.map((chip) => (
-                  <KinlyCard key={chip} variant="surface">
+                  <KinlyCard key={chip} variant="surfaceContainer">
                     <KinlyText variant="bodyMedium">{chip}</KinlyText>
                   </KinlyCard>
                 ))}
@@ -441,81 +432,79 @@ export default function ScenarioLandingClient({
             </KinlyStack>
           </section>
 
-          <section className={styles.section}>
+          <section className={`${styles.section} ${styles.sectionPanel}`}>
             <KinlyStack direction="vertical" gap="s">
               <KinlyHeading level={2}>
                 {resolvedConfig.sectionHeadings?.roleHeading ?? "Kinly role: reflection first"}
               </KinlyHeading>
-              <KinlyStack direction="vertical" gap="xxs">
+              <ul className={styles.bulletList}>
                 {resolvedConfig.rolePoints.map((point) => (
-                  <KinlyText key={point} variant="bodyMedium">
-                    {point}
-                  </KinlyText>
+                  <li key={point} className={styles.bulletItem}>
+                    <KinlyText variant="bodyMedium">{point}</KinlyText>
+                  </li>
                 ))}
-              </KinlyStack>
+              </ul>
             </KinlyStack>
           </section>
 
-          <section className={styles.section}>
+          <section className={`${styles.section} ${styles.sectionPanel}`}>
             <KinlyStack direction="vertical" gap="s">
               <KinlyHeading level={2}>
                 {resolvedConfig.sectionHeadings?.formingHeading ?? "If your home is still forming"}
               </KinlyHeading>
-              <KinlyStack direction="vertical" gap="xxs">
+              <ul className={styles.bulletList}>
                 {resolvedConfig.formingPoints.map((point) => (
-                  <KinlyText key={point} variant="bodyMedium">
-                    {point}
-                  </KinlyText>
+                  <li key={point} className={styles.bulletItem}>
+                    <KinlyText variant="bodyMedium">{point}</KinlyText>
+                  </li>
                 ))}
-              </KinlyStack>
+              </ul>
             </KinlyStack>
           </section>
 
-          <section className={styles.section}>
+          <section className={`${styles.section} ${styles.sectionPanel}`}>
             <KinlyStack direction="vertical" gap="s">
               <KinlyHeading level={2}>
                 {resolvedConfig.sectionHeadings?.audienceHeading ?? "Who this is for"}
               </KinlyHeading>
-              <KinlyStack direction="vertical" gap="xs">
+              <ul className={styles.bulletList}>
                 {resolvedConfig.audience.map((entry) => (
-                  <KinlyText key={entry} variant="bodyMedium">
-                    {entry}
-                  </KinlyText>
+                  <li key={entry} className={styles.bulletItem}>
+                    <KinlyText variant="bodyMedium">{entry}</KinlyText>
+                  </li>
                 ))}
-              </KinlyStack>
+              </ul>
             </KinlyStack>
           </section>
 
-          <section className={styles.section}>
+          <section className={`${styles.section} ${styles.sectionPanel}`}>
             <KinlyStack direction="vertical" gap="s">
               <KinlyHeading level={2}>
                 {resolvedConfig.sectionHeadings?.notListHeading ?? "Kinly is not..."}
               </KinlyHeading>
-              <KinlyStack direction="vertical" gap="xxs">
+              <ul className={styles.bulletList}>
                 {resolvedConfig.notList.map((item) => (
-                  <KinlyText key={item} variant="bodyMedium">
-                    {item}
-                  </KinlyText>
+                  <li key={item} className={styles.bulletItem}>
+                    <KinlyText variant="bodyMedium">{item}</KinlyText>
+                  </li>
                 ))}
-              </KinlyStack>
+              </ul>
             </KinlyStack>
           </section>
 
-          <section className={styles.section}>
+          <section className={`${styles.section} ${styles.sectionPanel}`}>
             <KinlyStack direction="vertical" gap="s">
               <KinlyHeading level={2}>
                 {resolvedConfig.weekly.heading ?? "Weekly reflection, human-paced"}
               </KinlyHeading>
-
               <KinlyText variant="bodyMedium">{resolvedConfig.weekly.intro}</KinlyText>
-
-              <KinlyStack direction="vertical" gap="xs">
+              <ul className={styles.bulletList}>
                 {resolvedConfig.weekly.points.map((point) => (
-                  <KinlyText key={point} variant="bodyMedium">
-                    {point}
-                  </KinlyText>
+                  <li key={point} className={styles.bulletItem}>
+                    <KinlyText variant="bodyMedium">{point}</KinlyText>
+                  </li>
                 ))}
-              </KinlyStack>
+              </ul>
             </KinlyStack>
           </section>
 
@@ -525,16 +514,6 @@ export default function ScenarioLandingClient({
                 <KinlyStack direction="vertical" gap="s">
                   <KinlyHeading level={2}>{resolvedConfig.availability.heading ?? "Availability"}</KinlyHeading>
                   <KinlyText variant="bodyMedium">{resolvedConfig.availability.body}</KinlyText>
-                  <KinlyButton
-                    variant="outlined"
-                    type="button"
-                    onClick={() => {
-                      handleCtaClick("web");
-                      router.push("/kinly/get");
-                    }}
-                  >
-                    {resolvedConfig.availability.ctaLabel ?? "Express interest when Kinly is available in your area."}
-                  </KinlyButton>
                 </KinlyStack>
               </KinlyCard>
             </section>
@@ -551,7 +530,12 @@ export default function ScenarioLandingClient({
                     {resolvedConfig.sectionHeadings?.readySubtitle ??
                       "Kinly lives in the app - start on iOS or Android."}
                   </KinlyText>
-                  <StoreCtas suppress={suppressStoreCtas} onClick={handleCtaClick} badges={storeBadges} labels={storeLabels} />
+                  <StoreCtas
+                    suppress={suppressStoreCtas}
+                    onClick={handleCtaClick}
+                    badges={storeBadges}
+                    labels={storeLabels}
+                  />
                 </KinlyStack>
               </KinlyCard>
             </section>

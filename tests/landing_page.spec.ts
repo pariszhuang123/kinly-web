@@ -53,4 +53,17 @@ test.describe("Marketing landing page", () => {
     await expect(page.getByRole("heading", { name: "Weekly reflection, human-paced" })).toBeVisible();
     await expect(page.getByText(/You can check in weekly/i)).toBeVisible();
   });
+
+  test("scenario entry keeps CTA below fold with one store badge set", async ({ page }) => {
+    await page.goto("/kinly/general?entry=homestay-owner");
+
+    await expect(page.getByRole("heading", { name: /A welcoming home with clear norms/i })).toBeVisible();
+    await expect(page.getByText(/Host with clarity/i)).toHaveCount(0);
+
+    const ios = page.getByRole("link", { name: "Download on the App Store" });
+    const android = page.getByRole("link", { name: "Get it on Google Play" });
+
+    await expect(ios).toHaveCount(1);
+    await expect(android).toHaveCount(1);
+  });
 });
