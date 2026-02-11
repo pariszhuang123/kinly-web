@@ -122,6 +122,15 @@ const PLAY_STORE_URL =
     "https://play.google.com/store/apps/details?id=com.makinglifeeasie.kinly") as string;
 const APP_STORE_LABEL = "Download on the App Store";
 const PLAY_STORE_LABEL = "Get it on Google Play";
+const SUPPORTING_IMAGES = {
+  friction: "/images/landing/friction-shared-home.webp",
+  calm: "/images/landing/calm-shared-home.webp",
+  steps: [
+    "/images/landing/step-align.webp",
+    "/images/landing/step-weekly.webp",
+    "/images/landing/step-visbility.webp",
+  ],
+} as const;
 const DEFAULT_WHAT_HEADING = "What Kinly is";
 const DEFAULT_WHAT_BODY =
   "Kinly is a shared living app for people who live together. It keeps expectations visible and calm without turning home life into a task system.";
@@ -373,6 +382,9 @@ export default function ScenarioLandingClient({
           <section className={`${styles.section} ${styles.sectionPanel}`}>
             <KinlyStack direction="vertical" gap="s">
               <KinlyHeading level={2}>{resolvedConfig.whatHeading ?? DEFAULT_WHAT_HEADING}</KinlyHeading>
+              <div className={styles.storyImage} aria-hidden="true">
+                <img src={SUPPORTING_IMAGES.friction} alt="" loading="lazy" />
+              </div>
               <KinlyText variant="bodyMedium">{resolvedConfig.whatBody ?? DEFAULT_WHAT_BODY}</KinlyText>
             </KinlyStack>
           </section>
@@ -389,6 +401,9 @@ export default function ScenarioLandingClient({
                 {(resolvedConfig.howSteps ?? DEFAULT_HOW_STEPS).map((step, index) => (
                   <KinlyCard key={step.title} variant="surfaceContainerHigh">
                     <KinlyStack direction="vertical" gap="xs">
+                      <div className={styles.stepImage} aria-hidden="true">
+                        <img src={SUPPORTING_IMAGES.steps[index] ?? SUPPORTING_IMAGES.steps[0]} alt="" loading="lazy" />
+                      </div>
                       <KinlyText variant="labelSmall" tone="muted" as="div">
                         Step {index + 1}
                       </KinlyText>
@@ -497,6 +512,9 @@ export default function ScenarioLandingClient({
               <KinlyHeading level={2}>
                 {resolvedConfig.weekly.heading ?? "Weekly reflection, human-paced"}
               </KinlyHeading>
+              <div className={styles.storyImage} aria-hidden="true">
+                <img src={SUPPORTING_IMAGES.calm} alt="" loading="lazy" />
+              </div>
               <KinlyText variant="bodyMedium">{resolvedConfig.weekly.intro}</KinlyText>
               <ul className={styles.bulletList}>
                 {resolvedConfig.weekly.points.map((point) => (

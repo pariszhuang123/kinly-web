@@ -1,4 +1,5 @@
-﻿import { ScenarioConfig } from "../ScenarioLandingClient";
+import { LANDING_SCREEN_ASSETS } from "../../shared/landingScreenAssets";
+import { ScenarioConfig } from "../ScenarioLandingClient";
 import { LocaleCopy } from "./shared/locale";
 
 export const internationalStartConfig: ScenarioConfig = {
@@ -39,7 +40,7 @@ export const internationalStartConfig: ScenarioConfig = {
       copy: "Quiet hours, shared meals, who is around tonight.",
       footer: "Things to notice without needing to ask.",
       image:
-        "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/today.png",
+        LANDING_SCREEN_ASSETS.en.today,
     },
     {
       title: "Manage",
@@ -48,7 +49,7 @@ export const internationalStartConfig: ScenarioConfig = {
       copy: "Pick up tasks when you can, swap when life changes.",
       footer: "You are always in control - nothing is locked in.",
       image:
-        "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/explore.png",
+        LANDING_SCREEN_ASSETS.en.manage,
     },
     {
       title: "Home Hub",
@@ -57,7 +58,7 @@ export const internationalStartConfig: ScenarioConfig = {
       copy: "Quiet hours, guests, cleaning expectations - all in one calm place.",
       footer: "No surprises, no awkward questions.",
       image:
-        "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
+        LANDING_SCREEN_ASSETS.en.hub,
     },
   ],
   chips: [
@@ -138,7 +139,7 @@ export const internationalStartConfig: ScenarioConfig = {
           copy: "Horas de silencio, comidas compartidas, quien esta en casa esta noche.",
           footer: "Cosas para notar sin necesidad de preguntar.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/today.png",
+            LANDING_SCREEN_ASSETS.es.today,
         },
         {
           title: "Gestionar",
@@ -147,7 +148,7 @@ export const internationalStartConfig: ScenarioConfig = {
           copy: "Toma tareas cuando puedas, intercambia cuando la vida cambie.",
           footer: "Siempre tienes el control - nada queda fijo.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/explore.png",
+            LANDING_SCREEN_ASSETS.es.manage,
         },
         {
           title: "Hub",
@@ -156,7 +157,7 @@ export const internationalStartConfig: ScenarioConfig = {
           copy: "Silencio, visitas, expectativas de limpieza - todo en un lugar tranquilo.",
           footer: "Sin sorpresas, sin preguntas incomodas.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/hub.png",
+            LANDING_SCREEN_ASSETS.es.hub,
         },
       ],
       chips: [
@@ -248,7 +249,7 @@ export const internationalStartConfig: ScenarioConfig = {
           copy: "ساعات الهدوء، الوجبات المشتركة، من موجود الليلة.",
           footer: "أشياء لملاحظتها دون الحاجة للسؤال.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/today.png",
+            LANDING_SCREEN_ASSETS.ar.today,
         },
         {
           title: "إدارة",
@@ -257,7 +258,7 @@ export const internationalStartConfig: ScenarioConfig = {
           copy: "تولَّ المهام عندما تستطيع، بدّل عندما تتغير الحياة.",
           footer: "أنت دائماً مسيطر - لا شيء مقفل.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/explore.png",
+            LANDING_SCREEN_ASSETS.ar.manage,
         },
         {
           title: "مركز المنزل",
@@ -266,7 +267,7 @@ export const internationalStartConfig: ScenarioConfig = {
           copy: "ساعات الهدوء، الضيوف، توقعات النظافة - كلها في مكان واحد هادئ.",
           footer: "لا مفاجآت، لا أسئلة محرجة.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/hub.png",
+            LANDING_SCREEN_ASSETS.ar.hub,
         },
       ],
       chips: [

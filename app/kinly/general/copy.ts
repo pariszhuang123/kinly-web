@@ -1,4 +1,6 @@
-﻿type LandingScreen = {
+import { LANDING_SCREEN_ASSETS } from "../shared/landingScreenAssets";
+
+type LandingScreen = {
   title: string;
   eyebrow: string;
   headline: string;
@@ -99,7 +101,7 @@ const LANDING_COPY_EN: LandingCopy = {
       copy: "Things to do, things to notice, and gentle next steps",
       footer: "Today's tasks, unfinished items, and updates from your home.",
       image:
-        "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/today.png",
+        LANDING_SCREEN_ASSETS.en.today,
     },
     {
       title: "Manage",
@@ -108,7 +110,7 @@ const LANDING_COPY_EN: LandingCopy = {
       copy: "Edit, assign, comment on, or remove flows and shares",
       footer: "You're always in control - nothing is locked in.",
       image:
-        "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/explore.png",
+        LANDING_SCREEN_ASSETS.en.manage,
     },
     {
       title: "Home Hub",
@@ -117,7 +119,7 @@ const LANDING_COPY_EN: LandingCopy = {
       copy: "Moments, norms, and shared references",
       footer: "Gratitude, house vibe, and important notes - shared by everyone.",
       image:
-        "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
+        LANDING_SCREEN_ASSETS.en.hub,
     },
   ],
   chipsHeading: "Does this sound like your place?",
@@ -217,7 +219,7 @@ const LANDING_COPY_OVERRIDES: Record<string, Partial<LandingCopy>> = {
         copy: "Ø£Ø´ÙŠØ§Ø¡ Ù„Ù„Ù‚ÙŠØ§Ù… Ø¨Ù‡Ø§ØŒ Ø£Ø´ÙŠØ§Ø¡ Ù„Ù„Ù…Ù„Ø§Ø­Ø¸Ø©ØŒ ÙˆØ®Ø·ÙˆØ§Øª Ù„Ø·ÙŠÙØ© Ù‚Ø§Ø¯Ù…Ø©",
         footer: "Ù…Ù‡Ø§Ù… Ø§Ù„ÙŠÙˆÙ…ØŒ Ø§Ù„Ø¹Ù†Ø§ØµØ± ØºÙŠØ± Ø§Ù„Ù…ÙƒØªÙ…Ù„Ø©ØŒ ÙˆØªØ­Ø¯ÙŠØ«Ø§Øª Ù…Ù† Ù…Ù†Ø²Ù„Ùƒ.",
         image:
-          "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/today.png",
+          LANDING_SCREEN_ASSETS.ar.today,
       },
       {
         title: "Ø¥Ø¯Ø§Ø±Ø©",
@@ -226,7 +228,7 @@ const LANDING_COPY_OVERRIDES: Record<string, Partial<LandingCopy>> = {
         copy: "Ø¹Ø¯Ù‘Ù„ØŒ ÙˆØ²Ù‘Ø¹ØŒ Ø¹Ù„Ù‘Ù‚ Ø¹Ù„Ù‰ØŒ Ø£Ùˆ Ø£Ø²Ù„ Ø§Ù„ØªØ¯ÙÙ‚Ø§Øª ÙˆØ§Ù„Ù…Ø´Ø§Ø±ÙƒØ§Øª",
         footer: "Ø£Ù†Øª Ø¯Ø§Ø¦Ù…Ø§Ù‹ Ù…Ø³ÙŠØ·Ø± - Ù„Ø§ Ø´ÙŠØ¡ Ù…Ù‚ÙÙ„.",
         image:
-          "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/explore.png",
+          LANDING_SCREEN_ASSETS.ar.manage,
       },
       {
         title: "Ù…Ø±ÙƒØ² Ø§Ù„Ù…Ù†Ø²Ù„",
@@ -235,7 +237,7 @@ const LANDING_COPY_OVERRIDES: Record<string, Partial<LandingCopy>> = {
         copy: "Ù„Ø­Ø¸Ø§ØªØŒ Ù‚ÙˆØ§Ø¹Ø¯ØŒ ÙˆÙ…Ø±Ø§Ø¬Ø¹ Ù…Ø´ØªØ±ÙƒØ©",
         footer: "Ø§Ù„Ø§Ù…ØªÙ†Ø§Ù†ØŒ Ø£Ø¬ÙˆØ§Ø¡ Ø§Ù„Ù…Ù†Ø²Ù„ØŒ ÙˆØ§Ù„Ù…Ù„Ø§Ø­Ø¸Ø§Øª Ø§Ù„Ù…Ù‡Ù…Ø© - Ù…Ø´ØªØ±ÙƒØ© Ù…Ù† Ø§Ù„Ø¬Ù…ÙŠØ¹.",
         image:
-          "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
+          LANDING_SCREEN_ASSETS.ar.hub,
       },
     ],    
     chipsHeading: "Ù‡Ù„ ÙŠØ¨Ø¯Ùˆ Ù‡Ø°Ø§ Ù…Ø«Ù„ Ù…ÙƒØ§Ù†ÙƒØŸ",
@@ -325,7 +327,7 @@ const LANDING_COPY_OVERRIDES: Record<string, Partial<LandingCopy>> = {
         copy: "Cosas por hacer, cosas para notar y prÃ³ximos pasos suaves",
         footer: "Tareas de hoy, pendientes y novedades de tu hogar.",
         image:
-          "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/today.png",
+          LANDING_SCREEN_ASSETS.es.today,
       },
       {
         title: "Gestionar",
@@ -334,7 +336,7 @@ const LANDING_COPY_OVERRIDES: Record<string, Partial<LandingCopy>> = {
         copy: "Editar, asignar, comentar o quitar flujos y compartidos",
         footer: "Siempre tienes el control: nada queda bloqueado.",
         image:
-          "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/explore.png",
+          LANDING_SCREEN_ASSETS.es.manage,
       },
       {
         title: "Home Hub",
@@ -343,7 +345,7 @@ const LANDING_COPY_OVERRIDES: Record<string, Partial<LandingCopy>> = {
         copy: "Momentos, normas y referencias compartidas",
         footer: "Gratitud, ambiente de la casa y notas importantes, compartido por todos.",
         image:
-          "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
+          LANDING_SCREEN_ASSETS.es.hub,
       },
     ],
     chipsHeading: "Â¿Suena como tu casa?",

@@ -42,6 +42,15 @@ const PLAY_STORE_URL =
   (process.env.NEXT_PUBLIC_ANDROID_STORE_URL?.trim() ||
     "https://play.google.com/store/apps/details?id=com.makinglifeeasie.kinly") as string;
 const PAGE_KEY = "kinly_general";
+const SUPPORTING_IMAGES = {
+  friction: "/images/landing/friction-shared-home.webp",
+  calm: "/images/landing/calm-shared-home.webp",
+  steps: [
+    "/images/landing/step-align.webp",
+    "/images/landing/step-weekly.webp",
+    "/images/landing/step-visbility.webp",
+  ],
+} as const;
 
 type StoreCtasProps = {
   suppress: boolean;
@@ -227,6 +236,9 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
           <section className={`${styles.section} ${styles.sectionPanel}`}>
             <KinlyStack direction="vertical" gap="s">
               <KinlyHeading level={2}>{copy.whatHeading}</KinlyHeading>
+              <div className={styles.storyImage} aria-hidden="true">
+                <img src={SUPPORTING_IMAGES.friction} alt="" loading="lazy" />
+              </div>
               <KinlyText variant="bodyMedium">{copy.whatBody}</KinlyText>
             </KinlyStack>
           </section>
@@ -241,6 +253,9 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
                 {copy.howSteps.map((step, index) => (
                   <KinlyCard key={step.title} variant="surfaceContainerHigh">
                     <KinlyStack direction="vertical" gap="xs">
+                      <div className={styles.stepImage} aria-hidden="true">
+                        <img src={SUPPORTING_IMAGES.steps[index] ?? SUPPORTING_IMAGES.steps[0]} alt="" loading="lazy" />
+                      </div>
                       <KinlyText variant="labelSmall" tone="muted" as="div">
                         Step {index + 1}
                       </KinlyText>
@@ -337,6 +352,9 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
           <section className={`${styles.section} ${styles.sectionPanel}`}>
             <KinlyStack direction="vertical" gap="s">
               <KinlyHeading level={2}>{copy.weeklyHeading}</KinlyHeading>
+              <div className={styles.storyImage} aria-hidden="true">
+                <img src={SUPPORTING_IMAGES.calm} alt="" loading="lazy" />
+              </div>
               <KinlyText variant="bodyMedium">{copy.weeklyIntro}</KinlyText>
               <ul className={styles.bulletList}>
                 {copy.weeklyPoints.map((point) => (

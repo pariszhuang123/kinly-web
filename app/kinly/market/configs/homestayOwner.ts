@@ -1,4 +1,5 @@
-﻿import { ScenarioConfig } from "../ScenarioLandingClient";
+import { LANDING_SCREEN_ASSETS } from "../../shared/landingScreenAssets";
+import { ScenarioConfig } from "../ScenarioLandingClient";
 import { LocaleCopy } from "./shared/locale";
 
 export const homestayOwnerConfig: ScenarioConfig = {
@@ -44,7 +45,7 @@ export const homestayOwnerConfig: ScenarioConfig = {
       copy: "Quiet hours, shared spaces, and today’s simple asks.",
       footer: "Clarity keeps the welcome warm.",
       image:
-        "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/today.png",
+        LANDING_SCREEN_ASSETS.en.today,
     },
     {
       title: "Manage",
@@ -53,7 +54,7 @@ export const homestayOwnerConfig: ScenarioConfig = {
       copy: "Tweak house rules or hosting notes as guests change — no awkward talks.",
       footer: "One place to keep everyone aligned.",
       image:
-        "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/explore.png",
+        LANDING_SCREEN_ASSETS.en.manage,
     },
     {
       title: "Home Hub",
@@ -62,7 +63,7 @@ export const homestayOwnerConfig: ScenarioConfig = {
       copy: "Noise, guests, cleaning standards, and shared costs visible to all.",
       footer: "Welcoming, not policing.",
       image:
-        "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
+        LANDING_SCREEN_ASSETS.en.hub,
     },
   ],
 
@@ -156,7 +157,7 @@ export const homestayOwnerConfig: ScenarioConfig = {
           copy: "Horas de silencio, espacios compartidos y los pedidos simples de hoy.",
           footer: "La claridad mantiene cálida la bienvenida.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/today.png",
+            LANDING_SCREEN_ASSETS.es.today,
         },
         {
           title: "Gestionar",
@@ -165,7 +166,7 @@ export const homestayOwnerConfig: ScenarioConfig = {
           copy: "Ajusta reglas de la casa o notas de anfitrión cuando cambian los huéspedes — sin charlas incómodas.",
           footer: "Un lugar para mantener a todos alineados.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/explore.png",
+            LANDING_SCREEN_ASSETS.es.manage,
         },
         {
           title: "Hub",
@@ -174,7 +175,7 @@ export const homestayOwnerConfig: ScenarioConfig = {
           copy: "Ruido, visitas, estándares de limpieza y aportes visibles para todos.",
           footer: "Acogedor, no controlador.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/hub.png",
+            LANDING_SCREEN_ASSETS.es.hub,
         },
       ],
       chips: [
@@ -270,7 +271,7 @@ export const homestayOwnerConfig: ScenarioConfig = {
           copy: "ساعات الهدوء، المساحات المشتركة، وطلبات اليوم البسيطة.",
           footer: "الوضوح يحافظ على دفء الترحيب.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/today.png",
+            LANDING_SCREEN_ASSETS.ar.today,
         },
         {
           title: "إدارة",
@@ -279,7 +280,7 @@ export const homestayOwnerConfig: ScenarioConfig = {
           copy: "عدّلوا قواعد البيت أو ملاحظات الاستضافة مع تغيّر الضيوف — دون محادثات محرجة.",
           footer: "مكان واحد لإبقاء الجميع متناغمين.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/explore.png",
+            LANDING_SCREEN_ASSETS.ar.manage,
         },
         {
           title: "مركز المنزل",
@@ -288,7 +289,7 @@ export const homestayOwnerConfig: ScenarioConfig = {
           copy: "الضوضاء والضيوف ومعايير التنظيف والتكاليف المشتركة مرئية للجميع.",
           footer: "ترحيب بلا رقابة.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/hub.png",
+            LANDING_SCREEN_ASSETS.ar.hub,
         },
       ],
       chips: [

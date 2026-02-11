@@ -1,4 +1,5 @@
-﻿import { ScenarioConfig } from "../ScenarioLandingClient";
+import { LANDING_SCREEN_ASSETS } from "../../shared/landingScreenAssets";
+import { ScenarioConfig } from "../ScenarioLandingClient";
 import { LocaleCopy } from "./shared/locale";
 
 export const headTenantConfig: ScenarioConfig = {
@@ -44,7 +45,7 @@ export const headTenantConfig: ScenarioConfig = {
       copy: "Small resets, shared spaces, and the things that quietly pile up.",
       footer: "Clarity early keeps things smooth.",
       image:
-        "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/today.png",
+        LANDING_SCREEN_ASSETS.en.today,
     },
     {
       title: "Manage",
@@ -53,7 +54,7 @@ export const headTenantConfig: ScenarioConfig = {
       copy: "Agree the baseline once so no one has to enforce it.",
       footer: "Less personal conflict, more shared responsibility.",
       image:
-        "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/explore.png",
+        LANDING_SCREEN_ASSETS.en.manage,
     },
     {
       title: "Home Hub",
@@ -62,7 +63,7 @@ export const headTenantConfig: ScenarioConfig = {
       copy: "Clear expectations in one place so you are not the messenger.",
       footer: "No escalation. No policing.",
       image:
-        "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
+        LANDING_SCREEN_ASSETS.en.hub,
     },
   ],
 
@@ -156,7 +157,7 @@ export const headTenantConfig: ScenarioConfig = {
           copy: "Pequeños reinicios, espacios compartidos y lo que se acumula en silencio.",
           footer: "La claridad temprana mantiene la calma.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/today.png",
+            LANDING_SCREEN_ASSETS.es.today,
         },
         {
           title: "Gestionar",
@@ -165,7 +166,7 @@ export const headTenantConfig: ScenarioConfig = {
           copy: "Acordad la base una vez para que nadie tenga que imponerla.",
           footer: "Menos conflicto personal, más responsabilidad compartida.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/explore.png",
+            LANDING_SCREEN_ASSETS.es.manage,
         },
         {
           title: "Hub",
@@ -174,7 +175,7 @@ export const headTenantConfig: ScenarioConfig = {
           copy: "Expectativas claras en un solo lugar para que no seas el mensajero.",
           footer: "Sin escaladas. Sin vigilancia.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/hub.png",
+            LANDING_SCREEN_ASSETS.es.hub,
         },
       ],
       chips: [
@@ -270,7 +271,7 @@ export const headTenantConfig: ScenarioConfig = {
           copy: "إعادات ضبط صغيرة ومساحات مشتركة وما يتراكم بهدوء.",
           footer: "الوضوح المبكر يحافظ على الهدوء.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/today.png",
+            LANDING_SCREEN_ASSETS.ar.today,
         },
         {
           title: "إدارة",
@@ -279,7 +280,7 @@ export const headTenantConfig: ScenarioConfig = {
           copy: "اتفقوا على الأساس مرة واحدة حتى لا يفرضه أحد.",
           footer: "مواجهة أقل، مسؤولية أكثر مشاركة.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/explore.png",
+            LANDING_SCREEN_ASSETS.ar.manage,
         },
         {
           title: "مركز المنزل",
@@ -288,7 +289,7 @@ export const headTenantConfig: ScenarioConfig = {
           copy: "توقعات واضحة في مكان واحد حتى لا تكون أنت المرسل.",
           footer: "لا تصعيد. لا مراقبة.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/hub.png",
+            LANDING_SCREEN_ASSETS.ar.hub,
         },
       ],
       chips: [

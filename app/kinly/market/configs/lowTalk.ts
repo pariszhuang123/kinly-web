@@ -1,4 +1,5 @@
-﻿import { ScenarioConfig } from "../ScenarioLandingClient";
+import { LANDING_SCREEN_ASSETS } from "../../shared/landingScreenAssets";
+import { ScenarioConfig } from "../ScenarioLandingClient";
 import { LocaleCopy } from "./shared/locale";
 
 export const lowTalkConfig: ScenarioConfig = {
@@ -39,7 +40,7 @@ export const lowTalkConfig: ScenarioConfig = {
       copy: "Light-touch cues for noise, guests, or a quick reset before the day starts.",
       footer: "Actionable without turning into a meeting.",
       image:
-        "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/today.png",
+        LANDING_SCREEN_ASSETS.en.today,
     },
     {
       title: "Manage",
@@ -48,7 +49,7 @@ export const lowTalkConfig: ScenarioConfig = {
       copy: "Shift turns or pause a task when someone is slammed - no guilt trips.",
       footer: "Everyone stays informed without reminders.",
       image:
-        "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/explore.png",
+        LANDING_SCREEN_ASSETS.en.manage,
     },
     {
       title: "Home Hub",
@@ -57,7 +58,7 @@ export const lowTalkConfig: ScenarioConfig = {
       copy: "Quiet hours, guest signals, and quick norms that keep the vibe steady.",
       footer: "Signals stay visible; no speeches required.",
       image:
-        "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
+        LANDING_SCREEN_ASSETS.en.hub,
     },
   ],
   chips: [
@@ -136,7 +137,7 @@ export const lowTalkConfig: ScenarioConfig = {
           copy: "Avisos ligeros para ruido, visitas o un reset rápido antes del día.",
           footer: "Accionable sin convertirse en reunión.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/today.png",
+            LANDING_SCREEN_ASSETS.es.today,
         },
         {
           title: "Gestionar",
@@ -145,7 +146,7 @@ export const lowTalkConfig: ScenarioConfig = {
           copy: "Cambia turnos o pausa tareas cuando alguien está a tope, sin culpas.",
           footer: "Todos informados sin recordatorios.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/explore.png",
+            LANDING_SCREEN_ASSETS.es.manage,
         },
         {
           title: "Hub",
@@ -154,7 +155,7 @@ export const lowTalkConfig: ScenarioConfig = {
           copy: "Horas de silencio, señales de visitas y normas rápidas que mantienen el ambiente estable.",
           footer: "Las señales siguen visibles; no hacen falta discursos.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/hub.png",
+            LANDING_SCREEN_ASSETS.es.hub,
         },
       ],
       chips: [
@@ -244,7 +245,7 @@ export const lowTalkConfig: ScenarioConfig = {
           copy: "تنبيهات خفيفة للضوضاء، الضيوف، أو إعادة ضبط سريعة قبل بدء اليوم.",
           footer: "قابل للتنفيذ بدون التحول لاجتماع.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/today.png",
+            LANDING_SCREEN_ASSETS.ar.today,
         },
         {
           title: "إدارة",
@@ -253,7 +254,7 @@ export const lowTalkConfig: ScenarioConfig = {
           copy: "بدّل الأدوار أو أوقف مهمة عندما يكون شخص مشغول - بدون تأنيب.",
           footer: "الجميع على علم بدون تذكيرات.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/explore.png",
+            LANDING_SCREEN_ASSETS.ar.manage,
         },
         {
           title: "مركز المنزل",
@@ -262,7 +263,7 @@ export const lowTalkConfig: ScenarioConfig = {
           copy: "ساعات الهدوء، إشارات الضيوف، وقواعد سريعة تحافظ على الأجواء مستقرة.",
           footer: "الإشارات تبقى مرئية؛ لا حاجة لخطابات.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/hub.png",
+            LANDING_SCREEN_ASSETS.ar.hub,
         },
       ],
       chips: [

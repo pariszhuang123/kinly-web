@@ -1,4 +1,5 @@
-﻿import { ScenarioConfig } from "../ScenarioLandingClient";
+import { LANDING_SCREEN_ASSETS } from "../../shared/landingScreenAssets";
+import { ScenarioConfig } from "../ScenarioLandingClient";
 import { LocaleCopy } from "./shared/locale";
 
 export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
@@ -44,7 +45,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
       copy: "Quiet hours, shared spaces, and any light tasks that keep the vibe steady.",
       footer: "Support without pressure.",
       image:
-        "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/today.png",
+        LANDING_SCREEN_ASSETS.en.today,
     },
     {
       title: "Manage",
@@ -53,7 +54,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
       copy: "Update noise/guests/cleaning expectations as cohorts change — no one gets singled out.",
       footer: "Neutral updates, student-friendly tone.",
       image:
-        "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/explore.png",
+        LANDING_SCREEN_ASSETS.en.manage,
     },
     {
       title: "Home Hub",
@@ -62,7 +63,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
       copy: "Noise, guests, wellbeing notes, and shared costs in one place — no streaks or scores.",
       footer: "Clarity that feels caring, not monitoring.",
       image:
-        "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
+        LANDING_SCREEN_ASSETS.en.hub,
     },
   ],
 
@@ -156,7 +157,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
           copy: "Horas de silencio, espacios comunes y tareas ligeras que mantienen el ambiente estable.",
           footer: "Apoyo sin presión.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/today.png",
+            LANDING_SCREEN_ASSETS.es.today,
         },
         {
           title: "Gestionar",
@@ -165,7 +166,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
           copy: "Actualiza ruido/visitas/limpieza cuando cambian las cohortes — nadie es señalado.",
           footer: "Actualizaciones neutrales, tono estudiantil.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/explore.png",
+            LANDING_SCREEN_ASSETS.es.manage,
         },
         {
           title: "Hub",
@@ -174,7 +175,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
           copy: "Ruido, visitas, notas de bienestar y costos compartidos en un lugar — sin rachas ni puntajes.",
           footer: "Claridad que se siente cuidado, no monitoreo.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/hub.png",
+            LANDING_SCREEN_ASSETS.es.hub,
         },
       ],
       chips: [
@@ -270,7 +271,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
           copy: "ساعات هدوء، مساحات مشتركة، ومهام خفيفة تحافظ على استقرار الجو.",
           footer: "دعم بلا ضغط.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/today.png",
+            LANDING_SCREEN_ASSETS.ar.today,
         },
         {
           title: "إدارة",
@@ -279,7 +280,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
           copy: "حدثوا توقعات الضوضاء/الضيوف/النظافة مع تغير المجموعات — دون أن يُستهدف أحد.",
           footer: "تحديثات محايدة، بلهجة صديقة للطلاب.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/explore.png",
+            LANDING_SCREEN_ASSETS.ar.manage,
         },
         {
           title: "مركز المنزل",
@@ -288,7 +289,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
           copy: "الضوضاء والضيوف وملاحظات الرفاه والتكاليف المشتركة في مكان واحد — بلا سلاسل أو نقاط.",
           footer: "وضوح يشعر بالعناية، لا المراقبة.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/hub.png",
+            LANDING_SCREEN_ASSETS.ar.hub,
         },
       ],
       chips: [

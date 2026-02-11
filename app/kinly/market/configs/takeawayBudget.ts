@@ -1,4 +1,5 @@
-﻿import { ScenarioConfig } from "../ScenarioLandingClient";
+import { LANDING_SCREEN_ASSETS } from "../../shared/landingScreenAssets";
+import { ScenarioConfig } from "../ScenarioLandingClient";
 import { LocaleCopy } from "./shared/locale";
 
 export const takeawayBudgetFlatsConfig: ScenarioConfig = {
@@ -44,7 +45,7 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
       copy: "Groceries, heating, power — and the little things that quietly add up.",
       footer: "Notice friction early, before it turns into an argument.",
       image:
-        "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/today.png",
+        LANDING_SCREEN_ASSETS.en.today,
     },
     {
       title: "Manage",
@@ -53,7 +54,7 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
       copy: "What counts as shared, how to handle uneven usage, and how to adjust when someone is stretched.",
       footer: "Less blaming. More clarity. Everyone stays on the same page.",
       image:
-        "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/explore.png",
+        LANDING_SCREEN_ASSETS.en.manage,
     },
     {
       title: "Home Hub",
@@ -62,7 +63,7 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
       copy: "Simple house standards — so nobody has to hint, nag, or keep score.",
       footer: "Fairness feels lighter when it’s visible.",
       image:
-        "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/EN/hub.png",
+        LANDING_SCREEN_ASSETS.en.hub,
     },
   ],
 
@@ -156,7 +157,7 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
           copy: "Compras, calefacción, luz — y esas cosas pequeñas que se acumulan.",
           footer: "Detecta fricción temprano, antes de que se convierta en discusión.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/today.png",
+            LANDING_SCREEN_ASSETS.es.today,
         },
         {
           title: "Gestionar",
@@ -165,7 +166,7 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
           copy: "Qué cuenta como compartido, cómo manejar usos desiguales y cómo ajustar cuando alguien va justo.",
           footer: "Menos reproches. Más claridad. Misma página para todos.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/explore.png",
+            LANDING_SCREEN_ASSETS.es.manage,
         },
         {
           title: "Hub",
@@ -174,7 +175,7 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
           copy: "Normas simples del piso — para no tener que insinuar, insistir o llevar la cuenta.",
           footer: "La equidad se siente más ligera cuando es visible.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/ES/hub.png",
+            LANDING_SCREEN_ASSETS.es.hub,
         },
       ],
       chips: [
@@ -270,7 +271,7 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
           copy: "مشتريات مشتركة، تدفئة، كهرباء — وأشياء صغيرة تتراكم بهدوء.",
           footer: "لاحظوا الاحتكاك مبكراً قبل أن يتحول إلى خلاف.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/today.png",
+            LANDING_SCREEN_ASSETS.ar.today,
         },
         {
           title: "إدارة",
@@ -279,7 +280,7 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
           copy: "ما الذي يُحسب مشتركاً، وكيف تتعاملون مع الاستخدام غير المتساوي، وكيف تعدّلون عندما يكون أحدكم مضغوطاً.",
           footer: "لوم أقل. وضوح أكثر. الكل على نفس الصفحة.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/explore.png",
+            LANDING_SCREEN_ASSETS.ar.manage,
         },
         {
           title: "مركز المنزل",
@@ -288,7 +289,7 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
           copy: "معايير بسيطة للبيت — بدون تلميح أو إلحاح أو عدّ للنقاط.",
           footer: "العدل يصبح أخف عندما يكون واضحاً.",
           image:
-            "https://ggbbywcyallstetvtgcw.supabase.co/storage/v1/object/public/Kinly%20Assets/Kinly%20Web/AR/hub.png",
+            LANDING_SCREEN_ASSETS.ar.hub,
         },
       ],
       chips: [
