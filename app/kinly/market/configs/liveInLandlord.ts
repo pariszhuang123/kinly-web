@@ -36,7 +36,7 @@ export const liveInLandlordConfig: ScenarioConfig = {
       title: "Manage",
       eyebrow: "Adjust",
       headline: "Update the baseline without awkwardness",
-      copy: "Tweak expectations as peopleâ€™s schedules change .  nothing is locked in.",
+      copy: "Tweak expectations as people's schedules change .  nothing is locked in.",
       footer: "Neutral updates, no power plays.",
       image:
         LANDING_SCREEN_ASSETS.en.manage,
@@ -83,7 +83,7 @@ export const liveInLandlordConfig: ScenarioConfig = {
   weekly: {
     intro: "Kinly uses a weekly rhythm so shared living stays human and calm.",
     points: [
-      "Check in weekly so small issues donâ€™t stack up.",
+      "Check in weekly so small issues don't stack up.",
       "Adjust expectations without blame .  just clarity.",
       "Keep the home warm while staying aligned.",
     ],

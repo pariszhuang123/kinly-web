@@ -7,8 +7,8 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
 
   recognition: {
     heading: "When money is tight, small unfairness becomes big tension.",
-    subtitle: "Power, heating, and shared groceries shouldnâ€™t turn into quiet resentment.",
-    body: "Kinly keeps shared expectations visible .  so money-stress arguments donâ€™t start in the first place.",
+    subtitle: "Power, heating, and shared groceries shouldn't turn into quiet resentment.",
+    body: "Kinly keeps shared expectations visible .  so money-stress arguments don't start in the first place.",
   },
 
   whatHeading: "What Kinly is",
@@ -16,9 +16,9 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
     "Kinly is a shared living app designed for people who live together. For tight-budget flats, it keeps fairness clear without turning your home into a budgeting spreadsheet.",
 
   hero: {
-    headline: "Fair shared living .  even on a tight budget.",
+    headline: "Fair shared living, even on a tight budget.",
     subhead: "Light structure for shared costs and shared standards, without awkward call-outs.",
-    body: "Agree whatâ€™s shared, whatâ€™s personal, and how to handle uneven weeks. Kinly helps the house reset calmly .  so it stays fair.",
+    body: "Agree what's shared, what's personal, and how to handle uneven weeks. Kinly helps the house reset calmly .  so it stays fair.",
     ctaHeading: "Keep it fair this week",
   },
 
@@ -26,7 +26,7 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
     {
       title: "Today",
       eyebrow: "Right now",
-      headline: "Whatâ€™s stressing the house this week?",
+      headline: "What's stressing the house this week?",
       copy: "Groceries, heating, power .  and the little things that quietly add up.",
       footer: "Notice friction early, before it turns into an argument.",
       image:
@@ -46,7 +46,7 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
       eyebrow: "Shared norms",
       headline: "Make expectations easy to see",
       copy: "Simple house standards .  so nobody has to hint, nag, or keep score.",
-      footer: "Fairness feels lighter when itâ€™s visible.",
+      footer: "Fairness feels lighter when it's visible.",
       image:
         LANDING_SCREEN_ASSETS.en.hub,
     },
@@ -81,7 +81,7 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
   ],
 
   rolePoints: [
-    "Makes shared expectations visible so you donâ€™t have to call people out.",
+    "Makes shared expectations visible so you don't have to call people out.",
     "Helps the house adjust fairly when someone is week-to-week.",
   ],
 
@@ -105,9 +105,9 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
   weekly: {
     intro: "Kinly uses a weekly rhythm so money conversations stay calm and fair.",
     points: [
-      "Check in weekly so small issues donâ€™t stack up.",
+      "Check in weekly so small issues don't stack up.",
       "Adjust expectations without blame .  just clarity.",
-      "Agree next weekâ€™s baseline and move on.",
+      "Agree next week's baseline and move on.",
     ],
   },
   toolsIntro:

@@ -6,7 +6,7 @@ export const flatAgreementsConfig: ScenarioConfig = {
   pageKey: "flat_agreements",
 
   recognition: {
-    heading: "Agreements matter, but paperwork isnâ€™t the vibe.",
+    heading: "Agreements matter, but paperwork isn't the vibe.",
     subtitle: "You need clarity on shared living without feeling like a landlord.",
     body: "Kinly keeps house agreements visible, calm, and human .  no policing, no legalese.",
   },
@@ -83,7 +83,7 @@ export const flatAgreementsConfig: ScenarioConfig = {
   weekly: {
     intro: "Kinly runs on a weekly rhythm so agreements stay fresh and human.",
     points: [
-      "Check in weekly so small issues donâ€™t stack up.",
+      "Check in weekly so small issues don't stack up.",
       "Adjust the baseline without blame .  just clarity.",
       "Keep guests/noise/cleaning aligned without long threads.",
     ],

@@ -27,7 +27,7 @@ export const homestayOwnerConfig: ScenarioConfig = {
       title: "Today",
       eyebrow: "Welcome",
       headline: "What guests should know now",
-      copy: "Quiet hours, shared spaces, and todayâ€™s simple asks.",
+      copy: "Quiet hours, shared spaces, and today's simple asks.",
       footer: "Clarity keeps the welcome warm.",
       image:
         LANDING_SCREEN_ASSETS.en.today,
