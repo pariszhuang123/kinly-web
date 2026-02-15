@@ -205,7 +205,7 @@
 
 .featureImage {
   display: grid;
-  place-items: center;
+  justify-items: start;
   padding: var(--spacing-xs, 8px);
   border-radius: var(--radius-md, 12px);
   overflow: hidden;
@@ -256,7 +256,8 @@
   content: "";
   position: absolute;
   inset-inline-start: 0;
-  top: 9px;
+  top: 0.55em;
+  transform: translateY(-50%);
   width: 10px;
   height: 10px;
   border-radius: 999px;
@@ -292,7 +293,6 @@
 
 @media (max-width: 900px) {
   .page {
-    --feature-mobile-max-width: 360px;
     padding-top: var(--spacing-xl, 24px);
     padding-inline: 0;
   }
@@ -336,35 +336,22 @@
     gap: var(--spacing-m, 12px);
   }
 
-  .featureRailWrap::after {
-    content: "";
-    position: absolute;
-    inset-inline-end: 0;
-    top: 0;
-    width: 34px;
-    height: 100%;
-    pointer-events: none;
-    background: linear-gradient(
-      to right,
-      color-mix(in srgb, var(--color-surface, #ffffff) 0%, transparent),
-      color-mix(in srgb, var(--color-surface, #ffffff) 100%, transparent)
-    );
-  }
-
   .featureRail {
     grid-auto-flow: column;
-    grid-auto-columns: min(100%, var(--feature-mobile-max-width));
+    grid-auto-columns: 100%;
     grid-template-columns: none;
+    gap: 0;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     padding-bottom: var(--spacing-xs, 4px);
-    padding-inline: max(0px, calc((100% - var(--feature-mobile-max-width)) / 2));
-    scroll-padding-inline: max(0px, calc((100% - var(--feature-mobile-max-width)) / 2));
+    padding-inline: 0;
+    scroll-padding-inline: 0;
     -webkit-overflow-scrolling: touch;
   }
 
   .featureRail > * {
-    scroll-snap-align: center;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
 
   .featureImage img {

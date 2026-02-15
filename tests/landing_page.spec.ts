@@ -100,17 +100,22 @@ test.describe("Marketing landing page", () => {
     expect(metrics.scrollWidth).toBeGreaterThan(metrics.clientWidth);
     expect(metrics.overflowX).toBe("auto");
     expect(metrics.snap).toContain("x");
-    expect(metrics.firstCardSnapAlign).toBe("center");
-    expect(metrics.firstCardWidth).toBeLessThanOrEqual(360);
+    expect(metrics.firstCardSnapAlign).toBe("start");
+    expect(metrics.firstCardWidth).toBeGreaterThanOrEqual(metrics.clientWidth - 2);
+
+    const secondDot = page.locator("[aria-label='Feature navigation'] [role='button']").nth(1);
+    await secondDot.click();
+
+    await expect
+      .poll(async () => rail.evaluate((element) => Math.abs(element.scrollLeft - element.clientWidth)))
+      .toBeLessThanOrEqual(2);
   });
 
   test("general landing key copy uses minimum readable 14px text", async ({ page }) => {
     await page.goto("/kinly/general");
 
-    const recognitionSubheadSize = await getFontSizePx(page.getByText("Even when no one is doing anything wrong."));
-    const heroSubheadSize = await getFontSizePx(
-      page.getByText("A calm shared place to notice how the home feels before anyone has to ask."),
-    );
+    const recognitionSubheadSize = await getFontSizePx(page.locator("main section").first().locator("p").first());
+    const heroSubheadSize = await getFontSizePx(page.locator("main section").nth(1).locator("p").first());
     const featureBenefitSize = await getFontSizePx(
       page.getByText("Add context, guide links, and photos so repeat tasks are clear without reminders."),
     );
@@ -129,8 +134,8 @@ test.describe("Marketing landing page", () => {
   test("scenario landing key copy uses minimum readable 14px text", async ({ page }) => {
     await page.goto("/kinly/general?entry=homestay-owner");
 
-    const recognitionSubheadSize = await getFontSizePx(page.getByText("Clear house norms should feel warm, not formal."));
-    const heroSubheadSize = await getFontSizePx(page.getByText("Set the baseline once, keep it warm and human."));
+    const recognitionSubheadSize = await getFontSizePx(page.locator("main section").first().locator("p").first());
+    const heroSubheadSize = await getFontSizePx(page.locator("main section").nth(1).locator("p").first());
     const featureBenefitSize = await getFontSizePx(
       page.getByText("Add context, guide links, and photos so repeat tasks are clear without reminders."),
     );

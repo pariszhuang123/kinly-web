@@ -192,26 +192,15 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
     let frame = 0;
 
     const updateActiveIndex = () => {
-      const cards = rail.querySelectorAll<HTMLElement>("[data-feature-card-index]");
-      if (!cards.length) {
+      if (!featureCards.length || rail.clientWidth <= 0) {
         setActiveFeatureIndex(0);
         return;
       }
 
-      const viewportCenter = rail.scrollLeft + rail.clientWidth / 2;
-      let nearestIndex = 0;
-      let nearestDistance = Number.POSITIVE_INFINITY;
+      const nearestIndex = Math.round(rail.scrollLeft / rail.clientWidth);
+      const clampedIndex = Math.min(featureCards.length - 1, Math.max(0, nearestIndex));
 
-      cards.forEach((card, index) => {
-        const cardCenter = card.offsetLeft + card.clientWidth / 2;
-        const distance = Math.abs(cardCenter - viewportCenter);
-        if (distance < nearestDistance) {
-          nearestDistance = distance;
-          nearestIndex = index;
-        }
-      });
-
-      setActiveFeatureIndex((prev) => (prev === nearestIndex ? prev : nearestIndex));
+      setActiveFeatureIndex((prev) => (prev === clampedIndex ? prev : clampedIndex));
     };
 
     const onScroll = () => {
@@ -234,11 +223,10 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
     const rail = featureRailRef.current;
     if (!rail) return;
 
-    const target = rail.querySelector<HTMLElement>(`[data-feature-card-index="${index}"]`);
-    if (!target) return;
+    const clampedIndex = Math.min(featureCards.length - 1, Math.max(0, index));
 
     rail.scrollTo({
-      left: target.offsetLeft,
+      left: clampedIndex * rail.clientWidth,
       behavior: "smooth",
     });
   }
