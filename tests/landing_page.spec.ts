@@ -79,6 +79,11 @@ test.describe("Marketing landing page", () => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("/kinly/general");
 
+    const pageOverflowX = await page.evaluate(
+      () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    );
+    expect(pageOverflowX).toBeLessThanOrEqual(2);
+
     const rail = page.getByTestId("feature-rail");
     await expect(rail).toBeVisible();
     await expect(page.getByTestId("feature-card")).toHaveCount(4);

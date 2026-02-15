@@ -185,12 +185,20 @@
 
 .featureRailWrap {
   position: relative;
+  min-inline-size: 0;
+  max-inline-size: 100%;
 }
 
 .featureRail {
   display: grid;
   gap: var(--spacing-l, 16px);
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  inline-size: 100%;
+  min-inline-size: 0;
+}
+
+.featureRailItem {
+  min-inline-size: 0;
 }
 
 .featureRailItem > * {
