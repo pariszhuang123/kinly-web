@@ -19,7 +19,7 @@ test.describe("Marketing landing page", () => {
     await expect(page.getByRole("heading", { name: "How Kinly helps in practice" })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Supported by practical tools" })).toHaveCount(0);
     await expect(page.getByTestId("feature-card")).toHaveCount(4);
-    await expect(page.getByTestId("feature-rail").getByText("Shared flows")).toBeVisible();
+    await expect(page.getByTestId("feature-rail").getByText("Shared tasks")).toBeVisible();
     await expect(page.getByText(/Ready to start/i)).toHaveCount(0);
   });
 
