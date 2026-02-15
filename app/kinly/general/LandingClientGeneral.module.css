@@ -209,11 +209,13 @@
 .featureCard {
   display: grid;
   gap: var(--spacing-s, 8px);
+  justify-items: center;
+  text-align: center;
 }
 
 .featureImage {
   display: grid;
-  justify-items: start;
+  justify-items: center;
   padding: var(--spacing-xs, 8px);
   border-radius: var(--radius-md, 12px);
   overflow: hidden;
