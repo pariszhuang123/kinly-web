@@ -214,12 +214,13 @@ export default function QrHub() {
                 <code style={{ 
                     flex: 1, 
                     padding: "8px 12px", 
-                    background: "#f5f5f5", 
-                    border: "1px solid #ddd", 
+                    background: "transparent",
+                    border:
+                      "1px solid color-mix(in srgb, var(--color-semantic-outline, #b7c7c0) 70%, transparent)",
                     borderRadius: "4px",
                     fontSize: "12px",
                     wordBreak: "break-all",
-                    color: "#111"
+                    color: "var(--color-on-surface, #111)"
                 }}>
                     <KinlyLink href={generatedUrl} external>
                         <span style={{ wordBreak: "break-all" }}>{generatedUrl}</span>
@@ -293,4 +294,3 @@ const inputStyle = {
     fontSize: "1rem",
     width: "100%"
 };
-
