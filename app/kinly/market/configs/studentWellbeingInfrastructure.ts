@@ -51,6 +51,28 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
         LANDING_SCREEN_ASSETS.en.hub,
     },
   ],
+  featureScreens: [
+    {
+      title: "Shared flows",
+      benefit: "Add context and photos so shared routines stay clear without call-outs.",
+      image: LANDING_SCREEN_ASSETS.en.flows,
+    },
+    {
+      title: "Shared groceries",
+      benefit: "Keep shared supply and grocery requests visible with notes and photos in one place.",
+      image: LANDING_SCREEN_ASSETS.en.groceries,
+    },
+    {
+      title: "Shared bills",
+      benefit: "Keep shared costs transparent with clear amounts, dates, and context.",
+      image: LANDING_SCREEN_ASSETS.en.bills,
+    },
+    {
+      title: "Calm check-ins",
+      benefit: "Weekly check-ins surface pressure early so support stays proactive and calm.",
+      image: LANDING_SCREEN_ASSETS.en.checkins,
+    },
+  ],
 
   chips: [
     "We want wellbeing without feeling watched.",
@@ -285,5 +307,4 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
     } satisfies LocaleCopy,
   },
 };
-
 

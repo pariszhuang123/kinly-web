@@ -193,6 +193,11 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.featureRailItem > * {
+  border: 0;
+  box-shadow: none;
+}
+
 .featureCard {
   display: grid;
   gap: var(--spacing-s, 8px);
@@ -201,14 +206,32 @@
 .featureImage {
   border-radius: var(--radius-md, 12px);
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--color-semantic-primary, #366d59) 12%, transparent);
-  background: color-mix(in srgb, var(--color-semantic-primary, #366d59) 4%, var(--color-surface, #ffffff));
+  border: 0;
+  background: transparent;
 }
 
 .featureImage img {
   width: 100%;
   display: block;
   height: auto;
+}
+
+.featureDots {
+  display: none;
+}
+
+.featureDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: 0;
+  padding: 0;
+  background: color-mix(in srgb, var(--color-semantic-primary, #366d59) 24%, transparent);
+}
+
+.featureDotActive {
+  width: 22px;
+  background: color-mix(in srgb, var(--color-semantic-primary, #366d59) 72%, transparent);
 }
 
 .bulletList {
@@ -302,16 +325,29 @@
 
   .featureRail {
     grid-auto-flow: column;
-    grid-auto-columns: minmax(78%, 1fr);
+    grid-auto-columns: 100%;
     grid-template-columns: none;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     padding-bottom: var(--spacing-xs, 4px);
-    padding-inline-end: var(--spacing-l, 16px);
+    padding-inline-end: 0;
     -webkit-overflow-scrolling: touch;
   }
 
   .featureRail > * {
     scroll-snap-align: start;
+  }
+
+  .featureDots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs, 8px);
+    margin-top: var(--spacing-s, 10px);
+  }
+
+  .featureDot {
+    cursor: pointer;
+    transition: width 180ms ease, background-color 180ms ease;
   }
 }

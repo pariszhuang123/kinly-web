@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { QrCatalogV1, validateItem, CATALOG_URL } from "../_types";
 import { generateQrCardPng, generateQrCardSvg } from "../_utils";
 import { saveAs } from "file-saver";
-import { KinlyStack, KinlyButton, KinlyText, KinlyHeading } from "../../../../components";
+import { KinlyStack, KinlyButton, KinlyText, KinlyHeading, KinlyLink } from "../../../../components";
 import Image from "next/image";
 
 export default function QrHub() {
@@ -221,7 +221,9 @@ export default function QrHub() {
                     wordBreak: "break-all",
                     color: "#111"
                 }}>
-                    {generatedUrl}
+                    <KinlyLink href={generatedUrl} external>
+                        <span style={{ wordBreak: "break-all" }}>{generatedUrl}</span>
+                    </KinlyLink>
                 </code>
                 <KinlyButton
                     variant="outlined"
@@ -291,5 +293,4 @@ const inputStyle = {
     fontSize: "1rem",
     width: "100%"
 };
-
 

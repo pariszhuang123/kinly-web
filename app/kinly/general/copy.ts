@@ -79,13 +79,19 @@ const LANDING_COPY_EN: LandingCopy = {
   featureScreens: [
     {
       title: "Shared flows",
-      benefit: "Keep repeat tasks visible and calm with optional assignments.",
+      benefit: "Add context, guide links, and photos so repeat tasks are clear without reminders.",
       image:
         LANDING_SCREEN_ASSETS.en.flows,
     },
     {
+      title: "Shared groceries",
+      benefit: "Capture item, quantity, notes, and photos so shopping is clear for everyone.",
+      image:
+        LANDING_SCREEN_ASSETS.en.groceries,
+    },
+    {
       title: "Shared bills",
-      benefit: "See due dates and amounts in one place so nobody has to chase.",
+      benefit: "Split costs fairly with clear amounts, dates, and purchase context.",
       image:
         LANDING_SCREEN_ASSETS.en.bills,
     },

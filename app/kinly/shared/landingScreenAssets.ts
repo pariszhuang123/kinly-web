@@ -4,6 +4,7 @@ export type LandingScreenKey =
   | "manage"
   | "hub"
   | "flows"
+  | "groceries"
   | "bills"
   | "checkins";
 
@@ -13,6 +14,7 @@ export const LANDING_SCREEN_ASSETS: Record<LandingScreenLocale, Record<LandingSc
     manage: "/images/app_screens/en/manage.webp",
     hub: "/images/app_screens/en/hub.webp",
     flows: "/images/app_screens/en/flows.webp",
+    groceries: "/images/app_screens/en/groceries.webp",
     bills: "/images/app_screens/en/bills.webp",
     checkins: "/images/app_screens/en/checkins.webp",
   },
@@ -21,6 +23,7 @@ export const LANDING_SCREEN_ASSETS: Record<LandingScreenLocale, Record<LandingSc
     manage: "/images/app_screens/es/manage.webp",
     hub: "/images/app_screens/es/hub.webp",
     flows: "/images/app_screens/es/flows.webp",
+    groceries: "/images/app_screens/es/groceries.webp",
     bills: "/images/app_screens/es/bills.webp",
     checkins: "/images/app_screens/es/checkins.webp",
   },
@@ -29,6 +32,7 @@ export const LANDING_SCREEN_ASSETS: Record<LandingScreenLocale, Record<LandingSc
     manage: "/images/app_screens/ar/manage.webp",
     hub: "/images/app_screens/ar/hub.webp",
     flows: "/images/app_screens/ar/flows.webp",
+    groceries: "/images/app_screens/ar/groceries.webp",
     bills: "/images/app_screens/ar/bills.webp",
     checkins: "/images/app_screens/ar/checkins.webp",
   },

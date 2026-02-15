@@ -1,7 +1,7 @@
 ﻿"use client";
 /* eslint-disable @next/next/no-img-element */
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import {
   KinlyCard,
@@ -111,6 +111,8 @@ function readInterestMarker(): InterestMarker | null {
 
 export default function LandingClient({ detectedCountryCode = null }: LandingClientProps) {
   const [hasHydrated, setHasHydrated] = useState(false);
+  const [activeFeatureIndex, setActiveFeatureIndex] = useState(0);
+  const featureRailRef = useRef<HTMLDivElement | null>(null);
 
   const searchParams = useSearchParams();
   const utmParams = useMemo(() => readUtmParams(searchParams), [searchParams]);
@@ -127,18 +129,19 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
   const storeBadges = useMemo(() => resolveStoreBadges(lang), [lang]);
   const heroScreens = copy.screens.slice(0, 3);
   const featureCards = useMemo<FeatureCard[]>(() => {
-    if (copy.featureScreens.length >= 3) {
-      return copy.featureScreens.slice(0, 3);
+    if (copy.featureScreens.length >= 4) {
+      return copy.featureScreens.slice(0, 4);
     }
 
     const locale = lang ?? "en";
-    const titles = ["Shared flows", "Shared bills", "Calm check-ins"];
+    const titles = ["Shared flows", "Shared groceries", "Shared bills", "Calm check-ins"];
     const benefits = [
-      "Repeat tasks stay clear without tension.",
-      "Amounts and due dates stay visible in one place.",
+      "Add context, guide links, and photos so repeat tasks are clear without reminders.",
+      "Capture item, quantity, notes, and photos so shopping is clear for everyone.",
+      "Split costs fairly with clear amounts, dates, and purchase context.",
       "Needs are noticed early and without blame.",
     ];
-    const keys = ["flows", "bills", "checkins"] as const;
+    const keys = ["flows", "groceries", "bills", "checkins"] as const;
 
     return keys.map((key, index) => ({
       title: titles[index],
@@ -181,6 +184,64 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
       ui_locale: uiLocale,
     });
   }, [normalizedCountry, sessionId, uiLocale, utmParams.utm_campaign, utmParams.utm_medium, utmParams.utm_source]);
+
+  useEffect(() => {
+    const rail = featureRailRef.current;
+    if (!rail) return;
+
+    let frame = 0;
+
+    const updateActiveIndex = () => {
+      const cards = rail.querySelectorAll<HTMLElement>("[data-feature-card-index]");
+      if (!cards.length) {
+        setActiveFeatureIndex(0);
+        return;
+      }
+
+      const viewportCenter = rail.scrollLeft + rail.clientWidth / 2;
+      let nearestIndex = 0;
+      let nearestDistance = Number.POSITIVE_INFINITY;
+
+      cards.forEach((card, index) => {
+        const cardCenter = card.offsetLeft + card.clientWidth / 2;
+        const distance = Math.abs(cardCenter - viewportCenter);
+        if (distance < nearestDistance) {
+          nearestDistance = distance;
+          nearestIndex = index;
+        }
+      });
+
+      setActiveFeatureIndex((prev) => (prev === nearestIndex ? prev : nearestIndex));
+    };
+
+    const onScroll = () => {
+      if (frame) cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(updateActiveIndex);
+    };
+
+    updateActiveIndex();
+    rail.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+
+    return () => {
+      rail.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, [featureCards.length]);
+
+  function scrollToFeature(index: number) {
+    const rail = featureRailRef.current;
+    if (!rail) return;
+
+    const target = rail.querySelector<HTMLElement>(`[data-feature-card-index="${index}"]`);
+    if (!target) return;
+
+    rail.scrollTo({
+      left: target.offsetLeft,
+      behavior: "smooth",
+    });
+  }
 
   function handleCtaClick(store: OutreachStore) {
     if (!sessionId) return;
@@ -270,21 +331,47 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
               <KinlyHeading level={2}>{copy.howHeading}</KinlyHeading>
               <KinlyText variant="bodyMedium">{copy.toolsIntro}</KinlyText>
               <div className={styles.featureRailWrap}>
-                <div className={styles.featureRail} data-testid="feature-rail">
-                  {featureCards.map((feature) => (
-                    <KinlyCard key={feature.title} variant="surfaceContainerHigh">
-                      <div className={styles.featureCard} data-testid="feature-card">
-                        <div className={styles.featureImage} aria-hidden="true">
-                          <img src={feature.image} alt="" loading="lazy" />
+                <div className={styles.featureRail} data-testid="feature-rail" ref={featureRailRef}>
+                  {featureCards.map((feature, index) => (
+                    <div key={feature.title} className={styles.featureRailItem} data-feature-card-index={index}>
+                      <KinlyCard variant="surfaceContainerHigh">
+                        <div className={styles.featureCard} data-testid="feature-card">
+                          <div className={styles.featureImage} aria-hidden="true">
+                            <img src={feature.image} alt="" loading="lazy" />
+                          </div>
+                          <KinlyText variant="labelMedium" as="div">
+                            {feature.title}
+                          </KinlyText>
+                          <KinlyText variant="bodySmall">{feature.benefit}</KinlyText>
                         </div>
-                        <KinlyText variant="labelMedium" as="div">
-                          {feature.title}
-                        </KinlyText>
-                        <KinlyText variant="bodySmall">{feature.benefit}</KinlyText>
-                      </div>
-                    </KinlyCard>
+                      </KinlyCard>
+                    </div>
                   ))}
                 </div>
+                {featureCards.length > 1 ? (
+                  <div className={styles.featureDots} aria-label="Feature navigation">
+                    {featureCards.map((feature, index) => {
+                      const isActive = activeFeatureIndex === index;
+                      return (
+                        <span
+                          key={`${feature.title}-dot`}
+                          className={`${styles.featureDot} ${isActive ? styles.featureDotActive : ""}`.trim()}
+                          onClick={() => scrollToFeature(index)}
+                          onKeyDown={(event) => {
+                            if (event.key === "Enter" || event.key === " ") {
+                              event.preventDefault();
+                              scrollToFeature(index);
+                            }
+                          }}
+                          role="button"
+                          tabIndex={0}
+                          aria-label={`Show ${feature.title}`}
+                          aria-current={isActive ? "true" : undefined}
+                        />
+                      );
+                    })}
+                  </div>
+                ) : null}
               </div>
             </KinlyStack>
           </section>

@@ -14,7 +14,7 @@ test.describe("Marketing landing page", () => {
     await expect(page.locator('img[alt$=" screen"]')).toHaveCount(3);
     await expect(page.getByRole("heading", { name: "How Kinly helps in practice" })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Supported by practical tools" })).toHaveCount(0);
-    await expect(page.getByTestId("feature-card")).toHaveCount(3);
+    await expect(page.getByTestId("feature-card")).toHaveCount(4);
     await expect(page.getByTestId("feature-rail").getByText("Shared flows")).toBeVisible();
     await expect(page.getByText(/Ready to start/i)).toHaveCount(0);
   });
@@ -77,7 +77,7 @@ test.describe("Marketing landing page", () => {
 
     const rail = page.getByTestId("feature-rail");
     await expect(rail).toBeVisible();
-    await expect(page.getByTestId("feature-card")).toHaveCount(3);
+    await expect(page.getByTestId("feature-card")).toHaveCount(4);
 
     const metrics = await rail.evaluate((element) => {
       const style = window.getComputedStyle(element);

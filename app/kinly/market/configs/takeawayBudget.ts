@@ -51,6 +51,28 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
         LANDING_SCREEN_ASSETS.en.hub,
     },
   ],
+  featureScreens: [
+    {
+      title: "Shared flows",
+      benefit: "Add context and photos to recurring tasks so household standards stay clear.",
+      image: LANDING_SCREEN_ASSETS.en.flows,
+    },
+    {
+      title: "Shared groceries",
+      benefit: "Capture grocery items, quantities, and notes so shops are clear before anyone heads out.",
+      image: LANDING_SCREEN_ASSETS.en.groceries,
+    },
+    {
+      title: "Shared bills",
+      benefit: "Turn shared purchases into fair splits with dates and amounts in one place.",
+      image: LANDING_SCREEN_ASSETS.en.bills,
+    },
+    {
+      title: "Calm check-ins",
+      benefit: "Use weekly check-ins to reset money tension early before it builds.",
+      image: LANDING_SCREEN_ASSETS.en.checkins,
+    },
+  ],
 
   chips: [
     "When budgets are tight, small unfairness feels personal.",
@@ -285,5 +307,4 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
     } satisfies LocaleCopy,
   },
 };
-
 
