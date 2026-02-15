@@ -267,7 +267,7 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
           <section className={styles.hero}>
             <div className={styles.heroInner}>
               <div className={styles.heroContent}>
-                <KinlyStack direction="vertical" gap="m">
+                <KinlyStack direction="vertical" gap="l">
                   <KinlyStack direction="horizontal" gap="s" align="center">
                     <img src="/logo-kinly.svg" alt="Kinly logo" className={styles.logo} />
                     <KinlyHeading level={2}>{copy.hero.headline}</KinlyHeading>
@@ -302,6 +302,19 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
                 ) : null}
               </div>
             </div>
+          </section>
+
+          <section className={`${styles.section} ${styles.sectionPanel} ${styles.sectionHighlight}`}>
+            <KinlyStack direction="vertical" gap="s">
+              <KinlyHeading level={2}>{copy.chipsHeading}</KinlyHeading>
+              <div className={styles.listGrid}>
+                {copy.chips.map((chip) => (
+                  <KinlyCard key={chip} variant="surfaceContainer">
+                    <KinlyText variant="bodyMedium">{chip}</KinlyText>
+                  </KinlyCard>
+                ))}
+              </div>
+            </KinlyStack>
           </section>
 
           <section className={`${styles.section} ${styles.sectionPanel}`}>
@@ -360,19 +373,6 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
                     })}
                   </div>
                 ) : null}
-              </div>
-            </KinlyStack>
-          </section>
-
-          <section className={`${styles.section} ${styles.sectionPanel} ${styles.sectionHighlight}`}>
-            <KinlyStack direction="vertical" gap="s">
-              <KinlyHeading level={2}>{copy.chipsHeading}</KinlyHeading>
-              <div className={styles.listGrid}>
-                {copy.chips.map((chip) => (
-                  <KinlyCard key={chip} variant="surfaceContainer">
-                    <KinlyText variant="bodyMedium">{chip}</KinlyText>
-                  </KinlyCard>
-                ))}
               </div>
             </KinlyStack>
           </section>

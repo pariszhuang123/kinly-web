@@ -4,6 +4,10 @@ async function getFontSizePx(locator: Locator) {
   return locator.first().evaluate((element) => Number.parseFloat(window.getComputedStyle(element).fontSize));
 }
 
+async function getTopPx(locator: Locator) {
+  return locator.first().evaluate((element) => element.getBoundingClientRect().top);
+}
+
 test.describe("Marketing landing page", () => {
   test.beforeEach(async ({ page }) => {
     // Ensure no prior interest state unless a test sets it.
@@ -75,6 +79,44 @@ test.describe("Marketing landing page", () => {
     await expect(android).toHaveCount(1);
   });
 
+  test("general landing orders fit section before what and how sections", async ({ page }) => {
+    await page.goto("/kinly/general");
+
+    const fitHeading = page.getByRole("heading", { name: /Does this sound like your place\?/i });
+    const whatHeading = page.getByRole("heading", { name: "What Kinly is" });
+    const howHeading = page.getByRole("heading", { name: "How Kinly helps in practice" });
+
+    await expect(fitHeading).toBeVisible();
+    await expect(whatHeading).toBeVisible();
+    await expect(howHeading).toBeVisible();
+
+    const fitTop = await getTopPx(fitHeading);
+    const whatTop = await getTopPx(whatHeading);
+    const howTop = await getTopPx(howHeading);
+
+    expect(fitTop).toBeLessThan(whatTop);
+    expect(whatTop).toBeLessThan(howTop);
+  });
+
+  test("scenario landing orders fit section before what and how sections", async ({ page }) => {
+    await page.goto("/kinly/general?entry=homestay-owner");
+
+    const fitHeading = page.getByRole("heading", { name: /Does this sound like your place\?/i });
+    const whatHeading = page.getByRole("heading", { name: "What Kinly is" });
+    const howHeading = page.getByRole("heading", { name: "How Kinly helps in practice" });
+
+    await expect(fitHeading).toBeVisible();
+    await expect(whatHeading).toBeVisible();
+    await expect(howHeading).toBeVisible();
+
+    const fitTop = await getTopPx(fitHeading);
+    const whatTop = await getTopPx(whatHeading);
+    const howTop = await getTopPx(howHeading);
+
+    expect(fitTop).toBeLessThan(whatTop);
+    expect(whatTop).toBeLessThan(howTop);
+  });
+
   test("mobile feature rail is horizontally scrollable with snap behavior", async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("/kinly/general");
@@ -107,6 +149,24 @@ test.describe("Marketing landing page", () => {
     expect(metrics.snap).toContain("x");
     expect(metrics.firstCardSnapAlign).toBe("start");
     expect(metrics.firstCardWidth).toBeGreaterThanOrEqual(metrics.clientWidth - 2);
+
+    const firstPanelPadding = await page
+      .locator("section[class*='sectionPanel']")
+      .first()
+      .evaluate((element) => {
+        const style = window.getComputedStyle(element);
+        return {
+          top: Number.parseFloat(style.paddingTop),
+          right: Number.parseFloat(style.paddingRight),
+          bottom: Number.parseFloat(style.paddingBottom),
+          left: Number.parseFloat(style.paddingLeft),
+        };
+      });
+
+    expect(firstPanelPadding.top).toBeGreaterThanOrEqual(16);
+    expect(firstPanelPadding.right).toBeGreaterThanOrEqual(16);
+    expect(firstPanelPadding.bottom).toBeGreaterThanOrEqual(16);
+    expect(firstPanelPadding.left).toBeGreaterThanOrEqual(16);
 
     const secondDot = page.locator("[aria-label='Feature navigation'] [role='button']").nth(1);
     await secondDot.click();

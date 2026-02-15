@@ -385,7 +385,7 @@ export default function ScenarioLandingClient({
           <section className={styles.hero}>
             <div className={styles.heroInner}>
               <div className={styles.heroContent}>
-                <KinlyStack direction="vertical" gap="m">
+                <KinlyStack direction="vertical" gap="l">
                   <KinlyStack direction="horizontal" gap="s" align="center">
                     <img src="/logo-kinly.svg" alt="Kinly logo" className={styles.logo} />
                     <KinlyHeading level={2}>{resolvedConfig.hero.headline}</KinlyHeading>
@@ -420,6 +420,21 @@ export default function ScenarioLandingClient({
                 ) : null}
               </div>
             </div>
+          </section>
+
+          <section className={`${styles.section} ${styles.sectionPanel} ${styles.sectionHighlight}`}>
+            <KinlyStack direction="vertical" gap="s">
+              <KinlyHeading level={2}>
+                {resolvedConfig.sectionHeadings?.soundsLikeYou ?? "Does this sound like your place?"}
+              </KinlyHeading>
+              <div className={styles.listGrid}>
+                {resolvedConfig.chips.map((chip) => (
+                  <KinlyCard key={chip} variant="surfaceContainer">
+                    <KinlyText variant="bodyMedium">{chip}</KinlyText>
+                  </KinlyCard>
+                ))}
+              </div>
+            </KinlyStack>
           </section>
 
           <section className={`${styles.section} ${styles.sectionPanel}`}>
@@ -480,21 +495,6 @@ export default function ScenarioLandingClient({
                     })}
                   </div>
                 ) : null}
-              </div>
-            </KinlyStack>
-          </section>
-
-          <section className={`${styles.section} ${styles.sectionPanel} ${styles.sectionHighlight}`}>
-            <KinlyStack direction="vertical" gap="s">
-              <KinlyHeading level={2}>
-                {resolvedConfig.sectionHeadings?.soundsLikeYou ?? "Does this sound like your place?"}
-              </KinlyHeading>
-              <div className={styles.listGrid}>
-                {resolvedConfig.chips.map((chip) => (
-                  <KinlyCard key={chip} variant="surfaceContainer">
-                    <KinlyText variant="bodyMedium">{chip}</KinlyText>
-                  </KinlyCard>
-                ))}
               </div>
             </KinlyStack>
           </section>
