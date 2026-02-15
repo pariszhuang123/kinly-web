@@ -292,6 +292,7 @@
 
 @media (max-width: 900px) {
   .page {
+    --feature-mobile-max-width: 360px;
     padding-top: var(--spacing-xl, 24px);
     padding-inline: 0;
   }
@@ -352,17 +353,18 @@
 
   .featureRail {
     grid-auto-flow: column;
-    grid-auto-columns: 100%;
+    grid-auto-columns: min(100%, var(--feature-mobile-max-width));
     grid-template-columns: none;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     padding-bottom: var(--spacing-xs, 4px);
-    padding-inline-end: 0;
+    padding-inline: max(0px, calc((100% - var(--feature-mobile-max-width)) / 2));
+    scroll-padding-inline: max(0px, calc((100% - var(--feature-mobile-max-width)) / 2));
     -webkit-overflow-scrolling: touch;
   }
 
   .featureRail > * {
-    scroll-snap-align: start;
+    scroll-snap-align: center;
   }
 
   .featureImage img {

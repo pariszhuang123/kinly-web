@@ -262,7 +262,7 @@ export default function ScenarioLandingClient({
       return resolvedConfig.featureScreens.slice(0, 4);
     }
 
-    const titles = ["Shared flows", "Shared groceries", "Shared bills", "Calm check-ins"];
+    const titles = ["Shared tasks", "Shared groceries", "Shared bills", "Calm check-ins"];
     const benefits = [
       "Add context, guide links, and photos so repeat tasks are clear without reminders.",
       "Capture item, quantity, notes, and photos so shopping is clear for everyone.",
@@ -387,7 +387,7 @@ export default function ScenarioLandingClient({
           <section className={styles.recognition}>
             <KinlyStack direction="vertical" gap="xs">
               <KinlyHeading level={1}>{resolvedConfig.recognition.heading}</KinlyHeading>
-              <KinlyText variant="bodyLarge" tone="muted">
+              <KinlyText variant="bodyMedium" tone="muted">
                 {resolvedConfig.recognition.subtitle}
               </KinlyText>
               <KinlyText variant="bodyMedium">{resolvedConfig.recognition.body}</KinlyText>
@@ -402,11 +402,11 @@ export default function ScenarioLandingClient({
                     <img src="/logo-kinly.svg" alt="Kinly logo" className={styles.logo} />
                     <KinlyHeading level={2}>{resolvedConfig.hero.headline}</KinlyHeading>
                   </KinlyStack>
-                  <KinlyText variant="bodyLarge" tone="muted">
+                  <KinlyText variant="bodyMedium" tone="muted">
                     {resolvedConfig.hero.subhead}
                   </KinlyText>
                   <KinlyText variant="bodyMedium">{resolvedConfig.hero.body}</KinlyText>
-                  <KinlyText variant="bodySmall" tone="muted">
+                  <KinlyText variant="bodyMedium" tone="muted">
                     {resolvedConfig.hero.privacyNote ?? "Private by default. No ads. No surveillance."}
                   </KinlyText>
                 </KinlyStack>
@@ -456,13 +456,13 @@ export default function ScenarioLandingClient({
                     <div key={feature.title} className={styles.featureRailItem} data-feature-card-index={index}>
                       <KinlyCard variant="surfaceContainerHigh">
                         <div className={styles.featureCard} data-testid="feature-card">
-                          <div className={styles.featureImage} aria-hidden="true">
-                            <img src={feature.image} alt="" loading="lazy" />
-                          </div>
                           <KinlyText variant="labelMedium" as="div">
                             {feature.title}
                           </KinlyText>
-                          <KinlyText variant="bodySmall">{feature.benefit}</KinlyText>
+                          <div className={styles.featureImage} aria-hidden="true">
+                            <img src={feature.image} alt="" loading="lazy" />
+                          </div>
+                          <KinlyText variant="bodyMedium">{feature.benefit}</KinlyText>
                         </div>
                       </KinlyCard>
                     </div>
@@ -608,7 +608,7 @@ export default function ScenarioLandingClient({
                   <KinlyHeading level={2}>
                     {resolvedConfig.sectionHeadings?.readyHeading ?? "When you are ready"}
                   </KinlyHeading>
-                  <KinlyText variant="bodySmall" tone="muted">
+                  <KinlyText variant="bodyMedium" tone="muted">
                     {resolvedConfig.sectionHeadings?.readySubtitle ??
                       "Kinly lives in the app - start on iOS or Android."}
                   </KinlyText>
@@ -627,4 +627,3 @@ export default function ScenarioLandingClient({
     </main>
   );
 }
-

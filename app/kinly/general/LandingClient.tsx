@@ -269,7 +269,7 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
           <section className={styles.recognition}>
             <KinlyStack direction="vertical" gap="xs">
               <KinlyHeading level={1}>{copy.recognition.heading}</KinlyHeading>
-              <KinlyText variant="bodyLarge" tone="muted">
+              <KinlyText variant="bodyMedium" tone="muted">
                 {copy.recognition.subhead}
               </KinlyText>
               <KinlyText variant="bodyMedium">{copy.recognition.body}</KinlyText>
@@ -284,11 +284,11 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
                     <img src="/logo-kinly.svg" alt="Kinly logo" className={styles.logo} />
                     <KinlyHeading level={2}>{copy.hero.headline}</KinlyHeading>
                   </KinlyStack>
-                  <KinlyText variant="bodyLarge" tone="muted">
+                  <KinlyText variant="bodyMedium" tone="muted">
                     {copy.hero.subhead}
                   </KinlyText>
                   <KinlyText variant="bodyMedium">{copy.hero.body}</KinlyText>
-                  <KinlyText variant="bodySmall" tone="muted">
+                  <KinlyText variant="bodyMedium" tone="muted">
                     {copy.hero.privacyNote}
                   </KinlyText>
                 </KinlyStack>
@@ -336,13 +336,13 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
                     <div key={feature.title} className={styles.featureRailItem} data-feature-card-index={index}>
                       <KinlyCard variant="surfaceContainerHigh">
                         <div className={styles.featureCard} data-testid="feature-card">
-                          <div className={styles.featureImage} aria-hidden="true">
-                            <img src={feature.image} alt="" loading="lazy" />
-                          </div>
                           <KinlyText variant="labelMedium" as="div">
                             {feature.title}
                           </KinlyText>
-                          <KinlyText variant="bodySmall">{feature.benefit}</KinlyText>
+                          <div className={styles.featureImage} aria-hidden="true">
+                            <img src={feature.image} alt="" loading="lazy" />
+                          </div>
+                          <KinlyText variant="bodyMedium">{feature.benefit}</KinlyText>
                         </div>
                       </KinlyCard>
                     </div>
@@ -474,7 +474,7 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
               <KinlyCard variant="surfaceContainerHigh">
                 <KinlyStack direction="vertical" gap="m">
                   <KinlyHeading level={2}>{copy.storeSectionHeading}</KinlyHeading>
-                  <KinlyText variant="bodySmall" tone="muted">
+                  <KinlyText variant="bodyMedium" tone="muted">
                     {copy.storeSectionSubhead}
                   </KinlyText>
                   <StoreCtas

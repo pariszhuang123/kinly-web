@@ -1,4 +1,8 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, type Locator } from "@playwright/test";
+
+async function getFontSizePx(locator: Locator) {
+  return locator.first().evaluate((element) => Number.parseFloat(window.getComputedStyle(element).fontSize));
+}
 
 test.describe("Marketing landing page", () => {
   test.beforeEach(async ({ page }) => {
@@ -81,16 +85,64 @@ test.describe("Marketing landing page", () => {
 
     const metrics = await rail.evaluate((element) => {
       const style = window.getComputedStyle(element);
+      const firstCard = element.firstElementChild as HTMLElement | null;
+      const firstCardStyle = firstCard ? window.getComputedStyle(firstCard) : null;
       return {
         scrollWidth: element.scrollWidth,
         clientWidth: element.clientWidth,
         overflowX: style.overflowX,
         snap: style.scrollSnapType,
+        firstCardWidth: firstCard ? firstCard.getBoundingClientRect().width : 0,
+        firstCardSnapAlign: firstCardStyle?.scrollSnapAlign ?? "",
       };
     });
 
     expect(metrics.scrollWidth).toBeGreaterThan(metrics.clientWidth);
     expect(metrics.overflowX).toBe("auto");
     expect(metrics.snap).toContain("x");
+    expect(metrics.firstCardSnapAlign).toBe("center");
+    expect(metrics.firstCardWidth).toBeLessThanOrEqual(360);
+  });
+
+  test("general landing key copy uses minimum readable 14px text", async ({ page }) => {
+    await page.goto("/kinly/general");
+
+    const recognitionSubheadSize = await getFontSizePx(page.getByText("Even when no one is doing anything wrong."));
+    const heroSubheadSize = await getFontSizePx(
+      page.getByText("A calm shared place to notice how the home feels before anyone has to ask."),
+    );
+    const featureBenefitSize = await getFontSizePx(
+      page.getByText("Add context, guide links, and photos so repeat tasks are clear without reminders."),
+    );
+    const privacyNoteSize = await getFontSizePx(page.getByText("Private by default. No ads. No surveillance."));
+    const storeSubtitleSize = await getFontSizePx(page.getByText(/Kinly lives in the app/i));
+
+    expect(recognitionSubheadSize).toBeGreaterThanOrEqual(14);
+    expect(recognitionSubheadSize).toBeLessThan(15);
+    expect(heroSubheadSize).toBeGreaterThanOrEqual(14);
+    expect(heroSubheadSize).toBeLessThan(15);
+    expect(featureBenefitSize).toBeGreaterThanOrEqual(14);
+    expect(privacyNoteSize).toBeGreaterThanOrEqual(14);
+    expect(storeSubtitleSize).toBeGreaterThanOrEqual(14);
+  });
+
+  test("scenario landing key copy uses minimum readable 14px text", async ({ page }) => {
+    await page.goto("/kinly/general?entry=homestay-owner");
+
+    const recognitionSubheadSize = await getFontSizePx(page.getByText("Clear house norms should feel warm, not formal."));
+    const heroSubheadSize = await getFontSizePx(page.getByText("Set the baseline once, keep it warm and human."));
+    const featureBenefitSize = await getFontSizePx(
+      page.getByText("Add context, guide links, and photos so repeat tasks are clear without reminders."),
+    );
+    const privacyNoteSize = await getFontSizePx(page.getByText("Private by default. No ads. No surveillance."));
+    const storeSubtitleSize = await getFontSizePx(page.getByText(/Kinly lives in the app/i));
+
+    expect(recognitionSubheadSize).toBeGreaterThanOrEqual(14);
+    expect(recognitionSubheadSize).toBeLessThan(15);
+    expect(heroSubheadSize).toBeGreaterThanOrEqual(14);
+    expect(heroSubheadSize).toBeLessThan(15);
+    expect(featureBenefitSize).toBeGreaterThanOrEqual(14);
+    expect(privacyNoteSize).toBeGreaterThanOrEqual(14);
+    expect(storeSubtitleSize).toBeGreaterThanOrEqual(14);
   });
 });

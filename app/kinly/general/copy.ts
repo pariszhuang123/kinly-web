@@ -78,13 +78,13 @@ const LANDING_COPY_EN: LandingCopy = {
   howHeading: "How Kinly helps in practice",
   featureScreens: [
     {
-      title: "Shared flows",
+      title: "Shared tasks",
       benefit: "Add context, guide links, and photos so repeat tasks are clear without reminders.",
       image:
         LANDING_SCREEN_ASSETS.en.flows,
     },
     {
-      title: "Shared groceries",
+      title: "Shared shopping",
       benefit: "Capture item, quantity, notes, and photos so shopping is clear for everyone.",
       image:
         LANDING_SCREEN_ASSETS.en.groceries,
