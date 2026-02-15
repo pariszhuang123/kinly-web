@@ -12,6 +12,10 @@ test.describe("Marketing landing page", () => {
     await expect(page.getByRole("heading", { name: "Shared living gets heavy." })).toBeVisible();
     await expect(page.getByRole("heading", { name: "A calmer way to live together." })).toBeVisible();
     await expect(page.locator('img[alt$=" screen"]')).toHaveCount(3);
+    await expect(page.getByRole("heading", { name: "How Kinly helps in practice" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Supported by practical tools" })).toHaveCount(0);
+    await expect(page.getByTestId("feature-card")).toHaveCount(3);
+    await expect(page.getByTestId("feature-rail").getByText("Shared flows")).toBeVisible();
     await expect(page.getByText(/Ready to start/i)).toHaveCount(0);
   });
 
@@ -65,5 +69,28 @@ test.describe("Marketing landing page", () => {
 
     await expect(ios).toHaveCount(1);
     await expect(android).toHaveCount(1);
+  });
+
+  test("mobile feature rail is horizontally scrollable with snap behavior", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto("/kinly/general");
+
+    const rail = page.getByTestId("feature-rail");
+    await expect(rail).toBeVisible();
+    await expect(page.getByTestId("feature-card")).toHaveCount(3);
+
+    const metrics = await rail.evaluate((element) => {
+      const style = window.getComputedStyle(element);
+      return {
+        scrollWidth: element.scrollWidth,
+        clientWidth: element.clientWidth,
+        overflowX: style.overflowX,
+        snap: style.scrollSnapType,
+      };
+    });
+
+    expect(metrics.scrollWidth).toBeGreaterThan(metrics.clientWidth);
+    expect(metrics.overflowX).toBe("auto");
+    expect(metrics.snap).toContain("x");
   });
 });

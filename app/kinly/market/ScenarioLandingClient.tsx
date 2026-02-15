@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 /* eslint-disable @next/next/no-img-element */
 
 import { useEffect, useMemo, useState } from "react";
@@ -22,6 +22,7 @@ import {
   readUtmParams,
 } from "../../../lib/outreachTracking";
 import { resolveStoreBadges } from "../../../lib/storeBadges";
+import { resolveLandingScreenAsset } from "../shared/landingScreenAssets";
 import styles from "../general/LandingClientGeneral.module.css";
 
 type InterestMarker = {
@@ -36,6 +37,12 @@ export type ScenarioScreen = {
   headline: string;
   copy: string;
   footer: string;
+  image: string;
+};
+
+export type ScenarioFeatureScreen = {
+  title: string;
+  benefit: string;
   image: string;
 };
 
@@ -55,19 +62,14 @@ export type ScenarioConfig = {
   };
   whatHeading?: string;
   whatBody?: string;
-  howSteps?: {
-    title: string;
-    body: string;
-  }[];
+  featureScreens?: ScenarioFeatureScreen[];
   screens: ScenarioScreen[];
   chips: string[];
   rolePoints: string[];
   formingPoints: string[];
   audience: string[];
   notList: string[];
-  toolsHeading?: string;
   toolsIntro?: string;
-  toolsList?: string[];
   weekly: {
     intro: string;
     points: string[];
@@ -75,7 +77,6 @@ export type ScenarioConfig = {
   };
   sectionHeadings?: {
     howItWorks?: string;
-    howItWorksSubtitle?: string;
     soundsLikeYou?: string;
     roleHeading?: string;
     formingHeading?: string;
@@ -125,38 +126,13 @@ const PLAY_STORE_LABEL = "Get it on Google Play";
 const SUPPORTING_IMAGES = {
   friction: "/images/landing/friction-shared-home.webp",
   calm: "/images/landing/calm-shared-home.webp",
-  steps: [
-    "/images/landing/step-align.webp",
-    "/images/landing/step-weekly.webp",
-    "/images/landing/step-visbility.webp",
-  ],
 } as const;
 const DEFAULT_WHAT_HEADING = "What Kinly is";
 const DEFAULT_WHAT_BODY =
   "Kinly is a shared living app for people who live together. It keeps expectations visible and calm without turning home life into a task system.";
-const DEFAULT_HOW_SUBHEAD = "Three simple steps to keep everyone aligned.";
-const DEFAULT_HOW_STEPS = [
-  {
-    title: "Agree expectations with photos",
-    body: "Snap a photo of what done looks like in shared areas so everyone sees the same standard.",
-  },
-  {
-    title: "Reset weekly, lightly",
-    body: "Once a week, surface what feels off and choose what matters. No streaks, no pressure.",
-  },
-  {
-    title: "Keep shared visibility",
-    body: "Everyone can see gentle notes and updates about the home, so needs are clear without blame.",
-  },
-] as const;
-const DEFAULT_TOOLS_HEADING = "Supported by practical tools";
 const DEFAULT_TOOLS_INTRO =
   "Once expectations are aligned, Kinly offers simple tools to reduce everyday friction without turning shared living into a task system.";
-const DEFAULT_TOOLS_LIST = [
-  "Shared flows (with assignments if you want) so repeat tasks stay clear without policing.",
-  "Shared bills so due dates and amounts are visible without chasing.",
-  "Calm check-ins that keep everyone seen and supported without pointing fingers.",
-] as const;
+const DEFAULT_FEATURE_SCREEN_IMAGES = ["flows", "bills", "checkins"] as const;
 
 type StoreCtasProps = {
   suppress: boolean;
@@ -256,8 +232,8 @@ export default function ScenarioLandingClient({
   const storeBadges = useMemo(() => resolveStoreBadges(lang), [lang]);
   const storeLabels = useMemo(
     () => ({
-      apple: lang === "ar" ? "تحميل من App Store" : lang === "es" ? "Descargar en App Store" : APP_STORE_LABEL,
-      play: lang === "ar" ? "احصل عليه من Google Play" : lang === "es" ? "Obtener en Google Play" : PLAY_STORE_LABEL,
+      apple: lang === "ar" ? "ØªØ­Ù…ÙŠÙ„ Ù…Ù† App Store" : lang === "es" ? "Descargar en App Store" : APP_STORE_LABEL,
+      play: lang === "ar" ? "Ø§Ø­ØµÙ„ Ø¹Ù„ÙŠÙ‡ Ù…Ù† Google Play" : lang === "es" ? "Obtener en Google Play" : PLAY_STORE_LABEL,
     }),
     [lang],
   );
@@ -279,6 +255,24 @@ export default function ScenarioLandingClient({
   }, [config, lang]);
 
   const heroScreens = resolvedConfig.screens.slice(0, 3);
+  const featureScreens = useMemo<ScenarioFeatureScreen[]>(() => {
+    if (resolvedConfig.featureScreens && resolvedConfig.featureScreens.length >= 3) {
+      return resolvedConfig.featureScreens.slice(0, 3);
+    }
+
+    const titles = ["Shared flows", "Shared bills", "Calm check-ins"];
+    const benefits = [
+      "Repeat tasks stay clear without tension.",
+      "Amounts and due dates stay visible in one place.",
+      "Needs are noticed early and without blame.",
+    ];
+
+    return DEFAULT_FEATURE_SCREEN_IMAGES.map((key, index) => ({
+      title: titles[index],
+      benefit: benefits[index] ?? benefits[0],
+      image: resolveLandingScreenAsset(lang, key),
+    }));
+  }, [lang, resolvedConfig.featureScreens]);
 
   useEffect(() => {
     if (!sessionId) return;
@@ -392,47 +386,30 @@ export default function ScenarioLandingClient({
           <section className={`${styles.section} ${styles.sectionPanel}`}>
             <KinlyStack direction="vertical" gap="m">
               <KinlyHeading level={2}>
-                {resolvedConfig.sectionHeadings?.howItWorks ?? "How Kinly works"}
+                {resolvedConfig.sectionHeadings?.howItWorks ?? "How Kinly helps in practice"}
               </KinlyHeading>
-              <KinlyText variant="bodySmall" tone="muted">
-                {resolvedConfig.sectionHeadings?.howItWorksSubtitle ?? DEFAULT_HOW_SUBHEAD}
-              </KinlyText>
-              <div className={styles.stepGrid}>
-                {(resolvedConfig.howSteps ?? DEFAULT_HOW_STEPS).map((step, index) => (
-                  <KinlyCard key={step.title} variant="surfaceContainerHigh">
-                    <KinlyStack direction="vertical" gap="xs">
-                      <div className={styles.stepImage} aria-hidden="true">
-                        <img src={SUPPORTING_IMAGES.steps[index] ?? SUPPORTING_IMAGES.steps[0]} alt="" loading="lazy" />
-                      </div>
-                      <KinlyText variant="labelSmall" tone="muted" as="div">
-                        Step {index + 1}
-                      </KinlyText>
-                      <KinlyText variant="labelMedium" as="div">
-                        {step.title}
-                      </KinlyText>
-                      <KinlyText variant="bodySmall">{step.body}</KinlyText>
-                    </KinlyStack>
-                  </KinlyCard>
-                ))}
-              </div>
-            </KinlyStack>
-          </section>
-
-          <section className={`${styles.section} ${styles.sectionPanel}`}>
-            <KinlyStack direction="vertical" gap="s">
-              <KinlyHeading level={2}>{resolvedConfig.toolsHeading ?? DEFAULT_TOOLS_HEADING}</KinlyHeading>
               <KinlyText variant="bodyMedium">{resolvedConfig.toolsIntro ?? DEFAULT_TOOLS_INTRO}</KinlyText>
-              <div className={styles.listGrid}>
-                {(resolvedConfig.toolsList ?? DEFAULT_TOOLS_LIST).map((item) => (
-                  <KinlyCard key={item} variant="surfaceContainer">
-                    <KinlyText variant="bodySmall">{item}</KinlyText>
-                  </KinlyCard>
-                ))}
+              <div className={styles.featureRailWrap}>
+                <div className={styles.featureRail} data-testid="feature-rail">
+                  {featureScreens.map((feature) => (
+                    <KinlyCard key={feature.title} variant="surfaceContainerHigh">
+                      <div className={styles.featureCard} data-testid="feature-card">
+                        <div className={styles.featureImage} aria-hidden="true">
+                          <img src={feature.image} alt="" loading="lazy" />
+                        </div>
+                        <KinlyText variant="labelMedium" as="div">
+                          {feature.title}
+                        </KinlyText>
+                        <KinlyText variant="bodySmall">{feature.benefit}</KinlyText>
+                      </div>
+                    </KinlyCard>
+                  ))}
+                </div>
               </div>
             </KinlyStack>
           </section>
 
-          <section className={`${styles.section} ${styles.sectionPanel}`}>
+          <section className={`${styles.section} ${styles.sectionPanel} ${styles.sectionHighlight}`}>
             <KinlyStack direction="vertical" gap="s">
               <KinlyHeading level={2}>
                 {resolvedConfig.sectionHeadings?.soundsLikeYou ?? "Does this sound like your place?"}
@@ -563,3 +540,4 @@ export default function ScenarioLandingClient({
     </main>
   );
 }
+

@@ -1,4 +1,4 @@
-import { LANDING_SCREEN_ASSETS } from "../../shared/landingScreenAssets";
+﻿import { LANDING_SCREEN_ASSETS } from "../../shared/landingScreenAssets";
 import { ScenarioConfig } from "../ScenarioLandingClient";
 import { LocaleCopy } from "./shared/locale";
 
@@ -18,20 +18,6 @@ export const freshersConfig: ScenarioConfig = {
     body: "Late labs, early lectures, and new roommates are messy. Kinly shows tonight's needs without pressure, scoring, or nagging.",
     ctaHeading: "Start your first-year flat calm",
   },
-  howSteps: [
-    {
-      title: "Set shared standards with photos",
-      body: "Snap what “done” looks like for the kitchen and bathroom so move-in debates do not drag on.",
-    },
-    {
-      title: "Reset weekly before crunch",
-      body: "Each week, surface noise, bins, and guests so exam weeks stay calm without chasing anyone.",
-    },
-    {
-      title: "Keep everyone in the loop",
-      body: "Quiet hours, who is hosting, and light tasks stay visible, so no one is surprised or blamed.",
-    },
-  ],
   screens: [
     {
       title: "Today",
@@ -85,14 +71,8 @@ export const freshersConfig: ScenarioConfig = {
       "Kinly never forces conversations - it helps you decide when to talk.",
     ],
   },
-  toolsHeading: "Supported by practical tools",
   toolsIntro:
-    "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction — without turning your flat into a task system.",
-  toolsList: [
-    "Shared flows (with assignments if you want) for bins, bathrooms, and quiet hours during exam weeks.",
-    "Shared bills so power, internet, and the flat kitty are clear without chasing anyone.",
-    "Calm check-ins so everyone feels seen and supported without nagging.",
-  ],
+    "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction, without turning your flat into a task system.",
   availability: {
     body: "Kinly is currently available in New Zealand and Singapore. We will email you when Kinly opens in your area.",
   },
@@ -101,32 +81,18 @@ export const freshersConfig: ScenarioConfig = {
     es: {
       whatHeading: "Que es Kinly",
       whatBody:
-        "Kinly es una app de convivencia para quienes viven juntos. En pisos de primer año mantiene las expectativas claras y tranquilas sin convertir la casa en un cuadro de tareas.",
+        "Kinly es una app de convivencia para quienes viven juntos. En pisos de primer aÃ±o mantiene las expectativas claras y tranquilas sin convertir la casa en un cuadro de tareas.",
       recognition: {
         heading: "Caos de mudanza sin tension.",
         subtitle: "Mantengan el piso tranquilo mientras todos se acomodan.",
-        body: "Kinly hace visibles las normas y planes compartidos para que los pisos de primer aÃ±o sigan amables, incluso si los planes cambian.",
+        body: "Kinly hace visibles las normas y planes compartidos para que los pisos de primer aÃƒÂ±o sigan amables, incluso si los planes cambian.",
       },
       hero: {
         headline: "Una forma mas tranquila de vivir juntos en la uni.",
         subhead: "Ve lo que necesita el piso antes de que se vuelva drama.",
         body: "Laboratorios tarde, clases temprano y nuevos compis son un lio. Kinly muestra lo de hoy sin presion, puntajes ni reganos.",
-        ctaHeading: "Empieza tu piso de primer aÃ±o en calma",
+        ctaHeading: "Empieza tu piso de primer aÃƒÂ±o en calma",
       },
-      howSteps: [
-        {
-          title: "Alineen estandares con fotos",
-          body: "Saquen una foto de como se ve “listo” en cocina y baño para evitar discusiones eternas.",
-        },
-        {
-          title: "Reajuste semanal antes de examenes",
-          body: "Cada semana, pongan sobre la mesa ruido, basura y visitas para que los examenes sigan tranquilos sin perseguir a nadie.",
-        },
-        {
-          title: "Mantengan a todos al tanto",
-          body: "Silencio, quien recibe visitas y tareas ligeras visibles, sin sorpresas ni culpas.",
-        },
-      ],
       screens: [
         {
           title: "Hoy",
@@ -185,18 +151,11 @@ export const freshersConfig: ScenarioConfig = {
         ],
         heading: "Reflexion semanal, a ritmo humano",
       },
-      toolsHeading: "Apoyado por herramientas practicas",
       toolsIntro:
-        "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la friccion diaria — sin convertir el piso en un sistema de tareas.",
-      toolsList: [
-        "Flujos compartidos (con asignaciones si quieren) para basura, baños y silencio en semanas de examenes.",
-        "Cuentas compartidas para luz, internet y fondo comun sin perseguir pagos.",
-        "Revisiones calmadas para que todos se sientan vistos y apoyados sin senalar a nadie.",
-      ],
+        "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la friccion diaria .  sin convertir el piso en un sistema de tareas.",
       sectionHeadings: {
         howItWorks: "Como funciona Kinly",
-        howItWorksSubtitle: "Tres pasos simples que mantienen a todos alineados.",
-        soundsLikeYou: "Â¿Te suena familiar?",
+        soundsLikeYou: "Ã‚Â¿Te suena familiar?",
         roleHeading: "El rol de Kinly: reflexion primero",
         formingHeading: "Si tu hogar aun se esta formando",
         audienceHeading: "Para quien es esto",
@@ -209,114 +168,95 @@ export const freshersConfig: ScenarioConfig = {
       },
     } satisfies LocaleCopy,
     ar: {
-      whatHeading: "ما هو كينلي",
+      whatHeading: "Ù…Ø§ Ù‡Ùˆ ÙƒÙŠÙ†Ù„ÙŠ",
       whatBody:
-        "كينلي هو تطبيق للعيش المشترك صُمم لمن يعيشون معاً. لطلاب السنة الأولى يبقي التوقعات واضحة وهادئة بدون تحويل البيت إلى جدول مهام.",
+        "ÙƒÙŠÙ†Ù„ÙŠ Ù‡Ùˆ ØªØ·Ø¨ÙŠÙ‚ Ù„Ù„Ø¹ÙŠØ´ Ø§Ù„Ù…Ø´ØªØ±Ùƒ ØµÙÙ…Ù… Ù„Ù…Ù† ÙŠØ¹ÙŠØ´ÙˆÙ† Ù…Ø¹Ø§Ù‹. Ù„Ø·Ù„Ø§Ø¨ Ø§Ù„Ø³Ù†Ø© Ø§Ù„Ø£ÙˆÙ„Ù‰ ÙŠØ¨Ù‚ÙŠ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§Øª ÙˆØ§Ø¶Ø­Ø© ÙˆÙ‡Ø§Ø¯Ø¦Ø© Ø¨Ø¯ÙˆÙ† ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ø¨ÙŠØª Ø¥Ù„Ù‰ Ø¬Ø¯ÙˆÙ„ Ù…Ù‡Ø§Ù….",
       recognition: {
-        heading: "فوضى الانتقال بدون توتر.",
-        subtitle: "حافظ على هدوء الشقة بينما يتأقلم الجميع.",
-        body: "كينلي يجعل القواعد والخطط المشتركة مرئية حتى تبقى شقق السنة الأولى لطيفة، حتى عندما تتغير الخطط.",
+        heading: "ÙÙˆØ¶Ù‰ Ø§Ù„Ø§Ù†ØªÙ‚Ø§Ù„ Ø¨Ø¯ÙˆÙ† ØªÙˆØªØ±.",
+        subtitle: "Ø­Ø§ÙØ¸ Ø¹Ù„Ù‰ Ù‡Ø¯ÙˆØ¡ Ø§Ù„Ø´Ù‚Ø© Ø¨ÙŠÙ†Ù…Ø§ ÙŠØªØ£Ù‚Ù„Ù… Ø§Ù„Ø¬Ù…ÙŠØ¹.",
+        body: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠØ¬Ø¹Ù„ Ø§Ù„Ù‚ÙˆØ§Ø¹Ø¯ ÙˆØ§Ù„Ø®Ø·Ø· Ø§Ù„Ù…Ø´ØªØ±ÙƒØ© Ù…Ø±Ø¦ÙŠØ© Ø­ØªÙ‰ ØªØ¨Ù‚Ù‰ Ø´Ù‚Ù‚ Ø§Ù„Ø³Ù†Ø© Ø§Ù„Ø£ÙˆÙ„Ù‰ Ù„Ø·ÙŠÙØ©ØŒ Ø­ØªÙ‰ Ø¹Ù†Ø¯Ù…Ø§ ØªØªØºÙŠØ± Ø§Ù„Ø®Ø·Ø·.",
       },
       hero: {
-        headline: "طريقة أهدأ للعيش معاً في الجامعة.",
-        subhead: "اعرف ما تحتاجه الشقة قبل أن يتحول لدراما.",
-        body: "المعامل المتأخرة، والمحاضرات المبكرة، وزملاء السكن الجدد فوضوية. كينلي يُظهر احتياجات الليلة بدون ضغط أو تسجيل نقاط أو إزعاج.",
-        ctaHeading: "ابدأ شقة السنة الأولى بهدوء",
+        headline: "Ø·Ø±ÙŠÙ‚Ø© Ø£Ù‡Ø¯Ø£ Ù„Ù„Ø¹ÙŠØ´ Ù…Ø¹Ø§Ù‹ ÙÙŠ Ø§Ù„Ø¬Ø§Ù…Ø¹Ø©.",
+        subhead: "Ø§Ø¹Ø±Ù Ù…Ø§ ØªØ­ØªØ§Ø¬Ù‡ Ø§Ù„Ø´Ù‚Ø© Ù‚Ø¨Ù„ Ø£Ù† ÙŠØªØ­ÙˆÙ„ Ù„Ø¯Ø±Ø§Ù…Ø§.",
+        body: "Ø§Ù„Ù…Ø¹Ø§Ù…Ù„ Ø§Ù„Ù…ØªØ£Ø®Ø±Ø©ØŒ ÙˆØ§Ù„Ù…Ø­Ø§Ø¶Ø±Ø§Øª Ø§Ù„Ù…Ø¨ÙƒØ±Ø©ØŒ ÙˆØ²Ù…Ù„Ø§Ø¡ Ø§Ù„Ø³ÙƒÙ† Ø§Ù„Ø¬Ø¯Ø¯ ÙÙˆØ¶ÙˆÙŠØ©. ÙƒÙŠÙ†Ù„ÙŠ ÙŠÙØ¸Ù‡Ø± Ø§Ø­ØªÙŠØ§Ø¬Ø§Øª Ø§Ù„Ù„ÙŠÙ„Ø© Ø¨Ø¯ÙˆÙ† Ø¶ØºØ· Ø£Ùˆ ØªØ³Ø¬ÙŠÙ„ Ù†Ù‚Ø§Ø· Ø£Ùˆ Ø¥Ø²Ø¹Ø§Ø¬.",
+        ctaHeading: "Ø§Ø¨Ø¯Ø£ Ø´Ù‚Ø© Ø§Ù„Ø³Ù†Ø© Ø§Ù„Ø£ÙˆÙ„Ù‰ Ø¨Ù‡Ø¯ÙˆØ¡",
       },
-      howSteps: [
-        {
-          title: "حددوا المعايير بالصور",
-          body: "التقطوا صورة لما يبدو عليه “الإنجاز” في المطبخ والحمام لتجنب نقاشات لا تنتهي.",
-        },
-        {
-          title: "إعادة ضبط أسبوعية قبل الأسابيع الحرجة",
-          body: "كل أسبوع، أظهروا الضجيج والقمامة والضيوف ليبقى الهدوء في أسابيع الامتحانات بدون ملاحقة.",
-        },
-        {
-          title: "حافظوا على وضوح مشترك",
-          body: "ساعات الهدوء، من يستضيف، والمهام الخفيفة تبقى مرئية بلا مفاجآت أو لوم.",
-        },
-      ],
       screens: [
         {
-          title: "اليوم",
-          eyebrow: "الآن",
-          headline: "ما يحتاج انتباه",
-          copy: "ساعات الهدوء لأسابيع الامتحانات، إخراج القمامة، من يستضيف الليلة.",
-          footer: "أشياء للقيام بها وملاحظتها بدون لوم.",
+          title: "Ø§Ù„ÙŠÙˆÙ…",
+          eyebrow: "Ø§Ù„Ø¢Ù†",
+          headline: "Ù…Ø§ ÙŠØ­ØªØ§Ø¬ Ø§Ù†ØªØ¨Ø§Ù‡",
+          copy: "Ø³Ø§Ø¹Ø§Øª Ø§Ù„Ù‡Ø¯ÙˆØ¡ Ù„Ø£Ø³Ø§Ø¨ÙŠØ¹ Ø§Ù„Ø§Ù…ØªØ­Ø§Ù†Ø§ØªØŒ Ø¥Ø®Ø±Ø§Ø¬ Ø§Ù„Ù‚Ù…Ø§Ù…Ø©ØŒ Ù…Ù† ÙŠØ³ØªØ¶ÙŠÙ Ø§Ù„Ù„ÙŠÙ„Ø©.",
+          footer: "Ø£Ø´ÙŠØ§Ø¡ Ù„Ù„Ù‚ÙŠØ§Ù… Ø¨Ù‡Ø§ ÙˆÙ…Ù„Ø§Ø­Ø¸ØªÙ‡Ø§ Ø¨Ø¯ÙˆÙ† Ù„ÙˆÙ….",
           image:
             LANDING_SCREEN_ASSETS.ar.today,
         },
         {
-          title: "إدارة",
-          eyebrow: "تبديل",
-          headline: "بدّل الأدوار بدون إحراج",
-          copy: "إذا كان شخص في وردية متأخرة أو ضيق مادياً هذا الأسبوع، أعد التوزيع بهدوء.",
-          footer: "أنت دائماً مسيطر - لا شيء مقفل.",
+          title: "Ø¥Ø¯Ø§Ø±Ø©",
+          eyebrow: "ØªØ¨Ø¯ÙŠÙ„",
+          headline: "Ø¨Ø¯Ù‘Ù„ Ø§Ù„Ø£Ø¯ÙˆØ§Ø± Ø¨Ø¯ÙˆÙ† Ø¥Ø­Ø±Ø§Ø¬",
+          copy: "Ø¥Ø°Ø§ ÙƒØ§Ù† Ø´Ø®Øµ ÙÙŠ ÙˆØ±Ø¯ÙŠØ© Ù…ØªØ£Ø®Ø±Ø© Ø£Ùˆ Ø¶ÙŠÙ‚ Ù…Ø§Ø¯ÙŠØ§Ù‹ Ù‡Ø°Ø§ Ø§Ù„Ø£Ø³Ø¨ÙˆØ¹ØŒ Ø£Ø¹Ø¯ Ø§Ù„ØªÙˆØ²ÙŠØ¹ Ø¨Ù‡Ø¯ÙˆØ¡.",
+          footer: "Ø£Ù†Øª Ø¯Ø§Ø¦Ù…Ø§Ù‹ Ù…Ø³ÙŠØ·Ø± - Ù„Ø§ Ø´ÙŠØ¡ Ù…Ù‚ÙÙ„.",
           image:
             LANDING_SCREEN_ASSETS.ar.manage,
         },
         {
-          title: "مركز المنزل",
-          eyebrow: "المنزل المشترك",
-          headline: "قواعد البيت يراها الجميع",
-          copy: "ساعات الهدوء، الضيوف، معايير النظافة، والتكاليف المشتركة في مكان واحد هادئ.",
-          footer: "لا مفاجآت، لا جداول مهام.",
+          title: "Ù…Ø±ÙƒØ² Ø§Ù„Ù…Ù†Ø²Ù„",
+          eyebrow: "Ø§Ù„Ù…Ù†Ø²Ù„ Ø§Ù„Ù…Ø´ØªØ±Ùƒ",
+          headline: "Ù‚ÙˆØ§Ø¹Ø¯ Ø§Ù„Ø¨ÙŠØª ÙŠØ±Ø§Ù‡Ø§ Ø§Ù„Ø¬Ù…ÙŠØ¹",
+          copy: "Ø³Ø§Ø¹Ø§Øª Ø§Ù„Ù‡Ø¯ÙˆØ¡ØŒ Ø§Ù„Ø¶ÙŠÙˆÙØŒ Ù…Ø¹Ø§ÙŠÙŠØ± Ø§Ù„Ù†Ø¸Ø§ÙØ©ØŒ ÙˆØ§Ù„ØªÙƒØ§Ù„ÙŠÙ Ø§Ù„Ù…Ø´ØªØ±ÙƒØ© ÙÙŠ Ù…ÙƒØ§Ù† ÙˆØ§Ø­Ø¯ Ù‡Ø§Ø¯Ø¦.",
+          footer: "Ù„Ø§ Ù…ÙØ§Ø¬Ø¢ØªØŒ Ù„Ø§ Ø¬Ø¯Ø§ÙˆÙ„ Ù…Ù‡Ø§Ù….",
           image:
             LANDING_SCREEN_ASSETS.ar.hub,
         },
       ],
       chips: [
-        "لم نتفق على قواعد النظافة.",
-        "أسابيع الامتحانات تحتاج هدوء بدون استياء.",
-        "سياسة الضيوف غامضة وتسبب احتكاك.",
-        "نهتم ببعض لكن نكره جداول المهام.",
+        "Ù„Ù… Ù†ØªÙÙ‚ Ø¹Ù„Ù‰ Ù‚ÙˆØ§Ø¹Ø¯ Ø§Ù„Ù†Ø¸Ø§ÙØ©.",
+        "Ø£Ø³Ø§Ø¨ÙŠØ¹ Ø§Ù„Ø§Ù…ØªØ­Ø§Ù†Ø§Øª ØªØ­ØªØ§Ø¬ Ù‡Ø¯ÙˆØ¡ Ø¨Ø¯ÙˆÙ† Ø§Ø³ØªÙŠØ§Ø¡.",
+        "Ø³ÙŠØ§Ø³Ø© Ø§Ù„Ø¶ÙŠÙˆÙ ØºØ§Ù…Ø¶Ø© ÙˆØªØ³Ø¨Ø¨ Ø§Ø­ØªÙƒØ§Ùƒ.",
+        "Ù†Ù‡ØªÙ… Ø¨Ø¨Ø¹Ø¶ Ù„ÙƒÙ† Ù†ÙƒØ±Ù‡ Ø¬Ø¯Ø§ÙˆÙ„ Ø§Ù„Ù…Ù‡Ø§Ù….",
       ],
       rolePoints: [
-        "يُظهر القواعد قبل بدء الصراع.",
-        "يبقي المهام خفيفة - لا نقاط، لا لوحات صدارة.",
+        "ÙŠÙØ¸Ù‡Ø± Ø§Ù„Ù‚ÙˆØ§Ø¹Ø¯ Ù‚Ø¨Ù„ Ø¨Ø¯Ø¡ Ø§Ù„ØµØ±Ø§Ø¹.",
+        "ÙŠØ¨Ù‚ÙŠ Ø§Ù„Ù…Ù‡Ø§Ù… Ø®ÙÙŠÙØ© - Ù„Ø§ Ù†Ù‚Ø§Ø·ØŒ Ù„Ø§ Ù„ÙˆØ­Ø§Øª ØµØ¯Ø§Ø±Ø©.",
       ],
       formingPoints: [
-        "زملاء جدد كل فصل - كينلي يحفظ السياق مع تغير الأشخاص.",
-        "الليالي المتأخرة، الصباحات المبكرة، والأسابيع الضيقة طبيعية، ليست فشلاً.",
+        "Ø²Ù…Ù„Ø§Ø¡ Ø¬Ø¯Ø¯ ÙƒÙ„ ÙØµÙ„ - ÙƒÙŠÙ†Ù„ÙŠ ÙŠØ­ÙØ¸ Ø§Ù„Ø³ÙŠØ§Ù‚ Ù…Ø¹ ØªØºÙŠØ± Ø§Ù„Ø£Ø´Ø®Ø§Øµ.",
+        "Ø§Ù„Ù„ÙŠØ§Ù„ÙŠ Ø§Ù„Ù…ØªØ£Ø®Ø±Ø©ØŒ Ø§Ù„ØµØ¨Ø§Ø­Ø§Øª Ø§Ù„Ù…Ø¨ÙƒØ±Ø©ØŒ ÙˆØ§Ù„Ø£Ø³Ø§Ø¨ÙŠØ¹ Ø§Ù„Ø¶ÙŠÙ‚Ø© Ø·Ø¨ÙŠØ¹ÙŠØ©ØŒ Ù„ÙŠØ³Øª ÙØ´Ù„Ø§Ù‹.",
       ],
       audience: [
-        "شقق السنة الأولى وأجنحة السكن الجامعي.",
-        "الإيجارات المشتركة قرب الحرم.",
-        "زملاء السكن الذين يريدون هدوء، لا دراما.",
+        "Ø´Ù‚Ù‚ Ø§Ù„Ø³Ù†Ø© Ø§Ù„Ø£ÙˆÙ„Ù‰ ÙˆØ£Ø¬Ù†Ø­Ø© Ø§Ù„Ø³ÙƒÙ† Ø§Ù„Ø¬Ø§Ù…Ø¹ÙŠ.",
+        "Ø§Ù„Ø¥ÙŠØ¬Ø§Ø±Ø§Øª Ø§Ù„Ù…Ø´ØªØ±ÙƒØ© Ù‚Ø±Ø¨ Ø§Ù„Ø­Ø±Ù….",
+        "Ø²Ù…Ù„Ø§Ø¡ Ø§Ù„Ø³ÙƒÙ† Ø§Ù„Ø°ÙŠÙ† ÙŠØ±ÙŠØ¯ÙˆÙ† Ù‡Ø¯ÙˆØ¡ØŒ Ù„Ø§ Ø¯Ø±Ø§Ù…Ø§.",
       ],
-      notList: ["ليس أداة مراقبة.", "ليس بطاقة نقاط أو لوحة صدارة.", "ليس رئيس مهام."],
+      notList: ["Ù„ÙŠØ³ Ø£Ø¯Ø§Ø© Ù…Ø±Ø§Ù‚Ø¨Ø©.", "Ù„ÙŠØ³ Ø¨Ø·Ø§Ù‚Ø© Ù†Ù‚Ø§Ø· Ø£Ùˆ Ù„ÙˆØ­Ø© ØµØ¯Ø§Ø±Ø©.", "Ù„ÙŠØ³ Ø±Ø¦ÙŠØ³ Ù…Ù‡Ø§Ù…."],
       weekly: {
-        intro: "كينلي يستخدم إيقاعاً أسبوعياً لتركز على دراستك بدون قلق السلاسل.",
+        intro: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠØ³ØªØ®Ø¯Ù… Ø¥ÙŠÙ‚Ø§Ø¹Ø§Ù‹ Ø£Ø³Ø¨ÙˆØ¹ÙŠØ§Ù‹ Ù„ØªØ±ÙƒØ² Ø¹Ù„Ù‰ Ø¯Ø±Ø§Ø³ØªÙƒ Ø¨Ø¯ÙˆÙ† Ù‚Ù„Ù‚ Ø§Ù„Ø³Ù„Ø§Ø³Ù„.",
         points: [
-          "راجع أسبوعياً، ليس يومياً - لا سلاسل للحفاظ عليها.",
-          "التأملات للفهم، ليس لتقييم أحد.",
-          "كينلي لا يفرض محادثات - يساعدك تقرر متى تتكلم.",
+          "Ø±Ø§Ø¬Ø¹ Ø£Ø³Ø¨ÙˆØ¹ÙŠØ§Ù‹ØŒ Ù„ÙŠØ³ ÙŠÙˆÙ…ÙŠØ§Ù‹ - Ù„Ø§ Ø³Ù„Ø§Ø³Ù„ Ù„Ù„Ø­ÙØ§Ø¸ Ø¹Ù„ÙŠÙ‡Ø§.",
+          "Ø§Ù„ØªØ£Ù…Ù„Ø§Øª Ù„Ù„ÙÙ‡Ù…ØŒ Ù„ÙŠØ³ Ù„ØªÙ‚ÙŠÙŠÙ… Ø£Ø­Ø¯.",
+          "ÙƒÙŠÙ†Ù„ÙŠ Ù„Ø§ ÙŠÙØ±Ø¶ Ù…Ø­Ø§Ø¯Ø«Ø§Øª - ÙŠØ³Ø§Ø¹Ø¯Ùƒ ØªÙ‚Ø±Ø± Ù…ØªÙ‰ ØªØªÙƒÙ„Ù….",
         ],
-        heading: "تأمل أسبوعي، بإيقاع بشري",
+        heading: "ØªØ£Ù…Ù„ Ø£Ø³Ø¨ÙˆØ¹ÙŠØŒ Ø¨Ø¥ÙŠÙ‚Ø§Ø¹ Ø¨Ø´Ø±ÙŠ",
       },
-      toolsHeading: "مدعوم بأدوات عملية",
       toolsIntro:
-        "بعد أن تتفقوا على التوقعات، يقدم كينلي أدوات بسيطة تقلل الاحتكاكات اليومية — بدون تحويل البيت إلى نظام مهام.",
-      toolsList: [
-        "تدفّقات مشتركة (مع تعيينات إذا أردتم) للقمامة، الحمام، وساعات الهدوء في أسابيع الامتحانات.",
-        "فواتير مشتركة لعرض المبالغ والمواعيد بدون ملاحقة.",
-        "مراجعات هادئة تجعل الجميع مرئيين ومدعومين بدون توجيه أصابع الاتهام.",
-      ],
+        "Ø¨Ø¹Ø¯ Ø£Ù† ØªØªÙÙ‚ÙˆØ§ Ø¹Ù„Ù‰ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§ØªØŒ ÙŠÙ‚Ø¯Ù… ÙƒÙŠÙ†Ù„ÙŠ Ø£Ø¯ÙˆØ§Øª Ø¨Ø³ÙŠØ·Ø© ØªÙ‚Ù„Ù„ Ø§Ù„Ø§Ø­ØªÙƒØ§ÙƒØ§Øª Ø§Ù„ÙŠÙˆÙ…ÙŠØ© .  Ø¨Ø¯ÙˆÙ† ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ø¨ÙŠØª Ø¥Ù„Ù‰ Ù†Ø¸Ø§Ù… Ù…Ù‡Ø§Ù….",
       sectionHeadings: {
-        howItWorks: "كيف يعمل كينلي",
-        howItWorksSubtitle: "ثلاث خطوات بسيطة تبقي الجميع على توافق.",
-        soundsLikeYou: "هل يبدو هذا مثل مكانك؟",
-        roleHeading: "دور كينلي: التأمل أولاً",
-        formingHeading: "إذا كان منزلك لا يزال يتشكل",
-        audienceHeading: "لمن هذا",
-        notListHeading: "كينلي ليس...",
-        readyHeading: "عندما تكون جاهزاً",
-        readySubtitle: "كينلي موجود في التطبيق - ابدأ على iOS أو Android.",
+        howItWorks: "ÙƒÙŠÙ ÙŠØ¹Ù…Ù„ ÙƒÙŠÙ†Ù„ÙŠ",
+        soundsLikeYou: "Ù‡Ù„ ÙŠØ¨Ø¯Ùˆ Ù‡Ø°Ø§ Ù…Ø«Ù„ Ù…ÙƒØ§Ù†ÙƒØŸ",
+        roleHeading: "Ø¯ÙˆØ± ÙƒÙŠÙ†Ù„ÙŠ: Ø§Ù„ØªØ£Ù…Ù„ Ø£ÙˆÙ„Ø§Ù‹",
+        formingHeading: "Ø¥Ø°Ø§ ÙƒØ§Ù† Ù…Ù†Ø²Ù„Ùƒ Ù„Ø§ ÙŠØ²Ø§Ù„ ÙŠØªØ´ÙƒÙ„",
+        audienceHeading: "Ù„Ù…Ù† Ù‡Ø°Ø§",
+        notListHeading: "ÙƒÙŠÙ†Ù„ÙŠ Ù„ÙŠØ³...",
+        readyHeading: "Ø¹Ù†Ø¯Ù…Ø§ ØªÙƒÙˆÙ† Ø¬Ø§Ù‡Ø²Ø§Ù‹",
+        readySubtitle: "ÙƒÙŠÙ†Ù„ÙŠ Ù…ÙˆØ¬ÙˆØ¯ ÙÙŠ Ø§Ù„ØªØ·Ø¨ÙŠÙ‚ - Ø§Ø¨Ø¯Ø£ Ø¹Ù„Ù‰ iOS Ø£Ùˆ Android.",
       },
       availability: {
-        body: "كينلي متاح حالياً في نيوزيلندا وسنغافورة. سنراسلك عندما يفتح كينلي في منطقتك.",
+        body: "ÙƒÙŠÙ†Ù„ÙŠ Ù…ØªØ§Ø­ Ø­Ø§Ù„ÙŠØ§Ù‹ ÙÙŠ Ù†ÙŠÙˆØ²ÙŠÙ„Ù†Ø¯Ø§ ÙˆØ³Ù†ØºØ§ÙÙˆØ±Ø©. Ø³Ù†Ø±Ø§Ø³Ù„Ùƒ Ø¹Ù†Ø¯Ù…Ø§ ÙŠÙØªØ­ ÙƒÙŠÙ†Ù„ÙŠ ÙÙŠ Ù…Ù†Ø·Ù‚ØªÙƒ.",
       },
     } satisfies LocaleCopy,
   },
 };
+
+

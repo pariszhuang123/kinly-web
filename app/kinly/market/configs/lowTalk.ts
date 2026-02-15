@@ -1,4 +1,4 @@
-import { LANDING_SCREEN_ASSETS } from "../../shared/landingScreenAssets";
+﻿import { LANDING_SCREEN_ASSETS } from "../../shared/landingScreenAssets";
 import { ScenarioConfig } from "../ScenarioLandingClient";
 import { LocaleCopy } from "./shared/locale";
 
@@ -18,20 +18,6 @@ export const lowTalkConfig: ScenarioConfig = {
     body: "Kinly surfaces the signals that matter and drops the pressure to \"talk it out\" every time. No scoreboards, no policing, no guilt.",
     ctaHeading: "Get the signal, skip the speech",
   },
-  howSteps: [
-    {
-      title: "Agree expectations with photos",
-      body: "Show what “quiet” and “guest-ready” look like so signals stay simple and clear.",
-    },
-    {
-      title: "Reset weekly, lightly",
-      body: "Once a week, surface noise, guests, and quick resets so tension doesn’t build between check-ins.",
-    },
-    {
-      title: "Keep shared visibility",
-      body: "Everyone sees light tasks and signals, so you can help without reminders or speeches.",
-    },
-  ],
   screens: [
     {
       title: "Today",
@@ -87,55 +73,35 @@ export const lowTalkConfig: ScenarioConfig = {
       "Pause, adjust, or skip a week without guilt.",
     ],
   },
-  toolsHeading: "Supported by practical tools",
   toolsIntro:
-    "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction — without turning shared living into a task system.",
-  toolsList: [
-    "Shared flows (with assignments if you want) for quick resets, guests, and quiet hours without nagging.",
-    "Optional assignments so busy people can swap turns without debate.",
-    "Calm check-ins so everyone feels seen without group-chat essays.",
-  ],
+    "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction, without turning shared living into a task system.",
   availability: {
     body: "Kinly is currently available in New Zealand and Singapore. We will email you when Kinly opens in your area.",
   },
   defaultLocale: "en",
   translations: {
     es: {
-      whatHeading: "Qué es Kinly",
+      whatHeading: "QuÃ© es Kinly",
       whatBody:
         "Kinly es una app de convivencia para quienes viven juntos. Para casas de pocas palabras mantiene las expectativas claras sin forzar chats largos ni reuniones.",
       recognition: {
-        heading: "Señales sin discursos.",
-        subtitle: "Mantén claridad sin conversaciones largas.",
-        body: "Kinly da señales tranquilas sobre lo que la casa necesita sin convocar reuniones ni sermones.",
+        heading: "SeÃ±ales sin discursos.",
+        subtitle: "MantÃ©n claridad sin conversaciones largas.",
+        body: "Kinly da seÃ±ales tranquilas sobre lo que la casa necesita sin convocar reuniones ni sermones.",
       },
       hero: {
-        headline: "Claridad sin hablar de más.",
-        subhead: "Ve qué necesita atención y qué puede esperar, sin novelas en el chat.",
-        body: "Kinly muestra las señales importantes y elimina la presión de “hay que hablarlo” cada vez. Sin marcadores, sin vigilancia, sin culpa.",
-        ctaHeading: "Recibe la señal, evita el discurso",
+        headline: "Claridad sin hablar de mÃ¡s.",
+        subhead: "Ve quÃ© necesita atenciÃ³n y quÃ© puede esperar, sin novelas en el chat.",
+        body: "Kinly muestra las seÃ±ales importantes y elimina la presiÃ³n de â€œhay que hablarloâ€ cada vez. Sin marcadores, sin vigilancia, sin culpa.",
+        ctaHeading: "Recibe la seÃ±al, evita el discurso",
       },
-      howSteps: [
-        {
-          title: "Acordar expectativas con fotos",
-          body: "Muestren cómo se ve “silencio” y “listo para visitas” para que las señales sean simples y claras.",
-        },
-        {
-          title: "Reajuste semanal, sin presión",
-          body: "Cada semana, pongan ruido, visitas y resets rápidos sobre la mesa para evitar tensión entre revisiones.",
-        },
-        {
-          title: "Mantener visibilidad compartida",
-          body: "Todos ven tareas ligeras y señales, así pueden ayudar sin recordatorios ni discursos.",
-        },
-      ],
       screens: [
         {
           title: "Hoy",
-          eyebrow: "Señal",
-          headline: "Qué necesita atención ahora",
-          copy: "Avisos ligeros para ruido, visitas o un reset rápido antes del día.",
-          footer: "Accionable sin convertirse en reunión.",
+          eyebrow: "SeÃ±al",
+          headline: "QuÃ© necesita atenciÃ³n ahora",
+          copy: "Avisos ligeros para ruido, visitas o un reset rÃ¡pido antes del dÃ­a.",
+          footer: "Accionable sin convertirse en reuniÃ³n.",
           image:
             LANDING_SCREEN_ASSETS.es.today,
         },
@@ -143,7 +109,7 @@ export const lowTalkConfig: ScenarioConfig = {
           title: "Gestionar",
           eyebrow: "Ajustar",
           headline: "Ajusta sin debate",
-          copy: "Cambia turnos o pausa tareas cuando alguien está a tope, sin culpas.",
+          copy: "Cambia turnos o pausa tareas cuando alguien estÃ¡ a tope, sin culpas.",
           footer: "Todos informados sin recordatorios.",
           image:
             LANDING_SCREEN_ASSETS.es.manage,
@@ -152,169 +118,143 @@ export const lowTalkConfig: ScenarioConfig = {
           title: "Hub",
           eyebrow: "Referencia",
           headline: "Claridad compartida en un lugar",
-          copy: "Horas de silencio, señales de visitas y normas rápidas que mantienen el ambiente estable.",
-          footer: "Las señales siguen visibles; no hacen falta discursos.",
+          copy: "Horas de silencio, seÃ±ales de visitas y normas rÃ¡pidas que mantienen el ambiente estable.",
+          footer: "Las seÃ±ales siguen visibles; no hacen falta discursos.",
           image:
             LANDING_SCREEN_ASSETS.es.hub,
         },
       ],
       chips: [
         "Claridad sin novelas en el chat.",
-        "Nadie quiere regañar ni ser regañado.",
-        "Preferimos señales a largas charlas.",
+        "Nadie quiere regaÃ±ar ni ser regaÃ±ado.",
+        "Preferimos seÃ±ales a largas charlas.",
       ],
       rolePoints: [
-        "Muestra lo importante con señales suaves, no discursos.",
+        "Muestra lo importante con seÃ±ales suaves, no discursos.",
         "Mantiene lo justo sin culpas ni marcadores.",
       ],
       formingPoints: [
-        "La gente rota; Kinly mantiene las señales compartidas.",
+        "La gente rota; Kinly mantiene las seÃ±ales compartidas.",
         "Semanas ocupadas son normales; pausar no es fallo.",
       ],
       audience: [
         "Casas que buscan claridad tranquila sin largas conversaciones.",
-        "Quienes prefieren señales en vez de recordatorios.",
+        "Quienes prefieren seÃ±ales en vez de recordatorios.",
       ],
-      notList: ["No es un marcador.", "No es vigilancia.", "No es para regañar."],
+      notList: ["No es un marcador.", "No es vigilancia.", "No es para regaÃ±ar."],
       weekly: {
-        intro: "Kinly usa ritmo semanal para que las señales sigan calmadas, no constantes.",
+        intro: "Kinly usa ritmo semanal para que las seÃ±ales sigan calmadas, no constantes.",
         points: [
-          "Revisa cada semana - sin rachas, sin presión.",
+          "Revisa cada semana - sin rachas, sin presiÃ³n.",
           "Reflexiones para entender, no para calificar.",
           "Pausa o ajusta una semana sin culpa.",
         ],
-        heading: "Reflexión semanal, a ritmo humano",
+        heading: "ReflexiÃ³n semanal, a ritmo humano",
       },
-      toolsHeading: "Apoyado por herramientas prácticas",
       toolsIntro:
-        "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la fricción diaria — sin convertir la vida compartida en un sistema de tareas.",
-      toolsList: [
-        "Flujos compartidos (con asignaciones si quieren) para resets rápidos, visitas y horas de silencio sin regaños.",
-        "Asignaciones opcionales para cambiar turnos cuando alguien está a tope, sin debate.",
-        "Revisiones calmadas para que todos se sientan vistos sin novelas en el chat.",
-      ],
+        "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la fricciÃ³n diaria .  sin convertir la vida compartida en un sistema de tareas.",
       sectionHeadings: {
-        howItWorks: "Cómo funciona Kinly",
-        howItWorksSubtitle: "Tres pasos simples que mantienen a todos alineados.",
-        soundsLikeYou: "¿Te suena familiar?",
-        roleHeading: "El rol de Kinly: reflexión primero",
-        formingHeading: "Si tu hogar aún se está formando",
-        audienceHeading: "Para quién es esto",
+        howItWorks: "CÃ³mo funciona Kinly",
+        soundsLikeYou: "Â¿Te suena familiar?",
+        roleHeading: "El rol de Kinly: reflexiÃ³n primero",
+        formingHeading: "Si tu hogar aÃºn se estÃ¡ formando",
+        audienceHeading: "Para quiÃ©n es esto",
         notListHeading: "Kinly no es...",
-        readyHeading: "Cuando estés listo",
+        readyHeading: "Cuando estÃ©s listo",
         readySubtitle: "Kinly vive en la app - empieza en iOS o Android.",
       },
       availability: {
-        body: "Kinly está disponible en Nueva Zelanda y Singapur. Te avisaremos cuando abra en tu región.",
+        body: "Kinly estÃ¡ disponible en Nueva Zelanda y Singapur. Te avisaremos cuando abra en tu regiÃ³n.",
       },
     } satisfies LocaleCopy,
     ar: {
-      whatHeading: "ما هو كينلي",
+      whatHeading: "Ù…Ø§ Ù‡Ùˆ ÙƒÙŠÙ†Ù„ÙŠ",
       whatBody:
-        "كينلي هو تطبيق للعيش المشترك صُمم لمن يعيشون معاً. للمنازل قليلة الكلام يبقي التوقعات واضحة بدون فرض محادثات طويلة أو دردشات جماعية.",
+        "ÙƒÙŠÙ†Ù„ÙŠ Ù‡Ùˆ ØªØ·Ø¨ÙŠÙ‚ Ù„Ù„Ø¹ÙŠØ´ Ø§Ù„Ù…Ø´ØªØ±Ùƒ ØµÙÙ…Ù… Ù„Ù…Ù† ÙŠØ¹ÙŠØ´ÙˆÙ† Ù…Ø¹Ø§Ù‹. Ù„Ù„Ù…Ù†Ø§Ø²Ù„ Ù‚Ù„ÙŠÙ„Ø© Ø§Ù„ÙƒÙ„Ø§Ù… ÙŠØ¨Ù‚ÙŠ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§Øª ÙˆØ§Ø¶Ø­Ø© Ø¨Ø¯ÙˆÙ† ÙØ±Ø¶ Ù…Ø­Ø§Ø¯Ø«Ø§Øª Ø·ÙˆÙŠÙ„Ø© Ø£Ùˆ Ø¯Ø±Ø¯Ø´Ø§Øª Ø¬Ù…Ø§Ø¹ÙŠØ©.",
       recognition: {
-        heading: "إشارات بدلاً من خطابات.",
-        subtitle: "حافظ على الوضوح بدون محادثات طويلة.",
-        body: "كينلي يعطي إشارات هادئة عما يحتاجه المنزل فلا أحد يحتاج لعقد اجتماع أو إلقاء محاضرة.",
+        heading: "Ø¥Ø´Ø§Ø±Ø§Øª Ø¨Ø¯Ù„Ø§Ù‹ Ù…Ù† Ø®Ø·Ø§Ø¨Ø§Øª.",
+        subtitle: "Ø­Ø§ÙØ¸ Ø¹Ù„Ù‰ Ø§Ù„ÙˆØ¶ÙˆØ­ Ø¨Ø¯ÙˆÙ† Ù…Ø­Ø§Ø¯Ø«Ø§Øª Ø·ÙˆÙŠÙ„Ø©.",
+        body: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠØ¹Ø·ÙŠ Ø¥Ø´Ø§Ø±Ø§Øª Ù‡Ø§Ø¯Ø¦Ø© Ø¹Ù…Ø§ ÙŠØ­ØªØ§Ø¬Ù‡ Ø§Ù„Ù…Ù†Ø²Ù„ ÙÙ„Ø§ Ø£Ø­Ø¯ ÙŠØ­ØªØ§Ø¬ Ù„Ø¹Ù‚Ø¯ Ø§Ø¬ØªÙ…Ø§Ø¹ Ø£Ùˆ Ø¥Ù„Ù‚Ø§Ø¡ Ù…Ø­Ø§Ø¶Ø±Ø©.",
       },
       hero: {
-        headline: "وضوح بدون محادثات طويلة.",
-        subhead: "اعرف ما يحتاج إنجازه وما يمكن أن ينتظر، بدون مقالات في الدردشة الجماعية.",
-        body: "كينلي يُظهر الإشارات المهمة ويزيل الضغط لـ“مناقشة الأمور” كل مرة. لا لوحات نقاط، لا مراقبة، لا ذنب.",
-        ctaHeading: "احصل على الإشارة، تجاوز الخطاب",
+        headline: "ÙˆØ¶ÙˆØ­ Ø¨Ø¯ÙˆÙ† Ù…Ø­Ø§Ø¯Ø«Ø§Øª Ø·ÙˆÙŠÙ„Ø©.",
+        subhead: "Ø§Ø¹Ø±Ù Ù…Ø§ ÙŠØ­ØªØ§Ø¬ Ø¥Ù†Ø¬Ø§Ø²Ù‡ ÙˆÙ…Ø§ ÙŠÙ…ÙƒÙ† Ø£Ù† ÙŠÙ†ØªØ¸Ø±ØŒ Ø¨Ø¯ÙˆÙ† Ù…Ù‚Ø§Ù„Ø§Øª ÙÙŠ Ø§Ù„Ø¯Ø±Ø¯Ø´Ø© Ø§Ù„Ø¬Ù…Ø§Ø¹ÙŠØ©.",
+        body: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠÙØ¸Ù‡Ø± Ø§Ù„Ø¥Ø´Ø§Ø±Ø§Øª Ø§Ù„Ù…Ù‡Ù…Ø© ÙˆÙŠØ²ÙŠÙ„ Ø§Ù„Ø¶ØºØ· Ù„Ù€â€œÙ…Ù†Ø§Ù‚Ø´Ø© Ø§Ù„Ø£Ù…ÙˆØ±â€ ÙƒÙ„ Ù…Ø±Ø©. Ù„Ø§ Ù„ÙˆØ­Ø§Øª Ù†Ù‚Ø§Ø·ØŒ Ù„Ø§ Ù…Ø±Ø§Ù‚Ø¨Ø©ØŒ Ù„Ø§ Ø°Ù†Ø¨.",
+        ctaHeading: "Ø§Ø­ØµÙ„ Ø¹Ù„Ù‰ Ø§Ù„Ø¥Ø´Ø§Ø±Ø©ØŒ ØªØ¬Ø§ÙˆØ² Ø§Ù„Ø®Ø·Ø§Ø¨",
       },
-      howSteps: [
-        {
-          title: "اتفقوا على التوقعات بالصور",
-          body: "أروا كيف يبدو “الهدوء” و“جاهز للضيوف” لتبقى الإشارات بسيطة وواضحة.",
-        },
-        {
-          title: "إعادة ضبط أسبوعية وخفيفة",
-          body: "مرة في الأسبوع، أظهروا الضجيج والضيوف وإعادات الضبط السريعة حتى لا يتراكم التوتر بين المراجعات.",
-        },
-        {
-          title: "حافظوا على وضوح مشترك",
-          body: "يرى الجميع المهام الخفيفة والإشارات، ليتمكنوا من المساعدة بدون تذكيرات أو خطابات.",
-        },
-      ],
       screens: [
         {
-          title: "اليوم",
-          eyebrow: "إشارة",
-          headline: "ما يحتاج انتباه الآن",
-          copy: "تنبيهات خفيفة للضوضاء، الضيوف، أو إعادة ضبط سريعة قبل بدء اليوم.",
-          footer: "قابل للتنفيذ بدون التحول لاجتماع.",
+          title: "Ø§Ù„ÙŠÙˆÙ…",
+          eyebrow: "Ø¥Ø´Ø§Ø±Ø©",
+          headline: "Ù…Ø§ ÙŠØ­ØªØ§Ø¬ Ø§Ù†ØªØ¨Ø§Ù‡ Ø§Ù„Ø¢Ù†",
+          copy: "ØªÙ†Ø¨ÙŠÙ‡Ø§Øª Ø®ÙÙŠÙØ© Ù„Ù„Ø¶ÙˆØ¶Ø§Ø¡ØŒ Ø§Ù„Ø¶ÙŠÙˆÙØŒ Ø£Ùˆ Ø¥Ø¹Ø§Ø¯Ø© Ø¶Ø¨Ø· Ø³Ø±ÙŠØ¹Ø© Ù‚Ø¨Ù„ Ø¨Ø¯Ø¡ Ø§Ù„ÙŠÙˆÙ….",
+          footer: "Ù‚Ø§Ø¨Ù„ Ù„Ù„ØªÙ†ÙÙŠØ° Ø¨Ø¯ÙˆÙ† Ø§Ù„ØªØ­ÙˆÙ„ Ù„Ø§Ø¬ØªÙ…Ø§Ø¹.",
           image:
             LANDING_SCREEN_ASSETS.ar.today,
         },
         {
-          title: "إدارة",
-          eyebrow: "تعديل",
-          headline: "عدّل بدون نقاش",
-          copy: "بدّل الأدوار أو أوقف مهمة عندما يكون شخص مشغول - بدون تأنيب.",
-          footer: "الجميع على علم بدون تذكيرات.",
+          title: "Ø¥Ø¯Ø§Ø±Ø©",
+          eyebrow: "ØªØ¹Ø¯ÙŠÙ„",
+          headline: "Ø¹Ø¯Ù‘Ù„ Ø¨Ø¯ÙˆÙ† Ù†Ù‚Ø§Ø´",
+          copy: "Ø¨Ø¯Ù‘Ù„ Ø§Ù„Ø£Ø¯ÙˆØ§Ø± Ø£Ùˆ Ø£ÙˆÙ‚Ù Ù…Ù‡Ù…Ø© Ø¹Ù†Ø¯Ù…Ø§ ÙŠÙƒÙˆÙ† Ø´Ø®Øµ Ù…Ø´ØºÙˆÙ„ - Ø¨Ø¯ÙˆÙ† ØªØ£Ù†ÙŠØ¨.",
+          footer: "Ø§Ù„Ø¬Ù…ÙŠØ¹ Ø¹Ù„Ù‰ Ø¹Ù„Ù… Ø¨Ø¯ÙˆÙ† ØªØ°ÙƒÙŠØ±Ø§Øª.",
           image:
             LANDING_SCREEN_ASSETS.ar.manage,
         },
         {
-          title: "مركز المنزل",
-          eyebrow: "مرجع",
-          headline: "وضوح مشترك في مكان واحد",
-          copy: "ساعات الهدوء، إشارات الضيوف، وقواعد سريعة تحافظ على الأجواء مستقرة.",
-          footer: "الإشارات تبقى مرئية؛ لا حاجة لخطابات.",
+          title: "Ù…Ø±ÙƒØ² Ø§Ù„Ù…Ù†Ø²Ù„",
+          eyebrow: "Ù…Ø±Ø¬Ø¹",
+          headline: "ÙˆØ¶ÙˆØ­ Ù…Ø´ØªØ±Ùƒ ÙÙŠ Ù…ÙƒØ§Ù† ÙˆØ§Ø­Ø¯",
+          copy: "Ø³Ø§Ø¹Ø§Øª Ø§Ù„Ù‡Ø¯ÙˆØ¡ØŒ Ø¥Ø´Ø§Ø±Ø§Øª Ø§Ù„Ø¶ÙŠÙˆÙØŒ ÙˆÙ‚ÙˆØ§Ø¹Ø¯ Ø³Ø±ÙŠØ¹Ø© ØªØ­Ø§ÙØ¸ Ø¹Ù„Ù‰ Ø§Ù„Ø£Ø¬ÙˆØ§Ø¡ Ù…Ø³ØªÙ‚Ø±Ø©.",
+          footer: "Ø§Ù„Ø¥Ø´Ø§Ø±Ø§Øª ØªØ¨Ù‚Ù‰ Ù…Ø±Ø¦ÙŠØ©Ø› Ù„Ø§ Ø­Ø§Ø¬Ø© Ù„Ø®Ø·Ø§Ø¨Ø§Øª.",
           image:
             LANDING_SCREEN_ASSETS.ar.hub,
         },
       ],
       chips: [
-        "نحتاج وضوح بدون مقالات في الدردشة.",
-        "لا أحد يريد أن يزعج أو يُزعَج.",
-        "نفضل الإشارات على الجلسات الطويلة.",
+        "Ù†Ø­ØªØ§Ø¬ ÙˆØ¶ÙˆØ­ Ø¨Ø¯ÙˆÙ† Ù…Ù‚Ø§Ù„Ø§Øª ÙÙŠ Ø§Ù„Ø¯Ø±Ø¯Ø´Ø©.",
+        "Ù„Ø§ Ø£Ø­Ø¯ ÙŠØ±ÙŠØ¯ Ø£Ù† ÙŠØ²Ø¹Ø¬ Ø£Ùˆ ÙŠÙØ²Ø¹ÙŽØ¬.",
+        "Ù†ÙØ¶Ù„ Ø§Ù„Ø¥Ø´Ø§Ø±Ø§Øª Ø¹Ù„Ù‰ Ø§Ù„Ø¬Ù„Ø³Ø§Øª Ø§Ù„Ø·ÙˆÙŠÙ„Ø©.",
       ],
       rolePoints: [
-        "يُظهر ما يهم بإشارات لطيفة، ليس خطابات.",
-        "يبقي الخطط عادلة بدون لوم أو لوحات نقاط أو ذنب.",
+        "ÙŠÙØ¸Ù‡Ø± Ù…Ø§ ÙŠÙ‡Ù… Ø¨Ø¥Ø´Ø§Ø±Ø§Øª Ù„Ø·ÙŠÙØ©ØŒ Ù„ÙŠØ³ Ø®Ø·Ø§Ø¨Ø§Øª.",
+        "ÙŠØ¨Ù‚ÙŠ Ø§Ù„Ø®Ø·Ø· Ø¹Ø§Ø¯Ù„Ø© Ø¨Ø¯ÙˆÙ† Ù„ÙˆÙ… Ø£Ùˆ Ù„ÙˆØ­Ø§Øª Ù†Ù‚Ø§Ø· Ø£Ùˆ Ø°Ù†Ø¨.",
       ],
       formingPoints: [
-        "الناس يأتون ويذهبون - كينلي يحافظ على الإشارات المشتركة ثابتة.",
-        "الأسابيع المشغولة تحدث؛ إيقاف المهام طبيعي، ليس فشلاً.",
+        "Ø§Ù„Ù†Ø§Ø³ ÙŠØ£ØªÙˆÙ† ÙˆÙŠØ°Ù‡Ø¨ÙˆÙ† - ÙƒÙŠÙ†Ù„ÙŠ ÙŠØ­Ø§ÙØ¸ Ø¹Ù„Ù‰ Ø§Ù„Ø¥Ø´Ø§Ø±Ø§Øª Ø§Ù„Ù…Ø´ØªØ±ÙƒØ© Ø«Ø§Ø¨ØªØ©.",
+        "Ø§Ù„Ø£Ø³Ø§Ø¨ÙŠØ¹ Ø§Ù„Ù…Ø´ØºÙˆÙ„Ø© ØªØ­Ø¯Ø«Ø› Ø¥ÙŠÙ‚Ø§Ù Ø§Ù„Ù…Ù‡Ø§Ù… Ø·Ø¨ÙŠØ¹ÙŠØŒ Ù„ÙŠØ³ ÙØ´Ù„Ø§Ù‹.",
       ],
       audience: [
-        "منازل تريد وضوحاً هادئاً بدون محادثات طويلة.",
-        "مشاركون مشغولون يفضلون الإشارات على التذكيرات.",
+        "Ù…Ù†Ø§Ø²Ù„ ØªØ±ÙŠØ¯ ÙˆØ¶ÙˆØ­Ø§Ù‹ Ù‡Ø§Ø¯Ø¦Ø§Ù‹ Ø¨Ø¯ÙˆÙ† Ù…Ø­Ø§Ø¯Ø«Ø§Øª Ø·ÙˆÙŠÙ„Ø©.",
+        "Ù…Ø´Ø§Ø±ÙƒÙˆÙ† Ù…Ø´ØºÙˆÙ„ÙˆÙ† ÙŠÙØ¶Ù„ÙˆÙ† Ø§Ù„Ø¥Ø´Ø§Ø±Ø§Øª Ø¹Ù„Ù‰ Ø§Ù„ØªØ°ÙƒÙŠØ±Ø§Øª.",
       ],
-      notList: ["ليس لوحة نقاط.", "ليس مراقبة.", "ليس أداة إزعاج."],
+      notList: ["Ù„ÙŠØ³ Ù„ÙˆØ­Ø© Ù†Ù‚Ø§Ø·.", "Ù„ÙŠØ³ Ù…Ø±Ø§Ù‚Ø¨Ø©.", "Ù„ÙŠØ³ Ø£Ø¯Ø§Ø© Ø¥Ø²Ø¹Ø§Ø¬."],
       weekly: {
-        intro: "كينلي يعمل بإيقاع أسبوعي فتبقى الإشارات هادئة، ليست مستمرة.",
+        intro: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠØ¹Ù…Ù„ Ø¨Ø¥ÙŠÙ‚Ø§Ø¹ Ø£Ø³Ø¨ÙˆØ¹ÙŠ ÙØªØ¨Ù‚Ù‰ Ø§Ù„Ø¥Ø´Ø§Ø±Ø§Øª Ù‡Ø§Ø¯Ø¦Ø©ØŒ Ù„ÙŠØ³Øª Ù…Ø³ØªÙ…Ø±Ø©.",
         points: [
-          "راجع أسبوعياً - لا سلاسل، لا ضغط للمتابعة.",
-          "التأملات للفهم، ليس لتقييم أحد.",
-          "أوقف، عدّل، أو تخطى أسبوعاً بدون ذنب.",
+          "Ø±Ø§Ø¬Ø¹ Ø£Ø³Ø¨ÙˆØ¹ÙŠØ§Ù‹ - Ù„Ø§ Ø³Ù„Ø§Ø³Ù„ØŒ Ù„Ø§ Ø¶ØºØ· Ù„Ù„Ù…ØªØ§Ø¨Ø¹Ø©.",
+          "Ø§Ù„ØªØ£Ù…Ù„Ø§Øª Ù„Ù„ÙÙ‡Ù…ØŒ Ù„ÙŠØ³ Ù„ØªÙ‚ÙŠÙŠÙ… Ø£Ø­Ø¯.",
+          "Ø£ÙˆÙ‚ÙØŒ Ø¹Ø¯Ù‘Ù„ØŒ Ø£Ùˆ ØªØ®Ø·Ù‰ Ø£Ø³Ø¨ÙˆØ¹Ø§Ù‹ Ø¨Ø¯ÙˆÙ† Ø°Ù†Ø¨.",
         ],
-        heading: "تأمل أسبوعي، بإيقاع بشري",
+        heading: "ØªØ£Ù…Ù„ Ø£Ø³Ø¨ÙˆØ¹ÙŠØŒ Ø¨Ø¥ÙŠÙ‚Ø§Ø¹ Ø¨Ø´Ø±ÙŠ",
       },
-      toolsHeading: "مدعوم بأدوات عملية",
       toolsIntro:
-        "بعد أن تتفقوا على التوقعات، يقدم كينلي أدوات بسيطة تقلل الاحتكاكات اليومية — بدون تحويل العيش المشترك إلى نظام مهام.",
-      toolsList: [
-        "تدفّقات مشتركة (مع تعيينات إذا أردتم) لإعادات الضبط السريعة والضيوف وساعات الهدوء بدون إزعاج.",
-        "تعيينات اختيارية لتبديل الأدوار عندما يكون أحدكم مشغولاً، بدون نقاش.",
-        "مراجعات هادئة ليشعر الجميع بأنهم مرئيون بدون مقالات في الدردشة.",
-      ],
+        "Ø¨Ø¹Ø¯ Ø£Ù† ØªØªÙÙ‚ÙˆØ§ Ø¹Ù„Ù‰ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§ØªØŒ ÙŠÙ‚Ø¯Ù… ÙƒÙŠÙ†Ù„ÙŠ Ø£Ø¯ÙˆØ§Øª Ø¨Ø³ÙŠØ·Ø© ØªÙ‚Ù„Ù„ Ø§Ù„Ø§Ø­ØªÙƒØ§ÙƒØ§Øª Ø§Ù„ÙŠÙˆÙ…ÙŠØ© .  Ø¨Ø¯ÙˆÙ† ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ø¹ÙŠØ´ Ø§Ù„Ù…Ø´ØªØ±Ùƒ Ø¥Ù„Ù‰ Ù†Ø¸Ø§Ù… Ù…Ù‡Ø§Ù….",
       sectionHeadings: {
-        howItWorks: "كيف يعمل كينلي",
-        howItWorksSubtitle: "ثلاث خطوات بسيطة تبقي الجميع على توافق.",
-        soundsLikeYou: "هل يبدو هذا مثل مكانك؟",
-        roleHeading: "دور كينلي: التأمل أولاً",
-        formingHeading: "إذا كان منزلك لا يزال يتشكل",
-        audienceHeading: "لمن هذا",
-        notListHeading: "كينلي ليس...",
-        readyHeading: "عندما تكون جاهزاً",
-        readySubtitle: "كينلي موجود في التطبيق - ابدأ على iOS أو Android.",
+        howItWorks: "ÙƒÙŠÙ ÙŠØ¹Ù…Ù„ ÙƒÙŠÙ†Ù„ÙŠ",
+        soundsLikeYou: "Ù‡Ù„ ÙŠØ¨Ø¯Ùˆ Ù‡Ø°Ø§ Ù…Ø«Ù„ Ù…ÙƒØ§Ù†ÙƒØŸ",
+        roleHeading: "Ø¯ÙˆØ± ÙƒÙŠÙ†Ù„ÙŠ: Ø§Ù„ØªØ£Ù…Ù„ Ø£ÙˆÙ„Ø§Ù‹",
+        formingHeading: "Ø¥Ø°Ø§ ÙƒØ§Ù† Ù…Ù†Ø²Ù„Ùƒ Ù„Ø§ ÙŠØ²Ø§Ù„ ÙŠØªØ´ÙƒÙ„",
+        audienceHeading: "Ù„Ù…Ù† Ù‡Ø°Ø§",
+        notListHeading: "ÙƒÙŠÙ†Ù„ÙŠ Ù„ÙŠØ³...",
+        readyHeading: "Ø¹Ù†Ø¯Ù…Ø§ ØªÙƒÙˆÙ† Ø¬Ø§Ù‡Ø²Ø§Ù‹",
+        readySubtitle: "ÙƒÙŠÙ†Ù„ÙŠ Ù…ÙˆØ¬ÙˆØ¯ ÙÙŠ Ø§Ù„ØªØ·Ø¨ÙŠÙ‚ - Ø§Ø¨Ø¯Ø£ Ø¹Ù„Ù‰ iOS Ø£Ùˆ Android.",
       },
       availability: {
-        body: "كينلي متاح حالياً في نيوزيلندا وسنغافورة. سنراسلك عندما يفتح كينلي في منطقتك.",
+        body: "ÙƒÙŠÙ†Ù„ÙŠ Ù…ØªØ§Ø­ Ø­Ø§Ù„ÙŠØ§Ù‹ ÙÙŠ Ù†ÙŠÙˆØ²ÙŠÙ„Ù†Ø¯Ø§ ÙˆØ³Ù†ØºØ§ÙÙˆØ±Ø©. Ø³Ù†Ø±Ø§Ø³Ù„Ùƒ Ø¹Ù†Ø¯Ù…Ø§ ÙŠÙØªØ­ ÙƒÙŠÙ†Ù„ÙŠ ÙÙŠ Ù…Ù†Ø·Ù‚ØªÙƒ.",
       },
     } satisfies LocaleCopy,
   },
 };
+
+

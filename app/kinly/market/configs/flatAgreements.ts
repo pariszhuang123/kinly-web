@@ -1,4 +1,4 @@
-import { LANDING_SCREEN_ASSETS } from "../../shared/landingScreenAssets";
+﻿import { LANDING_SCREEN_ASSETS } from "../../shared/landingScreenAssets";
 import { ScenarioConfig } from "../ScenarioLandingClient";
 import { LocaleCopy } from "./shared/locale";
 
@@ -6,9 +6,9 @@ export const flatAgreementsConfig: ScenarioConfig = {
   pageKey: "flat_agreements",
 
   recognition: {
-    heading: "Agreements matter, but paperwork isn’t the vibe.",
+    heading: "Agreements matter, but paperwork isnâ€™t the vibe.",
     subtitle: "You need clarity on shared living without feeling like a landlord.",
-    body: "Kinly keeps house agreements visible, calm, and human — no policing, no legalese.",
+    body: "Kinly keeps house agreements visible, calm, and human .  no policing, no legalese.",
   },
 
   whatHeading: "What Kinly is",
@@ -17,32 +17,17 @@ export const flatAgreementsConfig: ScenarioConfig = {
 
   hero: {
     headline: "Clear agreements, human tone.",
-    subhead: "One place for house norms, shared costs, and expectations — no lecture required.",
+    subhead: "One place for house norms, shared costs, and expectations .  no lecture required.",
     body: "Kinly lets everyone see the same baseline for noise, guests, cleaning, and shared costs, while staying pressure-free.",
     ctaHeading: "Set the baseline together",
   },
-
-  howSteps: [
-    {
-      title: "Agree expectations with photos",
-      body: "Show what “done” looks like for kitchen, bathroom, and bins so the baseline is shared without debate.",
-    },
-    {
-      title: "Reset weekly, lightly",
-      body: "Once a week, surface what felt off (noise, guests, bills) so you adjust before it becomes conflict.",
-    },
-    {
-      title: "Keep shared visibility",
-      body: "Everyone sees norms and light tasks, so reminders feel fair — not personal.",
-    },
-  ],
 
   screens: [
     {
       title: "Today",
       eyebrow: "Right now",
       headline: "What needs attention",
-      copy: "Noise, guests, shared chores and quick resets — without sounding bossy.",
+      copy: "Noise, guests, shared chores and quick resets .  without sounding bossy.",
       footer: "Clear signals, no policing.",
       image:
         LANDING_SCREEN_ASSETS.en.today,
@@ -60,7 +45,7 @@ export const flatAgreementsConfig: ScenarioConfig = {
       title: "Home Hub",
       eyebrow: "Reference",
       headline: "One calm reference",
-      copy: "Noise, guests, bills, and cleaning expectations in one place — no group-chat essays.",
+      copy: "Noise, guests, bills, and cleaning expectations in one place .  no group-chat essays.",
       footer: "Shared clarity, human tone.",
       image:
         LANDING_SCREEN_ASSETS.en.hub,
@@ -98,20 +83,13 @@ export const flatAgreementsConfig: ScenarioConfig = {
   weekly: {
     intro: "Kinly runs on a weekly rhythm so agreements stay fresh and human.",
     points: [
-      "Check in weekly so small issues don’t stack up.",
-      "Adjust the baseline without blame — just clarity.",
+      "Check in weekly so small issues donâ€™t stack up.",
+      "Adjust the baseline without blame .  just clarity.",
       "Keep guests/noise/cleaning aligned without long threads.",
     ],
   },
-
-  toolsHeading: "Supported by practical tools",
   toolsIntro:
-    "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction — without turning shared living into a task system.",
-  toolsList: [
-    "Shared flows (with assignments if you want) for cleaning and bins so standards stay clear.",
-    "Shared bills so due dates and amounts are visible without chasing.",
-    "Calm check-ins so everyone feels seen without policing.",
-  ],
+    "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction, without turning shared living into a task system.",
 
   availability: {
     body: "Kinly is currently available in New Zealand and Singapore. We will email you when Kinly opens in your area.",
@@ -121,48 +99,34 @@ export const flatAgreementsConfig: ScenarioConfig = {
 
   translations: {
     es: {
-      whatHeading: "Qué es Kinly",
+      whatHeading: "QuÃ© es Kinly",
       whatBody:
-        "Kinly es una app de convivencia para quienes viven juntos. Mantiene los acuerdos visibles y tranquilos sin convertir el piso en una negociación de contrato.",
+        "Kinly es una app de convivencia para quienes viven juntos. Mantiene los acuerdos visibles y tranquilos sin convertir el piso en una negociaciÃ³n de contrato.",
       recognition: {
         heading: "Los acuerdos importan, pero el papeleo no es el ambiente.",
         subtitle: "Necesitas claridad sin parecer casero.",
-        body: "Kinly mantiene visibles los acuerdos de la casa con un tono humano — sin vigilancia ni legalismos.",
+        body: "Kinly mantiene visibles los acuerdos de la casa con un tono humano .  sin vigilancia ni legalismos.",
       },
       hero: {
         headline: "Acuerdos claros, tono humano.",
-        subhead: "Un lugar para normas, costos y expectativas — sin sermones.",
-        body: "Kinly deja a todos ver la misma base para ruido, visitas, limpieza y costos, sin presión.",
+        subhead: "Un lugar para normas, costos y expectativas .  sin sermones.",
+        body: "Kinly deja a todos ver la misma base para ruido, visitas, limpieza y costos, sin presiÃ³n.",
         ctaHeading: "Fijen la base juntos",
       },
-      howSteps: [
-        {
-          title: "Acordar expectativas con fotos",
-          body: "Muestren cómo se ve “listo” en cocina, baño y basura para que la base sea compartida sin debates.",
-        },
-        {
-          title: "Reajuste semanal, sin fricción",
-          body: "Cada semana, pongan ruido, visitas y facturas sobre la mesa para ajustar antes de que sea conflicto.",
-        },
-        {
-          title: "Mantener visibilidad compartida",
-          body: "Todos ven normas y tareas ligeras, así los recordatorios se sienten justos, no personales.",
-        },
-      ],
       screens: [
         {
           title: "Hoy",
           eyebrow: "Ahora",
-          headline: "Qué necesita atención",
-          copy: "Ruido, visitas, tareas y resets rápidos — sin sonar mandón.",
-          footer: "Señales claras, sin vigilancia.",
+          headline: "QuÃ© necesita atenciÃ³n",
+          copy: "Ruido, visitas, tareas y resets rÃ¡pidos .  sin sonar mandÃ³n.",
+          footer: "SeÃ±ales claras, sin vigilancia.",
           image:
             LANDING_SCREEN_ASSETS.es.today,
         },
         {
           title: "Gestionar",
           eyebrow: "Ajustar",
-          headline: "Mantener acuerdos al día",
+          headline: "Mantener acuerdos al dÃ­a",
           copy: "Ajusta silencio, visitas o limpieza cuando el piso cambia.",
           footer: "Todos alineados, nada queda fijo.",
           image:
@@ -172,7 +136,7 @@ export const flatAgreementsConfig: ScenarioConfig = {
           title: "Hub",
           eyebrow: "Referencia",
           headline: "Un referente tranquilo",
-          copy: "Ruido, visitas, facturas y limpieza en un lugar — sin novelas en el chat.",
+          copy: "Ruido, visitas, facturas y limpieza en un lugar .  sin novelas en el chat.",
           footer: "Claridad compartida, tono humano.",
           image:
             LANDING_SCREEN_ASSETS.es.hub,
@@ -181,15 +145,15 @@ export const flatAgreementsConfig: ScenarioConfig = {
       chips: [
         "Necesitamos claridad sin sonar a caseros.",
         "Visitas, ruido y limpieza necesitan una base.",
-        "Mantenerlo justo sin regaños.",
+        "Mantenerlo justo sin regaÃ±os.",
       ],
       rolePoints: [
-        "Mantiene los acuerdos visibles sin volver a nadie el guardián.",
+        "Mantiene los acuerdos visibles sin volver a nadie el guardiÃ¡n.",
         "Facilita ajustar cuando el piso cambia.",
       ],
       formingPoints: [
-        "Los nuevos compis ven la base desde el primer día.",
-        "Si se desvía, se reinicia la próxima semana sin culpas.",
+        "Los nuevos compis ven la base desde el primer dÃ­a.",
+        "Si se desvÃ­a, se reinicia la prÃ³xima semana sin culpas.",
       ],
       audience: [
         "Pisos que formalizan normas sin papeleo pesado.",
@@ -204,148 +168,122 @@ export const flatAgreementsConfig: ScenarioConfig = {
       weekly: {
         intro: "Kinly usa un ritmo semanal para que los acuerdos sigan frescos y humanos.",
         points: [
-          "Revisa semanalmente para que lo pequeño no se acumule.",
-          "Ajusta la base sin culpas — solo claridad.",
-          "Mantén alineados visitas/ruido/limpieza sin hilos eternos.",
+          "Revisa semanalmente para que lo pequeÃ±o no se acumule.",
+          "Ajusta la base sin culpas .  solo claridad.",
+          "MantÃ©n alineados visitas/ruido/limpieza sin hilos eternos.",
         ],
-        heading: "Reflexión semanal, a ritmo humano",
+        heading: "ReflexiÃ³n semanal, a ritmo humano",
       },
-      toolsHeading: "Apoyado por herramientas prácticas",
       toolsIntro:
-        "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la fricción diaria — sin convertir la vida compartida en un sistema de tareas.",
-      toolsList: [
-        "Flujos compartidos (con asignaciones si quieren) para limpieza y basura para que los estándares sean claros.",
-        "Cuentas compartidas para que montos y fechas sean visibles sin persecución.",
-        "Revisiones calmadas para que todos se sientan vistos sin vigilancia.",
-      ],
+        "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la fricciÃ³n diaria .  sin convertir la vida compartida en un sistema de tareas.",
       sectionHeadings: {
-        howItWorks: "Cómo funciona Kinly",
-        howItWorksSubtitle: "Tres pasos simples que mantienen a todos alineados.",
-        soundsLikeYou: "¿Te suena familiar?",
+        howItWorks: "CÃ³mo funciona Kinly",
+        soundsLikeYou: "Â¿Te suena familiar?",
         roleHeading: "El rol de Kinly: claridad primero",
-        formingHeading: "Si tu hogar aún se está formando",
-        audienceHeading: "Para quién es esto",
+        formingHeading: "Si tu hogar aÃºn se estÃ¡ formando",
+        audienceHeading: "Para quiÃ©n es esto",
         notListHeading: "Kinly no es...",
-        readyHeading: "Cuando estés listo",
+        readyHeading: "Cuando estÃ©s listo",
         readySubtitle: "Kinly vive en la app - empieza en iOS o Android.",
       },
       availability: {
-        body: "Kinly está disponible en Nueva Zelanda y Singapur. Te avisaremos cuando abra en tu región.",
+        body: "Kinly estÃ¡ disponible en Nueva Zelanda y Singapur. Te avisaremos cuando abra en tu regiÃ³n.",
       },
     } satisfies LocaleCopy,
 
     ar: {
-      whatHeading: "ما هو كينلي",
+      whatHeading: "Ù…Ø§ Ù‡Ùˆ ÙƒÙŠÙ†Ù„ÙŠ",
       whatBody:
-        "كينلي هو تطبيق للعيش المشترك صُمم لمن يعيشون معاً. يبقي الاتفاقات واضحة وهادئة دون أن يحول البيت إلى تفاوض عقدي.",
+        "ÙƒÙŠÙ†Ù„ÙŠ Ù‡Ùˆ ØªØ·Ø¨ÙŠÙ‚ Ù„Ù„Ø¹ÙŠØ´ Ø§Ù„Ù…Ø´ØªØ±Ùƒ ØµÙÙ…Ù… Ù„Ù…Ù† ÙŠØ¹ÙŠØ´ÙˆÙ† Ù…Ø¹Ø§Ù‹. ÙŠØ¨Ù‚ÙŠ Ø§Ù„Ø§ØªÙØ§Ù‚Ø§Øª ÙˆØ§Ø¶Ø­Ø© ÙˆÙ‡Ø§Ø¯Ø¦Ø© Ø¯ÙˆÙ† Ø£Ù† ÙŠØ­ÙˆÙ„ Ø§Ù„Ø¨ÙŠØª Ø¥Ù„Ù‰ ØªÙØ§ÙˆØ¶ Ø¹Ù‚Ø¯ÙŠ.",
       recognition: {
-        heading: "الاتفاقات مهمة، لكن الأوراق الرسمية ليست الأسلوب.",
-        subtitle: "تحتاج وضوحاً في السكن المشترك دون أن تبدو كمالك عقار.",
-        body: "كينلي يبقي اتفاقات البيت مرئية وهادئة وبشرية — بلا مراقبة ولا لغة قانونية.",
+        heading: "Ø§Ù„Ø§ØªÙØ§Ù‚Ø§Øª Ù…Ù‡Ù…Ø©ØŒ Ù„ÙƒÙ† Ø§Ù„Ø£ÙˆØ±Ø§Ù‚ Ø§Ù„Ø±Ø³Ù…ÙŠØ© Ù„ÙŠØ³Øª Ø§Ù„Ø£Ø³Ù„ÙˆØ¨.",
+        subtitle: "ØªØ­ØªØ§Ø¬ ÙˆØ¶ÙˆØ­Ø§Ù‹ ÙÙŠ Ø§Ù„Ø³ÙƒÙ† Ø§Ù„Ù…Ø´ØªØ±Ùƒ Ø¯ÙˆÙ† Ø£Ù† ØªØ¨Ø¯Ùˆ ÙƒÙ…Ø§Ù„Ùƒ Ø¹Ù‚Ø§Ø±.",
+        body: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠØ¨Ù‚ÙŠ Ø§ØªÙØ§Ù‚Ø§Øª Ø§Ù„Ø¨ÙŠØª Ù…Ø±Ø¦ÙŠØ© ÙˆÙ‡Ø§Ø¯Ø¦Ø© ÙˆØ¨Ø´Ø±ÙŠØ© .  Ø¨Ù„Ø§ Ù…Ø±Ø§Ù‚Ø¨Ø© ÙˆÙ„Ø§ Ù„ØºØ© Ù‚Ø§Ù†ÙˆÙ†ÙŠØ©.",
       },
       hero: {
-        headline: "اتفاقات واضحة، بنبرة إنسانية.",
-        subhead: "مكان واحد لقواعد البيت والتكاليف والتوقعات — بلا خطب.",
-        body: "كينلي يتيح للجميع رؤية نفس الأساس للضوضاء والضيوف والتنظيف والتكاليف، مع بقاء الضغط صفراً.",
-        ctaHeading: "ضعوا الأساس معاً",
+        headline: "Ø§ØªÙØ§Ù‚Ø§Øª ÙˆØ§Ø¶Ø­Ø©ØŒ Ø¨Ù†Ø¨Ø±Ø© Ø¥Ù†Ø³Ø§Ù†ÙŠØ©.",
+        subhead: "Ù…ÙƒØ§Ù† ÙˆØ§Ø­Ø¯ Ù„Ù‚ÙˆØ§Ø¹Ø¯ Ø§Ù„Ø¨ÙŠØª ÙˆØ§Ù„ØªÙƒØ§Ù„ÙŠÙ ÙˆØ§Ù„ØªÙˆÙ‚Ø¹Ø§Øª .  Ø¨Ù„Ø§ Ø®Ø·Ø¨.",
+        body: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠØªÙŠØ­ Ù„Ù„Ø¬Ù…ÙŠØ¹ Ø±Ø¤ÙŠØ© Ù†ÙØ³ Ø§Ù„Ø£Ø³Ø§Ø³ Ù„Ù„Ø¶ÙˆØ¶Ø§Ø¡ ÙˆØ§Ù„Ø¶ÙŠÙˆÙ ÙˆØ§Ù„ØªÙ†Ø¸ÙŠÙ ÙˆØ§Ù„ØªÙƒØ§Ù„ÙŠÙØŒ Ù…Ø¹ Ø¨Ù‚Ø§Ø¡ Ø§Ù„Ø¶ØºØ· ØµÙØ±Ø§Ù‹.",
+        ctaHeading: "Ø¶Ø¹ÙˆØ§ Ø§Ù„Ø£Ø³Ø§Ø³ Ù…Ø¹Ø§Ù‹",
       },
-      howSteps: [
-        {
-          title: "اتفقوا على التوقعات بالصور",
-          body: "أروا كيف يبدو “جاهز” للمطبخ والحمام والقمامة حتى يكون الأساس مشتركاً دون جدال.",
-        },
-        {
-          title: "إعادة ضبط أسبوعية وخفيفة",
-          body: "مرة في الأسبوع، أظهروا الضوضاء والضيوف والفواتير لتعديلها قبل أن تصبح خلافاً.",
-        },
-        {
-          title: "حافظوا على وضوح مشترك",
-          body: "يرى الجميع المعايير والمهام الخفيفة، فيشعر التذكير بأنه عادل لا شخصي.",
-        },
-      ],
       screens: [
         {
-          title: "اليوم",
-          eyebrow: "الآن",
-          headline: "ما يحتاج انتباهاً",
-          copy: "ضوضاء، ضيوف، تنظيفات سريعة — دون أن تبدو آمراً.",
-          footer: "إشارات واضحة، بلا مراقبة.",
+          title: "Ø§Ù„ÙŠÙˆÙ…",
+          eyebrow: "Ø§Ù„Ø¢Ù†",
+          headline: "Ù…Ø§ ÙŠØ­ØªØ§Ø¬ Ø§Ù†ØªØ¨Ø§Ù‡Ø§Ù‹",
+          copy: "Ø¶ÙˆØ¶Ø§Ø¡ØŒ Ø¶ÙŠÙˆÙØŒ ØªÙ†Ø¸ÙŠÙØ§Øª Ø³Ø±ÙŠØ¹Ø© .  Ø¯ÙˆÙ† Ø£Ù† ØªØ¨Ø¯Ùˆ Ø¢Ù…Ø±Ø§Ù‹.",
+          footer: "Ø¥Ø´Ø§Ø±Ø§Øª ÙˆØ§Ø¶Ø­Ø©ØŒ Ø¨Ù„Ø§ Ù…Ø±Ø§Ù‚Ø¨Ø©.",
           image:
             LANDING_SCREEN_ASSETS.ar.today,
         },
         {
-          title: "إدارة",
-          eyebrow: "تعديل",
-          headline: "أبقوا الاتفاقات محدثة",
-          copy: "عدّلوا ساعات الهدوء أو قواعد الضيوف أو معايير التنظيف مع تغيّر البيت.",
-          footer: "الجميع متوافق، ولا شيء مقفل.",
+          title: "Ø¥Ø¯Ø§Ø±Ø©",
+          eyebrow: "ØªØ¹Ø¯ÙŠÙ„",
+          headline: "Ø£Ø¨Ù‚ÙˆØ§ Ø§Ù„Ø§ØªÙØ§Ù‚Ø§Øª Ù…Ø­Ø¯Ø«Ø©",
+          copy: "Ø¹Ø¯Ù‘Ù„ÙˆØ§ Ø³Ø§Ø¹Ø§Øª Ø§Ù„Ù‡Ø¯ÙˆØ¡ Ø£Ùˆ Ù‚ÙˆØ§Ø¹Ø¯ Ø§Ù„Ø¶ÙŠÙˆÙ Ø£Ùˆ Ù…Ø¹Ø§ÙŠÙŠØ± Ø§Ù„ØªÙ†Ø¸ÙŠÙ Ù…Ø¹ ØªØºÙŠÙ‘Ø± Ø§Ù„Ø¨ÙŠØª.",
+          footer: "Ø§Ù„Ø¬Ù…ÙŠØ¹ Ù…ØªÙˆØ§ÙÙ‚ØŒ ÙˆÙ„Ø§ Ø´ÙŠØ¡ Ù…Ù‚ÙÙ„.",
           image:
             LANDING_SCREEN_ASSETS.ar.manage,
         },
         {
-          title: "مركز المنزل",
-          eyebrow: "مرجع",
-          headline: "مرجع هادئ واحد",
-          copy: "الضوضاء والضيوف والفواتير والتنظيف في مكان واحد — بلا مقالات دردشة.",
-          footer: "وضوح مشترك، نبرة إنسانية.",
+          title: "Ù…Ø±ÙƒØ² Ø§Ù„Ù…Ù†Ø²Ù„",
+          eyebrow: "Ù…Ø±Ø¬Ø¹",
+          headline: "Ù…Ø±Ø¬Ø¹ Ù‡Ø§Ø¯Ø¦ ÙˆØ§Ø­Ø¯",
+          copy: "Ø§Ù„Ø¶ÙˆØ¶Ø§Ø¡ ÙˆØ§Ù„Ø¶ÙŠÙˆÙ ÙˆØ§Ù„ÙÙˆØ§ØªÙŠØ± ÙˆØ§Ù„ØªÙ†Ø¸ÙŠÙ ÙÙŠ Ù…ÙƒØ§Ù† ÙˆØ§Ø­Ø¯ .  Ø¨Ù„Ø§ Ù…Ù‚Ø§Ù„Ø§Øª Ø¯Ø±Ø¯Ø´Ø©.",
+          footer: "ÙˆØ¶ÙˆØ­ Ù…Ø´ØªØ±ÙƒØŒ Ù†Ø¨Ø±Ø© Ø¥Ù†Ø³Ø§Ù†ÙŠØ©.",
           image:
             LANDING_SCREEN_ASSETS.ar.hub,
         },
       ],
       chips: [
-        "نحتاج وضوحاً دون أن نبدو كمالكين.",
-        "الضيوف والضوضاء والتنظيف تحتاج أساساً واحداً.",
-        "نحافظ على العدل بلا توبيخ.",
+        "Ù†Ø­ØªØ§Ø¬ ÙˆØ¶ÙˆØ­Ø§Ù‹ Ø¯ÙˆÙ† Ø£Ù† Ù†Ø¨Ø¯Ùˆ ÙƒÙ…Ø§Ù„ÙƒÙŠÙ†.",
+        "Ø§Ù„Ø¶ÙŠÙˆÙ ÙˆØ§Ù„Ø¶ÙˆØ¶Ø§Ø¡ ÙˆØ§Ù„ØªÙ†Ø¸ÙŠÙ ØªØ­ØªØ§Ø¬ Ø£Ø³Ø§Ø³Ø§Ù‹ ÙˆØ§Ø­Ø¯Ø§Ù‹.",
+        "Ù†Ø­Ø§ÙØ¸ Ø¹Ù„Ù‰ Ø§Ù„Ø¹Ø¯Ù„ Ø¨Ù„Ø§ ØªÙˆØ¨ÙŠØ®.",
       ],
       rolePoints: [
-        "يبقي الاتفاقات مرئية دون أن يجعل أحداً منفّذاً.",
-        "يسهّل التعديل عندما يتغير البيت.",
+        "ÙŠØ¨Ù‚ÙŠ Ø§Ù„Ø§ØªÙØ§Ù‚Ø§Øª Ù…Ø±Ø¦ÙŠØ© Ø¯ÙˆÙ† Ø£Ù† ÙŠØ¬Ø¹Ù„ Ø£Ø­Ø¯Ø§Ù‹ Ù…Ù†ÙÙ‘Ø°Ø§Ù‹.",
+        "ÙŠØ³Ù‡Ù‘Ù„ Ø§Ù„ØªØ¹Ø¯ÙŠÙ„ Ø¹Ù†Ø¯Ù…Ø§ ÙŠØªØºÙŠØ± Ø§Ù„Ø¨ÙŠØª.",
       ],
       formingPoints: [
-        "المقيمون الجدد يرون الأساس من اليوم الأول.",
-        "إذا انحرف، تعيدونه الأسبوع القادم بدون لوم.",
+        "Ø§Ù„Ù…Ù‚ÙŠÙ…ÙˆÙ† Ø§Ù„Ø¬Ø¯Ø¯ ÙŠØ±ÙˆÙ† Ø§Ù„Ø£Ø³Ø§Ø³ Ù…Ù† Ø§Ù„ÙŠÙˆÙ… Ø§Ù„Ø£ÙˆÙ„.",
+        "Ø¥Ø°Ø§ Ø§Ù†Ø­Ø±ÙØŒ ØªØ¹ÙŠØ¯ÙˆÙ†Ù‡ Ø§Ù„Ø£Ø³Ø¨ÙˆØ¹ Ø§Ù„Ù‚Ø§Ø¯Ù… Ø¨Ø¯ÙˆÙ† Ù„ÙˆÙ….",
       ],
       audience: [
-        "بيوت تضع قواعد واضحة دون أوراق ثقيلة.",
-        "مجموعات تريد وضوح الضيوف/الضوضاء/التنظيف دون مراقبة.",
+        "Ø¨ÙŠÙˆØª ØªØ¶Ø¹ Ù‚ÙˆØ§Ø¹Ø¯ ÙˆØ§Ø¶Ø­Ø© Ø¯ÙˆÙ† Ø£ÙˆØ±Ø§Ù‚ Ø«Ù‚ÙŠÙ„Ø©.",
+        "Ù…Ø¬Ù…ÙˆØ¹Ø§Øª ØªØ±ÙŠØ¯ ÙˆØ¶ÙˆØ­ Ø§Ù„Ø¶ÙŠÙˆÙ/Ø§Ù„Ø¶ÙˆØ¶Ø§Ø¡/Ø§Ù„ØªÙ†Ø¸ÙŠÙ Ø¯ÙˆÙ† Ù…Ø±Ø§Ù‚Ø¨Ø©.",
       ],
       notList: [
-        "ليس وثيقة قانونية.",
-        "ليس مراقبة.",
-        "ليس لوحة نقاط.",
-        "ليس رئيس مهام.",
+        "Ù„ÙŠØ³ ÙˆØ«ÙŠÙ‚Ø© Ù‚Ø§Ù†ÙˆÙ†ÙŠØ©.",
+        "Ù„ÙŠØ³ Ù…Ø±Ø§Ù‚Ø¨Ø©.",
+        "Ù„ÙŠØ³ Ù„ÙˆØ­Ø© Ù†Ù‚Ø§Ø·.",
+        "Ù„ÙŠØ³ Ø±Ø¦ÙŠØ³ Ù…Ù‡Ø§Ù….",
       ],
       weekly: {
-        intro: "كينلي يعمل بإيقاع أسبوعي لتبقى الاتفاقات حديثة وبشرية.",
+        intro: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠØ¹Ù…Ù„ Ø¨Ø¥ÙŠÙ‚Ø§Ø¹ Ø£Ø³Ø¨ÙˆØ¹ÙŠ Ù„ØªØ¨Ù‚Ù‰ Ø§Ù„Ø§ØªÙØ§Ù‚Ø§Øª Ø­Ø¯ÙŠØ«Ø© ÙˆØ¨Ø´Ø±ÙŠØ©.",
         points: [
-          "راجعوا أسبوعياً حتى لا تتراكم الأمور الصغيرة.",
-          "عدّلوا الأساس بدون لوم — فقط وضوح.",
-          "أبقوا الضيوف/الضوضاء/التنظيف منسقة دون خيوط طويلة.",
+          "Ø±Ø§Ø¬Ø¹ÙˆØ§ Ø£Ø³Ø¨ÙˆØ¹ÙŠØ§Ù‹ Ø­ØªÙ‰ Ù„Ø§ ØªØªØ±Ø§ÙƒÙ… Ø§Ù„Ø£Ù…ÙˆØ± Ø§Ù„ØµØºÙŠØ±Ø©.",
+          "Ø¹Ø¯Ù‘Ù„ÙˆØ§ Ø§Ù„Ø£Ø³Ø§Ø³ Ø¨Ø¯ÙˆÙ† Ù„ÙˆÙ… .  ÙÙ‚Ø· ÙˆØ¶ÙˆØ­.",
+          "Ø£Ø¨Ù‚ÙˆØ§ Ø§Ù„Ø¶ÙŠÙˆÙ/Ø§Ù„Ø¶ÙˆØ¶Ø§Ø¡/Ø§Ù„ØªÙ†Ø¸ÙŠÙ Ù…Ù†Ø³Ù‚Ø© Ø¯ÙˆÙ† Ø®ÙŠÙˆØ· Ø·ÙˆÙŠÙ„Ø©.",
         ],
-        heading: "تأمل أسبوعي، بإيقاع بشري",
+        heading: "ØªØ£Ù…Ù„ Ø£Ø³Ø¨ÙˆØ¹ÙŠØŒ Ø¨Ø¥ÙŠÙ‚Ø§Ø¹ Ø¨Ø´Ø±ÙŠ",
       },
-      toolsHeading: "مدعوم بأدوات عملية",
       toolsIntro:
-        "بعد أن تتفقوا على التوقعات، يقدم كينلي أدوات بسيطة تقلل الاحتكاكات اليومية — بدون تحويل العيش المشترك إلى نظام مهام.",
-      toolsList: [
-        "تدفّقات مشتركة (مع تعيينات إذا أردتم) للتنظيف والقمامة لتبقى المعايير واضحة.",
-        "فواتير مشتركة لعرض المبالغ والمواعيد بدون ملاحقة.",
-        "مراجعات هادئة ليشعر الجميع بأنهم مرئيون بلا مراقبة.",
-      ],
+        "Ø¨Ø¹Ø¯ Ø£Ù† ØªØªÙÙ‚ÙˆØ§ Ø¹Ù„Ù‰ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§ØªØŒ ÙŠÙ‚Ø¯Ù… ÙƒÙŠÙ†Ù„ÙŠ Ø£Ø¯ÙˆØ§Øª Ø¨Ø³ÙŠØ·Ø© ØªÙ‚Ù„Ù„ Ø§Ù„Ø§Ø­ØªÙƒØ§ÙƒØ§Øª Ø§Ù„ÙŠÙˆÙ…ÙŠØ© .  Ø¨Ø¯ÙˆÙ† ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ø¹ÙŠØ´ Ø§Ù„Ù…Ø´ØªØ±Ùƒ Ø¥Ù„Ù‰ Ù†Ø¸Ø§Ù… Ù…Ù‡Ø§Ù….",
       sectionHeadings: {
-        howItWorks: "كيف يعمل كينلي",
-        howItWorksSubtitle: "ثلاث خطوات بسيطة تبقي الجميع على توافق.",
-        soundsLikeYou: "هل يبدو هذا مثل مكانك؟",
-        roleHeading: "دور كينلي: وضوح أولاً",
-        formingHeading: "إذا كان منزلك لا يزال يتشكل",
-        audienceHeading: "لمن هذا",
-        notListHeading: "كينلي ليس...",
-        readyHeading: "عندما تكون جاهزاً",
-        readySubtitle: "كينلي موجود في التطبيق - ابدأ على iOS أو Android.",
+        howItWorks: "ÙƒÙŠÙ ÙŠØ¹Ù…Ù„ ÙƒÙŠÙ†Ù„ÙŠ",
+        soundsLikeYou: "Ù‡Ù„ ÙŠØ¨Ø¯Ùˆ Ù‡Ø°Ø§ Ù…Ø«Ù„ Ù…ÙƒØ§Ù†ÙƒØŸ",
+        roleHeading: "Ø¯ÙˆØ± ÙƒÙŠÙ†Ù„ÙŠ: ÙˆØ¶ÙˆØ­ Ø£ÙˆÙ„Ø§Ù‹",
+        formingHeading: "Ø¥Ø°Ø§ ÙƒØ§Ù† Ù…Ù†Ø²Ù„Ùƒ Ù„Ø§ ÙŠØ²Ø§Ù„ ÙŠØªØ´ÙƒÙ„",
+        audienceHeading: "Ù„Ù…Ù† Ù‡Ø°Ø§",
+        notListHeading: "ÙƒÙŠÙ†Ù„ÙŠ Ù„ÙŠØ³...",
+        readyHeading: "Ø¹Ù†Ø¯Ù…Ø§ ØªÙƒÙˆÙ† Ø¬Ø§Ù‡Ø²Ø§Ù‹",
+        readySubtitle: "ÙƒÙŠÙ†Ù„ÙŠ Ù…ÙˆØ¬ÙˆØ¯ ÙÙŠ Ø§Ù„ØªØ·Ø¨ÙŠÙ‚ - Ø§Ø¨Ø¯Ø£ Ø¹Ù„Ù‰ iOS Ø£Ùˆ Android.",
       },
       availability: {
-        body: "كينلي متاح حالياً في نيوزيلندا وسنغافورة. سنراسلك عندما يفتح كينلي في منطقتك.",
+        body: "ÙƒÙŠÙ†Ù„ÙŠ Ù…ØªØ§Ø­ Ø­Ø§Ù„ÙŠØ§Ù‹ ÙÙŠ Ù†ÙŠÙˆØ²ÙŠÙ„Ù†Ø¯Ø§ ÙˆØ³Ù†ØºØ§ÙÙˆØ±Ø©. Ø³Ù†Ø±Ø§Ø³Ù„Ùƒ Ø¹Ù†Ø¯Ù…Ø§ ÙŠÙØªØ­ ÙƒÙŠÙ†Ù„ÙŠ ÙÙŠ Ù…Ù†Ø·Ù‚ØªÙƒ.",
       },
     } satisfies LocaleCopy,
   },
 };
+
+

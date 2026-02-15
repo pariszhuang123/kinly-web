@@ -2,7 +2,7 @@
   --size-max-content-width: 980px;
   position: relative;
   min-height: 100vh;
-  padding: var(--spacing-xl, 24px) var(--spacing-l, 16px) var(--spacing-xxl, 32px);
+  padding: var(--spacing-xxl, 32px) var(--spacing-l, 16px) var(--spacing-xxxl, 40px);
   background:
     radial-gradient(
       circle at 8% 16%,
@@ -32,20 +32,21 @@
 .recognition {
   position: relative;
   z-index: 1;
-  padding: var(--spacing-l, 16px);
+  padding: var(--spacing-xl, 24px);
   border-radius: var(--radius-lg, 16px);
-  border: 1px solid color-mix(in srgb, var(--color-semantic-primary, #366d59) 14%, transparent);
-  background: color-mix(in srgb, var(--color-semantic-primary, #366d59) 4%, var(--color-surface, #ffffff));
+  border: 1px solid color-mix(in srgb, var(--color-semantic-primary, #366d59) 18%, transparent);
+  background: color-mix(in srgb, var(--color-semantic-primary, #366d59) 7%, var(--color-surface, #ffffff));
+  box-shadow: 0 12px 34px color-mix(in srgb, var(--color-semantic-primary, #366d59) 10%, transparent);
 }
 
 .hero {
   position: relative;
   z-index: 1;
-  padding: var(--spacing-xl, 24px);
+  padding: var(--spacing-xxl, 32px);
   border-radius: var(--radius-xl, 24px);
-  background: color-mix(in srgb, var(--color-semantic-primary, #366d59) 6%, var(--color-surface, #ffffff));
-  border: 1px solid color-mix(in srgb, var(--color-semantic-primary, #366d59) 16%, transparent);
-  box-shadow: 0 24px 70px color-mix(in srgb, var(--color-semantic-primary, #366d59) 14%, transparent);
+  background: color-mix(in srgb, var(--color-semantic-primary, #366d59) 9%, var(--color-surface, #ffffff));
+  border: 1px solid color-mix(in srgb, var(--color-semantic-primary, #366d59) 22%, transparent);
+  box-shadow: 0 28px 76px color-mix(in srgb, var(--color-semantic-primary, #366d59) 16%, transparent);
   overflow: hidden;
 }
 
@@ -62,8 +63,8 @@
 }
 
 .logo {
-  width: 64px;
-  height: 64px;
+  width: 84px;
+  height: 84px;
   flex-shrink: 0;
 }
 
@@ -128,14 +129,19 @@
   position: relative;
   z-index: 1;
   display: grid;
-  gap: var(--spacing-s, 8px);
+  gap: var(--spacing-m, 12px);
 }
 
 .sectionPanel {
-  padding: var(--spacing-l, 16px);
+  padding: var(--spacing-xl, 24px);
   border-radius: var(--radius-lg, 16px);
-  border: 1px solid color-mix(in srgb, var(--color-semantic-primary, #366d59) 10%, transparent);
-  background: color-mix(in srgb, var(--color-surface, #ffffff) 94%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-semantic-primary, #366d59) 12%, transparent);
+  background: color-mix(in srgb, var(--color-surface, #ffffff) 96%, transparent);
+}
+
+.sectionHighlight {
+  border-color: color-mix(in srgb, var(--color-semantic-primary, #366d59) 22%, transparent);
+  background: color-mix(in srgb, var(--color-semantic-primary, #366d59) 6%, var(--color-surface, #ffffff));
 }
 
 .storyImage {
@@ -154,7 +160,7 @@
 
 .stepGrid {
   display: grid;
-  gap: var(--spacing-m, 12px);
+  gap: var(--spacing-l, 16px);
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
@@ -173,8 +179,36 @@
 
 .listGrid {
   display: grid;
-  gap: var(--spacing-m, 12px);
+  gap: var(--spacing-l, 16px);
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.featureRailWrap {
+  position: relative;
+}
+
+.featureRail {
+  display: grid;
+  gap: var(--spacing-l, 16px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.featureCard {
+  display: grid;
+  gap: var(--spacing-s, 8px);
+}
+
+.featureImage {
+  border-radius: var(--radius-md, 12px);
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--color-semantic-primary, #366d59) 12%, transparent);
+  background: color-mix(in srgb, var(--color-semantic-primary, #366d59) 4%, var(--color-surface, #ffffff));
+}
+
+.featureImage img {
+  width: 100%;
+  display: block;
+  height: auto;
 }
 
 .bulletList {
@@ -229,6 +263,10 @@
 }
 
 @media (max-width: 900px) {
+  .page {
+    padding-top: var(--spacing-xl, 24px);
+  }
+
   .heroInner {
     grid-template-columns: 1fr;
   }
@@ -236,5 +274,44 @@
   .deviceFrame,
   .deviceThumbs {
     width: min(100%, 360px);
+  }
+
+  .sectionPanel {
+    padding: var(--spacing-l, 16px);
+  }
+
+  .stepGrid,
+  .listGrid {
+    gap: var(--spacing-m, 12px);
+  }
+
+  .featureRailWrap::after {
+    content: "";
+    position: absolute;
+    inset-inline-end: 0;
+    top: 0;
+    width: 34px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(
+      to right,
+      color-mix(in srgb, var(--color-surface, #ffffff) 0%, transparent),
+      color-mix(in srgb, var(--color-surface, #ffffff) 100%, transparent)
+    );
+  }
+
+  .featureRail {
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(78%, 1fr);
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: var(--spacing-xs, 4px);
+    padding-inline-end: var(--spacing-l, 16px);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .featureRail > * {
+    scroll-snap-align: start;
   }
 }

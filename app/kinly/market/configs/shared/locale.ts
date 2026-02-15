@@ -1,4 +1,4 @@
-import { ScenarioScreen } from "../../ScenarioLandingClient";
+import type { ScenarioFeatureScreen, ScenarioScreen } from "../../ScenarioLandingClient";
 
 /**
  * Type for locale-specific copy. Used to enforce complete translations
@@ -19,10 +19,7 @@ export type LocaleCopy = {
     ctaHeading?: string;
     privacyNote?: string;
   };
-  howSteps?: {
-    title: string;
-    body: string;
-  }[];
+  featureScreens?: ScenarioFeatureScreen[];
   screens: ScenarioScreen[];
   chips: string[];
   rolePoints: string[];
@@ -34,12 +31,9 @@ export type LocaleCopy = {
     points: string[];
     heading?: string;
   };
-  toolsHeading?: string;
   toolsIntro?: string;
-  toolsList?: string[];
   sectionHeadings?: {
     howItWorks?: string;
-    howItWorksSubtitle?: string;
     soundsLikeYou?: string;
     roleHeading?: string;
     formingHeading?: string;

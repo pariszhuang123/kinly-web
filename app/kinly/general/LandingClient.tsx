@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 /* eslint-disable @next/next/no-img-element */
 
 import { useEffect, useMemo, useState } from "react";
@@ -23,6 +23,7 @@ import {
 } from "../../../lib/outreachTracking";
 import { resolveLandingCopy } from "./copy";
 import { resolveStoreBadges } from "../../../lib/storeBadges";
+import { resolveLandingScreenAsset } from "../shared/landingScreenAssets";
 import styles from "./LandingClientGeneral.module.css";
 
 type InterestMarker = {
@@ -35,6 +36,12 @@ type LandingClientProps = {
   detectedCountryCode?: string | null;
 };
 
+type FeatureCard = {
+  title: string;
+  benefit: string;
+  image: string;
+};
+
 const SUPPORTED_REGIONS = ["NZ", "SG"];
 const APP_STORE_URL =
   (process.env.NEXT_PUBLIC_IOS_STORE_URL?.trim() || "https://apps.apple.com/app/kinly/id6756508378") as string;
@@ -45,11 +52,6 @@ const PAGE_KEY = "kinly_general";
 const SUPPORTING_IMAGES = {
   friction: "/images/landing/friction-shared-home.webp",
   calm: "/images/landing/calm-shared-home.webp",
-  steps: [
-    "/images/landing/step-align.webp",
-    "/images/landing/step-weekly.webp",
-    "/images/landing/step-visbility.webp",
-  ],
 } as const;
 
 type StoreCtasProps = {
@@ -124,6 +126,26 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
   const isRtl = lang === "ar" || lang === "he" || lang === "fa" || lang === "ur";
   const storeBadges = useMemo(() => resolveStoreBadges(lang), [lang]);
   const heroScreens = copy.screens.slice(0, 3);
+  const featureCards = useMemo<FeatureCard[]>(() => {
+    if (copy.featureScreens.length >= 3) {
+      return copy.featureScreens.slice(0, 3);
+    }
+
+    const locale = lang ?? "en";
+    const titles = ["Shared flows", "Shared bills", "Calm check-ins"];
+    const benefits = [
+      "Repeat tasks stay clear without tension.",
+      "Amounts and due dates stay visible in one place.",
+      "Needs are noticed early and without blame.",
+    ];
+    const keys = ["flows", "bills", "checkins"] as const;
+
+    return keys.map((key, index) => ({
+      title: titles[index],
+      benefit: benefits[index],
+      image: resolveLandingScreenAsset(locale, key),
+    }));
+  }, [copy.featureScreens, lang]);
 
   const interestMarker = useMemo<InterestMarker | null>(
     () => (hasHydrated ? readInterestMarker() : null),
@@ -246,45 +268,28 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
           <section className={`${styles.section} ${styles.sectionPanel}`}>
             <KinlyStack direction="vertical" gap="m">
               <KinlyHeading level={2}>{copy.howHeading}</KinlyHeading>
-              <KinlyText variant="bodySmall" tone="muted">
-                {copy.howSubhead}
-              </KinlyText>
-              <div className={styles.stepGrid}>
-                {copy.howSteps.map((step, index) => (
-                  <KinlyCard key={step.title} variant="surfaceContainerHigh">
-                    <KinlyStack direction="vertical" gap="xs">
-                      <div className={styles.stepImage} aria-hidden="true">
-                        <img src={SUPPORTING_IMAGES.steps[index] ?? SUPPORTING_IMAGES.steps[0]} alt="" loading="lazy" />
-                      </div>
-                      <KinlyText variant="labelSmall" tone="muted" as="div">
-                        Step {index + 1}
-                      </KinlyText>
-                      <KinlyText variant="labelMedium" as="div">
-                        {step.title}
-                      </KinlyText>
-                      <KinlyText variant="bodySmall">{step.body}</KinlyText>
-                    </KinlyStack>
-                  </KinlyCard>
-                ))}
-              </div>
-            </KinlyStack>
-          </section>
-
-          <section className={`${styles.section} ${styles.sectionPanel}`}>
-            <KinlyStack direction="vertical" gap="s">
-              <KinlyHeading level={2}>{copy.toolsHeading}</KinlyHeading>
               <KinlyText variant="bodyMedium">{copy.toolsIntro}</KinlyText>
-              <div className={styles.listGrid}>
-                {copy.toolsList.map((item) => (
-                  <KinlyCard key={item} variant="surfaceContainer">
-                    <KinlyText variant="bodySmall">{item}</KinlyText>
-                  </KinlyCard>
-                ))}
+              <div className={styles.featureRailWrap}>
+                <div className={styles.featureRail} data-testid="feature-rail">
+                  {featureCards.map((feature) => (
+                    <KinlyCard key={feature.title} variant="surfaceContainerHigh">
+                      <div className={styles.featureCard} data-testid="feature-card">
+                        <div className={styles.featureImage} aria-hidden="true">
+                          <img src={feature.image} alt="" loading="lazy" />
+                        </div>
+                        <KinlyText variant="labelMedium" as="div">
+                          {feature.title}
+                        </KinlyText>
+                        <KinlyText variant="bodySmall">{feature.benefit}</KinlyText>
+                      </div>
+                    </KinlyCard>
+                  ))}
+                </div>
               </div>
             </KinlyStack>
           </section>
 
-          <section className={`${styles.section} ${styles.sectionPanel}`}>
+          <section className={`${styles.section} ${styles.sectionPanel} ${styles.sectionHighlight}`}>
             <KinlyStack direction="vertical" gap="s">
               <KinlyHeading level={2}>{copy.chipsHeading}</KinlyHeading>
               <div className={styles.listGrid}>

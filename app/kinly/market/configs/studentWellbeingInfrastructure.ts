@@ -1,4 +1,4 @@
-import { LANDING_SCREEN_ASSETS } from "../../shared/landingScreenAssets";
+﻿import { LANDING_SCREEN_ASSETS } from "../../shared/landingScreenAssets";
 import { ScenarioConfig } from "../ScenarioLandingClient";
 import { LocaleCopy } from "./shared/locale";
 
@@ -18,24 +18,9 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
   hero: {
     headline: "Calm shared living that supports wellbeing.",
     subhead: "Visibility without surveillance; clarity without blame.",
-    body: "Kinly shows how the house is feeling and what needs attention — without scoreboards or enforcement.",
+    body: "Kinly shows how the house is feeling and what needs attention .  without scoreboards or enforcement.",
     ctaHeading: "Keep the house steady",
   },
-
-  howSteps: [
-    {
-      title: "Agree expectations with photos",
-      body: "Show what “ready” and “quiet” look like for shared areas so wellbeing feels practical and fair.",
-    },
-    {
-      title: "Reset weekly, lightly",
-      body: "Once a week, surface noise, guests, cleanliness, and wellbeing signals so support is proactive, not reactive.",
-    },
-    {
-      title: "Keep shared visibility",
-      body: "Everyone sees light tasks and norms, so care is shared without policing.",
-    },
-  ],
 
   screens: [
     {
@@ -51,7 +36,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
       title: "Manage",
       eyebrow: "Adjust",
       headline: "Tweak norms without enforcement",
-      copy: "Update noise/guests/cleaning expectations as cohorts change — no one gets singled out.",
+      copy: "Update noise/guests/cleaning expectations as cohorts change .  no one gets singled out.",
       footer: "Neutral updates, student-friendly tone.",
       image:
         LANDING_SCREEN_ASSETS.en.manage,
@@ -60,7 +45,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
       title: "Home Hub",
       eyebrow: "Reference",
       headline: "One calm reference for everyone",
-      copy: "Noise, guests, wellbeing notes, and shared costs in one place — no streaks or scores.",
+      copy: "Noise, guests, wellbeing notes, and shared costs in one place .  no streaks or scores.",
       footer: "Clarity that feels caring, not monitoring.",
       image:
         LANDING_SCREEN_ASSETS.en.hub,
@@ -98,20 +83,13 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
   weekly: {
     intro: "Kinly uses a weekly rhythm so support stays human-paced.",
     points: [
-      "Check in weekly, not daily — no streaks to maintain.",
+      "Check in weekly, not daily .  no streaks to maintain.",
       "Reflections are for understanding, not grading.",
       "Reset calmly when the vibe shifts.",
     ],
   },
-
-  toolsHeading: "Supported by practical tools",
   toolsIntro:
-    "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction — without turning wellbeing into monitoring.",
-  toolsList: [
-    "Shared flows (with assignments if you want) for cleaning and quiet hours so standards stay clear.",
-    "Shared bills so utilities and shared supplies are visible without chasing.",
-    "Calm check-ins so everyone feels seen without pressure.",
-  ],
+    "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction, without turning wellbeing into monitoring.",
 
   availability: {
     body: "Kinly is currently available in New Zealand and Singapore. We will email you when Kinly opens in your area.",
@@ -121,41 +99,27 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
 
   translations: {
     es: {
-      whatHeading: "Qué es Kinly",
+      whatHeading: "QuÃ© es Kinly",
       whatBody:
         "Kinly es una app de convivencia para quienes viven juntos. Mantiene visibles las expectativas de bienestar sin convertir la vivienda estudiantil en monitoreo.",
       recognition: {
         heading: "Los sistemas de bienestar fallan cuando se sienten vigilancia.",
         subtitle: "Los estudiantes necesitan visibilidad tranquila, no control.",
-        body: "Kinly mantiene visibles las normas con ritmo humano para que la vivienda estudiantil sea cuidada sin presión.",
+        body: "Kinly mantiene visibles las normas con ritmo humano para que la vivienda estudiantil sea cuidada sin presiÃ³n.",
       },
       hero: {
         headline: "Convivencia tranquila que apoya el bienestar.",
         subhead: "Visibilidad sin vigilancia; claridad sin culpas.",
-        body: "Kinly muestra cómo se siente la casa y qué necesita atención — sin marcadores ni enforcement.",
-        ctaHeading: "Mantén la casa estable",
+        body: "Kinly muestra cÃ³mo se siente la casa y quÃ© necesita atenciÃ³n .  sin marcadores ni enforcement.",
+        ctaHeading: "MantÃ©n la casa estable",
       },
-      howSteps: [
-        {
-          title: "Acordar expectativas con fotos",
-          body: "Muestren cómo se ve “listo” y “silencio” en las áreas compartidas para que el bienestar sea práctico y justo.",
-        },
-        {
-          title: "Reajuste semanal, sin presión",
-          body: "Cada semana, pongan ruido, visitas, limpieza y señales de bienestar sobre la mesa para apoyar antes de que haya conflicto.",
-        },
-        {
-          title: "Mantener visibilidad compartida",
-          body: "Todos ven tareas ligeras y normas, así el cuidado se comparte sin vigilancia.",
-        },
-      ],
       screens: [
         {
           title: "Hoy",
-          eyebrow: "Señales",
-          headline: "Qué necesita la casa ahora",
+          eyebrow: "SeÃ±ales",
+          headline: "QuÃ© necesita la casa ahora",
           copy: "Horas de silencio, espacios comunes y tareas ligeras que mantienen el ambiente estable.",
-          footer: "Apoyo sin presión.",
+          footer: "Apoyo sin presiÃ³n.",
           image:
             LANDING_SCREEN_ASSETS.es.today,
         },
@@ -163,7 +127,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
           title: "Gestionar",
           eyebrow: "Ajustar",
           headline: "Ajusta normas sin enforcement",
-          copy: "Actualiza ruido/visitas/limpieza cuando cambian las cohortes — nadie es señalado.",
+          copy: "Actualiza ruido/visitas/limpieza cuando cambian las cohortes .  nadie es seÃ±alado.",
           footer: "Actualizaciones neutrales, tono estudiantil.",
           image:
             LANDING_SCREEN_ASSETS.es.manage,
@@ -172,7 +136,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
           title: "Hub",
           eyebrow: "Referencia",
           headline: "Un referente tranquilo para todos",
-          copy: "Ruido, visitas, notas de bienestar y costos compartidos en un lugar — sin rachas ni puntajes.",
+          copy: "Ruido, visitas, notas de bienestar y costos compartidos en un lugar .  sin rachas ni puntajes.",
           footer: "Claridad que se siente cuidado, no monitoreo.",
           image:
             LANDING_SCREEN_ASSETS.es.hub,
@@ -185,15 +149,15 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
       ],
       rolePoints: [
         "Mantiene las expectativas visibles sin vigilancia.",
-        "Comparte la responsabilidad del cuidado en lugar de señalar a personas.",
+        "Comparte la responsabilidad del cuidado en lugar de seÃ±alar a personas.",
       ],
       formingPoints: [
         "Las cohortes cambian; la base sigue clara.",
-        "Si se desvía, se reinicia la próxima semana sin culpas.",
+        "Si se desvÃ­a, se reinicia la prÃ³xima semana sin culpas.",
       ],
       audience: [
         "Equipos de vivienda estudiantil y RAs.",
-        "Casas de estudiantes que quieren señales de bienestar tranquilas.",
+        "Casas de estudiantes que quieren seÃ±ales de bienestar tranquilas.",
       ],
       notList: [
         "No es vigilancia.",
@@ -204,148 +168,122 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
       weekly: {
         intro: "Kinly usa un ritmo semanal para que el apoyo sea a ritmo humano.",
         points: [
-          "Revisa semanalmente, no a diario — sin rachas que mantener.",
+          "Revisa semanalmente, no a diario .  sin rachas que mantener.",
           "Las reflexiones son para entender, no para calificar.",
           "Reinicia con calma cuando cambie el ambiente.",
         ],
-        heading: "Reflexión semanal, a ritmo humano",
+        heading: "ReflexiÃ³n semanal, a ritmo humano",
       },
-      toolsHeading: "Apoyado por herramientas prácticas",
       toolsIntro:
-        "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la fricción diaria — sin convertir el bienestar en monitoreo.",
-      toolsList: [
-        "Flujos compartidos (con asignaciones si quieren) para limpieza y horas de silencio para que los estándares sean claros.",
-        "Cuentas compartidas para que los servicios e insumos sean visibles sin persecución.",
-        "Revisiones calmadas para que todos se sientan vistos sin presión.",
-      ],
+        "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la fricciÃ³n diaria .  sin convertir el bienestar en monitoreo.",
       sectionHeadings: {
-        howItWorks: "Cómo funciona Kinly",
-        howItWorksSubtitle: "Tres pasos simples que mantienen a todos alineados.",
-        soundsLikeYou: "¿Te suena familiar?",
+        howItWorks: "CÃ³mo funciona Kinly",
+        soundsLikeYou: "Â¿Te suena familiar?",
         roleHeading: "El rol de Kinly: claridad primero",
-        formingHeading: "Si tu hogar aún se está formando",
-        audienceHeading: "Para quién es esto",
+        formingHeading: "Si tu hogar aÃºn se estÃ¡ formando",
+        audienceHeading: "Para quiÃ©n es esto",
         notListHeading: "Kinly no es...",
-        readyHeading: "Cuando estés listo",
+        readyHeading: "Cuando estÃ©s listo",
         readySubtitle: "Kinly vive en la app - empieza en iOS o Android.",
       },
       availability: {
-        body: "Kinly está disponible en Nueva Zelanda y Singapur. Te avisaremos cuando abra en tu región.",
+        body: "Kinly estÃ¡ disponible en Nueva Zelanda y Singapur. Te avisaremos cuando abra en tu regiÃ³n.",
       },
     } satisfies LocaleCopy,
 
     ar: {
-      whatHeading: "ما هو كينلي",
+      whatHeading: "Ù…Ø§ Ù‡Ùˆ ÙƒÙŠÙ†Ù„ÙŠ",
       whatBody:
-        "كينلي هو تطبيق للعيش المشترك صُمم لمن يعيشون معاً. يبقي توقعات الرفاه واضحة دون أن يحول السكن الطلابي إلى مراقبة.",
+        "ÙƒÙŠÙ†Ù„ÙŠ Ù‡Ùˆ ØªØ·Ø¨ÙŠÙ‚ Ù„Ù„Ø¹ÙŠØ´ Ø§Ù„Ù…Ø´ØªØ±Ùƒ ØµÙÙ…Ù… Ù„Ù…Ù† ÙŠØ¹ÙŠØ´ÙˆÙ† Ù…Ø¹Ø§Ù‹. ÙŠØ¨Ù‚ÙŠ ØªÙˆÙ‚Ø¹Ø§Øª Ø§Ù„Ø±ÙØ§Ù‡ ÙˆØ§Ø¶Ø­Ø© Ø¯ÙˆÙ† Ø£Ù† ÙŠØ­ÙˆÙ„ Ø§Ù„Ø³ÙƒÙ† Ø§Ù„Ø·Ù„Ø§Ø¨ÙŠ Ø¥Ù„Ù‰ Ù…Ø±Ø§Ù‚Ø¨Ø©.",
       recognition: {
-        heading: "تفشل أنظمة الرفاه حين تشعر بالمراقبة.",
-        subtitle: "يحتاج الطلاب إلى وضوح هادئ، لا ضبط.",
-        body: "كينلي يبقي المعايير مرئية وبإيقاع بشري ليبقى السكن الطلابي داعماً دون ضغط.",
+        heading: "ØªÙØ´Ù„ Ø£Ù†Ø¸Ù…Ø© Ø§Ù„Ø±ÙØ§Ù‡ Ø­ÙŠÙ† ØªØ´Ø¹Ø± Ø¨Ø§Ù„Ù…Ø±Ø§Ù‚Ø¨Ø©.",
+        subtitle: "ÙŠØ­ØªØ§Ø¬ Ø§Ù„Ø·Ù„Ø§Ø¨ Ø¥Ù„Ù‰ ÙˆØ¶ÙˆØ­ Ù‡Ø§Ø¯Ø¦ØŒ Ù„Ø§ Ø¶Ø¨Ø·.",
+        body: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠØ¨Ù‚ÙŠ Ø§Ù„Ù…Ø¹Ø§ÙŠÙŠØ± Ù…Ø±Ø¦ÙŠØ© ÙˆØ¨Ø¥ÙŠÙ‚Ø§Ø¹ Ø¨Ø´Ø±ÙŠ Ù„ÙŠØ¨Ù‚Ù‰ Ø§Ù„Ø³ÙƒÙ† Ø§Ù„Ø·Ù„Ø§Ø¨ÙŠ Ø¯Ø§Ø¹Ù…Ø§Ù‹ Ø¯ÙˆÙ† Ø¶ØºØ·.",
       },
       hero: {
-        headline: "معيشة مشتركة هادئة تدعم الرفاه.",
-        subhead: "وضوح بلا مراقبة؛ شفافية بلا لوم.",
-        body: "كينلي يُظهر شعور البيت وما يحتاجه — بلا لوحات نقاط أو فرض.",
-        ctaHeading: "أبقِ البيت مستقراً",
+        headline: "Ù…Ø¹ÙŠØ´Ø© Ù…Ø´ØªØ±ÙƒØ© Ù‡Ø§Ø¯Ø¦Ø© ØªØ¯Ø¹Ù… Ø§Ù„Ø±ÙØ§Ù‡.",
+        subhead: "ÙˆØ¶ÙˆØ­ Ø¨Ù„Ø§ Ù…Ø±Ø§Ù‚Ø¨Ø©Ø› Ø´ÙØ§ÙÙŠØ© Ø¨Ù„Ø§ Ù„ÙˆÙ….",
+        body: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠÙØ¸Ù‡Ø± Ø´Ø¹ÙˆØ± Ø§Ù„Ø¨ÙŠØª ÙˆÙ…Ø§ ÙŠØ­ØªØ§Ø¬Ù‡ .  Ø¨Ù„Ø§ Ù„ÙˆØ­Ø§Øª Ù†Ù‚Ø§Ø· Ø£Ùˆ ÙØ±Ø¶.",
+        ctaHeading: "Ø£Ø¨Ù‚Ù Ø§Ù„Ø¨ÙŠØª Ù…Ø³ØªÙ‚Ø±Ø§Ù‹",
       },
-      howSteps: [
-        {
-          title: "اتفقوا على التوقعات بالصور",
-          body: "أروا كيف يبدو “جاهز” و“هادئ” في المساحات المشتركة ليكون الرفاه عملياً وعادلاً.",
-        },
-        {
-          title: "إعادة ضبط أسبوعية وخفيفة",
-          body: "مرة في الأسبوع، أظهروا الضوضاء والضيوف والنظافة وإشارات الرفاه لتقديم الدعم قبل أن يصبح خلافاً.",
-        },
-        {
-          title: "حافظوا على وضوح مشترك",
-          body: "يرى الجميع المهام الخفيفة والمعايير، فيتشارك الجميع العناية دون مراقبة.",
-        },
-      ],
       screens: [
         {
-          title: "اليوم",
-          eyebrow: "إشارات",
-          headline: "ما يحتاجه البيت الآن",
-          copy: "ساعات هدوء، مساحات مشتركة، ومهام خفيفة تحافظ على استقرار الجو.",
-          footer: "دعم بلا ضغط.",
+          title: "Ø§Ù„ÙŠÙˆÙ…",
+          eyebrow: "Ø¥Ø´Ø§Ø±Ø§Øª",
+          headline: "Ù…Ø§ ÙŠØ­ØªØ§Ø¬Ù‡ Ø§Ù„Ø¨ÙŠØª Ø§Ù„Ø¢Ù†",
+          copy: "Ø³Ø§Ø¹Ø§Øª Ù‡Ø¯ÙˆØ¡ØŒ Ù…Ø³Ø§Ø­Ø§Øª Ù…Ø´ØªØ±ÙƒØ©ØŒ ÙˆÙ…Ù‡Ø§Ù… Ø®ÙÙŠÙØ© ØªØ­Ø§ÙØ¸ Ø¹Ù„Ù‰ Ø§Ø³ØªÙ‚Ø±Ø§Ø± Ø§Ù„Ø¬Ùˆ.",
+          footer: "Ø¯Ø¹Ù… Ø¨Ù„Ø§ Ø¶ØºØ·.",
           image:
             LANDING_SCREEN_ASSETS.ar.today,
         },
         {
-          title: "إدارة",
-          eyebrow: "تعديل",
-          headline: "عدّلوا المعايير بلا فرض",
-          copy: "حدثوا توقعات الضوضاء/الضيوف/النظافة مع تغير المجموعات — دون أن يُستهدف أحد.",
-          footer: "تحديثات محايدة، بلهجة صديقة للطلاب.",
+          title: "Ø¥Ø¯Ø§Ø±Ø©",
+          eyebrow: "ØªØ¹Ø¯ÙŠÙ„",
+          headline: "Ø¹Ø¯Ù‘Ù„ÙˆØ§ Ø§Ù„Ù…Ø¹Ø§ÙŠÙŠØ± Ø¨Ù„Ø§ ÙØ±Ø¶",
+          copy: "Ø­Ø¯Ø«ÙˆØ§ ØªÙˆÙ‚Ø¹Ø§Øª Ø§Ù„Ø¶ÙˆØ¶Ø§Ø¡/Ø§Ù„Ø¶ÙŠÙˆÙ/Ø§Ù„Ù†Ø¸Ø§ÙØ© Ù…Ø¹ ØªØºÙŠØ± Ø§Ù„Ù…Ø¬Ù…ÙˆØ¹Ø§Øª .  Ø¯ÙˆÙ† Ø£Ù† ÙŠÙØ³ØªÙ‡Ø¯Ù Ø£Ø­Ø¯.",
+          footer: "ØªØ­Ø¯ÙŠØ«Ø§Øª Ù…Ø­Ø§ÙŠØ¯Ø©ØŒ Ø¨Ù„Ù‡Ø¬Ø© ØµØ¯ÙŠÙ‚Ø© Ù„Ù„Ø·Ù„Ø§Ø¨.",
           image:
             LANDING_SCREEN_ASSETS.ar.manage,
         },
         {
-          title: "مركز المنزل",
-          eyebrow: "مرجع",
-          headline: "مرجع هادئ للجميع",
-          copy: "الضوضاء والضيوف وملاحظات الرفاه والتكاليف المشتركة في مكان واحد — بلا سلاسل أو نقاط.",
-          footer: "وضوح يشعر بالعناية، لا المراقبة.",
+          title: "Ù…Ø±ÙƒØ² Ø§Ù„Ù…Ù†Ø²Ù„",
+          eyebrow: "Ù…Ø±Ø¬Ø¹",
+          headline: "Ù…Ø±Ø¬Ø¹ Ù‡Ø§Ø¯Ø¦ Ù„Ù„Ø¬Ù…ÙŠØ¹",
+          copy: "Ø§Ù„Ø¶ÙˆØ¶Ø§Ø¡ ÙˆØ§Ù„Ø¶ÙŠÙˆÙ ÙˆÙ…Ù„Ø§Ø­Ø¸Ø§Øª Ø§Ù„Ø±ÙØ§Ù‡ ÙˆØ§Ù„ØªÙƒØ§Ù„ÙŠÙ Ø§Ù„Ù…Ø´ØªØ±ÙƒØ© ÙÙŠ Ù…ÙƒØ§Ù† ÙˆØ§Ø­Ø¯ .  Ø¨Ù„Ø§ Ø³Ù„Ø§Ø³Ù„ Ø£Ùˆ Ù†Ù‚Ø§Ø·.",
+          footer: "ÙˆØ¶ÙˆØ­ ÙŠØ´Ø¹Ø± Ø¨Ø§Ù„Ø¹Ù†Ø§ÙŠØ©ØŒ Ù„Ø§ Ø§Ù„Ù…Ø±Ø§Ù‚Ø¨Ø©.",
           image:
             LANDING_SCREEN_ASSETS.ar.hub,
         },
       ],
       chips: [
-        "نريد رفاه دون أن نشعر بالمراقبة.",
-        "ساعات الهدوء والضيوف والتنظيف تحتاج أساساً هادئاً.",
-        "يجب أن يكون الدعم استباقياً لا عقابياً.",
+        "Ù†Ø±ÙŠØ¯ Ø±ÙØ§Ù‡ Ø¯ÙˆÙ† Ø£Ù† Ù†Ø´Ø¹Ø± Ø¨Ø§Ù„Ù…Ø±Ø§Ù‚Ø¨Ø©.",
+        "Ø³Ø§Ø¹Ø§Øª Ø§Ù„Ù‡Ø¯ÙˆØ¡ ÙˆØ§Ù„Ø¶ÙŠÙˆÙ ÙˆØ§Ù„ØªÙ†Ø¸ÙŠÙ ØªØ­ØªØ§Ø¬ Ø£Ø³Ø§Ø³Ø§Ù‹ Ù‡Ø§Ø¯Ø¦Ø§Ù‹.",
+        "ÙŠØ¬Ø¨ Ø£Ù† ÙŠÙƒÙˆÙ† Ø§Ù„Ø¯Ø¹Ù… Ø§Ø³ØªØ¨Ø§Ù‚ÙŠØ§Ù‹ Ù„Ø§ Ø¹Ù‚Ø§Ø¨ÙŠØ§Ù‹.",
       ],
       rolePoints: [
-        "يبقي التوقعات مرئية دون مراقبة.",
-        "يشارك المسؤولية عن الرعاية بدلاً من استهداف الأفراد.",
+        "ÙŠØ¨Ù‚ÙŠ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§Øª Ù…Ø±Ø¦ÙŠØ© Ø¯ÙˆÙ† Ù…Ø±Ø§Ù‚Ø¨Ø©.",
+        "ÙŠØ´Ø§Ø±Ùƒ Ø§Ù„Ù…Ø³Ø¤ÙˆÙ„ÙŠØ© Ø¹Ù† Ø§Ù„Ø±Ø¹Ø§ÙŠØ© Ø¨Ø¯Ù„Ø§Ù‹ Ù…Ù† Ø§Ø³ØªÙ‡Ø¯Ø§Ù Ø§Ù„Ø£ÙØ±Ø§Ø¯.",
       ],
       formingPoints: [
-        "تتغير المجموعات؛ الأساس يبقى واضحاً.",
-        "إذا انحرف، تعيدونه الأسبوع القادم بلا لوم.",
+        "ØªØªØºÙŠØ± Ø§Ù„Ù…Ø¬Ù…ÙˆØ¹Ø§ØªØ› Ø§Ù„Ø£Ø³Ø§Ø³ ÙŠØ¨Ù‚Ù‰ ÙˆØ§Ø¶Ø­Ø§Ù‹.",
+        "Ø¥Ø°Ø§ Ø§Ù†Ø­Ø±ÙØŒ ØªØ¹ÙŠØ¯ÙˆÙ†Ù‡ Ø§Ù„Ø£Ø³Ø¨ÙˆØ¹ Ø§Ù„Ù‚Ø§Ø¯Ù… Ø¨Ù„Ø§ Ù„ÙˆÙ….",
       ],
       audience: [
-        "فرق السكن الطلابي والمشرفون.",
-        "بيوت طلابية تريد إشارات رفاه هادئة.",
+        "ÙØ±Ù‚ Ø§Ù„Ø³ÙƒÙ† Ø§Ù„Ø·Ù„Ø§Ø¨ÙŠ ÙˆØ§Ù„Ù…Ø´Ø±ÙÙˆÙ†.",
+        "Ø¨ÙŠÙˆØª Ø·Ù„Ø§Ø¨ÙŠØ© ØªØ±ÙŠØ¯ Ø¥Ø´Ø§Ø±Ø§Øª Ø±ÙØ§Ù‡ Ù‡Ø§Ø¯Ø¦Ø©.",
       ],
       notList: [
-        "ليست مراقبة.",
-        "ليست لوحة نقاط.",
-        "ليست رئيس مهام.",
-        "ليست أداة تقارير.",
+        "Ù„ÙŠØ³Øª Ù…Ø±Ø§Ù‚Ø¨Ø©.",
+        "Ù„ÙŠØ³Øª Ù„ÙˆØ­Ø© Ù†Ù‚Ø§Ø·.",
+        "Ù„ÙŠØ³Øª Ø±Ø¦ÙŠØ³ Ù…Ù‡Ø§Ù….",
+        "Ù„ÙŠØ³Øª Ø£Ø¯Ø§Ø© ØªÙ‚Ø§Ø±ÙŠØ±.",
       ],
       weekly: {
-        intro: "كينلي يستخدم إيقاعاً أسبوعياً ليبقى الدعم بإيقاع بشري.",
+        intro: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠØ³ØªØ®Ø¯Ù… Ø¥ÙŠÙ‚Ø§Ø¹Ø§Ù‹ Ø£Ø³Ø¨ÙˆØ¹ÙŠØ§Ù‹ Ù„ÙŠØ¨Ù‚Ù‰ Ø§Ù„Ø¯Ø¹Ù… Ø¨Ø¥ÙŠÙ‚Ø§Ø¹ Ø¨Ø´Ø±ÙŠ.",
         points: [
-          "راجعوا أسبوعياً، لا يومياً — بلا سلاسل للحفاظ عليها.",
-          "التأملات للفهم، لا للتقييم.",
-          "أعيدوا الضبط بهدوء عندما يتغير الجو.",
+          "Ø±Ø§Ø¬Ø¹ÙˆØ§ Ø£Ø³Ø¨ÙˆØ¹ÙŠØ§Ù‹ØŒ Ù„Ø§ ÙŠÙˆÙ…ÙŠØ§Ù‹ .  Ø¨Ù„Ø§ Ø³Ù„Ø§Ø³Ù„ Ù„Ù„Ø­ÙØ§Ø¸ Ø¹Ù„ÙŠÙ‡Ø§.",
+          "Ø§Ù„ØªØ£Ù…Ù„Ø§Øª Ù„Ù„ÙÙ‡Ù…ØŒ Ù„Ø§ Ù„Ù„ØªÙ‚ÙŠÙŠÙ….",
+          "Ø£Ø¹ÙŠØ¯ÙˆØ§ Ø§Ù„Ø¶Ø¨Ø· Ø¨Ù‡Ø¯ÙˆØ¡ Ø¹Ù†Ø¯Ù…Ø§ ÙŠØªØºÙŠØ± Ø§Ù„Ø¬Ùˆ.",
         ],
-        heading: "تأمل أسبوعي، بإيقاع بشري",
+        heading: "ØªØ£Ù…Ù„ Ø£Ø³Ø¨ÙˆØ¹ÙŠØŒ Ø¨Ø¥ÙŠÙ‚Ø§Ø¹ Ø¨Ø´Ø±ÙŠ",
       },
-      toolsHeading: "مدعوم بأدوات عملية",
       toolsIntro:
-        "بعد أن تتفقوا على التوقعات، يقدم كينلي أدوات بسيطة تقلل الاحتكاكات اليومية — بدون تحويل الرفاه إلى مراقبة.",
-      toolsList: [
-        "تدفّقات مشتركة (مع تعيينات إذا أردتم) للتنظيف وساعات الهدوء للحفاظ على وضوح المعايير.",
-        "فواتير مشتركة لعرض الخدمات والإمدادات بدون ملاحقة.",
-        "مراجعات هادئة ليشعر الجميع بأنهم مرئيون بلا ضغط.",
-      ],
+        "Ø¨Ø¹Ø¯ Ø£Ù† ØªØªÙÙ‚ÙˆØ§ Ø¹Ù„Ù‰ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§ØªØŒ ÙŠÙ‚Ø¯Ù… ÙƒÙŠÙ†Ù„ÙŠ Ø£Ø¯ÙˆØ§Øª Ø¨Ø³ÙŠØ·Ø© ØªÙ‚Ù„Ù„ Ø§Ù„Ø§Ø­ØªÙƒØ§ÙƒØ§Øª Ø§Ù„ÙŠÙˆÙ…ÙŠØ© .  Ø¨Ø¯ÙˆÙ† ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ø±ÙØ§Ù‡ Ø¥Ù„Ù‰ Ù…Ø±Ø§Ù‚Ø¨Ø©.",
       sectionHeadings: {
-        howItWorks: "كيف يعمل كينلي",
-        howItWorksSubtitle: "ثلاث خطوات بسيطة تبقي الجميع على توافق.",
-        soundsLikeYou: "هل يبدو هذا مثل مكانك؟",
-        roleHeading: "دور كينلي: وضوح أولاً",
-        formingHeading: "إذا كان منزلك لا يزال يتشكل",
-        audienceHeading: "لمن هذا",
-        notListHeading: "كينلي ليس...",
-        readyHeading: "عندما تكون جاهزاً",
-        readySubtitle: "كينلي موجود في التطبيق - ابدأ على iOS أو Android.",
+        howItWorks: "ÙƒÙŠÙ ÙŠØ¹Ù…Ù„ ÙƒÙŠÙ†Ù„ÙŠ",
+        soundsLikeYou: "Ù‡Ù„ ÙŠØ¨Ø¯Ùˆ Ù‡Ø°Ø§ Ù…Ø«Ù„ Ù…ÙƒØ§Ù†ÙƒØŸ",
+        roleHeading: "Ø¯ÙˆØ± ÙƒÙŠÙ†Ù„ÙŠ: ÙˆØ¶ÙˆØ­ Ø£ÙˆÙ„Ø§Ù‹",
+        formingHeading: "Ø¥Ø°Ø§ ÙƒØ§Ù† Ù…Ù†Ø²Ù„Ùƒ Ù„Ø§ ÙŠØ²Ø§Ù„ ÙŠØªØ´ÙƒÙ„",
+        audienceHeading: "Ù„Ù…Ù† Ù‡Ø°Ø§",
+        notListHeading: "ÙƒÙŠÙ†Ù„ÙŠ Ù„ÙŠØ³...",
+        readyHeading: "Ø¹Ù†Ø¯Ù…Ø§ ØªÙƒÙˆÙ† Ø¬Ø§Ù‡Ø²Ø§Ù‹",
+        readySubtitle: "ÙƒÙŠÙ†Ù„ÙŠ Ù…ÙˆØ¬ÙˆØ¯ ÙÙŠ Ø§Ù„ØªØ·Ø¨ÙŠÙ‚ - Ø§Ø¨Ø¯Ø£ Ø¹Ù„Ù‰ iOS Ø£Ùˆ Android.",
       },
       availability: {
-        body: "كينلي متاح حالياً في نيوزيلندا وسنغافورة. سنراسلك عندما يفتح كينلي في منطقتك.",
+        body: "ÙƒÙŠÙ†Ù„ÙŠ Ù…ØªØ§Ø­ Ø­Ø§Ù„ÙŠØ§Ù‹ ÙÙŠ Ù†ÙŠÙˆØ²ÙŠÙ„Ù†Ø¯Ø§ ÙˆØ³Ù†ØºØ§ÙÙˆØ±Ø©. Ø³Ù†Ø±Ø§Ø³Ù„Ùƒ Ø¹Ù†Ø¯Ù…Ø§ ÙŠÙØªØ­ ÙƒÙŠÙ†Ù„ÙŠ ÙÙŠ Ù…Ù†Ø·Ù‚ØªÙƒ.",
       },
     } satisfies LocaleCopy,
   },
 };
+
+
