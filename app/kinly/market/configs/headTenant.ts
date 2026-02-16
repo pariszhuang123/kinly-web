@@ -51,6 +51,28 @@ export const headTenantConfig: ScenarioConfig = {
         LANDING_SCREEN_ASSETS.en.hub,
     },
   ],
+  featureScreens: [
+    {
+      title: "Shared flows",
+      benefit: "Keep recurring standards visible so responsibility is shared, not carried by one person.",
+      image: LANDING_SCREEN_ASSETS.en.flows,
+    },
+    {
+      title: "Shared groceries",
+      benefit: "Make shared shopping needs visible so no one has to chase reminders.",
+      image: LANDING_SCREEN_ASSETS.en.groceries,
+    },
+    {
+      title: "Shared bills",
+      benefit: "Keep shared costs transparent so discussions stay neutral and factual.",
+      image: LANDING_SCREEN_ASSETS.en.bills,
+    },
+    {
+      title: "Calm check-ins",
+      benefit: "Use weekly check-ins to reset expectations early and reduce personal confrontation.",
+      image: LANDING_SCREEN_ASSETS.en.checkins,
+    },
+  ],
 
   chips: [
     "If I do nothing, things fall apart.",
@@ -285,5 +307,4 @@ export const headTenantConfig: ScenarioConfig = {
     } satisfies LocaleCopy,
   },
 };
-
 

@@ -47,6 +47,29 @@ export const internationalStartConfig: ScenarioConfig = {
         LANDING_SCREEN_ASSETS.en.hub,
     },
   ],
+  featureScreens: [
+    {
+      title: "Shared flows",
+      benefit:
+        "Surface home routines and context so new housemates can contribute without awkward guesswork.",
+      image: LANDING_SCREEN_ASSETS.en.flows,
+    },
+    {
+      title: "Shared groceries",
+      benefit: "Clarify what is shared and what is personal before shopping, so no one oversteps.",
+      image: LANDING_SCREEN_ASSETS.en.groceries,
+    },
+    {
+      title: "Shared bills",
+      benefit: "Keep contributions visible with simple context so fairness is clear in a new home.",
+      image: LANDING_SCREEN_ASSETS.en.bills,
+    },
+    {
+      title: "Calm check-ins",
+      benefit: "Use weekly check-ins to reset expectations as routines settle, without pressure.",
+      image: LANDING_SCREEN_ASSETS.en.checkins,
+    },
+  ],
   chips: [
     "I want to help but I am not sure what is expected.",
     "Asking about norms feels awkward.",
@@ -262,5 +285,4 @@ export const internationalStartConfig: ScenarioConfig = {
     } satisfies LocaleCopy,
   },
 };
-
 

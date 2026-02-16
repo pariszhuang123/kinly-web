@@ -47,6 +47,29 @@ export const freshersConfig: ScenarioConfig = {
         LANDING_SCREEN_ASSETS.en.hub,
     },
   ],
+  featureScreens: [
+    {
+      title: "Shared flows",
+      benefit:
+        "Keep move-in basics and weekly routines visible so new housemates know what good looks like.",
+      image: LANDING_SCREEN_ASSETS.en.flows,
+    },
+    {
+      title: "Shared groceries",
+      benefit: "Clarify shared food expectations before busy campus days so shops stay fair.",
+      image: LANDING_SCREEN_ASSETS.en.groceries,
+    },
+    {
+      title: "Shared bills",
+      benefit: "Keep shared costs clear by week so tight student budgets stay predictable.",
+      image: LANDING_SCREEN_ASSETS.en.bills,
+    },
+    {
+      title: "Calm check-ins",
+      benefit: "Use short weekly check-ins to reset after exam weeks or schedule chaos without blame.",
+      image: LANDING_SCREEN_ASSETS.en.checkins,
+    },
+  ],
   chips: [
     "We never agreed on cleaning rules.",
     "Exam weeks need quiet without resentment.",
@@ -258,5 +281,4 @@ export const freshersConfig: ScenarioConfig = {
     } satisfies LocaleCopy,
   },
 };
-
 

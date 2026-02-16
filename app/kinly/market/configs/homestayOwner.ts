@@ -51,6 +51,29 @@ export const homestayOwnerConfig: ScenarioConfig = {
         LANDING_SCREEN_ASSETS.en.hub,
     },
   ],
+  featureScreens: [
+    {
+      title: "Shared flows",
+      benefit:
+        "Keep hosting routines and house norms visible so guests understand the baseline from day one.",
+      image: LANDING_SCREEN_ASSETS.en.flows,
+    },
+    {
+      title: "Shared groceries",
+      benefit: "Clarify shared kitchen and supply expectations so requests stay simple and respectful.",
+      image: LANDING_SCREEN_ASSETS.en.groceries,
+    },
+    {
+      title: "Shared bills",
+      benefit: "Keep shared contributions clear with context so conversations stay fair and warm.",
+      image: LANDING_SCREEN_ASSETS.en.bills,
+    },
+    {
+      title: "Calm check-ins",
+      benefit: "Use weekly check-ins to reset small friction early while keeping the home welcoming.",
+      image: LANDING_SCREEN_ASSETS.en.checkins,
+    },
+  ],
 
   chips: [
     "I want guests to feel welcome and informed.",
@@ -285,5 +308,4 @@ export const homestayOwnerConfig: ScenarioConfig = {
     } satisfies LocaleCopy,
   },
 };
-
 

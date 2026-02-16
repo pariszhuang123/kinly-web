@@ -8,6 +8,10 @@ async function getTopPx(locator: Locator) {
   return locator.first().evaluate((element) => element.getBoundingClientRect().top);
 }
 
+function firstFeatureBenefit(page: import("@playwright/test").Page) {
+  return page.getByTestId("feature-card").first().locator("p").first();
+}
+
 test.describe("Marketing landing page", () => {
   test.beforeEach(async ({ page }) => {
     // Ensure no prior interest state unless a test sets it.
@@ -181,9 +185,7 @@ test.describe("Marketing landing page", () => {
 
     const recognitionSubheadSize = await getFontSizePx(page.locator("main section").first().locator("p").first());
     const heroSubheadSize = await getFontSizePx(page.locator("main section").nth(1).locator("p").first());
-    const featureBenefitSize = await getFontSizePx(
-      page.getByText("Add context, guide links, and photos so repeat tasks are clear without reminders."),
-    );
+    const featureBenefitSize = await getFontSizePx(firstFeatureBenefit(page));
     const privacyNoteSize = await getFontSizePx(page.getByText("Private by default. No ads. No surveillance."));
     const storeSubtitleSize = await getFontSizePx(page.getByText(/Kinly lives in the app/i));
 
@@ -201,9 +203,7 @@ test.describe("Marketing landing page", () => {
 
     const recognitionSubheadSize = await getFontSizePx(page.locator("main section").first().locator("p").first());
     const heroSubheadSize = await getFontSizePx(page.locator("main section").nth(1).locator("p").first());
-    const featureBenefitSize = await getFontSizePx(
-      page.getByText("Add context, guide links, and photos so repeat tasks are clear without reminders."),
-    );
+    const featureBenefitSize = await getFontSizePx(firstFeatureBenefit(page));
     const privacyNoteSize = await getFontSizePx(page.getByText("Private by default. No ads. No surveillance."));
     const storeSubtitleSize = await getFontSizePx(page.getByText(/Kinly lives in the app/i));
 

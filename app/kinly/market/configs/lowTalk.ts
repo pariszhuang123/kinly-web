@@ -50,22 +50,22 @@ export const lowTalkConfig: ScenarioConfig = {
   featureScreens: [
     {
       title: "Shared flows",
-      benefit: "Add context and photos so tasks stay clear without long explanations.",
+      benefit: "Keep recurring tasks clear with context and photos so signals replace long explanations.",
       image: LANDING_SCREEN_ASSETS.en.flows,
     },
     {
       title: "Shared groceries",
-      benefit: "Quickly add what is needed with notes and photos so shopping stays coordinated.",
+      benefit: "Surface what is needed in one place so shopping stays coordinated without extra chat.",
       image: LANDING_SCREEN_ASSETS.en.groceries,
     },
     {
       title: "Shared bills",
-      benefit: "Keep splits clear with amount, date, and context in one calm view.",
+      benefit: "Keep shared costs clear with simple context so fairness stays visible without call-outs.",
       image: LANDING_SCREEN_ASSETS.en.bills,
     },
     {
       title: "Calm check-ins",
-      benefit: "Use simple weekly check-ins so concerns surface early without big talks.",
+      benefit: "Use short weekly check-ins to surface concerns early without big talks.",
       image: LANDING_SCREEN_ASSETS.en.checkins,
     },
   ],
@@ -279,4 +279,3 @@ export const lowTalkConfig: ScenarioConfig = {
     } satisfies LocaleCopy,
   },
 };
-

@@ -7,18 +7,18 @@ export const flatAgreementsConfig: ScenarioConfig = {
 
   recognition: {
     heading: "Agreements matter, but paperwork isn't the vibe.",
-    subtitle: "You need clarity on shared living without feeling like a landlord.",
-    body: "Kinly keeps house agreements visible, calm, and human .  no policing, no legalese.",
+    subtitle: "You need clarity on shared living without turning anyone into the boss.",
+    body: "Kinly keeps housemate agreements visible, calm, and human .  no policing, no legalese.",
   },
 
   whatHeading: "What Kinly is",
   whatBody:
-    "Kinly is a shared living app designed for people who live together. It keeps agreements visible and calm without turning your flat into a contract negotiation.",
+    "Kinly is a shared living app designed for people who live together. It keeps agreements visible and calm without turning your shared home into contract talk.",
 
   hero: {
     headline: "Clear agreements, human tone.",
     subhead: "One place for house norms, shared costs, and expectations .  no lecture required.",
-    body: "Kinly lets everyone see the same baseline for noise, guests, cleaning, and shared costs, while staying pressure-free.",
+    body: "Kinly lets housemates see the same baseline for noise, guests, cleaning, and shared costs, while staying pressure-free.",
     ctaHeading: "Set the baseline together",
   },
 
@@ -36,7 +36,7 @@ export const flatAgreementsConfig: ScenarioConfig = {
       title: "Manage",
       eyebrow: "Adjust",
       headline: "Keep agreements current",
-      copy: "Tweak quiet hours, guest rules, or cleaning standards as the flat changes.",
+      copy: "Tweak quiet hours, guest rules, or cleaning standards as people and routines change.",
       footer: "Everyone stays aligned, nothing is locked in.",
       image:
         LANDING_SCREEN_ASSETS.en.manage,
@@ -51,25 +51,47 @@ export const flatAgreementsConfig: ScenarioConfig = {
         LANDING_SCREEN_ASSETS.en.hub,
     },
   ],
+  featureScreens: [
+    {
+      title: "Shared flows",
+      benefit: "Keep recurring standards visible so housemate agreements stay clear without reminders.",
+      image: LANDING_SCREEN_ASSETS.en.flows,
+    },
+    {
+      title: "Shared groceries",
+      benefit: "Clarify shared shopping expectations so everyone sees the same baseline.",
+      image: LANDING_SCREEN_ASSETS.en.groceries,
+    },
+    {
+      title: "Shared bills",
+      benefit: "Keep shared costs transparent with dates and context so fairness stays calm.",
+      image: LANDING_SCREEN_ASSETS.en.bills,
+    },
+    {
+      title: "Calm check-ins",
+      benefit: "Use weekly check-ins to reset guests/noise/cleaning expectations before friction grows.",
+      image: LANDING_SCREEN_ASSETS.en.checkins,
+    },
+  ],
 
   chips: [
-    "We need clarity without sounding like landlords.",
+    "We need clarity without turning into house politics.",
     "Guests, noise, and cleaning need one baseline.",
     "Keep it fair without nagging.",
   ],
 
   rolePoints: [
     "Keeps agreements visible without turning anyone into the enforcer.",
-    "Makes adjustments easy when the flat changes.",
+    "Makes adjustments easy when people and routines change.",
   ],
 
   formingPoints: [
-    "New flatmates can see the baseline on day one.",
+    "New housemates can see the baseline on day one.",
     "If it drifts, you reset next week without blame.",
   ],
 
   audience: [
-    "Flats formalising house norms without heavy paperwork.",
+    "Housemates aligning home norms without heavy paperwork.",
     "Groups who want clarity on guests/noise/cleaning without policing.",
   ],
 
@@ -285,5 +307,3 @@ export const flatAgreementsConfig: ScenarioConfig = {
     } satisfies LocaleCopy,
   },
 };
-
-

@@ -51,6 +51,28 @@ export const liveInLandlordConfig: ScenarioConfig = {
         LANDING_SCREEN_ASSETS.en.hub,
     },
   ],
+  featureScreens: [
+    {
+      title: "Shared flows",
+      benefit: "Keep shared-space routines visible so expectations stay neutral for owners and tenants.",
+      image: LANDING_SCREEN_ASSETS.en.flows,
+    },
+    {
+      title: "Shared groceries",
+      benefit: "Clarify shared kitchen expectations so day-to-day requests feel practical, not personal.",
+      image: LANDING_SCREEN_ASSETS.en.groceries,
+    },
+    {
+      title: "Shared bills",
+      benefit: "Keep shared costs transparent with simple context so fairness stays clear for everyone.",
+      image: LANDING_SCREEN_ASSETS.en.bills,
+    },
+    {
+      title: "Calm check-ins",
+      benefit: "Use weekly check-ins to reset friction early without power dynamics.",
+      image: LANDING_SCREEN_ASSETS.en.checkins,
+    },
+  ],
 
   chips: [
     "I want clarity without feeling like the boss.",
@@ -285,5 +307,4 @@ export const liveInLandlordConfig: ScenarioConfig = {
     } satisfies LocaleCopy,
   },
 };
-
 
