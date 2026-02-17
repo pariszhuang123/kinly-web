@@ -6,7 +6,7 @@ export const homestayOwnerConfig: ScenarioConfig = {
   pageKey: "homestay_owner",
 
   recognition: {
-    heading: "You want guests to feel welcome .  and your home to run smoothly.",
+    heading: "You want guests to feel welcome,and your home to run smoothly.",
     subtitle: "Clear house norms should feel warm, not formal.",
     body: "Kinly keeps expectations visible in a calm, human way so hosting feels welcoming and fair.",
   },
@@ -18,7 +18,7 @@ export const homestayOwnerConfig: ScenarioConfig = {
   hero: {
     headline: "A welcoming home with clear norms.",
     subhead: "Set the baseline once, keep it warm and human.",
-    body: "Kinly shows guests and residents the same simple expectations for noise, shared spaces, and contributions .  without awkward reminders.",
+    body: "Kinly shows guests and residents the same simple expectations for noise, shared spaces, and contributions,without awkward reminders.",
     ctaHeading: "Host with clarity",
   },
 
@@ -36,7 +36,7 @@ export const homestayOwnerConfig: ScenarioConfig = {
       title: "Manage",
       eyebrow: "Adjust",
       headline: "Update norms without tension",
-      copy: "Tweak house rules or hosting notes as guests change .  no awkward talks.",
+      copy: "Tweak house rules or hosting notes as guests change,no awkward talks.",
       footer: "One place to keep everyone aligned.",
       image:
         LANDING_SCREEN_ASSETS.en.manage,
@@ -53,7 +53,7 @@ export const homestayOwnerConfig: ScenarioConfig = {
   ],
   featureScreens: [
     {
-      title: "Shared flows",
+      title: "Shared tasks",
       benefit:
         "Keep hosting routines and house norms visible so guests understand the baseline from day one.",
       image: LANDING_SCREEN_ASSETS.en.flows,
@@ -107,7 +107,7 @@ export const homestayOwnerConfig: ScenarioConfig = {
     intro: "Kinly uses a weekly rhythm so hosting stays calm and fair.",
     points: [
       "Check in weekly so small issues do not stack up.",
-      "Adjust expectations without blame .  just clarity.",
+      "Adjust expectations without blame,just clarity.",
       "Keep the welcome warm while staying aligned.",
     ],
   },
@@ -126,14 +126,14 @@ export const homestayOwnerConfig: ScenarioConfig = {
       whatBody:
         "Kinly es una app de convivencia para quienes viven juntos. Mantiene claras y tranquilas las expectativas de homestay sin convertir la hospitalidad en hacer cumplir reglas.",
       recognition: {
-        heading: "Quieres que los huÃ©spedes se sientan bienvenidos .  y que la casa funcione.",
+        heading: "Quieres que los huÃ©spedes se sientan bienvenidos,y que la casa funcione.",
         subtitle: "Las normas deben sentirse cÃ¡lidas, no formales.",
         body: "Kinly mantiene visibles las expectativas con un tono humano para que hospedar sea acogedor y justo.",
       },
       hero: {
         headline: "Un hogar acogedor con normas claras.",
         subhead: "Fija la base una vez, con calidez.",
-        body: "Kinly muestra a huÃ©spedes y residentes las mismas expectativas simples sobre ruido, espacios y aportes .  sin recordatorios incÃ³modos.",
+        body: "Kinly muestra a huÃ©spedes y residentes las mismas expectativas simples sobre ruido, espacios y aportes,sin recordatorios incÃ³modos.",
         ctaHeading: "Recibe con claridad",
       },
       screens: [
@@ -150,7 +150,7 @@ export const homestayOwnerConfig: ScenarioConfig = {
           title: "Gestionar",
           eyebrow: "Ajustar",
           headline: "Actualiza normas sin tensiÃ³n",
-          copy: "Ajusta reglas de la casa o notas de anfitriÃ³n cuando cambian los huÃ©spedes .  sin charlas incÃ³modas.",
+          copy: "Ajusta reglas de la casa o notas de anfitriÃ³n cuando cambian los huÃ©spedes,sin charlas incÃ³modas.",
           footer: "Un lugar para mantener a todos alineados.",
           image:
             LANDING_SCREEN_ASSETS.es.manage,
@@ -192,13 +192,13 @@ export const homestayOwnerConfig: ScenarioConfig = {
         intro: "Kinly usa un ritmo semanal para que la hospitalidad se mantenga calmada y justa.",
         points: [
           "Revisa semanalmente para que lo pequeÃ±o no se acumule.",
-          "Ajusta expectativas sin culpas .  solo claridad.",
+          "Ajusta expectativas sin culpas,solo claridad.",
           "MantÃ©n cÃ¡lida la bienvenida mientras siguen alineados.",
         ],
         heading: "ReflexiÃ³n semanal, a ritmo humano",
       },
       toolsIntro:
-        "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la fricciÃ³n diaria .  sin convertir la hospitalidad en un sistema de tareas.",
+        "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la fricciÃ³n diaria,sin convertir la hospitalidad en un sistema de tareas.",
       sectionHeadings: {
         howItWorks: "CÃ³mo funciona Kinly",
         soundsLikeYou: "Â¿Te suena familiar?",
@@ -219,14 +219,14 @@ export const homestayOwnerConfig: ScenarioConfig = {
       whatBody:
         "ÙƒÙŠÙ†Ù„ÙŠ Ù‡Ùˆ ØªØ·Ø¨ÙŠÙ‚ Ù„Ù„Ø¹ÙŠØ´ Ø§Ù„Ù…Ø´ØªØ±Ùƒ ØµÙÙ…Ù… Ù„Ù…Ù† ÙŠØ¹ÙŠØ´ÙˆÙ† Ù…Ø¹Ø§Ù‹. ÙŠØ¨Ù‚ÙŠ ØªÙˆÙ‚Ø¹Ø§Øª Ø§Ù„Ø§Ø³ØªØ¶Ø§ÙØ© ÙˆØ§Ø¶Ø­Ø© ÙˆÙ‡Ø§Ø¯Ø¦Ø© Ø¯ÙˆÙ† Ø£Ù† ÙŠØ­ÙˆÙ„ Ø§Ù„Ø¶ÙŠØ§ÙØ© Ø¥Ù„Ù‰ ÙØ±Ø¶ Ù‚ÙˆØ§Ø¹Ø¯.",
       recognition: {
-        heading: "ØªØ±ÙŠØ¯ Ø£Ù† ÙŠØ´Ø¹Ø± Ø§Ù„Ø¶ÙŠÙˆÙ Ø¨Ø§Ù„ØªØ±Ø­ÙŠØ¨ .  ÙˆØ£Ù† ÙŠØ¹Ù…Ù„ Ù…Ù†Ø²Ù„Ùƒ Ø¨Ø³Ù„Ø§Ø³Ø©.",
+        heading: "ØªØ±ÙŠØ¯ Ø£Ù† ÙŠØ´Ø¹Ø± Ø§Ù„Ø¶ÙŠÙˆÙ Ø¨Ø§Ù„ØªØ±Ø­ÙŠØ¨,ÙˆØ£Ù† ÙŠØ¹Ù…Ù„ Ù…Ù†Ø²Ù„Ùƒ Ø¨Ø³Ù„Ø§Ø³Ø©.",
         subtitle: "ÙŠØ¬Ø¨ Ø£Ù† ØªØ¨Ø¯Ùˆ Ù‚ÙˆØ§Ø¹Ø¯ Ø§Ù„Ù…Ù†Ø²Ù„ Ø¯Ø§ÙØ¦Ø©ØŒ Ù„Ø§ Ø±Ø³Ù…ÙŠØ©.",
         body: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠØ¨Ù‚ÙŠ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§Øª Ù…Ø±Ø¦ÙŠØ© Ø¨Ù†Ø¨Ø±Ø© Ù‡Ø§Ø¯Ø¦Ø© Ø­ØªÙ‰ ØªÙƒÙˆÙ† Ø§Ù„Ø§Ø³ØªØ¶Ø§ÙØ© Ù…Ø±Ø­Ø¨Ø© ÙˆØ¹Ø§Ø¯Ù„Ø©.",
       },
       hero: {
         headline: "Ù…Ù†Ø²Ù„ Ù…Ø±Ø­Ù‘ÙØ¨ Ø¨Ù…Ø¹Ø§ÙŠÙŠØ± ÙˆØ§Ø¶Ø­Ø©.",
         subhead: "Ø¶Ø¹ Ø§Ù„Ø£Ø³Ø§Ø³ Ù…Ø±Ø©ØŒ ÙˆØ§Ø¨Ù‚Ù‡ Ø¯Ø§ÙØ¦Ø§Ù‹ ÙˆØ¨Ø´Ø±ÙŠØ§Ù‹.",
-        body: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠÙØ¸Ù‡Ø± Ù„Ù„Ø¶ÙŠÙˆÙ ÙˆØ§Ù„Ù…Ù‚ÙŠÙ…ÙŠÙ† Ù†ÙØ³ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§Øª Ø§Ù„Ø¨Ø³ÙŠØ·Ø© Ø­ÙˆÙ„ Ø§Ù„Ø¶ÙˆØ¶Ø§Ø¡ ÙˆØ§Ù„Ù…Ø³Ø§Ø­Ø§Øª ÙˆØ§Ù„Ù…Ø³Ø§Ù‡Ù…Ø§Øª .  Ø¨Ø¯ÙˆÙ† ØªØ°ÙƒÙŠØ±Ø§Øª Ù…Ø­Ø±Ø¬Ø©.",
+        body: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠÙØ¸Ù‡Ø± Ù„Ù„Ø¶ÙŠÙˆÙ ÙˆØ§Ù„Ù…Ù‚ÙŠÙ…ÙŠÙ† Ù†ÙØ³ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§Øª Ø§Ù„Ø¨Ø³ÙŠØ·Ø© Ø­ÙˆÙ„ Ø§Ù„Ø¶ÙˆØ¶Ø§Ø¡ ÙˆØ§Ù„Ù…Ø³Ø§Ø­Ø§Øª ÙˆØ§Ù„Ù…Ø³Ø§Ù‡Ù…Ø§Øª,Ø¨Ø¯ÙˆÙ† ØªØ°ÙƒÙŠØ±Ø§Øª Ù…Ø­Ø±Ø¬Ø©.",
         ctaHeading: "Ø§Ø³ØªØ¶Ù Ø¨ÙˆØ¶ÙˆØ­",
       },
       screens: [
@@ -243,7 +243,7 @@ export const homestayOwnerConfig: ScenarioConfig = {
           title: "Ø¥Ø¯Ø§Ø±Ø©",
           eyebrow: "ØªØ¹Ø¯ÙŠÙ„",
           headline: "Ø­Ø¯Ø«ÙˆØ§ Ø§Ù„Ù‚ÙˆØ§Ø¹Ø¯ Ø¨Ù„Ø§ ØªÙˆØªØ±",
-          copy: "Ø¹Ø¯Ù‘Ù„ÙˆØ§ Ù‚ÙˆØ§Ø¹Ø¯ Ø§Ù„Ø¨ÙŠØª Ø£Ùˆ Ù…Ù„Ø§Ø­Ø¸Ø§Øª Ø§Ù„Ø§Ø³ØªØ¶Ø§ÙØ© Ù…Ø¹ ØªØºÙŠÙ‘Ø± Ø§Ù„Ø¶ÙŠÙˆÙ .  Ø¯ÙˆÙ† Ù…Ø­Ø§Ø¯Ø«Ø§Øª Ù…Ø­Ø±Ø¬Ø©.",
+          copy: "Ø¹Ø¯Ù‘Ù„ÙˆØ§ Ù‚ÙˆØ§Ø¹Ø¯ Ø§Ù„Ø¨ÙŠØª Ø£Ùˆ Ù…Ù„Ø§Ø­Ø¸Ø§Øª Ø§Ù„Ø§Ø³ØªØ¶Ø§ÙØ© Ù…Ø¹ ØªØºÙŠÙ‘Ø± Ø§Ù„Ø¶ÙŠÙˆÙ,Ø¯ÙˆÙ† Ù…Ø­Ø§Ø¯Ø«Ø§Øª Ù…Ø­Ø±Ø¬Ø©.",
           footer: "Ù…ÙƒØ§Ù† ÙˆØ§Ø­Ø¯ Ù„Ø¥Ø¨Ù‚Ø§Ø¡ Ø§Ù„Ø¬Ù…ÙŠØ¹ Ù…ØªÙ†Ø§ØºÙ…ÙŠÙ†.",
           image:
             LANDING_SCREEN_ASSETS.ar.manage,
@@ -285,13 +285,13 @@ export const homestayOwnerConfig: ScenarioConfig = {
         intro: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠØ¹Ù…Ù„ Ø¨Ø¥ÙŠÙ‚Ø§Ø¹ Ø£Ø³Ø¨ÙˆØ¹ÙŠ Ù„ØªØ¨Ù‚Ù‰ Ø§Ù„Ø¶ÙŠØ§ÙØ© Ù‡Ø§Ø¯Ø¦Ø© ÙˆØ¹Ø§Ø¯Ù„Ø©.",
         points: [
           "Ø±Ø§Ø¬Ø¹ÙˆØ§ Ø£Ø³Ø¨ÙˆØ¹ÙŠØ§Ù‹ Ø­ØªÙ‰ Ù„Ø§ ØªØªØ±Ø§ÙƒÙ… Ø§Ù„Ø£Ù…ÙˆØ± Ø§Ù„ØµØºÙŠØ±Ø©.",
-          "Ø¹Ø¯Ù‘Ù„ÙˆØ§ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§Øª Ø¨Ù„Ø§ Ù„ÙˆÙ… .  ÙÙ‚Ø· ÙˆØ¶ÙˆØ­.",
+          "Ø¹Ø¯Ù‘Ù„ÙˆØ§ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§Øª Ø¨Ù„Ø§ Ù„ÙˆÙ…,ÙÙ‚Ø· ÙˆØ¶ÙˆØ­.",
           "Ø­Ø§ÙØ¸ÙˆØ§ Ø¹Ù„Ù‰ Ø¯ÙØ¡ Ø§Ù„ØªØ±Ø­ÙŠØ¨ Ù…Ø¹ Ø§Ù„Ø¨Ù‚Ø§Ø¡ Ù…ØªÙˆØ§ÙÙ‚ÙŠÙ†.",
         ],
         heading: "ØªØ£Ù…Ù„ Ø£Ø³Ø¨ÙˆØ¹ÙŠØŒ Ø¨Ø¥ÙŠÙ‚Ø§Ø¹ Ø¨Ø´Ø±ÙŠ",
       },
       toolsIntro:
-        "Ø¨Ø¹Ø¯ Ø£Ù† ØªØªÙÙ‚ÙˆØ§ Ø¹Ù„Ù‰ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§ØªØŒ ÙŠÙ‚Ø¯Ù… ÙƒÙŠÙ†Ù„ÙŠ Ø£Ø¯ÙˆØ§Øª Ø¨Ø³ÙŠØ·Ø© ØªÙ‚Ù„Ù„ Ø§Ù„Ø§Ø­ØªÙƒØ§ÙƒØ§Øª Ø§Ù„ÙŠÙˆÙ…ÙŠØ© .  Ø¨Ø¯ÙˆÙ† ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ø¶ÙŠØ§ÙØ© Ø¥Ù„Ù‰ Ù†Ø¸Ø§Ù… Ù…Ù‡Ø§Ù….",
+        "Ø¨Ø¹Ø¯ Ø£Ù† ØªØªÙÙ‚ÙˆØ§ Ø¹Ù„Ù‰ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§ØªØŒ ÙŠÙ‚Ø¯Ù… ÙƒÙŠÙ†Ù„ÙŠ Ø£Ø¯ÙˆØ§Øª Ø¨Ø³ÙŠØ·Ø© ØªÙ‚Ù„Ù„ Ø§Ù„Ø§Ø­ØªÙƒØ§ÙƒØ§Øª Ø§Ù„ÙŠÙˆÙ…ÙŠØ©,Ø¨Ø¯ÙˆÙ† ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ø¶ÙŠØ§ÙØ© Ø¥Ù„Ù‰ Ù†Ø¸Ø§Ù… Ù…Ù‡Ø§Ù….",
       sectionHeadings: {
         howItWorks: "ÙƒÙŠÙ ÙŠØ¹Ù…Ù„ ÙƒÙŠÙ†Ù„ÙŠ",
         soundsLikeYou: "Ù‡Ù„ ÙŠØ¨Ø¯Ùˆ Ù‡Ø°Ø§ Ù…Ø«Ù„ Ù…ÙƒØ§Ù†ÙƒØŸ",

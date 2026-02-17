@@ -6,7 +6,7 @@ export const liveInLandlordConfig: ScenarioConfig = {
   pageKey: "live_in_landlord",
 
   recognition: {
-    heading: "You live with your tenants .  clarity matters more.",
+    heading: "You live with your tenants , clarity matters more.",
     subtitle: "You want a calm home, not a power imbalance.",
     body: "Kinly keeps house expectations visible in a neutral, human way so everyone feels comfortable sharing the space.",
   },
@@ -18,7 +18,7 @@ export const liveInLandlordConfig: ScenarioConfig = {
   hero: {
     headline: "A calmer shared home with your tenants.",
     subhead: "Neutral clarity for noise, guests, and shared spaces.",
-    body: "Kinly shows the same baseline to you and your tenants .  so running the home stays fair, not formal.",
+    body: "Kinly shows the same baseline to you and your tenants, so running the home stays fair, not formal.",
     ctaHeading: "Set a calm baseline",
   },
 
@@ -36,7 +36,7 @@ export const liveInLandlordConfig: ScenarioConfig = {
       title: "Manage",
       eyebrow: "Adjust",
       headline: "Update the baseline without awkwardness",
-      copy: "Tweak expectations as people's schedules change .  nothing is locked in.",
+      copy: "Tweak expectations as people's schedules change, nothing is locked in.",
       footer: "Neutral updates, no power plays.",
       image:
         LANDING_SCREEN_ASSETS.en.manage,
@@ -45,7 +45,7 @@ export const liveInLandlordConfig: ScenarioConfig = {
       title: "Home Hub",
       eyebrow: "Reference",
       headline: "One calm reference for everyone",
-      copy: "Noise, guests, cleaning, and shared costs in one place .  no repeated speeches.",
+      copy: "Noise, guests, cleaning, and shared costs in one place, no repeated speeches.",
       footer: "Shared clarity, respectful tone.",
       image:
         LANDING_SCREEN_ASSETS.en.hub,
@@ -53,7 +53,7 @@ export const liveInLandlordConfig: ScenarioConfig = {
   ],
   featureScreens: [
     {
-      title: "Shared flows",
+      title: "Shared tasks",
       benefit: "Keep shared-space routines visible so expectations stay neutral for owners and tenants.",
       image: LANDING_SCREEN_ASSETS.en.flows,
     },
@@ -76,7 +76,7 @@ export const liveInLandlordConfig: ScenarioConfig = {
 
   chips: [
     "I want clarity without feeling like the boss.",
-    "I live here too .  the home should feel fair to everyone.",
+    "I live here too, the home should feel fair to everyone.",
     "I need guests/noise/cleaning clear without awkward talks.",
   ],
 
@@ -106,7 +106,7 @@ export const liveInLandlordConfig: ScenarioConfig = {
     intro: "Kinly uses a weekly rhythm so shared living stays human and calm.",
     points: [
       "Check in weekly so small issues don't stack up.",
-      "Adjust expectations without blame .  just clarity.",
+      "Adjust expectations without blame, just clarity.",
       "Keep the home warm while staying aligned.",
     ],
   },
@@ -125,14 +125,14 @@ export const liveInLandlordConfig: ScenarioConfig = {
       whatBody:
         "Kinly es una app de convivencia para quienes viven juntos. Mantiene claras las expectativas sin que tengas que ser el ejecutor ni que tus inquilinos se sientan vigilados.",
       recognition: {
-        heading: "Vives con tus inquilinos .  la claridad importa mÃ¡s.",
+        heading: "Vives con tus inquilinos, la claridad importa mÃ¡s.",
         subtitle: "Quieres un hogar tranquilo, no una relaciÃ³n de poder.",
         body: "Kinly mantiene visibles las expectativas de forma neutral y humana para que todos se sientan cÃ³modos compartiendo el espacio.",
       },
       hero: {
         headline: "Un hogar tranquilo con tus inquilinos.",
         subhead: "Claridad neutral para ruido, visitas y espacios.",
-        body: "Kinly muestra la misma base a ti y a tus inquilinos .  asÃ­ la convivencia es justa, no formal.",
+        body: "Kinly muestra la misma base a ti y a tus inquilinos, asÃ­ la convivencia es justa, no formal.",
         ctaHeading: "Fija una base tranquila",
       },
       screens: [
@@ -149,7 +149,7 @@ export const liveInLandlordConfig: ScenarioConfig = {
           title: "Gestionar",
           eyebrow: "Ajustar",
           headline: "Actualiza la base sin incomodidad",
-          copy: "Ajusta expectativas a medida que cambian los horarios .  nada queda fijo.",
+          copy: "Ajusta expectativas a medida que cambian los horarios, nada queda fijo.",
           footer: "Actualizaciones neutrales, sin juegos de poder.",
           image:
             LANDING_SCREEN_ASSETS.es.manage,
@@ -158,7 +158,7 @@ export const liveInLandlordConfig: ScenarioConfig = {
           title: "Hub",
           eyebrow: "Referencia",
           headline: "Un referente tranquilo para todos",
-          copy: "Ruido, visitas, limpieza y costos en un solo lugar .  sin discursos repetidos.",
+          copy: "Ruido, visitas, limpieza y costos en un solo lugar, sin discursos repetidos.",
           footer: "Claridad compartida, tono respetuoso.",
           image:
             LANDING_SCREEN_ASSETS.es.hub,
@@ -166,7 +166,7 @@ export const liveInLandlordConfig: ScenarioConfig = {
       ],
       chips: [
         "Quiero claridad sin sentirme jefe.",
-        "TambiÃ©n vivo aquÃ­ .  debe sentirse justo para todos.",
+        "TambiÃ©n vivo aquÃ­, debe sentirse justo para todos.",
         "Necesito visitas/ruido/limpieza claros sin charlas incÃ³modas.",
       ],
       rolePoints: [
@@ -191,13 +191,13 @@ export const liveInLandlordConfig: ScenarioConfig = {
         intro: "Kinly usa un ritmo semanal para que la convivencia siga siendo humana y tranquila.",
         points: [
           "Revisa semanalmente para que lo pequeÃ±o no se acumule.",
-          "Ajusta expectativas sin culpas .  solo claridad.",
+          "Ajusta expectativas sin culpas, solo claridad.",
           "MantÃ©n el hogar cÃ¡lido mientras siguen alineados.",
         ],
         heading: "ReflexiÃ³n semanal, a ritmo humano",
       },
       toolsIntro:
-        "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la fricciÃ³n diaria .  sin convertir el hogar en un libro de reglas.",
+        "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la fricciÃ³n diaria, sin convertir el hogar en un libro de reglas.",
       sectionHeadings: {
         howItWorks: "CÃ³mo funciona Kinly",
         soundsLikeYou: "Â¿Te suena familiar?",
@@ -218,14 +218,14 @@ export const liveInLandlordConfig: ScenarioConfig = {
       whatBody:
         "ÙƒÙŠÙ†Ù„ÙŠ Ù‡Ùˆ ØªØ·Ø¨ÙŠÙ‚ Ù„Ù„Ø¹ÙŠØ´ Ø§Ù„Ù…Ø´ØªØ±Ùƒ ØµÙÙ…Ù… Ù„Ù…Ù† ÙŠØ¹ÙŠØ´ÙˆÙ† Ù…Ø¹Ø§Ù‹. ÙŠØ¨Ù‚ÙŠ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§Øª ÙˆØ§Ø¶Ø­Ø© Ø¯ÙˆÙ† Ø£Ù† ÙŠØ¬Ø¹Ù„Ùƒ Ù…Ù†ÙÙ‘Ø°Ø§Ù‹ Ø£Ùˆ ÙŠØ¬Ø¹Ù„ Ø§Ù„Ù…Ø³ØªØ£Ø¬Ø±ÙŠÙ† ÙŠØ´Ø¹Ø±ÙˆÙ† Ø¨Ø§Ù„Ø±Ù‚Ø§Ø¨Ø©.",
       recognition: {
-        heading: "Ø£Ù†Øª ØªØ¹ÙŠØ´ Ù…Ø¹ Ù…Ø³ØªØ£Ø¬Ø±ÙŠÙƒ .  Ø§Ù„ÙˆØ¶ÙˆØ­ Ø£Ù‡Ù….",
+        heading: "Ø£Ù†Øª ØªØ¹ÙŠØ´ Ù…Ø¹ Ù…Ø³ØªØ£Ø¬Ø±ÙŠÙƒ, Ø§Ù„ÙˆØ¶ÙˆØ­ Ø£Ù‡Ù….",
         subtitle: "ØªØ±ÙŠØ¯ Ø¨ÙŠØªØ§Ù‹ Ù‡Ø§Ø¯Ø¦Ø§Ù‹ Ù„Ø§ Ø¹Ù„Ø§Ù‚Ø© Ù‚ÙˆØ©.",
         body: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠØ¨Ù‚ÙŠ ØªÙˆÙ‚Ø¹Ø§Øª Ø§Ù„Ø¨ÙŠØª Ù…Ø±Ø¦ÙŠØ© Ø¨Ù†Ø¨Ø±Ø© Ù…Ø­Ø§ÙŠØ¯Ø© ÙˆØ¨Ø´Ø±ÙŠØ© Ù„ÙŠØ´Ø¹Ø± Ø§Ù„Ø¬Ù…ÙŠØ¹ Ø¨Ø§Ù„Ø±Ø§Ø­Ø© ÙÙŠ Ø§Ù„Ù…Ø´Ø§Ø±ÙƒØ©.",
       },
       hero: {
         headline: "Ø¨ÙŠØª Ù‡Ø§Ø¯Ø¦ ØªØ´Ø§Ø±ÙƒÙ‡ Ù…Ø¹ Ø§Ù„Ù…Ø³ØªØ£Ø¬Ø±ÙŠÙ†.",
         subhead: "ÙˆØ¶ÙˆØ­ Ù…Ø­Ø§ÙŠØ¯ Ù„Ù„Ø¶ÙˆØ¶Ø§Ø¡ ÙˆØ§Ù„Ø¶ÙŠÙˆÙ ÙˆØ§Ù„Ù…Ø³Ø§Ø­Ø§Øª Ø§Ù„Ù…Ø´ØªØ±ÙƒØ©.",
-        body: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠÙØ¸Ù‡Ø± Ù†ÙØ³ Ø§Ù„Ø£Ø³Ø§Ø³ Ù„Ùƒ ÙˆÙ„Ù„Ù…Ø³ØªØ£Ø¬Ø±ÙŠÙ† .  ÙÙŠØ¨Ù‚Ù‰ ØªØ¯Ø¨ÙŠØ± Ø§Ù„Ø¨ÙŠØª Ø¹Ø§Ø¯Ù„Ø§Ù‹ Ù„Ø§ Ø±Ø³Ù…ÙŠØ§Ù‹.",
+        body: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠÙØ¸Ù‡Ø± Ù†ÙØ³ Ø§Ù„Ø£Ø³Ø§Ø³ Ù„Ùƒ ÙˆÙ„Ù„Ù…Ø³ØªØ£Ø¬Ø±ÙŠÙ†, ÙÙŠØ¨Ù‚Ù‰ ØªØ¯Ø¨ÙŠØ± Ø§Ù„Ø¨ÙŠØª Ø¹Ø§Ø¯Ù„Ø§Ù‹ Ù„Ø§ Ø±Ø³Ù…ÙŠØ§Ù‹.",
         ctaHeading: "Ø¶Ø¹ Ø£Ø³Ø§Ø³Ø§Ù‹ Ù‡Ø§Ø¯Ø¦Ø§Ù‹",
       },
       screens: [
@@ -242,7 +242,7 @@ export const liveInLandlordConfig: ScenarioConfig = {
           title: "Ø¥Ø¯Ø§Ø±Ø©",
           eyebrow: "ØªØ¹Ø¯ÙŠÙ„",
           headline: "Ø­Ø¯Ù‘Ø« Ø§Ù„Ø£Ø³Ø§Ø³ Ø¨Ù„Ø§ Ø¥Ø­Ø±Ø§Ø¬",
-          copy: "Ø¹Ø¯Ù‘Ù„ÙˆØ§ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§Øª Ù…Ø¹ ØªØºÙŠØ± Ø§Ù„Ø¬Ø¯Ø§ÙˆÙ„ .  Ù„Ø§ Ø´ÙŠØ¡ Ù…Ù‚ÙÙ„.",
+          copy: "Ø¹Ø¯Ù‘Ù„ÙˆØ§ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§Øª Ù…Ø¹ ØªØºÙŠØ± Ø§Ù„Ø¬Ø¯Ø§ÙˆÙ„, Ù„Ø§ Ø´ÙŠØ¡ Ù…Ù‚ÙÙ„.",
           footer: "ØªØ­Ø¯ÙŠØ«Ø§Øª Ù…Ø­Ø§ÙŠØ¯Ø© Ø¨Ù„Ø§ ØµØ±Ø§Ø¹Ø§Øª Ù‚ÙˆØ©.",
           image:
             LANDING_SCREEN_ASSETS.ar.manage,
@@ -251,7 +251,7 @@ export const liveInLandlordConfig: ScenarioConfig = {
           title: "Ù…Ø±ÙƒØ² Ø§Ù„Ù…Ù†Ø²Ù„",
           eyebrow: "Ù…Ø±Ø¬Ø¹",
           headline: "Ù…Ø±Ø¬Ø¹ Ù‡Ø§Ø¯Ø¦ Ù„Ù„Ø¬Ù…ÙŠØ¹",
-          copy: "Ø§Ù„Ø¶ÙˆØ¶Ø§Ø¡ ÙˆØ§Ù„Ø¶ÙŠÙˆÙ ÙˆØ§Ù„ØªÙ†Ø¸ÙŠÙ ÙˆØ§Ù„ØªÙƒØ§Ù„ÙŠÙ ÙÙŠ Ù…ÙƒØ§Ù† ÙˆØ§Ø­Ø¯ .  Ø¨Ù„Ø§ Ø®Ø·Ø¨ Ù…ÙƒØ±Ø±Ø©.",
+          copy: "Ø§Ù„Ø¶ÙˆØ¶Ø§Ø¡ ÙˆØ§Ù„Ø¶ÙŠÙˆÙ ÙˆØ§Ù„ØªÙ†Ø¸ÙŠÙ ÙˆØ§Ù„ØªÙƒØ§Ù„ÙŠÙ ÙÙŠ Ù…ÙƒØ§Ù† ÙˆØ§Ø­Ø¯, Ø¨Ù„Ø§ Ø®Ø·Ø¨ Ù…ÙƒØ±Ø±Ø©.",
           footer: "ÙˆØ¶ÙˆØ­ Ù…Ø´ØªØ±ÙƒØŒ Ù†Ø¨Ø±Ø© Ù…Ø­ØªØ±Ù…Ø©.",
           image:
             LANDING_SCREEN_ASSETS.ar.hub,
@@ -259,7 +259,7 @@ export const liveInLandlordConfig: ScenarioConfig = {
       ],
       chips: [
         "Ø£Ø±ÙŠØ¯ ÙˆØ¶ÙˆØ­Ø§Ù‹ Ø¯ÙˆÙ† Ø£Ù† Ø£Ø¨Ø¯Ùˆ Ø±Ø¦ÙŠØ³Ø§Ù‹.",
-        "Ø£Ù†Ø§ Ø£Ø¹ÙŠØ´ Ù‡Ù†Ø§ Ø£ÙŠØ¶Ø§Ù‹ .  ÙŠØ¬Ø¨ Ø£Ù† ÙŠØ´Ø¹Ø± Ø§Ù„Ø¬Ù…ÙŠØ¹ Ø¨Ø§Ù„Ø¹Ø¯Ù„.",
+        "Ø£Ù†Ø§ Ø£Ø¹ÙŠØ´ Ù‡Ù†Ø§ Ø£ÙŠØ¶Ø§Ù‹, ÙŠØ¬Ø¨ Ø£Ù† ÙŠØ´Ø¹Ø± Ø§Ù„Ø¬Ù…ÙŠØ¹ Ø¨Ø§Ù„Ø¹Ø¯Ù„.",
         "Ø£Ø­ØªØ§Ø¬ ÙˆØ¶ÙˆØ­ Ø§Ù„Ø¶ÙŠÙˆÙ/Ø§Ù„Ø¶ÙˆØ¶Ø§Ø¡/Ø§Ù„ØªÙ†Ø¸ÙŠÙ Ø¨Ù„Ø§ Ù…Ø­Ø§Ø¯Ø«Ø§Øª Ù…Ø­Ø±Ø¬Ø©.",
       ],
       rolePoints: [
@@ -284,13 +284,13 @@ export const liveInLandlordConfig: ScenarioConfig = {
         intro: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠØ¹Ù…Ù„ Ø¨Ø¥ÙŠÙ‚Ø§Ø¹ Ø£Ø³Ø¨ÙˆØ¹ÙŠ Ù„ØªØ¨Ù‚Ù‰ Ø§Ù„Ù…Ø¹ÙŠØ´Ø© Ø§Ù„Ù…Ø´ØªØ±ÙƒØ© Ø¨Ø´Ø±ÙŠØ© ÙˆÙ‡Ø§Ø¯Ø¦Ø©.",
         points: [
           "Ø±Ø§Ø¬Ø¹ÙˆØ§ Ø£Ø³Ø¨ÙˆØ¹ÙŠØ§Ù‹ Ø­ØªÙ‰ Ù„Ø§ ØªØªØ±Ø§ÙƒÙ… Ø§Ù„Ø£Ù…ÙˆØ± Ø§Ù„ØµØºÙŠØ±Ø©.",
-          "Ø¹Ø¯Ù‘Ù„ÙˆØ§ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§Øª Ø¨Ø¯ÙˆÙ† Ù„ÙˆÙ… .  ÙÙ‚Ø· ÙˆØ¶ÙˆØ­.",
+          "Ø¹Ø¯Ù‘Ù„ÙˆØ§ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§Øª Ø¨Ø¯ÙˆÙ† Ù„ÙˆÙ…, ÙÙ‚Ø· ÙˆØ¶ÙˆØ­.",
           "Ø­Ø§ÙØ¸ÙˆØ§ Ø¹Ù„Ù‰ Ø¯ÙØ¡ Ø§Ù„Ø¨ÙŠØª Ù…Ø¹ Ø§Ù„Ø¨Ù‚Ø§Ø¡ Ù…ØªÙˆØ§ÙÙ‚ÙŠÙ†.",
         ],
         heading: "ØªØ£Ù…Ù„ Ø£Ø³Ø¨ÙˆØ¹ÙŠØŒ Ø¨Ø¥ÙŠÙ‚Ø§Ø¹ Ø¨Ø´Ø±ÙŠ",
       },
       toolsIntro:
-        "Ø¨Ø¹Ø¯ Ø£Ù† ØªØªÙÙ‚ÙˆØ§ Ø¹Ù„Ù‰ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§ØªØŒ ÙŠÙ‚Ø¯Ù… ÙƒÙŠÙ†Ù„ÙŠ Ø£Ø¯ÙˆØ§Øª Ø¨Ø³ÙŠØ·Ø© ØªÙ‚Ù„Ù„ Ø§Ù„Ø§Ø­ØªÙƒØ§ÙƒØ§Øª Ø§Ù„ÙŠÙˆÙ…ÙŠØ© .  Ø¨Ø¯ÙˆÙ† ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ù…Ù†Ø²Ù„ Ø¥Ù„Ù‰ ÙƒØªØ§Ø¨ Ù‚ÙˆØ§Ø¹Ø¯.",
+        "Ø¨Ø¹Ø¯ Ø£Ù† ØªØªÙÙ‚ÙˆØ§ Ø¹Ù„Ù‰ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§ØªØŒ ÙŠÙ‚Ø¯Ù… ÙƒÙŠÙ†Ù„ÙŠ Ø£Ø¯ÙˆØ§Øª Ø¨Ø³ÙŠØ·Ø© ØªÙ‚Ù„Ù„ Ø§Ù„Ø§Ø­ØªÙƒØ§ÙƒØ§Øª Ø§Ù„ÙŠÙˆÙ…ÙŠØ©, Ø¨Ø¯ÙˆÙ† ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ù…Ù†Ø²Ù„ Ø¥Ù„Ù‰ ÙƒØªØ§Ø¨ Ù‚ÙˆØ§Ø¹Ø¯.",
       sectionHeadings: {
         howItWorks: "ÙƒÙŠÙ ÙŠØ¹Ù…Ù„ ÙƒÙŠÙ†Ù„ÙŠ",
         soundsLikeYou: "Ù‡Ù„ ÙŠØ¨Ø¯Ùˆ Ù‡Ø°Ø§ Ù…Ø«Ù„ Ù…ÙƒØ§Ù†ÙƒØŸ",

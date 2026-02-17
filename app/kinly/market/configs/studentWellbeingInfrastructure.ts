@@ -18,7 +18,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
   hero: {
     headline: "Calm shared living that supports wellbeing.",
     subhead: "Visibility without surveillance; clarity without blame.",
-    body: "Kinly shows how the house is feeling and what needs attention .  without scoreboards or enforcement.",
+    body: "Kinly shows how the house is feeling and what needs attention, without scoreboards or enforcement.",
     ctaHeading: "Keep the house steady",
   },
 
@@ -36,7 +36,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
       title: "Manage",
       eyebrow: "Adjust",
       headline: "Tweak norms without enforcement",
-      copy: "Update noise/guests/cleaning expectations as cohorts change .  no one gets singled out.",
+      copy: "Update noise/guests/cleaning expectations as cohorts change, no one gets singled out.",
       footer: "Neutral updates, student-friendly tone.",
       image:
         LANDING_SCREEN_ASSETS.en.manage,
@@ -45,7 +45,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
       title: "Home Hub",
       eyebrow: "Reference",
       headline: "One calm reference for everyone",
-      copy: "Noise, guests, wellbeing notes, and shared costs in one place .  no streaks or scores.",
+      copy: "Noise, guests, wellbeing notes, and shared costs in one place, no streaks or scores.",
       footer: "Clarity that feels caring, not monitoring.",
       image:
         LANDING_SCREEN_ASSETS.en.hub,
@@ -53,7 +53,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
   ],
   featureScreens: [
     {
-      title: "Shared flows",
+      title: "Shared tasks",
       benefit: "Keep shared routines visible with context so support feels clear, not corrective.",
       image: LANDING_SCREEN_ASSETS.en.flows,
     },
@@ -105,7 +105,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
   weekly: {
     intro: "Kinly uses a weekly rhythm so support stays human-paced.",
     points: [
-      "Check in weekly, not daily .  no streaks to maintain.",
+      "Check in weekly, not daily, no streaks to maintain.",
       "Reflections are for understanding, not grading.",
       "Reset calmly when the vibe shifts.",
     ],
@@ -132,7 +132,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
       hero: {
         headline: "Convivencia tranquila que apoya el bienestar.",
         subhead: "Visibilidad sin vigilancia; claridad sin culpas.",
-        body: "Kinly muestra cÃ³mo se siente la casa y quÃ© necesita atenciÃ³n .  sin marcadores ni enforcement.",
+        body: "Kinly muestra cÃ³mo se siente la casa y quÃ© necesita atenciÃ³n, sin marcadores ni enforcement.",
         ctaHeading: "MantÃ©n la casa estable",
       },
       screens: [
@@ -149,7 +149,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
           title: "Gestionar",
           eyebrow: "Ajustar",
           headline: "Ajusta normas sin enforcement",
-          copy: "Actualiza ruido/visitas/limpieza cuando cambian las cohortes .  nadie es seÃ±alado.",
+          copy: "Actualiza ruido/visitas/limpieza cuando cambian las cohortes, nadie es seÃ±alado.",
           footer: "Actualizaciones neutrales, tono estudiantil.",
           image:
             LANDING_SCREEN_ASSETS.es.manage,
@@ -158,7 +158,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
           title: "Hub",
           eyebrow: "Referencia",
           headline: "Un referente tranquilo para todos",
-          copy: "Ruido, visitas, notas de bienestar y costos compartidos en un lugar .  sin rachas ni puntajes.",
+          copy: "Ruido, visitas, notas de bienestar y costos compartidos en un lugar, sin rachas ni puntajes.",
           footer: "Claridad que se siente cuidado, no monitoreo.",
           image:
             LANDING_SCREEN_ASSETS.es.hub,
@@ -190,14 +190,14 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
       weekly: {
         intro: "Kinly usa un ritmo semanal para que el apoyo sea a ritmo humano.",
         points: [
-          "Revisa semanalmente, no a diario .  sin rachas que mantener.",
+          "Revisa semanalmente, no a diario, sin rachas que mantener.",
           "Las reflexiones son para entender, no para calificar.",
           "Reinicia con calma cuando cambie el ambiente.",
         ],
         heading: "ReflexiÃ³n semanal, a ritmo humano",
       },
       toolsIntro:
-        "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la fricciÃ³n diaria .  sin convertir el bienestar en monitoreo.",
+        "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la fricciÃ³n diaria, sin convertir el bienestar en monitoreo.",
       sectionHeadings: {
         howItWorks: "CÃ³mo funciona Kinly",
         soundsLikeYou: "Â¿Te suena familiar?",
@@ -225,7 +225,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
       hero: {
         headline: "Ù…Ø¹ÙŠØ´Ø© Ù…Ø´ØªØ±ÙƒØ© Ù‡Ø§Ø¯Ø¦Ø© ØªØ¯Ø¹Ù… Ø§Ù„Ø±ÙØ§Ù‡.",
         subhead: "ÙˆØ¶ÙˆØ­ Ø¨Ù„Ø§ Ù…Ø±Ø§Ù‚Ø¨Ø©Ø› Ø´ÙØ§ÙÙŠØ© Ø¨Ù„Ø§ Ù„ÙˆÙ….",
-        body: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠÙØ¸Ù‡Ø± Ø´Ø¹ÙˆØ± Ø§Ù„Ø¨ÙŠØª ÙˆÙ…Ø§ ÙŠØ­ØªØ§Ø¬Ù‡ .  Ø¨Ù„Ø§ Ù„ÙˆØ­Ø§Øª Ù†Ù‚Ø§Ø· Ø£Ùˆ ÙØ±Ø¶.",
+        body: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠÙØ¸Ù‡Ø± Ø´Ø¹ÙˆØ± Ø§Ù„Ø¨ÙŠØª ÙˆÙ…Ø§ ÙŠØ­ØªØ§Ø¬Ù‡, Ø¨Ù„Ø§ Ù„ÙˆØ­Ø§Øª Ù†Ù‚Ø§Ø· Ø£Ùˆ ÙØ±Ø¶.",
         ctaHeading: "Ø£Ø¨Ù‚Ù Ø§Ù„Ø¨ÙŠØª Ù…Ø³ØªÙ‚Ø±Ø§Ù‹",
       },
       screens: [
@@ -242,7 +242,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
           title: "Ø¥Ø¯Ø§Ø±Ø©",
           eyebrow: "ØªØ¹Ø¯ÙŠÙ„",
           headline: "Ø¹Ø¯Ù‘Ù„ÙˆØ§ Ø§Ù„Ù…Ø¹Ø§ÙŠÙŠØ± Ø¨Ù„Ø§ ÙØ±Ø¶",
-          copy: "Ø­Ø¯Ø«ÙˆØ§ ØªÙˆÙ‚Ø¹Ø§Øª Ø§Ù„Ø¶ÙˆØ¶Ø§Ø¡/Ø§Ù„Ø¶ÙŠÙˆÙ/Ø§Ù„Ù†Ø¸Ø§ÙØ© Ù…Ø¹ ØªØºÙŠØ± Ø§Ù„Ù…Ø¬Ù…ÙˆØ¹Ø§Øª .  Ø¯ÙˆÙ† Ø£Ù† ÙŠÙØ³ØªÙ‡Ø¯Ù Ø£Ø­Ø¯.",
+          copy: "Ø­Ø¯Ø«ÙˆØ§ ØªÙˆÙ‚Ø¹Ø§Øª Ø§Ù„Ø¶ÙˆØ¶Ø§Ø¡/Ø§Ù„Ø¶ÙŠÙˆÙ/Ø§Ù„Ù†Ø¸Ø§ÙØ© Ù…Ø¹ ØªØºÙŠØ± Ø§Ù„Ù…Ø¬Ù…ÙˆØ¹Ø§Øª, Ø¯ÙˆÙ† Ø£Ù† ÙŠÙØ³ØªÙ‡Ø¯Ù Ø£Ø­Ø¯.",
           footer: "ØªØ­Ø¯ÙŠØ«Ø§Øª Ù…Ø­Ø§ÙŠØ¯Ø©ØŒ Ø¨Ù„Ù‡Ø¬Ø© ØµØ¯ÙŠÙ‚Ø© Ù„Ù„Ø·Ù„Ø§Ø¨.",
           image:
             LANDING_SCREEN_ASSETS.ar.manage,
@@ -251,7 +251,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
           title: "Ù…Ø±ÙƒØ² Ø§Ù„Ù…Ù†Ø²Ù„",
           eyebrow: "Ù…Ø±Ø¬Ø¹",
           headline: "Ù…Ø±Ø¬Ø¹ Ù‡Ø§Ø¯Ø¦ Ù„Ù„Ø¬Ù…ÙŠØ¹",
-          copy: "Ø§Ù„Ø¶ÙˆØ¶Ø§Ø¡ ÙˆØ§Ù„Ø¶ÙŠÙˆÙ ÙˆÙ…Ù„Ø§Ø­Ø¸Ø§Øª Ø§Ù„Ø±ÙØ§Ù‡ ÙˆØ§Ù„ØªÙƒØ§Ù„ÙŠÙ Ø§Ù„Ù…Ø´ØªØ±ÙƒØ© ÙÙŠ Ù…ÙƒØ§Ù† ÙˆØ§Ø­Ø¯ .  Ø¨Ù„Ø§ Ø³Ù„Ø§Ø³Ù„ Ø£Ùˆ Ù†Ù‚Ø§Ø·.",
+          copy: "Ø§Ù„Ø¶ÙˆØ¶Ø§Ø¡ ÙˆØ§Ù„Ø¶ÙŠÙˆÙ ÙˆÙ…Ù„Ø§Ø­Ø¸Ø§Øª Ø§Ù„Ø±ÙØ§Ù‡ ÙˆØ§Ù„ØªÙƒØ§Ù„ÙŠÙ Ø§Ù„Ù…Ø´ØªØ±ÙƒØ© ÙÙŠ Ù…ÙƒØ§Ù† ÙˆØ§Ø­Ø¯, Ø¨Ù„Ø§ Ø³Ù„Ø§Ø³Ù„ Ø£Ùˆ Ù†Ù‚Ø§Ø·.",
           footer: "ÙˆØ¶ÙˆØ­ ÙŠØ´Ø¹Ø± Ø¨Ø§Ù„Ø¹Ù†Ø§ÙŠØ©ØŒ Ù„Ø§ Ø§Ù„Ù…Ø±Ø§Ù‚Ø¨Ø©.",
           image:
             LANDING_SCREEN_ASSETS.ar.hub,
@@ -283,14 +283,14 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
       weekly: {
         intro: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠØ³ØªØ®Ø¯Ù… Ø¥ÙŠÙ‚Ø§Ø¹Ø§Ù‹ Ø£Ø³Ø¨ÙˆØ¹ÙŠØ§Ù‹ Ù„ÙŠØ¨Ù‚Ù‰ Ø§Ù„Ø¯Ø¹Ù… Ø¨Ø¥ÙŠÙ‚Ø§Ø¹ Ø¨Ø´Ø±ÙŠ.",
         points: [
-          "Ø±Ø§Ø¬Ø¹ÙˆØ§ Ø£Ø³Ø¨ÙˆØ¹ÙŠØ§Ù‹ØŒ Ù„Ø§ ÙŠÙˆÙ…ÙŠØ§Ù‹ .  Ø¨Ù„Ø§ Ø³Ù„Ø§Ø³Ù„ Ù„Ù„Ø­ÙØ§Ø¸ Ø¹Ù„ÙŠÙ‡Ø§.",
+          "Ø±Ø§Ø¬Ø¹ÙˆØ§ Ø£Ø³Ø¨ÙˆØ¹ÙŠØ§Ù‹ØŒ Ù„Ø§ ÙŠÙˆÙ…ÙŠØ§Ù‹, Ø¨Ù„Ø§ Ø³Ù„Ø§Ø³Ù„ Ù„Ù„Ø­ÙØ§Ø¸ Ø¹Ù„ÙŠÙ‡Ø§.",
           "Ø§Ù„ØªØ£Ù…Ù„Ø§Øª Ù„Ù„ÙÙ‡Ù…ØŒ Ù„Ø§ Ù„Ù„ØªÙ‚ÙŠÙŠÙ….",
           "Ø£Ø¹ÙŠØ¯ÙˆØ§ Ø§Ù„Ø¶Ø¨Ø· Ø¨Ù‡Ø¯ÙˆØ¡ Ø¹Ù†Ø¯Ù…Ø§ ÙŠØªØºÙŠØ± Ø§Ù„Ø¬Ùˆ.",
         ],
         heading: "ØªØ£Ù…Ù„ Ø£Ø³Ø¨ÙˆØ¹ÙŠØŒ Ø¨Ø¥ÙŠÙ‚Ø§Ø¹ Ø¨Ø´Ø±ÙŠ",
       },
       toolsIntro:
-        "Ø¨Ø¹Ø¯ Ø£Ù† ØªØªÙÙ‚ÙˆØ§ Ø¹Ù„Ù‰ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§ØªØŒ ÙŠÙ‚Ø¯Ù… ÙƒÙŠÙ†Ù„ÙŠ Ø£Ø¯ÙˆØ§Øª Ø¨Ø³ÙŠØ·Ø© ØªÙ‚Ù„Ù„ Ø§Ù„Ø§Ø­ØªÙƒØ§ÙƒØ§Øª Ø§Ù„ÙŠÙˆÙ…ÙŠØ© .  Ø¨Ø¯ÙˆÙ† ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ø±ÙØ§Ù‡ Ø¥Ù„Ù‰ Ù…Ø±Ø§Ù‚Ø¨Ø©.",
+        "Ø¨Ø¹Ø¯ Ø£Ù† ØªØªÙÙ‚ÙˆØ§ Ø¹Ù„Ù‰ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§ØªØŒ ÙŠÙ‚Ø¯Ù… ÙƒÙŠÙ†Ù„ÙŠ Ø£Ø¯ÙˆØ§Øª Ø¨Ø³ÙŠØ·Ø© ØªÙ‚Ù„Ù„ Ø§Ù„Ø§Ø­ØªÙƒØ§ÙƒØ§Øª Ø§Ù„ÙŠÙˆÙ…ÙŠØ©, Ø¨Ø¯ÙˆÙ† ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ø±ÙØ§Ù‡ Ø¥Ù„Ù‰ Ù…Ø±Ø§Ù‚Ø¨Ø©.",
       sectionHeadings: {
         howItWorks: "ÙƒÙŠÙ ÙŠØ¹Ù…Ù„ ÙƒÙŠÙ†Ù„ÙŠ",
         soundsLikeYou: "Ù‡Ù„ ÙŠØ¨Ø¯Ùˆ Ù‡Ø°Ø§ Ù…Ø«Ù„ Ù…ÙƒØ§Ù†ÙƒØŸ",

@@ -8,7 +8,7 @@ export const flatAgreementsConfig: ScenarioConfig = {
   recognition: {
     heading: "Agreements matter, but paperwork isn't the vibe.",
     subtitle: "You need clarity on shared living without turning anyone into the boss.",
-    body: "Kinly keeps housemate agreements visible, calm, and human .  no policing, no legalese.",
+    body: "Kinly keeps housemate agreements visible, calm, and human, no policing, no legalese.",
   },
 
   whatHeading: "What Kinly is",
@@ -17,7 +17,7 @@ export const flatAgreementsConfig: ScenarioConfig = {
 
   hero: {
     headline: "Clear agreements, human tone.",
-    subhead: "One place for house norms, shared costs, and expectations .  no lecture required.",
+    subhead: "One place for house norms, shared costs, and expectations , no lecture required.",
     body: "Kinly lets housemates see the same baseline for noise, guests, cleaning, and shared costs, while staying pressure-free.",
     ctaHeading: "Set the baseline together",
   },
@@ -27,7 +27,7 @@ export const flatAgreementsConfig: ScenarioConfig = {
       title: "Today",
       eyebrow: "Right now",
       headline: "What needs attention",
-      copy: "Noise, guests, shared chores and quick resets .  without sounding bossy.",
+      copy: "Noise, guests, shared chores and quick resets ,without sounding bossy.",
       footer: "Clear signals, no policing.",
       image:
         LANDING_SCREEN_ASSETS.en.today,
@@ -45,7 +45,7 @@ export const flatAgreementsConfig: ScenarioConfig = {
       title: "Home Hub",
       eyebrow: "Reference",
       headline: "One calm reference",
-      copy: "Noise, guests, bills, and cleaning expectations in one place .  no group-chat essays.",
+      copy: "Noise, guests, bills, and cleaning expectations in one place ,no group-chat essays.",
       footer: "Shared clarity, human tone.",
       image:
         LANDING_SCREEN_ASSETS.en.hub,
@@ -53,7 +53,7 @@ export const flatAgreementsConfig: ScenarioConfig = {
   ],
   featureScreens: [
     {
-      title: "Shared flows",
+      title: "Shared tasks",
       benefit: "Keep recurring standards visible so housemate agreements stay clear without reminders.",
       image: LANDING_SCREEN_ASSETS.en.flows,
     },
@@ -106,7 +106,7 @@ export const flatAgreementsConfig: ScenarioConfig = {
     intro: "Kinly runs on a weekly rhythm so agreements stay fresh and human.",
     points: [
       "Check in weekly so small issues don't stack up.",
-      "Adjust the baseline without blame .  just clarity.",
+      "Adjust the baseline without blame, just clarity.",
       "Keep guests/noise/cleaning aligned without long threads.",
     ],
   },
@@ -127,11 +127,11 @@ export const flatAgreementsConfig: ScenarioConfig = {
       recognition: {
         heading: "Los acuerdos importan, pero el papeleo no es el ambiente.",
         subtitle: "Necesitas claridad sin parecer casero.",
-        body: "Kinly mantiene visibles los acuerdos de la casa con un tono humano .  sin vigilancia ni legalismos.",
+        body: "Kinly mantiene visibles los acuerdos de la casa con un tono humano ,sin vigilancia ni legalismos.",
       },
       hero: {
         headline: "Acuerdos claros, tono humano.",
-        subhead: "Un lugar para normas, costos y expectativas .  sin sermones.",
+        subhead: "Un lugar para normas, costos y expectativas ,sin sermones.",
         body: "Kinly deja a todos ver la misma base para ruido, visitas, limpieza y costos, sin presiÃ³n.",
         ctaHeading: "Fijen la base juntos",
       },
@@ -140,7 +140,7 @@ export const flatAgreementsConfig: ScenarioConfig = {
           title: "Hoy",
           eyebrow: "Ahora",
           headline: "QuÃ© necesita atenciÃ³n",
-          copy: "Ruido, visitas, tareas y resets rÃ¡pidos .  sin sonar mandÃ³n.",
+          copy: "Ruido, visitas, tareas y resets rÃ¡pidos ,sin sonar mandÃ³n.",
           footer: "SeÃ±ales claras, sin vigilancia.",
           image:
             LANDING_SCREEN_ASSETS.es.today,
@@ -158,7 +158,7 @@ export const flatAgreementsConfig: ScenarioConfig = {
           title: "Hub",
           eyebrow: "Referencia",
           headline: "Un referente tranquilo",
-          copy: "Ruido, visitas, facturas y limpieza en un lugar .  sin novelas en el chat.",
+          copy: "Ruido, visitas, facturas y limpieza en un lugar ,sin novelas en el chat.",
           footer: "Claridad compartida, tono humano.",
           image:
             LANDING_SCREEN_ASSETS.es.hub,
@@ -191,13 +191,13 @@ export const flatAgreementsConfig: ScenarioConfig = {
         intro: "Kinly usa un ritmo semanal para que los acuerdos sigan frescos y humanos.",
         points: [
           "Revisa semanalmente para que lo pequeÃ±o no se acumule.",
-          "Ajusta la base sin culpas .  solo claridad.",
+          "Ajusta la base sin culpas ,solo claridad.",
           "MantÃ©n alineados visitas/ruido/limpieza sin hilos eternos.",
         ],
         heading: "ReflexiÃ³n semanal, a ritmo humano",
       },
       toolsIntro:
-        "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la fricciÃ³n diaria .  sin convertir la vida compartida en un sistema de tareas.",
+        "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la fricciÃ³n diaria ,sin convertir la vida compartida en un sistema de tareas.",
       sectionHeadings: {
         howItWorks: "CÃ³mo funciona Kinly",
         soundsLikeYou: "Â¿Te suena familiar?",
@@ -220,11 +220,11 @@ export const flatAgreementsConfig: ScenarioConfig = {
       recognition: {
         heading: "Ø§Ù„Ø§ØªÙØ§Ù‚Ø§Øª Ù…Ù‡Ù…Ø©ØŒ Ù„ÙƒÙ† Ø§Ù„Ø£ÙˆØ±Ø§Ù‚ Ø§Ù„Ø±Ø³Ù…ÙŠØ© Ù„ÙŠØ³Øª Ø§Ù„Ø£Ø³Ù„ÙˆØ¨.",
         subtitle: "ØªØ­ØªØ§Ø¬ ÙˆØ¶ÙˆØ­Ø§Ù‹ ÙÙŠ Ø§Ù„Ø³ÙƒÙ† Ø§Ù„Ù…Ø´ØªØ±Ùƒ Ø¯ÙˆÙ† Ø£Ù† ØªØ¨Ø¯Ùˆ ÙƒÙ…Ø§Ù„Ùƒ Ø¹Ù‚Ø§Ø±.",
-        body: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠØ¨Ù‚ÙŠ Ø§ØªÙØ§Ù‚Ø§Øª Ø§Ù„Ø¨ÙŠØª Ù…Ø±Ø¦ÙŠØ© ÙˆÙ‡Ø§Ø¯Ø¦Ø© ÙˆØ¨Ø´Ø±ÙŠØ© .  Ø¨Ù„Ø§ Ù…Ø±Ø§Ù‚Ø¨Ø© ÙˆÙ„Ø§ Ù„ØºØ© Ù‚Ø§Ù†ÙˆÙ†ÙŠØ©.",
+        body: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠØ¨Ù‚ÙŠ Ø§ØªÙØ§Ù‚Ø§Øª Ø§Ù„Ø¨ÙŠØª Ù…Ø±Ø¦ÙŠØ© ÙˆÙ‡Ø§Ø¯Ø¦Ø© ÙˆØ¨Ø´Ø±ÙŠØ© ,Ø¨Ù„Ø§ Ù…Ø±Ø§Ù‚Ø¨Ø© ÙˆÙ„Ø§ Ù„ØºØ© Ù‚Ø§Ù†ÙˆÙ†ÙŠØ©.",
       },
       hero: {
         headline: "Ø§ØªÙØ§Ù‚Ø§Øª ÙˆØ§Ø¶Ø­Ø©ØŒ Ø¨Ù†Ø¨Ø±Ø© Ø¥Ù†Ø³Ø§Ù†ÙŠØ©.",
-        subhead: "Ù…ÙƒØ§Ù† ÙˆØ§Ø­Ø¯ Ù„Ù‚ÙˆØ§Ø¹Ø¯ Ø§Ù„Ø¨ÙŠØª ÙˆØ§Ù„ØªÙƒØ§Ù„ÙŠÙ ÙˆØ§Ù„ØªÙˆÙ‚Ø¹Ø§Øª .  Ø¨Ù„Ø§ Ø®Ø·Ø¨.",
+        subhead: "Ù…ÙƒØ§Ù† ÙˆØ§Ø­Ø¯ Ù„Ù‚ÙˆØ§Ø¹Ø¯ Ø§Ù„Ø¨ÙŠØª ÙˆØ§Ù„ØªÙƒØ§Ù„ÙŠÙ ÙˆØ§Ù„ØªÙˆÙ‚Ø¹Ø§Øª ,Ø¨Ù„Ø§ Ø®Ø·Ø¨.",
         body: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠØªÙŠØ­ Ù„Ù„Ø¬Ù…ÙŠØ¹ Ø±Ø¤ÙŠØ© Ù†ÙØ³ Ø§Ù„Ø£Ø³Ø§Ø³ Ù„Ù„Ø¶ÙˆØ¶Ø§Ø¡ ÙˆØ§Ù„Ø¶ÙŠÙˆÙ ÙˆØ§Ù„ØªÙ†Ø¸ÙŠÙ ÙˆØ§Ù„ØªÙƒØ§Ù„ÙŠÙØŒ Ù…Ø¹ Ø¨Ù‚Ø§Ø¡ Ø§Ù„Ø¶ØºØ· ØµÙØ±Ø§Ù‹.",
         ctaHeading: "Ø¶Ø¹ÙˆØ§ Ø§Ù„Ø£Ø³Ø§Ø³ Ù…Ø¹Ø§Ù‹",
       },
@@ -233,7 +233,7 @@ export const flatAgreementsConfig: ScenarioConfig = {
           title: "Ø§Ù„ÙŠÙˆÙ…",
           eyebrow: "Ø§Ù„Ø¢Ù†",
           headline: "Ù…Ø§ ÙŠØ­ØªØ§Ø¬ Ø§Ù†ØªØ¨Ø§Ù‡Ø§Ù‹",
-          copy: "Ø¶ÙˆØ¶Ø§Ø¡ØŒ Ø¶ÙŠÙˆÙØŒ ØªÙ†Ø¸ÙŠÙØ§Øª Ø³Ø±ÙŠØ¹Ø© .  Ø¯ÙˆÙ† Ø£Ù† ØªØ¨Ø¯Ùˆ Ø¢Ù…Ø±Ø§Ù‹.",
+          copy: "Ø¶ÙˆØ¶Ø§Ø¡ØŒ Ø¶ÙŠÙˆÙØŒ ØªÙ†Ø¸ÙŠÙØ§Øª Ø³Ø±ÙŠØ¹Ø© ,Ø¯ÙˆÙ† Ø£Ù† ØªØ¨Ø¯Ùˆ Ø¢Ù…Ø±Ø§Ù‹.",
           footer: "Ø¥Ø´Ø§Ø±Ø§Øª ÙˆØ§Ø¶Ø­Ø©ØŒ Ø¨Ù„Ø§ Ù…Ø±Ø§Ù‚Ø¨Ø©.",
           image:
             LANDING_SCREEN_ASSETS.ar.today,
@@ -251,7 +251,7 @@ export const flatAgreementsConfig: ScenarioConfig = {
           title: "Ù…Ø±ÙƒØ² Ø§Ù„Ù…Ù†Ø²Ù„",
           eyebrow: "Ù…Ø±Ø¬Ø¹",
           headline: "Ù…Ø±Ø¬Ø¹ Ù‡Ø§Ø¯Ø¦ ÙˆØ§Ø­Ø¯",
-          copy: "Ø§Ù„Ø¶ÙˆØ¶Ø§Ø¡ ÙˆØ§Ù„Ø¶ÙŠÙˆÙ ÙˆØ§Ù„ÙÙˆØ§ØªÙŠØ± ÙˆØ§Ù„ØªÙ†Ø¸ÙŠÙ ÙÙŠ Ù…ÙƒØ§Ù† ÙˆØ§Ø­Ø¯ .  Ø¨Ù„Ø§ Ù…Ù‚Ø§Ù„Ø§Øª Ø¯Ø±Ø¯Ø´Ø©.",
+          copy: "Ø§Ù„Ø¶ÙˆØ¶Ø§Ø¡ ÙˆØ§Ù„Ø¶ÙŠÙˆÙ ÙˆØ§Ù„ÙÙˆØ§ØªÙŠØ± ÙˆØ§Ù„ØªÙ†Ø¸ÙŠÙ ÙÙŠ Ù…ÙƒØ§Ù† ÙˆØ§Ø­Ø¯ ,Ø¨Ù„Ø§ Ù…Ù‚Ø§Ù„Ø§Øª Ø¯Ø±Ø¯Ø´Ø©.",
           footer: "ÙˆØ¶ÙˆØ­ Ù…Ø´ØªØ±ÙƒØŒ Ù†Ø¨Ø±Ø© Ø¥Ù†Ø³Ø§Ù†ÙŠØ©.",
           image:
             LANDING_SCREEN_ASSETS.ar.hub,
@@ -284,13 +284,13 @@ export const flatAgreementsConfig: ScenarioConfig = {
         intro: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠØ¹Ù…Ù„ Ø¨Ø¥ÙŠÙ‚Ø§Ø¹ Ø£Ø³Ø¨ÙˆØ¹ÙŠ Ù„ØªØ¨Ù‚Ù‰ Ø§Ù„Ø§ØªÙØ§Ù‚Ø§Øª Ø­Ø¯ÙŠØ«Ø© ÙˆØ¨Ø´Ø±ÙŠØ©.",
         points: [
           "Ø±Ø§Ø¬Ø¹ÙˆØ§ Ø£Ø³Ø¨ÙˆØ¹ÙŠØ§Ù‹ Ø­ØªÙ‰ Ù„Ø§ ØªØªØ±Ø§ÙƒÙ… Ø§Ù„Ø£Ù…ÙˆØ± Ø§Ù„ØµØºÙŠØ±Ø©.",
-          "Ø¹Ø¯Ù‘Ù„ÙˆØ§ Ø§Ù„Ø£Ø³Ø§Ø³ Ø¨Ø¯ÙˆÙ† Ù„ÙˆÙ… .  ÙÙ‚Ø· ÙˆØ¶ÙˆØ­.",
+          "Ø¹Ø¯Ù‘Ù„ÙˆØ§ Ø§Ù„Ø£Ø³Ø§Ø³ Ø¨Ø¯ÙˆÙ† Ù„ÙˆÙ… ,ÙÙ‚Ø· ÙˆØ¶ÙˆØ­.",
           "Ø£Ø¨Ù‚ÙˆØ§ Ø§Ù„Ø¶ÙŠÙˆÙ/Ø§Ù„Ø¶ÙˆØ¶Ø§Ø¡/Ø§Ù„ØªÙ†Ø¸ÙŠÙ Ù…Ù†Ø³Ù‚Ø© Ø¯ÙˆÙ† Ø®ÙŠÙˆØ· Ø·ÙˆÙŠÙ„Ø©.",
         ],
         heading: "ØªØ£Ù…Ù„ Ø£Ø³Ø¨ÙˆØ¹ÙŠØŒ Ø¨Ø¥ÙŠÙ‚Ø§Ø¹ Ø¨Ø´Ø±ÙŠ",
       },
       toolsIntro:
-        "Ø¨Ø¹Ø¯ Ø£Ù† ØªØªÙÙ‚ÙˆØ§ Ø¹Ù„Ù‰ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§ØªØŒ ÙŠÙ‚Ø¯Ù… ÙƒÙŠÙ†Ù„ÙŠ Ø£Ø¯ÙˆØ§Øª Ø¨Ø³ÙŠØ·Ø© ØªÙ‚Ù„Ù„ Ø§Ù„Ø§Ø­ØªÙƒØ§ÙƒØ§Øª Ø§Ù„ÙŠÙˆÙ…ÙŠØ© .  Ø¨Ø¯ÙˆÙ† ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ø¹ÙŠØ´ Ø§Ù„Ù…Ø´ØªØ±Ùƒ Ø¥Ù„Ù‰ Ù†Ø¸Ø§Ù… Ù…Ù‡Ø§Ù….",
+        "Ø¨Ø¹Ø¯ Ø£Ù† ØªØªÙÙ‚ÙˆØ§ Ø¹Ù„Ù‰ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§ØªØŒ ÙŠÙ‚Ø¯Ù… ÙƒÙŠÙ†Ù„ÙŠ Ø£Ø¯ÙˆØ§Øª Ø¨Ø³ÙŠØ·Ø© ØªÙ‚Ù„Ù„ Ø§Ù„Ø§Ø­ØªÙƒØ§ÙƒØ§Øª Ø§Ù„ÙŠÙˆÙ…ÙŠØ© ,Ø¨Ø¯ÙˆÙ† ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ø¹ÙŠØ´ Ø§Ù„Ù…Ø´ØªØ±Ùƒ Ø¥Ù„Ù‰ Ù†Ø¸Ø§Ù… Ù…Ù‡Ø§Ù….",
       sectionHeadings: {
         howItWorks: "ÙƒÙŠÙ ÙŠØ¹Ù…Ù„ ÙƒÙŠÙ†Ù„ÙŠ",
         soundsLikeYou: "Ù‡Ù„ ÙŠØ¨Ø¯Ùˆ Ù‡Ø°Ø§ Ù…Ø«Ù„ Ù…ÙƒØ§Ù†ÙƒØŸ",

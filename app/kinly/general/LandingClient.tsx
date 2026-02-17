@@ -134,7 +134,7 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
     }
 
     const locale = lang ?? "en";
-    const titles = ["Shared flows", "Shared groceries", "Shared bills", "Calm check-ins"];
+    const titles = ["Shared tasks", "Shared groceries", "Shared bills", "Calm check-ins"];
     const benefits = [
       "Add context, guide links, and photos so repeat tasks are clear without reminders.",
       "Capture item, quantity, notes, and photos so shopping is clear for everyone.",
