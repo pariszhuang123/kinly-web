@@ -123,6 +123,7 @@ const PLAY_STORE_URL =
     "https://play.google.com/store/apps/details?id=com.makinglifeeasie.kinly") as string;
 const APP_STORE_LABEL = "Download on the App Store";
 const PLAY_STORE_LABEL = "Get it on Google Play";
+const CONTACT_EMAIL = "paris.zhuang@makinglifeeasie.com";
 const SUPPORTING_IMAGES = {
   friction: "/images/landing/friction-shared-home.webp",
   calm: "/images/landing/calm-shared-home.webp",
@@ -610,6 +611,14 @@ export default function ScenarioLandingClient({
               </KinlyCard>
             </section>
           )}
+
+          <section className={styles.contactSection}>
+            <KinlyText variant="bodyMedium" tone="muted">
+              <a className={styles.contactLink} href={`mailto:${CONTACT_EMAIL}`}>
+                Contact us
+              </a>
+            </KinlyText>
+          </section>
         </KinlyStack>
       </KinlyShell>
     </main>

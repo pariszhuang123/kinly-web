@@ -79,7 +79,7 @@ Start here:
 
 - `/join/:inviteCode` — join a home
 - `/home/:homePublicId` — open a home
-- `/norms/:homePublicId` — public house norms (if published)
+- `/kinly/norms/:homePublicId` — public house norms (if published)
 - `/interest` — capture email + country for unsupported regions
 - `/fallback` — safe fallback
 - `/` — generic landing

@@ -48,6 +48,7 @@ const APP_STORE_URL =
 const PLAY_STORE_URL =
   (process.env.NEXT_PUBLIC_ANDROID_STORE_URL?.trim() ||
     "https://play.google.com/store/apps/details?id=com.makinglifeeasie.kinly") as string;
+const CONTACT_EMAIL = "paris.zhuang@makinglifeeasie.com";
 const PAGE_KEY = "kinly_general";
 const SUPPORTING_IMAGES = {
   friction: "/images/landing/friction-shared-home.webp",
@@ -475,6 +476,14 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
               </KinlyCard>
             </section>
           )}
+
+          <section className={styles.contactSection}>
+            <KinlyText variant="bodyMedium" tone="muted">
+              <a className={styles.contactLink} href={`mailto:${CONTACT_EMAIL}`}>
+                Contact us
+              </a>
+            </KinlyText>
+          </section>
         </KinlyStack>
       </KinlyShell>
     </main>

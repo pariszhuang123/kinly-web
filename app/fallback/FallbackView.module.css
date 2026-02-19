@@ -1,0 +1,42 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-xxl, 32px) 0;
+  background:
+    radial-gradient(
+      circle at 18% 14%,
+      color-mix(in srgb, var(--color-semantic-primary, #366d59) 14%, transparent),
+      transparent 58%
+    ),
+    radial-gradient(
+      circle at 82% 80%,
+      color-mix(in srgb, var(--color-semantic-secondary, #6a8f80) 11%, transparent),
+      transparent 60%
+    ),
+    var(--color-surface, #fafaf9);
+}
+
+.hero {
+  display: grid;
+  gap: var(--spacing-m, 12px);
+}
+
+.illustrationWrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg, 16px);
+  border: 1px solid
+    color-mix(
+      in srgb,
+      var(--color-semantic-outline, var(--color-foundation-neutral-outline, #b7c7c0)) 70%,
+      transparent
+    );
+  background: color-mix(in srgb, var(--color-semantic-primary, #366d59) 5%, transparent);
+}
+
+.illustration {
+  display: block;
+  width: 100%;
+  height: auto;
+}

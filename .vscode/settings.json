@@ -1,0 +1,14 @@
+{
+  "files.exclude": {
+    "**/tmp_trace_get/**": true
+  },
+  "search.exclude": {
+    "**/tmp_trace_get/**": true
+  },
+  "files.watcherExclude": {
+    "**/tmp_trace_get/**": true
+  },
+  "files.associations": {
+    "**/tmp_trace_get/**/*.html": "plaintext"
+  }
+}
