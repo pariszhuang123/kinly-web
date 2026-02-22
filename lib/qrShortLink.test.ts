@@ -52,4 +52,8 @@ describe("extractShortCode", () => {
       ),
     ).toBeNull();
   });
+
+  test("returns null when input is not a valid URL", () => {
+    expect(extractShortCode("not a valid url")).toBeNull();
+  });
 });

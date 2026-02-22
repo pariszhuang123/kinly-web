@@ -75,7 +75,13 @@ export default function QrHub() {
         });
 
         const data = (await response.json().catch(() => null)) as
-          | { ok?: boolean; short_url?: string; short_code?: string | null }
+          | {
+              ok?: boolean;
+              short_url?: string;
+              short_code?: string | null;
+              error?: string;
+              request_id?: string;
+            }
           | null;
 
         if (response.ok && data?.ok && typeof data.short_url === "string" && data.short_url.trim()) {
@@ -85,7 +91,11 @@ export default function QrHub() {
               ? data.short_code.trim().toLowerCase()
               : extractShortCode(finalUrl);
         } else {
-          setGenerationWarning("Short link unavailable, using full URL.");
+          const errorCode = typeof data?.error === "string" ? data.error : "SHORT_LINK_UNAVAILABLE";
+          const requestId = typeof data?.request_id === "string" ? data.request_id : null;
+          const suffix = requestId ? ` (ref ${requestId})` : "";
+          setGenerationWarning(`Short link unavailable (${errorCode})${suffix}, using full URL.`);
+          console.warn("[qr_short_link]", { errorCode, requestId, status: response.status });
         }
       } catch {
         setGenerationWarning("Short link unavailable, using full URL.");
