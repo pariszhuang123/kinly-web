@@ -6,6 +6,7 @@ import { generateQrCardPng, generateQrCardSvg } from "../_utils";
 import { saveAs } from "file-saver";
 import { KinlyStack, KinlyButton, KinlyText, KinlyHeading, KinlyLink } from "../../../../components";
 import Image from "next/image";
+import { buildQrDestination, extractShortCode } from "../../../../lib/qrShortLink";
 
 export default function QrHub() {
   const [catalog, setCatalog] = useState<QrCatalogV1 | null>(null);
@@ -21,7 +22,11 @@ export default function QrHub() {
 
   // Generation State
   const [generatedUrl, setGeneratedUrl] = useState<string | null>(null);
+  const [generatedShortCode, setGeneratedShortCode] = useState<string | null>(null);
   const [qrPreviewUrl, setQrPreviewUrl] = useState<string | null>(null);
+  const [generationWarning, setGenerationWarning] = useState<string | null>(null);
+  const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "failed">("idle");
+  const [isGenerating, setIsGenerating] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   // Load Catalog
@@ -45,20 +50,55 @@ export default function QrHub() {
 
   const handleSubmit = async () => {
     if (!pageKey || !utmCampaign || !utmSource) return;
-    
-    // Construct URL
-    const baseUrl = `https://go.makinglifeeasie.com/kinly/market/${pageKey}`;
-    const url = new URL(baseUrl);
-    url.searchParams.set("utm_campaign", utmCampaign);
-    url.searchParams.set("utm_medium", "qr");
-    url.searchParams.set("utm_source", utmSource);
-    
-    const fullUrl = url.toString();
-    setGeneratedUrl(fullUrl);
 
-    // Generate Preview
-    const preview = await generateQrCardPng(fullUrl, valueStatement || "Shared spending, simplified.");
-    setQrPreviewUrl(preview);
+    setIsGenerating(true);
+    setGenerationWarning(null);
+    setCopyStatus("idle");
+
+    try {
+      const { fallbackUrl, payload } = buildQrDestination({
+        pageKey,
+        utmCampaign,
+        utmSource,
+      });
+
+      let finalUrl = fallbackUrl;
+      let finalShortCode: string | null = null;
+
+      try {
+        const response = await fetch("/api/tools/qr/short-link", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        });
+
+        const data = (await response.json().catch(() => null)) as
+          | { ok?: boolean; short_url?: string; short_code?: string | null }
+          | null;
+
+        if (response.ok && data?.ok && typeof data.short_url === "string" && data.short_url.trim()) {
+          finalUrl = data.short_url.trim();
+          finalShortCode =
+            typeof data.short_code === "string" && data.short_code.trim()
+              ? data.short_code.trim().toLowerCase()
+              : extractShortCode(finalUrl);
+        } else {
+          setGenerationWarning("Short link unavailable, using full URL.");
+        }
+      } catch {
+        setGenerationWarning("Short link unavailable, using full URL.");
+      }
+
+      setGeneratedUrl(finalUrl);
+      setGeneratedShortCode(finalShortCode);
+
+      const preview = await generateQrCardPng(finalUrl, valueStatement || "Shared spending, simplified.");
+      setQrPreviewUrl(preview);
+    } finally {
+      setIsGenerating(false);
+    }
   };
 
   const handleDownloadPng = async () => {
@@ -72,6 +112,16 @@ export default function QrHub() {
     const svgContent = await generateQrCardSvg(generatedUrl, valueStatement || "Shared spending, simplified.");
     const blob = new Blob([svgContent], { type: "image/svg+xml;charset=utf-8" });
     saveAs(blob, `${selectedId || "qr_code"}_card.svg`);
+  };
+
+  const handleCopyUrl = async () => {
+    if (!generatedUrl) return;
+    try {
+      await navigator.clipboard.writeText(generatedUrl);
+      setCopyStatus("copied");
+    } catch {
+      setCopyStatus("failed");
+    }
   };
 
   if (loading) return <div style={{ padding: 40 }}>Loading Tools...</div>;
@@ -175,10 +225,16 @@ export default function QrHub() {
                 </select>
             </div>
 
-            <KinlyButton variant="filled" onClick={handleSubmit}>
-                Submit & Generate
+            <KinlyButton variant="filled" onClick={handleSubmit} disabled={isGenerating}>
+                {isGenerating ? "Generating..." : "Submit & Generate"}
             </KinlyButton>
         </KinlyStack>
+
+        {generationWarning && (
+            <KinlyText variant="bodySmall" tone="danger">
+                {generationWarning}
+            </KinlyText>
+        )}
 
         {qrPreviewUrl && (
             <div style={{ marginTop: "2rem", padding: "2rem", border: "1px solid #eee", background: "#fafafa", borderRadius: "8px" }}>
@@ -210,7 +266,14 @@ export default function QrHub() {
         )}
 
         {generatedUrl && (
-            <div style={{ marginTop: "1rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+            <div style={{ marginTop: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+                {generatedShortCode && (
+                    <KinlyText variant="labelMedium">
+                        Short code: <code>{generatedShortCode}</code>
+                    </KinlyText>
+                )}
+                <KinlyText variant="labelMedium">Share URL</KinlyText>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
                 <code style={{ 
                     flex: 1, 
                     padding: "8px 12px", 
@@ -228,15 +291,19 @@ export default function QrHub() {
                 </code>
                 <KinlyButton
                     variant="outlined"
-                    onClick={() => {
-                        navigator.clipboard.writeText(generatedUrl);
-                    }}
+                    onClick={handleCopyUrl}
                 >
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-                    </svg>
+                    Copy URL
                 </KinlyButton>
+                </div>
+                {copyStatus === "copied" && (
+                    <KinlyText variant="bodySmall">Copied.</KinlyText>
+                )}
+                {copyStatus === "failed" && (
+                    <KinlyText variant="bodySmall" tone="danger">
+                        Could not copy. Copy manually from the link.
+                    </KinlyText>
+                )}
             </div>
         )}
 
