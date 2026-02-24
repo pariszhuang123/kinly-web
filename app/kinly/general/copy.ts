@@ -1,4 +1,5 @@
 ﻿import { LANDING_SCREEN_ASSETS } from "../shared/landingScreenAssets";
+import { getGeneralAvailabilityBody } from "../../../lib/regionSupport";
 
 type LandingScreen = {
   title: string;
@@ -165,8 +166,7 @@ const LANDING_COPY_EN: LandingCopy = {
   toolsIntro:
     "Once expectations are aligned, Kinly offers simple tools to reduce everyday friction without turning shared living into a task system.",
   availabilityHeading: "Availability",
-  availabilityBody:
-    "Kinly is currently available in New Zealand and Singapore. We'll email you when Kinly opens in your area. No spam.",
+  availabilityBody: getGeneralAvailabilityBody("en"),
   availabilityCta: "Express interest when Kinly is available in your area.",
   storeSectionHeading: "When you are ready",
   storeSectionSubhead: "Kinly lives in the app. Start on iOS or Android.",
@@ -341,8 +341,7 @@ const LANDING_COPY_OVERRIDES: Record<string, Partial<LandingCopy>> = {
       "Kinly nunca fuerza conversaciones; te ayuda a entender antes de decidir hablar.",
     ],
     availabilityHeading: "Disponibilidad",
-    availabilityBody:
-      "Kinly estÃƒÂ¡ disponible en Nueva Zelanda y Singapur. Te avisaremos cuando abra en tu zona; sin spam.",
+    availabilityBody: getGeneralAvailabilityBody("es"),
     availabilityCta: "AvÃƒÂ­same cuando Kinly estÃƒÂ© disponible en mi zona.",
     storeSectionHeading: "Cuando estÃƒÂ©s listo",
     storeSectionSubhead: "Kinly vive en la app ,  empieza en iOS o Android.",
@@ -354,6 +353,7 @@ export function resolveLandingCopy(lang: string | null): LandingCopy {
   const overrides = LANDING_COPY_OVERRIDES[key] ?? null;
   return overrides ? { ...LANDING_COPY_EN, ...overrides } : LANDING_COPY_EN;
 }
+
 
 
 

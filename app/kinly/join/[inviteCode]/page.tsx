@@ -1,8 +1,8 @@
 import { redirect } from "next/navigation";
 import { getDetectedCountryCode } from "../../../../lib/geo";
 import { getDetectedPlatform } from "../../../../lib/platform";
+import { isSupportedRegion } from "../../../../lib/regionSupport";
 
-const SUPPORTED_REGIONS = ["NZ", "SG"];
 const INVITE_CODE_REGEX = /^[A-HJ-NP-Z2-9]{6}$/i;
 const PLAY_STORE_PACKAGE_NAME = "com.makinglifeeasie.kinly";
 const DEFAULT_PLAY_STORE_URL = `https://play.google.com/store/apps/details?id=${PLAY_STORE_PACKAGE_NAME}`;
@@ -47,9 +47,7 @@ export default async function JoinPage({ params }: { params: Params }) {
     getDetectedPlatform(),
   ]);
 
-  const isSupported = Boolean(
-    detectedCountryCode && SUPPORTED_REGIONS.includes(detectedCountryCode.toUpperCase()),
-  );
+  const isSupported = isSupportedRegion(detectedCountryCode);
 
   if (!isSupported) {
     const encodedNext = encodeURIComponent(`/kinly/join/${sanitizedInvite}`);

@@ -21,6 +21,7 @@ import {
   OutreachStore,
   readUtmParams,
 } from "../../../lib/outreachTracking";
+import { isSupportedRegion } from "../../../lib/regionSupport";
 import { resolveLandingCopy } from "./copy";
 import { resolveStoreBadges } from "../../../lib/storeBadges";
 import { resolveLandingScreenAsset } from "../shared/landingScreenAssets";
@@ -42,7 +43,6 @@ type FeatureCard = {
   image: string;
 };
 
-const SUPPORTED_REGIONS = ["NZ", "SG"];
 const APP_STORE_URL =
   (process.env.NEXT_PUBLIC_IOS_STORE_URL?.trim() || "https://apps.apple.com/app/kinly/id6756508378") as string;
 const PLAY_STORE_URL =
@@ -165,7 +165,7 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
 
   const suppressStoreCtas = useMemo(() => {
     if (!regionCountry) return false;
-    return !SUPPORTED_REGIONS.includes(regionCountry);
+    return !isSupportedRegion(regionCountry);
   }, [regionCountry]);
 
   useEffect(() => {

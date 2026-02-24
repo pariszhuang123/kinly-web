@@ -1,6 +1,7 @@
 ﻿import { LANDING_SCREEN_ASSETS } from "../../shared/landingScreenAssets";
 import { ScenarioConfig } from "../ScenarioLandingClient";
 import { LocaleCopy } from "./shared/locale";
+import { getScenarioAvailabilityBody } from "../../../../lib/regionSupport";
 
 export const lowTalkConfig: ScenarioConfig = {
   pageKey: "kinly_market_low_talk",
@@ -99,7 +100,7 @@ export const lowTalkConfig: ScenarioConfig = {
   toolsIntro:
     "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction, without turning shared living into a task system.",
   availability: {
-    body: "Kinly is currently available in New Zealand and Singapore. We will email you when Kinly opens in your area.",
+    body: getScenarioAvailabilityBody("en"),
   },
   defaultLocale: "en",
   translations: {
@@ -187,7 +188,7 @@ export const lowTalkConfig: ScenarioConfig = {
         readySubtitle: "Kinly vive en la app - empieza en iOS o Android.",
       },
       availability: {
-        body: "Kinly estÃ¡ disponible en Nueva Zelanda y Singapur. Te avisaremos cuando abra en tu regiÃ³n.",
+        body: getScenarioAvailabilityBody("es"),
       },
     } satisfies LocaleCopy,
     ar: {
@@ -279,3 +280,4 @@ export const lowTalkConfig: ScenarioConfig = {
     } satisfies LocaleCopy,
   },
 };
+

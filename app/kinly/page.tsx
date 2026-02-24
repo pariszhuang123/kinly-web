@@ -1,8 +1,8 @@
 import { redirect } from "next/navigation";
 import { getDetectedCountryCode } from "../../lib/geo";
 import { getDetectedPlatform } from "../../lib/platform";
+import { isSupportedRegion } from "../../lib/regionSupport";
 
-const SUPPORTED_REGIONS = ["NZ", "SG"];
 const DEFAULT_APP_STORE_URL = "https://apps.apple.com/app/kinly/id6756508378";
 const DEFAULT_PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=com.makinglifeeasie.kinly";
@@ -30,9 +30,7 @@ export default async function KinlyIndexPage({ searchParams }: PageProps) {
 
   const querySuffix = query.toString() ? `?${query.toString()}` : "";
 
-  const isSupported = Boolean(
-    countryCode && SUPPORTED_REGIONS.includes(countryCode.toUpperCase()),
-  );
+  const isSupported = isSupportedRegion(countryCode);
 
   if (!isSupported) {
     redirect(`/kinly/get${querySuffix}`);

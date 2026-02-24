@@ -1,6 +1,7 @@
 ﻿import { LANDING_SCREEN_ASSETS } from "../../shared/landingScreenAssets";
 import { ScenarioConfig } from "../ScenarioLandingClient";
 import { LocaleCopy } from "./shared/locale";
+import { getScenarioAvailabilityBody } from "../../../../lib/regionSupport";
 
 export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
   pageKey: "student_wellbeing_infrastructure",
@@ -114,7 +115,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
     "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction, without turning wellbeing into monitoring.",
 
   availability: {
-    body: "Kinly is currently available in New Zealand and Singapore. We will email you when Kinly opens in your area.",
+    body: getScenarioAvailabilityBody("en"),
   },
 
   defaultLocale: "en",
@@ -209,7 +210,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
         readySubtitle: "Kinly vive en la app - empieza en iOS o Android.",
       },
       availability: {
-        body: "Kinly estÃ¡ disponible en Nueva Zelanda y Singapur. Te avisaremos cuando abra en tu regiÃ³n.",
+        body: getScenarioAvailabilityBody("es"),
       },
     } satisfies LocaleCopy,
 
@@ -307,3 +308,4 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
     } satisfies LocaleCopy,
   },
 };
+

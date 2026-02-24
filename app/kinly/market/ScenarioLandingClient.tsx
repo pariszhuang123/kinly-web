@@ -21,6 +21,7 @@ import {
   OutreachStore,
   readUtmParams,
 } from "../../../lib/outreachTracking";
+import { isSupportedRegion } from "../../../lib/regionSupport";
 import { resolveStoreBadges } from "../../../lib/storeBadges";
 import { resolveLandingScreenAsset } from "../shared/landingScreenAssets";
 import styles from "../general/LandingClientGeneral.module.css";
@@ -115,7 +116,6 @@ type ScenarioLandingProps = {
   localeOverride?: string | null;
 };
 
-const SUPPORTED_REGIONS = ["NZ", "SG"];
 const APP_STORE_URL =
   (process.env.NEXT_PUBLIC_IOS_STORE_URL?.trim() || "https://apps.apple.com/app/kinly/id6756508378") as string;
 const PLAY_STORE_URL =
@@ -228,7 +228,7 @@ export default function ScenarioLandingClient({
 
   const suppressStoreCtas = useMemo(() => {
     if (!regionCountry) return false;
-    return !SUPPORTED_REGIONS.includes(regionCountry);
+    return !isSupportedRegion(regionCountry);
   }, [regionCountry]);
 
   const isRtl = lang === "ar" || lang === "he" || lang === "fa" || lang === "ur";
