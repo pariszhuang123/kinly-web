@@ -28,12 +28,9 @@ import {
   logOutreachEvent,
   markEventSent,
   normalizeCountryCode,
-  OutreachStore,
   readUtmParams,
 } from "../../../../lib/outreachTracking";
-import { isSupportedRegion } from "../../../../lib/regionSupport";
 import { normalizeShortCode } from "../../../../lib/shortLinkResolver";
-import { resolveStoreBadges } from "../../../../lib/storeBadges";
 import styles from "./PollClient.module.css";
 
 type PollClientProps = {
@@ -42,12 +39,6 @@ type PollClientProps = {
 };
 
 type LoadState = "loading" | "ready" | "error";
-
-const APP_STORE_URL =
-  (process.env.NEXT_PUBLIC_IOS_STORE_URL?.trim() || "https://apps.apple.com/app/kinly/id6756508378") as string;
-const PLAY_STORE_URL =
-  (process.env.NEXT_PUBLIC_ANDROID_STORE_URL?.trim() ||
-    "https://play.google.com/store/apps/details?id=com.makinglifeeasie.kinly") as string;
 
 function getOptionVotes(option: OutreachPollOption, results: OutreachPollResults | null): number {
   if (!results) return 0;
@@ -92,12 +83,6 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
     () => normalizeCountryCode(detectedCountryCode),
     [detectedCountryCode],
   );
-  const suppressStoreCtas = useMemo(
-    () => (normalizedCountry ? !isSupportedRegion(normalizedCountry) : false),
-    [normalizedCountry],
-  );
-  const lang = useMemo(() => uiLocale?.split("-")[0]?.toLowerCase() ?? null, [uiLocale]);
-  const storeBadges = useMemo(() => resolveStoreBadges(lang), [lang]);
 
   useEffect(() => {
     let cancelled = false;
@@ -179,9 +164,17 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
     utmParams.utm_source,
   ]);
 
-  async function handleVoteSubmit() {
-    if (!sessionId || !shortCode || !selectedOptionKey) {
-      setVoteError("Scan the official QR link to vote.");
+  async function handleVoteSubmit(optionKey: string) {
+    if (!optionKey) return;
+
+    setSelectedOptionKey(optionKey);
+
+    if (!sessionId || !shortCode) {
+      const baselineResults = await fetchOutreachPollResults(pageKey);
+      if (baselineResults) {
+        setResults(baselineResults);
+      }
+      setHasSubmittedVote(true);
       return;
     }
 
@@ -190,7 +183,7 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
 
     const result = await submitOutreachPollVote({
       shortCode,
-      optionKey: selectedOptionKey,
+      optionKey,
       sessionId,
       store: "web",
       clientVoteId: buildClientEventId(),
@@ -222,23 +215,6 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
 
     setHasSubmittedVote(true);
     setIsSubmittingVote(false);
-  }
-
-  function handleCtaClick(store: OutreachStore) {
-    if (!sessionId) return;
-
-    void logOutreachEvent({
-      event: "cta_click",
-      page_key: pageKey,
-      utm_campaign: utmParams.utm_campaign,
-      utm_medium: utmParams.utm_medium,
-      utm_source: utmParams.utm_source,
-      session_id: sessionId,
-      country: normalizedCountry || null,
-      ui_locale: uiLocale,
-      store,
-      client_event_id: buildClientEventId(),
-    });
   }
 
   const totalVotes = results?.total_votes ?? 0;
@@ -287,7 +263,9 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
                       <div key={option.option_key}>
                         <KinlyButton
                           variant={selectedOptionKey === option.option_key ? "filled" : "outlined"}
-                          onClick={() => setSelectedOptionKey(option.option_key)}
+                          disabled={isSubmittingVote}
+                          isLoading={isSubmittingVote && selectedOptionKey === option.option_key}
+                          onClick={() => void handleVoteSubmit(option.option_key)}
                         >
                           {option.label}
                         </KinlyButton>
@@ -296,27 +274,10 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
                   </div>
                 ) : null}
 
-                {!shortCode ? (
-                  <KinlyText variant="bodySmall" tone="warning">
-                    Voting is available only from official UC QR links.
-                  </KinlyText>
-                ) : null}
-
                 {voteError ? (
                   <KinlyText variant="bodySmall" tone="danger">
                     {voteError}
                   </KinlyText>
-                ) : null}
-
-                {!hasSubmittedVote ? (
-                  <KinlyButton
-                    variant="filled"
-                    disabled={!selectedOptionKey || isSubmittingVote || !shortCode}
-                    isLoading={isSubmittingVote}
-                    onClick={handleVoteSubmit}
-                  >
-                    Submit vote
-                  </KinlyButton>
                 ) : null}
 
                 {hasSubmittedVote ? (
@@ -350,38 +311,6 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
             </KinlyCard>
           ) : null}
 
-          {!suppressStoreCtas ? (
-            <KinlyCard variant="surfaceContainerHigh">
-              <KinlyStack direction="vertical" gap="s">
-                <KinlyHeading level={2}>Get Kinly</KinlyHeading>
-                <KinlyText variant="bodyMedium" tone="muted">
-                  Continue in the app to align expectations with your flat.
-                </KinlyText>
-                <div className={styles.storeCtas}>
-                  <a
-                    className={styles.storeBadgeLink}
-                    href={APP_STORE_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Download on the App Store"
-                    onClick={() => handleCtaClick("ios_app_store")}
-                  >
-                    <img src={storeBadges.apple} alt="Download on the App Store" className={styles.storeBadge} />
-                  </a>
-                  <a
-                    className={styles.storeBadgeLink}
-                    href={PLAY_STORE_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Get it on Google Play"
-                    onClick={() => handleCtaClick("google_play")}
-                  >
-                    <img src={storeBadges.play} alt="Get it on Google Play" className={styles.storeBadge} />
-                  </a>
-                </div>
-              </KinlyStack>
-            </KinlyCard>
-          ) : null}
         </KinlyStack>
       </KinlyShell>
     </main>
