@@ -45,7 +45,7 @@
                                      },
                                      {
                                          "key":  "poll_toilet_paper_v1",
-                                         "valueStatement":  "Vote once and see what most flats use."
+                                         "valueStatement":  "See how your flat compares."
                                      }
                                  ],
                     "utm_campaigns":  [
@@ -113,7 +113,7 @@
                       "utm_medium":  "qr",
                       "utm_source":  "uc",
                       "url":  "https://go.makinglifeeasie.com/kinly/polls/toilet-paper-v1?utm_campaign=uc_tp_feb2026_a\u0026utm_medium=qr\u0026utm_source=uc",
-                      "valueStatement":  "Vote once and see what most flats use."
+                      "valueStatement":  "See how your flat compares."
                   },
                   {
                       "qr_id":  "student_wellbeing",
