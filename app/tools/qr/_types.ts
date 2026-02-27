@@ -33,7 +33,10 @@ export type ValidationResult = {
 };
 
 export const CATALOG_URL = "/qr/qr_catalog.json";
-export const ALLOWED_PREFIXES = ["go.makinglifeeasie.com/kinly/market/"];
+export const ALLOWED_PREFIXES = [
+  "go.makinglifeeasie.com/kinly/market/",
+  "go.makinglifeeasie.com/kinly/polls/",
+];
 
 export function validateItem(item: QrItemV1): ValidationResult {
   const errors: string[] = [];
@@ -50,7 +53,9 @@ export function validateItem(item: QrItemV1): ValidationResult {
     );
     
     if (!isValidPrefix) {
-      errors.push(`URL must start with https://${ALLOWED_PREFIXES[0]}`);
+      errors.push(
+        `URL must start with ${ALLOWED_PREFIXES.map((prefix) => `https://${prefix}`).join(" or ")}`,
+      );
     }
     
     if (url.protocol !== "https:") {

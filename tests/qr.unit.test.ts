@@ -43,7 +43,23 @@ test("validateItem returns errors for wrong host", () => {
 
   const result = validateItem(item);
   expect(result.valid).toBe(false);
-  expect(result.errors[0]).toContain("URL must start with https://go.makinglifeeasie.com/kinly/market/");
+  expect(result.errors[0]).toContain("https://go.makinglifeeasie.com/kinly/market/");
+  expect(result.errors[0]).toContain("https://go.makinglifeeasie.com/kinly/polls/");
+});
+
+test("validateItem accepts poll URL prefix", () => {
+  const item: QrItemV1 = {
+    qr_id: "poll_test_id",
+    pageKey: "poll_toilet_paper_v1",
+    utm_campaign: "uc_tp_feb2026_a",
+    utm_medium: "qr",
+    utm_source: "uc",
+    url: "https://go.makinglifeeasie.com/kinly/polls/toilet-paper-v1?utm_campaign=uc_tp_feb2026_a&utm_medium=qr&utm_source=uc",
+  };
+
+  const result = validateItem(item);
+  expect(result.valid).toBe(true);
+  expect(result.errors).toHaveLength(0);
 });
 
 test("validateItem returns errors for missing utm params", () => {

@@ -1,7 +1,7 @@
 import { headers } from "next/headers";
 import { notFound, redirect } from "next/navigation";
 import {
-  buildDestinationUrl,
+  buildDestinationUrlWithShortCode,
   buildSyntheticSessionId,
   extractCountryCode,
   extractLocale,
@@ -102,13 +102,14 @@ export default async function ShortCodePage({ params }: { params: Params }) {
     notFound();
   }
 
-  const destinationUrl = buildDestinationUrl(
+  const destinationUrl = buildDestinationUrlWithShortCode(
     getRedirectBaseUrl({
       redirectBaseUrl: process.env.SHORT_LINK_REDIRECT_BASE_URL,
       vercelEnv: process.env.VERCEL_ENV,
       useStagingHost: process.env.SHORT_LINK_USE_STAGING_HOST,
     }),
     row,
+    shortCode,
   );
   if (!destinationUrl) {
     notFound();

@@ -2,6 +2,7 @@ import { describe, expect, test } from "vitest";
 
 import {
   buildDestinationUrl,
+  buildDestinationUrlWithShortCode,
   buildSyntheticSessionId,
   extractCountryCode,
   extractLocale,
@@ -121,6 +122,48 @@ describe("buildDestinationUrl", () => {
         page_key: "kinly_market_freshers",
       }),
     ).toBeNull();
+  });
+});
+
+describe("buildDestinationUrlWithShortCode", () => {
+  test("adds k_sc for poll destinations only", () => {
+    const url = buildDestinationUrlWithShortCode(
+      "https://go.makinglifeeasie.com",
+      {
+        target_path: "/kinly/polls/toilet-paper-v1",
+        target_query: { variant: "A", k_sc: "bad" },
+        utm_campaign: "uc_tp_feb2026_a",
+        utm_source: "uc",
+        utm_medium: "qr",
+        app_key: "kinly-web",
+        page_key: "poll_toilet_paper_v1",
+      },
+      "K8M4QZ",
+    );
+
+    expect(url).toBe(
+      "https://go.makinglifeeasie.com/kinly/polls/toilet-paper-v1?variant=A&utm_campaign=uc_tp_feb2026_a&utm_source=uc&utm_medium=qr&k_sc=k8m4qz",
+    );
+  });
+
+  test("does not add k_sc for non-poll destinations", () => {
+    const url = buildDestinationUrlWithShortCode(
+      "https://go.makinglifeeasie.com",
+      {
+        target_path: "/kinly/market/freshers",
+        target_query: {},
+        utm_campaign: "first_year_2026",
+        utm_source: "offline_event",
+        utm_medium: "qr",
+        app_key: "kinly-web",
+        page_key: "kinly_market_freshers",
+      },
+      "k8m4qz",
+    );
+
+    expect(url).toBe(
+      "https://go.makinglifeeasie.com/kinly/market/freshers?utm_campaign=first_year_2026&utm_source=offline_event&utm_medium=qr",
+    );
   });
 });
 

@@ -81,11 +81,19 @@ export function parseShortLinkRow(value: unknown): ShortLinkRow | null {
 }
 
 export function buildDestinationUrl(baseUrl: string, row: ShortLinkRow): string | null {
+  return buildDestinationUrlWithShortCode(baseUrl, row);
+}
+
+export function buildDestinationUrlWithShortCode(
+  baseUrl: string,
+  row: ShortLinkRow,
+  shortCode?: string | null,
+): string | null {
   try {
     const url = new URL(row.target_path, baseUrl);
 
     for (const [key, value] of Object.entries(row.target_query)) {
-      if (!key || key.startsWith("utm_")) continue;
+      if (!key || key.startsWith("utm_") || key === "k_sc") continue;
       if (value === null || value === undefined) continue;
       if (typeof value === "object") continue;
       url.searchParams.set(key, String(value));
@@ -95,6 +103,14 @@ export function buildDestinationUrl(baseUrl: string, row: ShortLinkRow): string 
     url.searchParams.set("utm_campaign", row.utm_campaign);
     url.searchParams.set("utm_source", row.utm_source);
     url.searchParams.set("utm_medium", row.utm_medium);
+
+    const normalizedShortCode =
+      typeof shortCode === "string" && SHORT_CODE_REGEX.test(shortCode.trim())
+        ? shortCode.trim().toLowerCase()
+        : null;
+    if (normalizedShortCode && row.target_path.startsWith("/kinly/polls/")) {
+      url.searchParams.set("k_sc", normalizedShortCode);
+    }
 
     return url.toString();
   } catch {

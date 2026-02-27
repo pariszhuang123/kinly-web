@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { extractShortCode, QrShortLinkCreatePayload } from "../../../../../lib/qrShortLink";
 
 const SHORT_CODE_REGEX = /^[a-z0-9_-]{4,24}$/i;
-const TARGET_PATH_REGEX = /^\/kinly\/market\/[a-z0-9_-]+$/;
+const TARGET_PATH_REGEX = /^\/kinly\/(?:market|polls)\/[a-z0-9_-]+$/;
 const PAGE_KEY_REGEX = /^[a-z0-9_]{3,80}$/;
 const UTM_MAX_LENGTH = 128;
 const RATE_LIMIT_WINDOW_MS = 60_000;

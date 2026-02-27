@@ -6,7 +6,12 @@ type StorageLike = {
 
 type FetchLike = (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>;
 
-export type OutreachEventType = "page_view" | "cta_click";
+export type OutreachEventType =
+  | "page_view"
+  | "poll_page_view"
+  | "poll_vote"
+  | "poll_results_view"
+  | "cta_click";
 
 export type OutreachStore = "ios_app_store" | "google_play" | "web" | "unknown";
 
@@ -25,7 +30,7 @@ export type OutreachEventPayload = {
 
 const APP_KEY = "kinly-web";
 const SESSION_STORAGE_KEY = "kinly.outreach.session";
-const PAGE_VIEW_SENT_KEY_PREFIX = "kinly.outreach.page_view.sent";
+const EVENT_SENT_KEY_PREFIX = "kinly.outreach.event.sent";
 const SESSION_ID_REGEX = /^anon_[A-Za-z0-9_-]{16,32}$/;
 const SESSION_MAX_AGE_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
 
@@ -123,14 +128,42 @@ export function ensureSessionId(options?: {
   return sessionId;
 }
 
-export function hasPageViewBeenSent(
+function getEventSentStorageKey(event: OutreachEventType, pageKey: string, sessionId: string): string {
+  return `${EVENT_SENT_KEY_PREFIX}.${event}.${pageKey}.${sessionId}`;
+}
+
+export function hasEventBeenSent(
+  event: OutreachEventType,
   pageKey: string,
   sessionId: string,
   storage: StorageLike | null = getSessionStorage(),
 ): boolean {
   if (!storage) return false;
-  const key = `${PAGE_VIEW_SENT_KEY_PREFIX}.${pageKey}.${sessionId}`;
+  const key = getEventSentStorageKey(event, pageKey, sessionId);
   return storage.getItem(key) === "1";
+}
+
+export function markEventSent(
+  event: OutreachEventType,
+  pageKey: string,
+  sessionId: string,
+  storage: StorageLike | null = getSessionStorage(),
+): void {
+  if (!storage) return;
+  const key = getEventSentStorageKey(event, pageKey, sessionId);
+  try {
+    storage.setItem(key, "1");
+  } catch {
+    // best effort
+  }
+}
+
+export function hasPageViewBeenSent(
+  pageKey: string,
+  sessionId: string,
+  storage: StorageLike | null = getSessionStorage(),
+): boolean {
+  return hasEventBeenSent("page_view", pageKey, sessionId, storage);
 }
 
 export function markPageViewSent(
@@ -138,13 +171,7 @@ export function markPageViewSent(
   sessionId: string,
   storage: StorageLike | null = getSessionStorage(),
 ): void {
-  if (!storage) return;
-  const key = `${PAGE_VIEW_SENT_KEY_PREFIX}.${pageKey}.${sessionId}`;
-  try {
-    storage.setItem(key, "1");
-  } catch {
-    // best effort
-  }
+  markEventSent("page_view", pageKey, sessionId, storage);
 }
 
 export type UtmParams = {

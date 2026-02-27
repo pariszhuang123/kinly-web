@@ -41,6 +41,15 @@ function normalizeSlugSegment(value: string): string {
     .replace(/^[-_]+|[-_]+$/g, "");
 }
 
+function toKebabCase(value: string): string {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 function toSnakeCase(value: string): string {
   return value
     .trim()
@@ -75,14 +84,36 @@ function normalizeTargetQuery(targetQuery?: ShortLinkTargetQuery): ShortLinkTarg
 export function deriveShortLinkPageKey(pageKey: string): string {
   const normalized = toSnakeCase(pageKey);
   if (!normalized) return "kinly_market_unknown";
+  if (normalized.startsWith("poll_")) return normalized;
   if (normalized.startsWith("kinly_")) return normalized;
   return `kinly_market_${normalized}`;
 }
 
+function deriveTargetPath(pageKey: string): string {
+  const normalized = toSnakeCase(pageKey);
+  if (!normalized) return "/kinly/market/unknown";
+
+  if (normalized.startsWith("poll_")) {
+    const pollSlug = toKebabCase(normalized.slice("poll_".length));
+    return `/kinly/polls/${pollSlug || "unknown"}`;
+  }
+
+  if (normalized.startsWith("kinly_polls_")) {
+    const pollSlug = toKebabCase(normalized.slice("kinly_polls_".length));
+    return `/kinly/polls/${pollSlug || "unknown"}`;
+  }
+
+  if (normalized.startsWith("kinly_market_")) {
+    const marketSlug = toKebabCase(normalized.slice("kinly_market_".length));
+    return `/kinly/market/${marketSlug || "unknown"}`;
+  }
+
+  const slug = normalizeSlugSegment(pageKey);
+  return `/kinly/market/${slug || "unknown"}`;
+}
+
 export function buildQrDestination(input: BuildQrDestinationInput): BuiltQrDestination {
-  const slug = normalizeSlugSegment(input.pageKey);
-  const safeSlug = slug || "unknown";
-  const targetPath = `/kinly/market/${safeSlug}`;
+  const targetPath = deriveTargetPath(input.pageKey);
   const targetQuery = normalizeTargetQuery(input.targetQuery);
   const utmCampaign = normalizeToken(input.utmCampaign);
   const utmSource = normalizeToken(input.utmSource);

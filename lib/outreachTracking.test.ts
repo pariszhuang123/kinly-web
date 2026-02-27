@@ -3,9 +3,11 @@ import { afterEach, describe, expect, test, vi } from "vitest";
 import {
   detectUiLocale,
   ensureSessionId,
+  hasEventBeenSent,
   buildClientEventId,
   hasPageViewBeenSent,
   logOutreachEvent,
+  markEventSent,
   markPageViewSent,
   normalizeCountryCode,
   normalizeLocaleTag,
@@ -120,6 +122,18 @@ describe("page view sent marker", () => {
     expect(hasPageViewBeenSent(pageKey, session, storage)).toBe(false);
     markPageViewSent(pageKey, session, storage);
     expect(hasPageViewBeenSent(pageKey, session, storage)).toBe(true);
+  });
+});
+
+describe("generic event sent marker", () => {
+  test("marks and detects poll events per session + page key", () => {
+    const storage = createMemoryStorage();
+    const session = "anon_abcdefghijklmnop";
+    const pageKey = "poll_toilet_paper_v1";
+
+    expect(hasEventBeenSent("poll_page_view", pageKey, session, storage)).toBe(false);
+    markEventSent("poll_page_view", pageKey, session, storage);
+    expect(hasEventBeenSent("poll_page_view", pageKey, session, storage)).toBe(true);
   });
 });
 
