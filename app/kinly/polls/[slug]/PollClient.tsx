@@ -245,7 +245,7 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
         <KinlyStack direction="vertical" gap="l">
           <KinlyStack direction="vertical" gap="xs">
             <KinlyHeading level={1}>{poll?.title ?? "UC Poll"}</KinlyHeading>
-            <KinlyText variant="bodyMedium" tone="muted">
+            <KinlyText variant="bodyMedium">
               Quick pulse check for shared-living expectations.
             </KinlyText>
           </KinlyStack>
@@ -271,11 +271,11 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
             <KinlyCard variant="surfaceContainer">
               <KinlyStack direction="vertical" gap="m">
                 <KinlyHeading level={2}>{poll.question}</KinlyHeading>
-                <KinlyText variant="bodyMedium" tone="muted">
+                <KinlyText variant="bodyMedium">
                   {totalVotes} UC students voted
                 </KinlyText>
                 {poll.description ? (
-                  <KinlyText variant="bodyMedium" tone="muted">
+                  <KinlyText variant="bodyMedium">
                     {poll.description}
                   </KinlyText>
                 ) : null}
@@ -285,7 +285,7 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
                     {options.map((option) => (
                       <div key={option.option_key}>
                         <KinlyButton
-                          variant={selectedOptionKey === option.option_key ? "filled" : "outlined"}
+                          variant="filled"
                           disabled={isSubmittingVote}
                           isLoading={isSubmittingVote && selectedOptionKey === option.option_key}
                           onClick={() => void handleVoteSubmit(option.option_key)}
@@ -343,16 +343,16 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
                           <div key={slice.option.option_key} className={styles.legendRow}>
                             <span className={styles.legendSwatch} style={{ backgroundColor: slice.color }} />
                             <KinlyText variant="bodyMedium">{slice.option.label}</KinlyText>
-                            <KinlyText variant="labelMedium" tone="muted">
+                            <KinlyText variant="labelMedium">
                               {slice.percent}% ({slice.votes})
                             </KinlyText>
                           </div>
                         ))}
                       </div>
                     </div>
-                    <KinlyText variant="bodyMedium" tone="muted">
-                      Flatmates often have different expectations on daily basics. Check this out to align
-                      expectations in your flat.
+                    <KinlyText variant="bodyMedium">
+                      You don't realise you are the House Admin... until you stop doing things and everything
+                      breaks.
                     </KinlyText>
                     <KinlyButton
                       variant="filled"
