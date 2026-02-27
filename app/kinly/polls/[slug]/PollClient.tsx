@@ -39,6 +39,14 @@ type PollClientProps = {
 };
 
 type LoadState = "loading" | "ready" | "error";
+type PieSlice = {
+  option: OutreachPollOption;
+  votes: number;
+  percent: number;
+  color: string;
+};
+
+const PIE_COLORS = ["#5EA667", "#2E7D5B", "#9CCB8D", "#5C7F7A", "#86A59C"];
 
 function getOptionVotes(option: OutreachPollOption, results: OutreachPollResults | null): number {
   if (!results) return 0;
@@ -48,6 +56,15 @@ function getOptionVotes(option: OutreachPollOption, results: OutreachPollResults
 function getOptionPercent(option: OutreachPollOption, results: OutreachPollResults | null): number {
   if (!results || results.total_votes <= 0) return 0;
   return Math.round((getOptionVotes(option, results) / results.total_votes) * 100);
+}
+
+function getPieSlices(options: OutreachPollOption[], results: OutreachPollResults | null): PieSlice[] {
+  return options.map((option, index) => ({
+    option,
+    votes: getOptionVotes(option, results),
+    percent: getOptionPercent(option, results),
+    color: PIE_COLORS[index % PIE_COLORS.length],
+  }));
 }
 
 function parseVoteError(errorCode: string): string {
@@ -218,6 +235,10 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
   }
 
   const totalVotes = results?.total_votes ?? 0;
+  const pieSlices = useMemo(() => getPieSlices(options, results), [options, results]);
+  const pieRadius = 56;
+  const pieCircumference = 2 * Math.PI * pieRadius;
+  let pieOffset = 0;
 
   return (
     <main className={styles.page}>
@@ -251,6 +272,9 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
             <KinlyCard variant="surfaceContainer">
               <KinlyStack direction="vertical" gap="m">
                 <KinlyHeading level={2}>{poll.question}</KinlyHeading>
+                <KinlyText variant="bodyMedium" tone="muted">
+                  {totalVotes} UC students voted
+                </KinlyText>
                 {poll.description ? (
                   <KinlyText variant="bodyMedium" tone="muted">
                     {poll.description}
@@ -286,25 +310,59 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
                     <KinlyText variant="bodyMedium">
                       {totalVotes} UC students voted
                     </KinlyText>
-                    <div className={styles.resultList}>
-                      {options.map((option) => {
-                        const percent = getOptionPercent(option, results);
-                        const votes = getOptionVotes(option, results);
-                        return (
-                          <div key={option.option_key} className={styles.resultRow}>
-                            <div className={styles.resultHeader}>
-                              <KinlyText variant="bodyMedium">{option.label}</KinlyText>
-                              <KinlyText variant="labelMedium" tone="muted">
-                                {percent}% ({votes})
-                              </KinlyText>
-                            </div>
-                            <div className={styles.barTrack}>
-                              <div className={styles.barFill} style={{ width: `${percent}%` }} />
-                            </div>
+                    <div className={styles.resultsGrid}>
+                      <div className={styles.pieWrap} aria-label="Poll results pie chart">
+                        <svg viewBox="0 0 140 140" className={styles.pieChart} role="img">
+                          <circle cx="70" cy="70" r={pieRadius} fill="none" stroke="#E5EAE6" strokeWidth="24" />
+                          {totalVotes > 0
+                            ? pieSlices.map((slice) => {
+                                const segment = (slice.votes / totalVotes) * pieCircumference;
+                                const dashArray = `${segment} ${Math.max(pieCircumference - segment, 0)}`;
+                                const currentOffset = pieOffset;
+                                pieOffset += segment;
+                                return (
+                                  <circle
+                                    key={slice.option.option_key}
+                                    cx="70"
+                                    cy="70"
+                                    r={pieRadius}
+                                    fill="none"
+                                    stroke={slice.color}
+                                    strokeWidth="24"
+                                    strokeLinecap="butt"
+                                    strokeDasharray={dashArray}
+                                    strokeDashoffset={-currentOffset}
+                                    transform="rotate(-90 70 70)"
+                                  />
+                                );
+                              })
+                            : null}
+                        </svg>
+                      </div>
+                      <div className={styles.legendList}>
+                        {pieSlices.map((slice) => (
+                          <div key={slice.option.option_key} className={styles.legendRow}>
+                            <span className={styles.legendSwatch} style={{ backgroundColor: slice.color }} />
+                            <KinlyText variant="bodyMedium">{slice.option.label}</KinlyText>
+                            <KinlyText variant="labelMedium" tone="muted">
+                              {slice.percent}% ({slice.votes})
+                            </KinlyText>
                           </div>
-                        );
-                      })}
+                        ))}
+                      </div>
                     </div>
+                    <KinlyText variant="bodyMedium" tone="muted">
+                      Flatmates often have different expectations on daily basics. Check this out to align
+                      expectations in your flat.
+                    </KinlyText>
+                    <KinlyButton
+                      variant="filled"
+                      href="https://go.makinglifeeasie.com/kinly"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Check this out
+                    </KinlyButton>
                   </KinlyStack>
                 ) : null}
               </KinlyStack>
