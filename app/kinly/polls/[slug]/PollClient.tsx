@@ -306,9 +306,6 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
                 {hasSubmittedVote ? (
                   <KinlyStack direction="vertical" gap="m">
                     <KinlyHeading level={3}>Results</KinlyHeading>
-                    <KinlyText variant="bodyMedium">
-                      {totalVotes} UC students voted
-                    </KinlyText>
                     <div className={styles.resultsGrid}>
                       <div className={styles.pieWrap} aria-label="Poll results pie chart">
                         <svg viewBox="0 0 140 140" className={styles.pieChart} role="img">
@@ -351,7 +348,7 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
                       </div>
                     </div>
                     <KinlyText variant="bodyMedium">
-                      You don't realise you are the House Admin... until you stop doing things and everything
+                      You don&apos;t realise you are the House Admin... until you stop doing things and everything
                       breaks.
                     </KinlyText>
                     <KinlyButton
