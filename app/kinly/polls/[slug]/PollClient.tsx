@@ -52,10 +52,10 @@ function escapeRegex(value: string): string {
 }
 
 function getDisplayTitle(poll: OutreachPollDefinition | null): string {
-  if (!poll) return "UC Poll";
+  if (!poll) return "Kinly Poll";
 
   const rawTitle = poll.title.trim();
-  if (!rawTitle) return "UC Poll";
+  if (!rawTitle) return "Kinly Poll";
 
   const pageKey = poll.page_key.trim();
   if (!pageKey) return rawTitle;
@@ -67,7 +67,7 @@ function getDisplayTitle(poll: OutreachPollDefinition | null): string {
     .replace(/\s{2,}/g, " ")
     .trim();
 
-  return stripped || "UC Poll";
+  return stripped || "Kinly Poll";
 }
 
 function getOptionVotes(option: OutreachPollOption, results: OutreachPollResults | null): number {

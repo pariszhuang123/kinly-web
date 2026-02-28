@@ -207,6 +207,7 @@ test("hides page_key-like poll title and falls back to neutral title", async () 
     ok: true,
     poll: {
       ...basePoll,
+      page_key: "poll_spreadsheet_v1",
       title: "poll_spreadsheet_v1",
     },
     options: baseOptions,
@@ -216,7 +217,7 @@ test("hides page_key-like poll title and falls back to neutral title", async () 
   await flushUntil(() => (container.textContent || "").includes("Quick pulse check"));
 
   const text = container.textContent || "";
-  expect(text).toMatch(/UC Poll/i);
+  expect(text).toMatch(/Kinly Poll/i);
   expect(text).not.toMatch(/poll_spreadsheet_v1/i);
 
   unmount();
