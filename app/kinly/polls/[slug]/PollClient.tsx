@@ -47,6 +47,29 @@ type PieSlice = {
 
 const PIE_COLORS = ["#5EA667", "#2E7D5B", "#9CCB8D", "#5C7F7A", "#86A59C"];
 
+function escapeRegex(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function getDisplayTitle(poll: OutreachPollDefinition | null): string {
+  if (!poll) return "UC Poll";
+
+  const rawTitle = poll.title.trim();
+  if (!rawTitle) return "UC Poll";
+
+  const pageKey = poll.page_key.trim();
+  if (!pageKey) return rawTitle;
+
+  if (rawTitle.toLowerCase() === pageKey.toLowerCase()) return "Kinly Poll";
+
+  const stripped = rawTitle
+    .replace(new RegExp(escapeRegex(pageKey), "ig"), "")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+
+  return stripped || "UC Poll";
+}
+
 function getOptionVotes(option: OutreachPollOption, results: OutreachPollResults | null): number {
   if (!results) return 0;
   return results.option_votes[option.option_key] ?? 0;
@@ -234,6 +257,7 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
   }
 
   const totalVotes = results?.total_votes ?? 0;
+  const displayTitle = useMemo(() => getDisplayTitle(poll), [poll]);
   const pieSlices = useMemo(() => getPieSlices(options, results), [options, results]);
   const pieRadius = 56;
   const pieCircumference = 2 * Math.PI * pieRadius;
@@ -244,7 +268,7 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
       <KinlyShell as="section">
         <KinlyStack direction="vertical" gap="l">
           <KinlyStack direction="vertical" gap="xs">
-            <KinlyHeading level={1}>{poll?.title ?? "UC Poll"}</KinlyHeading>
+            <KinlyHeading level={1}>{displayTitle}</KinlyHeading>
             <KinlyText variant="bodyMedium">
               Quick pulse check for shared-living expectations.
             </KinlyText>

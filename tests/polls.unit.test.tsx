@@ -201,3 +201,23 @@ test("regression: removed submit/warning/get-kinly UI does not render", async ()
 
   unmount();
 });
+
+test("hides page_key-like poll title and falls back to neutral title", async () => {
+  vi.mocked(outreachPoll.fetchOutreachPoll).mockResolvedValueOnce({
+    ok: true,
+    poll: {
+      ...basePoll,
+      title: "poll_spreadsheet_v1",
+    },
+    options: baseOptions,
+  });
+
+  const { container, unmount } = render(<PollClient slug="spreadsheet-v1" detectedCountryCode="NZ" />);
+  await flushUntil(() => (container.textContent || "").includes("Quick pulse check"));
+
+  const text = container.textContent || "";
+  expect(text).toMatch(/UC Poll/i);
+  expect(text).not.toMatch(/poll_spreadsheet_v1/i);
+
+  unmount();
+});
