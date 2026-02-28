@@ -155,8 +155,8 @@ test("selecting option with k_sc auto-submits and shows pie chart results", asyn
 
   expect(outreachPoll.submitOutreachPollVote).toHaveBeenCalledTimes(1);
   expect(container.querySelector("svg")).toBeTruthy();
-  expect(container.textContent || "").toMatch(/UC students voted/i);
-  expect(container.textContent || "").toMatch(/align expectations in your flat/i);
+  expect(container.textContent || "").toMatch(/votes/i);
+  expect(container.textContent || "").toMatch(/shared-living expectations/i);
 
   const ctaLink = Array.from(container.querySelectorAll("a")).find((link) =>
     (link.textContent || "").includes("Check this out"),

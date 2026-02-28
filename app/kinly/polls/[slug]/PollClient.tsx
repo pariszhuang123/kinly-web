@@ -272,7 +272,7 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
               <KinlyStack direction="vertical" gap="m">
                 <KinlyHeading level={2}>{poll.question}</KinlyHeading>
                 <KinlyText variant="bodyMedium">
-                  {totalVotes} UC students voted
+                  {totalVotes} votes
                 </KinlyText>
                 {poll.description ? (
                   <KinlyText variant="bodyMedium">
