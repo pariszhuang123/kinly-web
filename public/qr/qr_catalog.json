@@ -49,11 +49,11 @@
                                      },
                                      {
                                          "key":  "poll_rent_reminder_v1",
-                                         "valueStatement":  "See if it\u0027s just you."
+                                         "valueStatement":  "See if it's just you."
                                      },
                                      {
                                          "key":  "poll_milk_v1",
-                                         "valueStatement":  "See if you\u0027re the spreadsheet."
+                                         "valueStatement":  "See if you're the spreadsheet."
                                      }
                                  ],
                     "utm_campaigns":  [
@@ -169,7 +169,7 @@
                       "utm_medium":  "qr",
                       "utm_source":  "offline_event",
                       "url":  "https://go.makinglifeeasie.com/kinly/market/flat-agreements?utm_campaign=early_interest_2026\u0026utm_medium=qr\u0026utm_source=offline_event",
-                      "valueStatement":  "Know what the flat agrees onâ€”without flat politics."
+                      "valueStatement":  "Know what the flat agrees on without flat politics."
                   },
                   {
                       "qr_id":  "general_calm_living",
@@ -196,7 +196,7 @@
                       "utm_medium":  "qr",
                       "utm_source":  "uc_noticeboard",
                       "url":  "https://go.makinglifeeasie.com/kinly/polls/milk-v1?utm_campaign=uc_milk_feb2026_a\u0026utm_medium=qr\u0026utm_source=uc_noticeboard",
-                      "valueStatement":  "See if you're the spreadsheet."
+                      "valueStatement":  "See if it's just you."
                   }
               ]
 }
