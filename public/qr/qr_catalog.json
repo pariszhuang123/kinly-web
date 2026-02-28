@@ -49,7 +49,11 @@
                                      },
                                      {
                                          "key":  "poll_rent_reminder_v1",
-                                         "valueStatement":  "See if it's just you."
+                                         "valueStatement":  "See if it\u0027s just you."
+                                     },
+                                     {
+                                         "key":  "poll_spreadsheet_v1",
+                                         "valueStatement":  "See if you\u0027re the spreadsheet."
                                      }
                                  ],
                     "utm_campaigns":  [
@@ -61,7 +65,8 @@
                                           "fish_and_chips_campaign",
                                           "Summer_startup_showcase_2026",
                                           "uc_tp_feb2026_a",
-                                          "uc_rr_feb2026_a"
+                                          "uc_rr_feb2026_a",
+                                          "uc_spreadsheet_feb2026_a"
                                       ],
                     "utm_sources":  [
                                         "facebook",
@@ -183,6 +188,15 @@
                       "utm_source":  "uc_noticeboard",
                       "url":  "https://go.makinglifeeasie.com/kinly/polls/rent-reminder-v1?utm_campaign=uc_rr_feb2026_a\u0026utm_medium=qr\u0026utm_source=uc_noticeboard",
                       "valueStatement":  "See if it's just you."
+                  },
+                  {
+                      "qr_id":  "uc_spreadsheet_poll",
+                      "pageKey":  "poll_spreadsheet_v1",
+                      "utm_campaign":  "uc_spreadsheet_feb2026_a",
+                      "utm_medium":  "qr",
+                      "utm_source":  "uc_noticeboard",
+                      "url":  "https://go.makinglifeeasie.com/kinly/polls/spreadsheet-v1?utm_campaign=uc_spreadsheet_feb2026_a\u0026utm_medium=qr\u0026utm_source=uc_noticeboard",
+                      "valueStatement":  "See if you're the spreadsheet."
                   }
               ]
 }
