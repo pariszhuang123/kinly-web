@@ -207,18 +207,39 @@ test("hides page_key-like poll title and falls back to neutral title", async () 
     ok: true,
     poll: {
       ...basePoll,
-      page_key: "poll_spreadsheet_v1",
-      title: "poll_spreadsheet_v1",
+      page_key: "poll_milk_v1",
+      title: "poll_milk_v1",
     },
     options: baseOptions,
   });
 
-  const { container, unmount } = render(<PollClient slug="spreadsheet-v1" detectedCountryCode="NZ" />);
+  const { container, unmount } = render(<PollClient slug="milk-v1" detectedCountryCode="NZ" />);
   await flushUntil(() => (container.textContent || "").includes("Quick pulse check"));
 
   const text = container.textContent || "";
   expect(text).toMatch(/Kinly Poll/i);
-  expect(text).not.toMatch(/poll_spreadsheet_v1/i);
+  expect(text).not.toMatch(/poll_milk_v1/i);
+
+  unmount();
+});
+
+test("strips trailing machine suffix from title", async () => {
+  vi.mocked(outreachPoll.fetchOutreachPoll).mockResolvedValueOnce({
+    ok: true,
+    poll: {
+      ...basePoll,
+      page_key: "poll_milk_v1",
+      title: "UC Poll Noticeboard_spreadsheet",
+    },
+    options: baseOptions,
+  });
+
+  const { container, unmount } = render(<PollClient slug="milk-v1" detectedCountryCode="NZ" />);
+  await flushUntil(() => (container.textContent || "").includes("Quick pulse check"));
+
+  const text = container.textContent || "";
+  expect(text).toMatch(/UC Poll/i);
+  expect(text).not.toMatch(/Noticeboard_spreadsheet/i);
 
   unmount();
 });

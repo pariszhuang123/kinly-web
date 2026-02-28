@@ -51,6 +51,10 @@ function escapeRegex(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
+function stripMachineSuffix(value: string): string {
+  return value.replace(/\s+[a-z0-9]+(?:_[a-z0-9]+)+$/i, "").trim();
+}
+
 function getDisplayTitle(poll: OutreachPollDefinition | null): string {
   if (!poll) return "Kinly Poll";
 
@@ -67,7 +71,8 @@ function getDisplayTitle(poll: OutreachPollDefinition | null): string {
     .replace(/\s{2,}/g, " ")
     .trim();
 
-  return stripped || "Kinly Poll";
+  const sanitized = stripMachineSuffix(stripped || rawTitle);
+  return sanitized || "Kinly Poll";
 }
 
 function getOptionVotes(option: OutreachPollOption, results: OutreachPollResults | null): number {

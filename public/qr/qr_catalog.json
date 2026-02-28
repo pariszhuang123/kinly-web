@@ -52,7 +52,7 @@
                                          "valueStatement":  "See if it\u0027s just you."
                                      },
                                      {
-                                         "key":  "poll_spreadsheet_v1",
+                                         "key":  "poll_milk_v1",
                                          "valueStatement":  "See if you\u0027re the spreadsheet."
                                      }
                                  ],
@@ -66,7 +66,7 @@
                                           "Summer_startup_showcase_2026",
                                           "uc_tp_feb2026_a",
                                           "uc_rr_feb2026_a",
-                                          "uc_spreadsheet_feb2026_a"
+                                          "uc_milk_feb2026_a"
                                       ],
                     "utm_sources":  [
                                         "facebook",
@@ -190,12 +190,12 @@
                       "valueStatement":  "See if it's just you."
                   },
                   {
-                      "qr_id":  "uc_spreadsheet_poll",
-                      "pageKey":  "poll_spreadsheet_v1",
-                      "utm_campaign":  "uc_spreadsheet_feb2026_a",
+                      "qr_id":  "uc_milk_poll",
+                      "pageKey":  "poll_milk_v1",
+                      "utm_campaign":  "uc_milk_feb2026_a",
                       "utm_medium":  "qr",
                       "utm_source":  "uc_noticeboard",
-                      "url":  "https://go.makinglifeeasie.com/kinly/polls/spreadsheet-v1?utm_campaign=uc_spreadsheet_feb2026_a\u0026utm_medium=qr\u0026utm_source=uc_noticeboard",
+                      "url":  "https://go.makinglifeeasie.com/kinly/polls/milk-v1?utm_campaign=uc_milk_feb2026_a\u0026utm_medium=qr\u0026utm_source=uc_noticeboard",
                       "valueStatement":  "See if you're the spreadsheet."
                   }
               ]
