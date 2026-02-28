@@ -49,7 +49,7 @@
                                      },
                                      {
                                          "key":  "poll_rent_reminder_v1",
-                                         "valueStatement":  "Align rent reminder expectations before friction builds."
+                                         "valueStatement":  "See if it's just you."
                                      }
                                  ],
                     "utm_campaigns":  [
@@ -182,7 +182,7 @@
                       "utm_medium":  "qr",
                       "utm_source":  "uc_noticeboard",
                       "url":  "https://go.makinglifeeasie.com/kinly/polls/rent-reminder-v1?utm_campaign=uc_rr_feb2026_a\u0026utm_medium=qr\u0026utm_source=uc_noticeboard",
-                      "valueStatement":  "Align rent reminder expectations before friction builds."
+                      "valueStatement":  "See if it's just you."
                   }
               ]
 }
