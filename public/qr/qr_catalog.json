@@ -46,6 +46,10 @@
                                      {
                                          "key":  "poll_toilet_paper_v1",
                                          "valueStatement":  "See how your flat compares."
+                                     },
+                                     {
+                                         "key":  "poll_rent_reminder_v1",
+                                         "valueStatement":  "Align rent reminder expectations before friction builds."
                                      }
                                  ],
                     "utm_campaigns":  [
@@ -56,7 +60,8 @@
                                           "nepal_students",
                                           "fish_and_chips_campaign",
                                           "Summer_startup_showcase_2026",
-                                          "uc_tp_feb2026_a"
+                                          "uc_tp_feb2026_a",
+                                          "uc_rr_feb2026_a"
                                       ],
                     "utm_sources":  [
                                         "facebook",
@@ -66,7 +71,8 @@
                                         "linkedin",
                                         "email",
                                         "slack",
-                                        "uc"
+                                        "uc",
+                                        "uc_noticeboard"
                                     ]
                 },
     "items":  [
@@ -168,6 +174,15 @@
                       "utm_source":  "offline_event",
                       "url":  "https://go.makinglifeeasie.com/kinly/market/kinly_general?utm_campaign=general_2026\u0026utm_medium=qr\u0026utm_source=offline_event",
                       "valueStatement":  "A calmer way to live together."
+                  },
+                  {
+                      "qr_id":  "uc_rent_reminder_poll",
+                      "pageKey":  "poll_rent_reminder_v1",
+                      "utm_campaign":  "uc_rr_feb2026_a",
+                      "utm_medium":  "qr",
+                      "utm_source":  "uc_noticeboard",
+                      "url":  "https://go.makinglifeeasie.com/kinly/polls/rent-reminder-v1?utm_campaign=uc_rr_feb2026_a\u0026utm_medium=qr\u0026utm_source=uc_noticeboard",
+                      "valueStatement":  "Align rent reminder expectations before friction builds."
                   }
               ]
 }
