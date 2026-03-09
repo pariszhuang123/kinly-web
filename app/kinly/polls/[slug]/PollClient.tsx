@@ -165,10 +165,6 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
     () => normalizeCountryCode(detectedCountryCode),
     [detectedCountryCode],
   );
-  const selectedOption = useMemo(
-    () => options.find((option) => option.option_key === selectedOptionKey) ?? null,
-    [options, selectedOptionKey],
-  );
   const ctaHref = useMemo(() => {
     if (!selectedOptionKey) return CTA_BASE_URL;
     return buildPollResultCtaHref({
