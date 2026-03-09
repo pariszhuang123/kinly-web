@@ -201,6 +201,15 @@
       "utm_source": "uc_noticeboard",
       "url": "https://go.makinglifeeasie.com/kinly/polls/milk-v1?utm_campaign=uc_milk_feb2026_a&utm_medium=qr&utm_source=uc_noticeboard",
       "valueStatement": "See if it's just you."
+    },
+    {
+      "qr_id": "sg_helper_alignment",
+      "pageKey": "sg-helper-alignment",
+      "utm_campaign": "singapore_working_holiday",
+      "utm_medium": "qr",
+      "utm_source": "offline_event",
+      "url": "https://go.makinglifeeasie.com/kinly/market/sg-helper-alignment?utm_campaign=singapore_working_holiday&utm_medium=qr&utm_source=offline_event",
+      "valueStatement": "Align expectations and feedback calmly in SG homes with helpers."
     }
   ]
 }
