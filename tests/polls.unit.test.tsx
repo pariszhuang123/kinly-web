@@ -23,6 +23,7 @@ vi.mock("../lib/outreachPoll", async () => {
   return {
     ...actual,
     fetchOutreachPoll: vi.fn(),
+    fetchOutreachPollResultMessage: vi.fn(),
     fetchOutreachPollResults: vi.fn(),
     submitOutreachPollVote: vi.fn(),
   };
@@ -91,6 +92,7 @@ function getReactProps(node: Element): ReactButtonProps {
 }
 
 const basePoll = {
+  id: "a8e19516-4d5a-4aa3-9a8a-1f4066cb0cc7",
   page_key: "poll_toilet_paper_v1",
   title: "UC Poll",
   question: "What kind of toilet paper do you use in your flat?",
@@ -98,9 +100,9 @@ const basePoll = {
 };
 
 const baseOptions = [
-  { option_key: "2_ply", label: "2 ply", position: 1 },
-  { option_key: "3_ply_luxury", label: "3 ply (luxury)", position: 2 },
-  { option_key: "dont_care", label: "Don't care", position: 3 },
+  { id: "95f7a40d-3fc5-4e24-b795-32ea15f4dce3", option_key: "2_ply", label: "2 ply", position: 1 },
+  { id: "45f6fd0f-c17f-4e6f-9f47-2e8ece2f33f5", option_key: "3_ply_luxury", label: "3 ply (luxury)", position: 2 },
+  { id: "31f2268d-a74c-4db0-80a2-e6f58fa04f2f", option_key: "dont_care", label: "Don't care", position: 3 },
 ];
 
 beforeEach(() => {
@@ -119,6 +121,12 @@ beforeEach(() => {
       "3_ply_luxury": 5,
       dont_care: 3,
     },
+  });
+  vi.mocked(outreachPoll.fetchOutreachPollResultMessage).mockResolvedValue({
+    message_id: "2dc6be59-b472-40cf-b06d-2a2d0002234b",
+    resolution_tier: "GLOBAL_DEFAULT",
+    primary_message: "You do not have to carry all the follow-ups yourself.",
+    cta_label: "Remove follow-ups",
   });
   vi.mocked(outreachPoll.submitOutreachPollVote).mockResolvedValue({
     ok: true,
@@ -155,13 +163,15 @@ test("selecting option with k_sc auto-submits and shows pie chart results", asyn
 
   expect(outreachPoll.submitOutreachPollVote).toHaveBeenCalledTimes(1);
   expect(container.querySelector("svg")).toBeTruthy();
-  expect(container.textContent || "").toMatch(/votes/i);
-  expect(container.textContent || "").toMatch(/shared-living expectations/i);
+  expect(container.textContent || "").toMatch(/You do not have to carry all the follow-ups yourself/i);
 
   const ctaLink = Array.from(container.querySelectorAll("a")).find((link) =>
-    (link.textContent || "").includes("Check this out"),
+    (link.textContent || "").includes("Remove follow-ups"),
   );
-  expect(ctaLink?.getAttribute("href")).toBe("https://go.makinglifeeasie.com/kinly");
+  expect(ctaLink?.getAttribute("href")).toContain("https://go.makinglifeeasie.com/kinly");
+  expect(ctaLink?.getAttribute("href")).toContain("src=poll");
+  expect(ctaLink?.getAttribute("href")).toContain("poll=poll_toilet_paper_v1");
+  expect(ctaLink?.getAttribute("href")).toContain("opt=2_ply");
 
   unmount();
 });
@@ -186,6 +196,7 @@ test("without k_sc it shows results but does not write vote RPC", async () => {
 
   expect(outreachPoll.submitOutreachPollVote).not.toHaveBeenCalled();
   expect(outreachPoll.fetchOutreachPollResults).toHaveBeenCalled();
+  expect(outreachPoll.fetchOutreachPollResultMessage).toHaveBeenCalled();
 
   unmount();
 });

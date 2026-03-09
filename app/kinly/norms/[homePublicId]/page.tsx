@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 
 import { KinlyCard, KinlyDivider, KinlyHeading, KinlyShell, KinlyStack, KinlyText } from "../../../../components";
@@ -9,6 +10,20 @@ type Params = Promise<{
 }>;
 
 type JsonObject = Record<string, unknown>;
+type Section = { title: string; text: string };
+
+const CANONICAL_SECTION_ORDER = [
+  "norms_rhythm_quiet",
+  "norms_shared_spaces",
+  "norms_guests_social",
+  "norms_responsibility_flow",
+  "norms_repair_style",
+  "norms_home_identity",
+] as const;
+
+const CANONICAL_SECTION_INDEX = new Map<string, number>(
+  CANONICAL_SECTION_ORDER.map((key, index) => [key, index]),
+);
 
 function asObject(value: unknown): JsonObject | null {
   if (!value || typeof value !== "object" || Array.isArray(value)) {
@@ -21,6 +36,13 @@ function asString(value: unknown): string | null {
   if (typeof value !== "string") return null;
   const trimmed = value.trim();
   return trimmed.length > 0 ? trimmed : null;
+}
+
+function resolveLocaleBase(preferredLanguage: string | null): string {
+  const first = preferredLanguage?.split(",")[0]?.trim().toLowerCase() ?? "en";
+  const normalized = first.split(";")[0]?.trim().replace(/_/g, "-") ?? "en";
+  const base = normalized.split("-")[0] ?? "en";
+  return /^[a-z]{2}$/.test(base) ? base : "en";
 }
 
 function extractSummary(content: JsonObject) {
@@ -40,21 +62,42 @@ function extractContext(content: JsonObject): string | null {
   return asString(contextObject.line) ?? asString(contextObject.text) ?? null;
 }
 
-function extractSections(content: JsonObject): Array<{ title: string; text: string }> {
+function extractSections(content: JsonObject): Section[] {
+  type RawSection = { key: string | null; order: number; value: JsonObject };
   const sectionsValue = content.sections;
-  const sectionObject = asObject(sectionsValue);
-  const sectionEntries = Array.isArray(sectionsValue)
-    ? sectionsValue
-    : sectionObject
-      ? Object.values(sectionObject)
-      : [];
+  const rawSections: RawSection[] = [];
 
-  return sectionEntries
-    .map((entry) => asObject(entry))
-    .filter((entry): entry is JsonObject => entry !== null)
-    .map((entry) => {
-      const title = asString(entry.title) ?? asString(entry.title_key) ?? "Section";
-      const text = asString(entry.text) ?? "";
+  if (Array.isArray(sectionsValue)) {
+    sectionsValue.forEach((entry, index) => {
+      const section = asObject(entry);
+      if (!section) return;
+      const key = asString(section.section_key) ?? asString(section.id);
+      rawSections.push({ key, order: index, value: section });
+    });
+  } else {
+    const sectionsMap = asObject(sectionsValue);
+    if (!sectionsMap) return [];
+
+    Object.entries(sectionsMap).forEach(([key, value], index) => {
+      const section = asObject(value);
+      if (!section) return;
+      rawSections.push({ key, order: index, value: section });
+    });
+  }
+
+  return rawSections
+    .sort((a, b) => {
+      const aIndex = a.key ? CANONICAL_SECTION_INDEX.get(a.key) : undefined;
+      const bIndex = b.key ? CANONICAL_SECTION_INDEX.get(b.key) : undefined;
+
+      if (aIndex !== undefined && bIndex !== undefined) return aIndex - bIndex;
+      if (aIndex !== undefined) return -1;
+      if (bIndex !== undefined) return 1;
+      return a.order - b.order;
+    })
+    .map(({ value }) => {
+      const title = asString(value.title) ?? "Section";
+      const text = asString(value.text) ?? "";
       return { title, text };
     })
     .filter((entry) => entry.text.length > 0);
@@ -66,7 +109,9 @@ export async function generateMetadata({
   params: Params;
 }): Promise<Metadata> {
   const resolvedParams = await params;
-  const result = await resolvePublicNorms(resolvedParams.homePublicId, "en");
+  const requestHeaders = await headers();
+  const localeBase = resolveLocaleBase(requestHeaders.get("accept-language"));
+  const result = await resolvePublicNorms(resolvedParams.homePublicId, localeBase);
 
   if (!result.available) {
     return {
@@ -88,7 +133,9 @@ export default async function PublicNormsPage({
   params: Params;
 }) {
   const resolvedParams = await params;
-  const result = await resolvePublicNorms(resolvedParams.homePublicId, "en");
+  const requestHeaders = await headers();
+  const localeBase = resolveLocaleBase(requestHeaders.get("accept-language"));
+  const result = await resolvePublicNorms(resolvedParams.homePublicId, localeBase);
 
   if (!result.available) {
     notFound();
@@ -98,6 +145,11 @@ export default async function PublicNormsPage({
   const summary = extractSummary(content);
   const contextLine = extractContext(content);
   const sections = extractSections(content);
+  const hasRenderableContent = Boolean(summary.framing || contextLine || sections.length > 0);
+
+  if (!hasRenderableContent) {
+    notFound();
+  }
 
   return (
     <main>

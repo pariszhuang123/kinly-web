@@ -1,4 +1,4 @@
-# AGENTS — Kinly Web
+﻿# AGENTS â€” Kinly Web
 
 Scope: This repository only (Vercel-hosted public link + landing layer).
 
@@ -56,21 +56,21 @@ npm run e2e          # End-to-end tests (requires build first)
 ```
 
 Individual checks (run via check:all):
-- `tokens:build` — compile design tokens
-- `typecheck` — TypeScript validation
-- `lint` — ESLint (includes primitive enforcement)
-- `check:contracts` — validate contract registry
-- `check:primitives` — ensure required primitives exist
+- `tokens:build` â€” compile design tokens
+- `typecheck` â€” TypeScript validation
+- `lint` â€” ESLint (includes primitive enforcement)
+- `check:contracts` â€” validate contract registry
+- `check:primitives` â€” ensure required primitives exist
 
 ## UI Rules (Web Primitives Contract)
 
 All UI in `app/` MUST use primitives from `components/`:
 
 ```tsx
-// ✗ Forbidden in app/
+// âœ— Forbidden in app/
 <button>, <p>, <h1>-<h6>, <input>
 
-// ✓ Required
+// âœ“ Required
 <KinlyButton>, <KinlyText>, <KinlyHeading>, <KinlyInput>
 ```
 
@@ -119,5 +119,11 @@ If a change alters:
 - public/private visibility
 - region gating
 
-→ the corresponding contract MUST be updated or explicitly reaffirmed.
+â†’ the corresponding contract MUST be updated or explicitly reaffirmed.
 
+
+## JSON Editing
+
+- When editing `.json` files, do NOT use PowerShell `ConvertTo-Json` for write-back.
+- Use Node `JSON.parse`/`JSON.stringify(..., null, 2)` to preserve readable characters and avoid `\uXXXX` escapes like `\u0027`.
+- Write files as UTF-8 without BOM.

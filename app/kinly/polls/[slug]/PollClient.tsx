@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
@@ -12,10 +12,12 @@ import {
 } from "../../../../components";
 import {
   derivePollPageKeyFromSlug,
+  fetchOutreachPollResultMessage,
   fetchOutreachPoll,
   fetchOutreachPollResults,
   OutreachPollDefinition,
   OutreachPollOption,
+  OutreachPollResultMessage,
   OutreachPollResults,
   submitOutreachPollVote,
 } from "../../../../lib/outreachPoll";
@@ -27,6 +29,7 @@ import {
   logOutreachEvent,
   markEventSent,
   normalizeCountryCode,
+  OutreachStore,
   readUtmParams,
 } from "../../../../lib/outreachTracking";
 import { normalizeShortCode } from "../../../../lib/shortLinkResolver";
@@ -46,6 +49,7 @@ type PieSlice = {
 };
 
 const PIE_COLORS = ["#5EA667", "#2E7D5B", "#9CCB8D", "#5C7F7A", "#86A59C"];
+const CTA_BASE_URL = "https://go.makinglifeeasie.com/kinly";
 
 function escapeRegex(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -102,6 +106,39 @@ function parseVoteError(errorCode: string): string {
   return "Vote could not be recorded right now.";
 }
 
+function buildPollResultCtaHref(params: {
+  searchParams: URLSearchParams;
+  pageKey: string;
+  optionKey: string;
+  shortCode: string | null;
+  utmCampaign: string;
+  utmSource: string;
+  utmMedium: string;
+  uiLocale: string | null;
+  country: string | null;
+  sessionId: string | null;
+}): string {
+  const url = new URL(CTA_BASE_URL);
+
+  for (const [key, value] of params.searchParams.entries()) {
+    if (!key || !value) continue;
+    url.searchParams.set(key, value);
+  }
+
+  url.searchParams.set("src", "poll");
+  url.searchParams.set("poll", params.pageKey);
+  url.searchParams.set("opt", params.optionKey);
+  if (params.shortCode) url.searchParams.set("k_sc", params.shortCode);
+  if (params.utmCampaign) url.searchParams.set("utm_campaign", params.utmCampaign);
+  if (params.utmSource) url.searchParams.set("utm_source", params.utmSource);
+  if (params.utmMedium) url.searchParams.set("utm_medium", params.utmMedium);
+  if (params.uiLocale) url.searchParams.set("ui_locale", params.uiLocale);
+  if (params.country) url.searchParams.set("country", params.country);
+  if (params.sessionId) url.searchParams.set("session_id", params.sessionId);
+
+  return url.toString();
+}
+
 export default function PollClient({ slug, detectedCountryCode = null }: PollClientProps) {
   const searchParams = useSearchParams();
 
@@ -113,6 +150,7 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
   const [voteError, setVoteError] = useState<string | null>(null);
   const [isSubmittingVote, setIsSubmittingVote] = useState(false);
   const [hasSubmittedVote, setHasSubmittedVote] = useState(false);
+  const [resultMessage, setResultMessage] = useState<OutreachPollResultMessage | null>(null);
 
   const pageKey = useMemo(() => derivePollPageKeyFromSlug(slug), [slug]);
   const utmParams = useMemo(() => readUtmParams(searchParams), [searchParams]);
@@ -127,6 +165,36 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
     () => normalizeCountryCode(detectedCountryCode),
     [detectedCountryCode],
   );
+  const selectedOption = useMemo(
+    () => options.find((option) => option.option_key === selectedOptionKey) ?? null,
+    [options, selectedOptionKey],
+  );
+  const ctaHref = useMemo(() => {
+    if (!selectedOptionKey) return CTA_BASE_URL;
+    return buildPollResultCtaHref({
+      searchParams,
+      pageKey,
+      optionKey: selectedOptionKey,
+      shortCode,
+      utmCampaign: utmParams.utm_campaign,
+      utmSource: utmParams.utm_source,
+      utmMedium: utmParams.utm_medium,
+      uiLocale,
+      country: normalizedCountry,
+      sessionId,
+    });
+  }, [
+    normalizedCountry,
+    pageKey,
+    searchParams,
+    selectedOptionKey,
+    sessionId,
+    shortCode,
+    uiLocale,
+    utmParams.utm_campaign,
+    utmParams.utm_medium,
+    utmParams.utm_source,
+  ]);
 
   useEffect(() => {
     let cancelled = false;
@@ -142,6 +210,9 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
 
       setPoll(pollResult.poll);
       setOptions(pollResult.options);
+      setResultMessage(null);
+      setSelectedOptionKey("");
+      setHasSubmittedVote(false);
       setLoadState("ready");
 
       const baselineResults = await fetchOutreachPollResults(pageKey);
@@ -208,6 +279,38 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
     utmParams.utm_source,
   ]);
 
+  function handleCtaClick(store: OutreachStore) {
+    if (!sessionId) return;
+
+    void logOutreachEvent({
+      event: "cta_click",
+      page_key: pageKey,
+      utm_campaign: utmParams.utm_campaign,
+      utm_medium: utmParams.utm_medium,
+      utm_source: utmParams.utm_source,
+      session_id: sessionId,
+      country: normalizedCountry || null,
+      ui_locale: uiLocale,
+      store,
+      client_event_id: buildClientEventId(),
+    });
+  }
+
+  async function resolveResultMessage(optionKey: string): Promise<OutreachPollResultMessage | null> {
+    if (!poll) return null;
+    const option = options.find((entry) => entry.option_key === optionKey);
+    if (!option) return null;
+
+    const resolvedMessage = await fetchOutreachPollResultMessage({
+      pollId: poll.id,
+      optionId: option.id,
+      sourceIdResolved: utmParams.utm_source,
+      utmCampaign: utmParams.utm_campaign,
+    });
+    setResultMessage(resolvedMessage);
+    return resolvedMessage;
+  }
+
   async function handleVoteSubmit(optionKey: string) {
     if (!optionKey) return;
 
@@ -218,6 +321,7 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
       if (baselineResults) {
         setResults(baselineResults);
       }
+      await resolveResultMessage(optionKey);
       setHasSubmittedVote(true);
       return;
     }
@@ -257,6 +361,7 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
       setResults(nextResults);
     }
 
+    await resolveResultMessage(optionKey);
     setHasSubmittedVote(true);
     setIsSubmittingVote(false);
   }
@@ -377,16 +482,15 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
                       </div>
                     </div>
                     <KinlyText variant="bodyMedium">
-                      You don&apos;t realise you are the House Admin... until you stop doing things and everything
-                      breaks.
+                      {resultMessage?.primary_message ??
+                        'Every flat has its own "how things get done." Kinly helps make it clearer and calmer.'}
                     </KinlyText>
                     <KinlyButton
                       variant="filled"
-                      href="https://go.makinglifeeasie.com/kinly"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href={ctaHref}
+                      onClick={() => handleCtaClick("web")}
                     >
-                      Check this out
+                      {resultMessage?.cta_label ?? "Set your flat up in 5 minutes"}
                     </KinlyButton>
                   </KinlyStack>
                 ) : null}
@@ -399,3 +503,4 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
     </main>
   );
 }
+

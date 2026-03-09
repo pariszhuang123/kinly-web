@@ -1,202 +1,206 @@
-﻿{
-    "version":  "v1.0",
-    "generatedAt":  "2026-02-01T12:00:00Z",
-    "options":  {
-                    "pageKeys":  [
-                                     {
-                                         "key":  "freshers",
-                                         "valueStatement":  "First flat? Keep the house calm and organised."
-                                     },
-                                     {
-                                         "key":  "takeaway-budget",
-                                         "valueStatement":  "Stretch your budget without household drama."
-                                     },
-                                     {
-                                         "key":  "new-place",
-                                         "valueStatement":  "New country, new houseâ€”learn the vibe without awkwardness."
-                                     },
-                                     {
-                                         "key":  "low-talk",
-                                         "valueStatement":  "Live together quietlyâ€”needs stay clear without small talk."
-                                     },
-                                     {
-                                         "key":  "student-wellbeing-infrastructure",
-                                         "valueStatement":  "Preventative wellbeing infrastructure for shared living."
-                                     },
-                                     {
-                                         "key":  "live-in-landlord",
-                                         "valueStatement":  "A calmer way to share the home you live in."
-                                     },
-                                     {
-                                         "key":  "homestay-owner",
-                                         "valueStatement":  "A gentler way to welcome students into your home."
-                                     },
-                                     {
-                                         "key":  "head-tenant",
-                                         "valueStatement":  "A calmer way to share responsibility in your flat."
-                                     },
-                                     {
-                                         "key":  "flat-agreements",
-                                         "valueStatement":  "Know what the flat agrees onâ€”without flat politics."
-                                     },
-                                     {
-                                         "key":  "kinly_general",
-                                         "valueStatement":  "A calmer way to live together."
-                                     },
-                                     {
-                                         "key":  "poll_toilet_paper_v1",
-                                         "valueStatement":  "See how your flat compares."
-                                     },
-                                     {
-                                         "key":  "poll_rent_reminder_v1",
-                                         "valueStatement":  "See if it's just you."
-                                     },
-                                     {
-                                         "key":  "poll_milk_v1",
-                                         "valueStatement":  "See if you're the spreadsheet."
-                                     }
-                                 ],
-                    "utm_campaigns":  [
-                                          "singapore_working_holiday",
-                                          "first_year_2026",
-                                          "early_interest_2026",
-                                          "general_2026",
-                                          "nepal_students",
-                                          "fish_and_chips_campaign",
-                                          "Summer_startup_showcase_2026",
-                                          "uc_tp_feb2026_a",
-                                          "uc_rr_feb2026_a",
-                                          "uc_milk_feb2026_a"
-                                      ],
-                    "utm_sources":  [
-                                        "facebook",
-                                        "whatsapp",
-                                        "private_social_media_group",
-                                        "offline_event",
-                                        "linkedin",
-                                        "email",
-                                        "slack",
-                                        "uc",
-                                        "uc_noticeboard"
-                                    ]
-                },
-    "items":  [
-                  {
-                      "qr_id":  "uc_freshers",
-                      "pageKey":  "freshers",
-                      "utm_campaign":  "first_year_2026",
-                      "utm_medium":  "qr",
-                      "utm_source":  "telegram",
-                      "url":  "https://go.makinglifeeasie.com/kinly/market/freshers?utm_campaign=first_year_2026\u0026utm_medium=qr\u0026utm_source=telegram",
-                      "valueStatement":  "First flat? Keep the house calm and organised."
-                  },
-                  {
-                      "qr_id":  "international_people",
-                      "pageKey":  "new-place",
-                      "utm_campaign":  "nepal_students",
-                      "utm_medium":  "qr",
-                      "utm_source":  "private_social_media_group",
-                      "url":  "https://go.makinglifeeasie.com/kinly/market/new-place?utm_campaign=nepal_students\u0026utm_medium=qr\u0026utm_source=private_social_media_group",
-                      "valueStatement":  "New country, new houseâ€”learn the vibe without awkwardness."
-                  },
-                  {
-                      "qr_id":  "fish_\u0026_chips",
-                      "pageKey":  "takeaway-budget",
-                      "utm_campaign":  "fish_and_chips_campaign",
-                      "utm_medium":  "qr",
-                      "utm_source":  "offline_event",
-                      "url":  "https://go.makinglifeeasie.com/kinly/market/takeaway-budget?utm_campaign=fish_and_chips_campaign\u0026utm_medium=qr\u0026utm_source=offline_event",
-                      "valueStatement":  "Stretch your budget without household drama."
-                  },
-                  {
-                      "qr_id":  "introverts_unite",
-                      "pageKey":  "low-talk",
-                      "utm_campaign":  "introvert_nz",
-                      "utm_medium":  "qr",
-                      "utm_source":  "offline_event",
-                      "url":  "https://go.makinglifeeasie.com/kinly/market/low-talk?utm_campaign=introvert_nz\u0026utm_medium=qr\u0026utm_source=offline_event",
-                      "valueStatement":  "Live together quietlyâ€”needs stay clear without small talk."
-                  },
-                  {
-                      "qr_id":  "uc_toilet_paper_poll",
-                      "pageKey":  "poll_toilet_paper_v1",
-                      "utm_campaign":  "uc_tp_feb2026_a",
-                      "utm_medium":  "qr",
-                      "utm_source":  "uc",
-                      "url":  "https://go.makinglifeeasie.com/kinly/polls/toilet-paper-v1?utm_campaign=uc_tp_feb2026_a\u0026utm_medium=qr\u0026utm_source=uc",
-                      "valueStatement":  "See how your flat compares."
-                  },
-                  {
-                      "qr_id":  "student_wellbeing",
-                      "pageKey":  "student-wellbeing-infrastructure",
-                      "utm_campaign":  "early_interest_2026",
-                      "utm_medium":  "qr",
-                      "utm_source":  "linkedin",
-                      "url":  "https://go.makinglifeeasie.com/kinly/market/student-wellbeing-infrastructure?utm_campaign=early_interest_2026\u0026utm_medium=qr\u0026utm_source=linkedin",
-                      "valueStatement":  "Preventative wellbeing infrastructure for shared living."
-                  },
-                  {
-                      "qr_id":  "live_in_landlord",
-                      "pageKey":  "live-in-landlord",
-                      "utm_campaign":  "early_interest_2026",
-                      "utm_medium":  "qr",
-                      "utm_source":  "offline_event",
-                      "url":  "https://go.makinglifeeasie.com/kinly/market/live-in-landlord?utm_campaign=early_interest_2026\u0026utm_medium=qr\u0026utm_source=offline_event",
-                      "valueStatement":  "A calmer way to share the home you live in."
-                  },
-                  {
-                      "qr_id":  "homestay_owner",
-                      "pageKey":  "homestay-owner",
-                      "utm_campaign":  "Summer_startup_showcase_2026",
-                      "utm_medium":  "qr",
-                      "utm_source":  "offline_event",
-                      "url":  "https://go.makinglifeeasie.com/kinly/market/homestay-owner?utm_campaign=Summer_startup_showcase_2026\u0026utm_medium=qr\u0026utm_source=offline_event",
-                      "valueStatement":  "A gentler way to welcome students into your home."
-                  },
-                  {
-                      "qr_id":  "head_tenant",
-                      "pageKey":  "head-tenant",
-                      "utm_campaign":  "early_interest_2026",
-                      "utm_medium":  "qr",
-                      "utm_source":  "offline_event",
-                      "url":  "https://go.makinglifeeasie.com/kinly/market/head-tenant?utm_campaign=early_interest_2026\u0026utm_medium=qr\u0026utm_source=offline_event",
-                      "valueStatement":  "A calmer way to share responsibility in your flat."
-                  },
-                  {
-                      "qr_id":  "flat_agreements",
-                      "pageKey":  "flat-agreements",
-                      "utm_campaign":  "early_interest_2026",
-                      "utm_medium":  "qr",
-                      "utm_source":  "offline_event",
-                      "url":  "https://go.makinglifeeasie.com/kinly/market/flat-agreements?utm_campaign=early_interest_2026\u0026utm_medium=qr\u0026utm_source=offline_event",
-                      "valueStatement":  "Know what the flat agrees on without flat politics."
-                  },
-                  {
-                      "qr_id":  "general_calm_living",
-                      "pageKey":  "kinly_general",
-                      "utm_campaign":  "general_2026",
-                      "utm_medium":  "qr",
-                      "utm_source":  "offline_event",
-                      "url":  "https://go.makinglifeeasie.com/kinly/market/kinly_general?utm_campaign=general_2026\u0026utm_medium=qr\u0026utm_source=offline_event",
-                      "valueStatement":  "A calmer way to live together."
-                  },
-                  {
-                      "qr_id":  "uc_rent_reminder_poll",
-                      "pageKey":  "poll_rent_reminder_v1",
-                      "utm_campaign":  "uc_rr_feb2026_a",
-                      "utm_medium":  "qr",
-                      "utm_source":  "uc_noticeboard",
-                      "url":  "https://go.makinglifeeasie.com/kinly/polls/rent-reminder-v1?utm_campaign=uc_rr_feb2026_a\u0026utm_medium=qr\u0026utm_source=uc_noticeboard",
-                      "valueStatement":  "See if it's just you."
-                  },
-                  {
-                      "qr_id":  "uc_milk_poll",
-                      "pageKey":  "poll_milk_v1",
-                      "utm_campaign":  "uc_milk_feb2026_a",
-                      "utm_medium":  "qr",
-                      "utm_source":  "uc_noticeboard",
-                      "url":  "https://go.makinglifeeasie.com/kinly/polls/milk-v1?utm_campaign=uc_milk_feb2026_a\u0026utm_medium=qr\u0026utm_source=uc_noticeboard",
-                      "valueStatement":  "See if it's just you."
-                  }
-              ]
+{
+  "version": "v1.0",
+  "generatedAt": "2026-02-01T12:00:00Z",
+  "options": {
+    "pageKeys": [
+      {
+        "key": "freshers",
+        "valueStatement": "First flat? Keep the house calm and organised."
+      },
+      {
+        "key": "takeaway-budget",
+        "valueStatement": "Stretch your budget without household drama."
+      },
+      {
+        "key": "new-place",
+        "valueStatement": "New country, new houseâ€”learn the vibe without awkwardness."
+      },
+      {
+        "key": "low-talk",
+        "valueStatement": "Live together quietlyâ€”needs stay clear without small talk."
+      },
+      {
+        "key": "student-wellbeing-infrastructure",
+        "valueStatement": "Preventative wellbeing infrastructure for shared living."
+      },
+      {
+        "key": "live-in-landlord",
+        "valueStatement": "A calmer way to share the home you live in."
+      },
+      {
+        "key": "homestay-owner",
+        "valueStatement": "A gentler way to welcome students into your home."
+      },
+      {
+        "key": "head-tenant",
+        "valueStatement": "A calmer way to share responsibility in your flat."
+      },
+      {
+        "key": "flat-agreements",
+        "valueStatement": "Know what the flat agrees onâ€”without flat politics."
+      },
+      {
+        "key": "kinly_general",
+        "valueStatement": "A calmer way to live together."
+      },
+      {
+        "key": "poll_toilet_paper_v1",
+        "valueStatement": "See how your flat compares."
+      },
+      {
+        "key": "poll_rent_reminder_v1",
+        "valueStatement": "See if it's just you."
+      },
+      {
+        "key": "poll_milk_v1",
+        "valueStatement": "See if you're the spreadsheet."
+      },
+      {
+        "key": "sg-helper-alignment",
+        "valueStatement": "Align expectations and feedback calmly in SG homes with helpers."
+      }
+    ],
+    "utm_campaigns": [
+      "singapore_working_holiday",
+      "first_year_2026",
+      "early_interest_2026",
+      "general_2026",
+      "nepal_students",
+      "fish_and_chips_campaign",
+      "Summer_startup_showcase_2026",
+      "uc_tp_feb2026_a",
+      "uc_rr_feb2026_a",
+      "uc_milk_feb2026_a"
+    ],
+    "utm_sources": [
+      "facebook",
+      "whatsapp",
+      "private_social_media_group",
+      "offline_event",
+      "linkedin",
+      "email",
+      "slack",
+      "uc",
+      "uc_noticeboard"
+    ]
+  },
+  "items": [
+    {
+      "qr_id": "uc_freshers",
+      "pageKey": "freshers",
+      "utm_campaign": "first_year_2026",
+      "utm_medium": "qr",
+      "utm_source": "telegram",
+      "url": "https://go.makinglifeeasie.com/kinly/market/freshers?utm_campaign=first_year_2026&utm_medium=qr&utm_source=telegram",
+      "valueStatement": "First flat? Keep the house calm and organised."
+    },
+    {
+      "qr_id": "international_people",
+      "pageKey": "new-place",
+      "utm_campaign": "nepal_students",
+      "utm_medium": "qr",
+      "utm_source": "private_social_media_group",
+      "url": "https://go.makinglifeeasie.com/kinly/market/new-place?utm_campaign=nepal_students&utm_medium=qr&utm_source=private_social_media_group",
+      "valueStatement": "New country, new houseâ€”learn the vibe without awkwardness."
+    },
+    {
+      "qr_id": "fish_&_chips",
+      "pageKey": "takeaway-budget",
+      "utm_campaign": "fish_and_chips_campaign",
+      "utm_medium": "qr",
+      "utm_source": "offline_event",
+      "url": "https://go.makinglifeeasie.com/kinly/market/takeaway-budget?utm_campaign=fish_and_chips_campaign&utm_medium=qr&utm_source=offline_event",
+      "valueStatement": "Stretch your budget without household drama."
+    },
+    {
+      "qr_id": "introverts_unite",
+      "pageKey": "low-talk",
+      "utm_campaign": "introvert_nz",
+      "utm_medium": "qr",
+      "utm_source": "offline_event",
+      "url": "https://go.makinglifeeasie.com/kinly/market/low-talk?utm_campaign=introvert_nz&utm_medium=qr&utm_source=offline_event",
+      "valueStatement": "Live together quietlyâ€”needs stay clear without small talk."
+    },
+    {
+      "qr_id": "uc_toilet_paper_poll",
+      "pageKey": "poll_toilet_paper_v1",
+      "utm_campaign": "uc_tp_feb2026_a",
+      "utm_medium": "qr",
+      "utm_source": "uc",
+      "url": "https://go.makinglifeeasie.com/kinly/polls/toilet-paper-v1?utm_campaign=uc_tp_feb2026_a&utm_medium=qr&utm_source=uc",
+      "valueStatement": "See how your flat compares."
+    },
+    {
+      "qr_id": "student_wellbeing",
+      "pageKey": "student-wellbeing-infrastructure",
+      "utm_campaign": "early_interest_2026",
+      "utm_medium": "qr",
+      "utm_source": "linkedin",
+      "url": "https://go.makinglifeeasie.com/kinly/market/student-wellbeing-infrastructure?utm_campaign=early_interest_2026&utm_medium=qr&utm_source=linkedin",
+      "valueStatement": "Preventative wellbeing infrastructure for shared living."
+    },
+    {
+      "qr_id": "live_in_landlord",
+      "pageKey": "live-in-landlord",
+      "utm_campaign": "early_interest_2026",
+      "utm_medium": "qr",
+      "utm_source": "offline_event",
+      "url": "https://go.makinglifeeasie.com/kinly/market/live-in-landlord?utm_campaign=early_interest_2026&utm_medium=qr&utm_source=offline_event",
+      "valueStatement": "A calmer way to share the home you live in."
+    },
+    {
+      "qr_id": "homestay_owner",
+      "pageKey": "homestay-owner",
+      "utm_campaign": "Summer_startup_showcase_2026",
+      "utm_medium": "qr",
+      "utm_source": "offline_event",
+      "url": "https://go.makinglifeeasie.com/kinly/market/homestay-owner?utm_campaign=Summer_startup_showcase_2026&utm_medium=qr&utm_source=offline_event",
+      "valueStatement": "A gentler way to welcome students into your home."
+    },
+    {
+      "qr_id": "head_tenant",
+      "pageKey": "head-tenant",
+      "utm_campaign": "early_interest_2026",
+      "utm_medium": "qr",
+      "utm_source": "offline_event",
+      "url": "https://go.makinglifeeasie.com/kinly/market/head-tenant?utm_campaign=early_interest_2026&utm_medium=qr&utm_source=offline_event",
+      "valueStatement": "A calmer way to share responsibility in your flat."
+    },
+    {
+      "qr_id": "flat_agreements",
+      "pageKey": "flat-agreements",
+      "utm_campaign": "early_interest_2026",
+      "utm_medium": "qr",
+      "utm_source": "offline_event",
+      "url": "https://go.makinglifeeasie.com/kinly/market/flat-agreements?utm_campaign=early_interest_2026&utm_medium=qr&utm_source=offline_event",
+      "valueStatement": "Know what the flat agrees on without flat politics."
+    },
+    {
+      "qr_id": "general_calm_living",
+      "pageKey": "kinly_general",
+      "utm_campaign": "general_2026",
+      "utm_medium": "qr",
+      "utm_source": "offline_event",
+      "url": "https://go.makinglifeeasie.com/kinly/market/kinly_general?utm_campaign=general_2026&utm_medium=qr&utm_source=offline_event",
+      "valueStatement": "A calmer way to live together."
+    },
+    {
+      "qr_id": "uc_rent_reminder_poll",
+      "pageKey": "poll_rent_reminder_v1",
+      "utm_campaign": "uc_rr_feb2026_a",
+      "utm_medium": "qr",
+      "utm_source": "uc_noticeboard",
+      "url": "https://go.makinglifeeasie.com/kinly/polls/rent-reminder-v1?utm_campaign=uc_rr_feb2026_a&utm_medium=qr&utm_source=uc_noticeboard",
+      "valueStatement": "See if it's just you."
+    },
+    {
+      "qr_id": "uc_milk_poll",
+      "pageKey": "poll_milk_v1",
+      "utm_campaign": "uc_milk_feb2026_a",
+      "utm_medium": "qr",
+      "utm_source": "uc_noticeboard",
+      "url": "https://go.makinglifeeasie.com/kinly/polls/milk-v1?utm_campaign=uc_milk_feb2026_a&utm_medium=qr&utm_source=uc_noticeboard",
+      "valueStatement": "See if it's just you."
+    }
+  ]
 }

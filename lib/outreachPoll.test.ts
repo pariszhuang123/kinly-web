@@ -3,6 +3,7 @@ import { afterEach, describe, expect, test } from "vitest";
 import {
   derivePollPageKeyFromSlug,
   fetchOutreachPoll,
+  fetchOutreachPollResultMessage,
   fetchOutreachPollResults,
   submitOutreachPollVote,
 } from "./outreachPoll";
@@ -71,6 +72,13 @@ describe("fetchOutreachPoll", () => {
         "equal_split",
       ]);
     }
+  });
+
+  test("returns network_error when fetcher is unavailable", async () => {
+    process.env.NEXT_PUBLIC_SUPABASE_URL = "https://example.supabase.co";
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = "anon";
+    const result = await fetchOutreachPoll("poll_toilet_paper_v1", null);
+    expect(result).toEqual({ ok: false, error: "network_error" });
   });
 });
 
@@ -185,6 +193,30 @@ describe("submitOutreachPollVote", () => {
     );
     expect(result).toEqual({ ok: true, total_votes: 5, option_votes: { a: 3, b: 2 } });
   });
+
+  test("returns network_error when fetcher is unavailable", async () => {
+    process.env.NEXT_PUBLIC_SUPABASE_URL = "https://example.supabase.co";
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = "anon";
+
+    const result = await submitOutreachPollVote(
+      { shortCode: "k8m4qz", optionKey: "a", sessionId: "anon_abcdefghijklmnop" },
+      null,
+    );
+    expect(result).toEqual({ ok: false, error: "network_error" });
+  });
+
+  test("returns invalid_response when payload cannot be parsed", async () => {
+    process.env.NEXT_PUBLIC_SUPABASE_URL = "https://example.supabase.co";
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = "anon";
+    const fakeFetcher: (input: RequestInfo | URL, init?: RequestInit) => Promise<Response> = () =>
+      Promise.resolve(new Response(JSON.stringify({ ok: false }), { status: 200 }));
+
+    const result = await submitOutreachPollVote(
+      { shortCode: "k8m4qz", optionKey: "a", sessionId: "anon_abcdefghijklmnop" },
+      fakeFetcher,
+    );
+    expect(result).toEqual({ ok: false, error: "invalid_response" });
+  });
 });
 
 describe("fetchOutreachPoll error paths", () => {
@@ -295,6 +327,13 @@ describe("fetchOutreachPollResults", () => {
     expect(result).toBeNull();
   });
 
+  test("returns null when fetcher is unavailable", async () => {
+    process.env.NEXT_PUBLIC_SUPABASE_URL = "https://example.supabase.co";
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = "anon";
+    const result = await fetchOutreachPollResults("poll_x", null);
+    expect(result).toBeNull();
+  });
+
   test("returns null on empty array", async () => {
     process.env.NEXT_PUBLIC_SUPABASE_URL = "https://example.supabase.co";
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = "anon";
@@ -384,5 +423,206 @@ describe("fetchOutreachPollResults", () => {
 
     const result = await fetchOutreachPollResults("poll_x", fakeFetcher);
     expect(result).toBeNull();
+  });
+});
+
+describe("fetchOutreachPollResultMessage", () => {
+  const originalEnv = {
+    url: process.env.NEXT_PUBLIC_SUPABASE_URL,
+    key: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+  };
+
+  afterEach(() => {
+    process.env.NEXT_PUBLIC_SUPABASE_URL = originalEnv.url;
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = originalEnv.key;
+  });
+
+  test("returns fallback when config is missing", async () => {
+    delete process.env.NEXT_PUBLIC_SUPABASE_URL;
+    delete process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    const result = await fetchOutreachPollResultMessage({
+      pollId: "poll",
+      optionId: "option",
+      sourceIdResolved: "source",
+      utmCampaign: "cmp",
+    });
+    expect(result.resolution_tier).toBe("FALLBACK");
+  });
+
+  test("returns fallback when required ids are missing", async () => {
+    process.env.NEXT_PUBLIC_SUPABASE_URL = "https://example.supabase.co";
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = "anon";
+    const result = await fetchOutreachPollResultMessage(
+      {
+        pollId: "  ",
+        optionId: "option",
+        sourceIdResolved: "source",
+        utmCampaign: "cmp",
+      },
+      () => Promise.resolve(new Response("[]", { status: 200 })),
+    );
+    expect(result.resolution_tier).toBe("FALLBACK");
+  });
+
+  test("returns fallback when response is not ok", async () => {
+    process.env.NEXT_PUBLIC_SUPABASE_URL = "https://example.supabase.co";
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = "anon";
+    const result = await fetchOutreachPollResultMessage(
+      {
+        pollId: "poll",
+        optionId: "option",
+        sourceIdResolved: "source",
+        utmCampaign: "cmp",
+      },
+      () => Promise.resolve(new Response("{}", { status: 500 })),
+    );
+    expect(result.resolution_tier).toBe("FALLBACK");
+  });
+
+  test("resolves EXACT when both source and utm match", async () => {
+    process.env.NEXT_PUBLIC_SUPABASE_URL = "https://example.supabase.co";
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = "anon";
+    const id = "a8e19516-4d5a-4aa3-9a8a-1f4066cb0cc7";
+    const result = await fetchOutreachPollResultMessage(
+      {
+        pollId: "poll",
+        optionId: "option",
+        sourceIdResolved: "source_1",
+        utmCampaign: "cmp_1",
+      },
+      () =>
+        Promise.resolve(
+          new Response(
+            JSON.stringify([
+              {
+                id,
+                source_id_resolved: "source_1",
+                utm_campaign: "cmp_1",
+                primary_message: "Exact message",
+                cta_label: "Exact CTA",
+              },
+            ]),
+            { status: 200 },
+          ),
+        ),
+    );
+    expect(result).toEqual({
+      message_id: id,
+      resolution_tier: "EXACT",
+      primary_message: "Exact message",
+      cta_label: "Exact CTA",
+    });
+  });
+
+  test("resolves SOURCE_ONLY when source matches and campaign is null", async () => {
+    process.env.NEXT_PUBLIC_SUPABASE_URL = "https://example.supabase.co";
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = "anon";
+    const result = await fetchOutreachPollResultMessage(
+      {
+        pollId: "poll",
+        optionId: "option",
+        sourceIdResolved: "source_1",
+        utmCampaign: "cmp_1",
+      },
+      () =>
+        Promise.resolve(
+          new Response(
+            JSON.stringify([
+              {
+                id: "bad-id",
+                source_id_resolved: "source_1",
+                utm_campaign: null,
+                primary_message: "Source message",
+                cta_label: "Source CTA",
+              },
+            ]),
+            { status: 200 },
+          ),
+        ),
+    );
+    expect(result).toEqual({
+      message_id: null,
+      resolution_tier: "SOURCE_ONLY",
+      primary_message: "Source message",
+      cta_label: "Source CTA",
+    });
+  });
+
+  test("resolves GLOBAL_DEFAULT when global row exists", async () => {
+    process.env.NEXT_PUBLIC_SUPABASE_URL = "https://example.supabase.co";
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = "anon";
+    const result = await fetchOutreachPollResultMessage(
+      {
+        pollId: "poll",
+        optionId: "option",
+        sourceIdResolved: "source_1",
+        utmCampaign: "cmp_1",
+      },
+      () =>
+        Promise.resolve(
+          new Response(
+            JSON.stringify([
+              {
+                id: null,
+                source_id_resolved: null,
+                utm_campaign: null,
+                primary_message: "Global message",
+                cta_label: "Global CTA",
+              },
+            ]),
+            { status: 200 },
+          ),
+        ),
+    );
+    expect(result).toEqual({
+      message_id: null,
+      resolution_tier: "GLOBAL_DEFAULT",
+      primary_message: "Global message",
+      cta_label: "Global CTA",
+    });
+  });
+
+  test("returns fallback when rows are invalid or non-matching", async () => {
+    process.env.NEXT_PUBLIC_SUPABASE_URL = "https://example.supabase.co";
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = "anon";
+    const result = await fetchOutreachPollResultMessage(
+      {
+        pollId: "poll",
+        optionId: "option",
+        sourceIdResolved: "source_1",
+        utmCampaign: "cmp_1",
+      },
+      () =>
+        Promise.resolve(
+          new Response(
+            JSON.stringify([
+              {},
+              {
+                source_id_resolved: "other_source",
+                utm_campaign: "other_cmp",
+                primary_message: "Other message",
+                cta_label: "Other CTA",
+              },
+            ]),
+            { status: 200 },
+          ),
+        ),
+    );
+    expect(result.resolution_tier).toBe("FALLBACK");
+  });
+
+  test("returns fallback when fetch throws", async () => {
+    process.env.NEXT_PUBLIC_SUPABASE_URL = "https://example.supabase.co";
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = "anon";
+    const result = await fetchOutreachPollResultMessage(
+      {
+        pollId: "poll",
+        optionId: "option",
+        sourceIdResolved: "source_1",
+        utmCampaign: "cmp_1",
+      },
+      () => Promise.reject(new Error("offline")),
+    );
+    expect(result.resolution_tier).toBe("FALLBACK");
   });
 });

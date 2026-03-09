@@ -21,6 +21,7 @@ type LinkProps = CommonProps & {
   href: string;
   target?: string;
   rel?: string;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 };
 
 function isLinkProps(p: ButtonProps | LinkProps): p is LinkProps {
@@ -42,7 +43,7 @@ export function KinlyButton(props: ButtonProps | LinkProps) {
   const isDisabled = Boolean(props.disabled) || isLoading;
 
   if (isLinkProps(props)) {
-    const { href, children, target, rel } = props;
+    const { href, children, target, rel, onClick } = props;
 
     return (
       <Link
@@ -56,7 +57,7 @@ export function KinlyButton(props: ButtonProps | LinkProps) {
         onClick={
           isDisabled
             ? (e: React.MouseEvent<HTMLAnchorElement>) => e.preventDefault()
-            : undefined
+            : onClick
         }
       >
         {isLoading && <span className={styles.spinner} aria-hidden="true" />}

@@ -198,6 +198,44 @@ describe("resolvePublicNorms", () => {
     }
   });
 
+  it("normalizes locale tags to base language for rpc requests", async () => {
+    fetchMock
+      .mockResolvedValueOnce(jsonResponse({ message: "not found" }, 404))
+      .mockResolvedValueOnce(
+        jsonResponse({
+          ok: true,
+          available: true,
+          home_public_id: "abc12345",
+          doc_locale_base: "es",
+          house_norms_public: {
+            status: "published",
+            published_at: "2026-02-17T00:00:00.000Z",
+            published_version: "v000016",
+            published_content: {
+              summary: {
+                title: "Normas de la casa",
+              },
+            },
+          },
+        }),
+      );
+
+    const result = await resolvePublicNorms("abc12345", "es-MX");
+
+    expect(result.available).toBe(true);
+    if (result.available) {
+      expect(result.source).toBe("rpc");
+      expect(result.data.localeBase).toBe("es");
+    }
+
+    const rpcCall = fetchMock.mock.calls[1];
+    expect(rpcCall).toBeTruthy();
+    if (rpcCall) {
+      const body = JSON.parse(String(rpcCall[1]?.body ?? "{}"));
+      expect(body.p_locale).toBe("es");
+    }
+  });
+
   it("falls back to RPC when manifest snapshot path is invalid", async () => {
     fetchMock
       .mockResolvedValueOnce(

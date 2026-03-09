@@ -4,8 +4,13 @@ import { OutreachStore } from "./outreachTracking";
 type FetchLike = (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>;
 
 const APP_KEY = "kinly-web";
+const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+const FALLBACK_PRIMARY_MESSAGE =
+  'Every flat has its own "how things get done." Kinly helps make it clearer and calmer.';
+const FALLBACK_CTA_LABEL = "Set your flat up in 5 minutes";
 
 export type OutreachPollDefinition = {
+  id: string | null;
   page_key: string;
   title: string;
   question: string;
@@ -13,6 +18,7 @@ export type OutreachPollDefinition = {
 };
 
 export type OutreachPollOption = {
+  id: string | null;
   option_key: string;
   label: string;
   position: number;
@@ -21,6 +27,15 @@ export type OutreachPollOption = {
 export type OutreachPollResults = {
   total_votes: number;
   option_votes: Record<string, number>;
+};
+
+export type PollResultResolutionTier = "EXACT" | "SOURCE_ONLY" | "GLOBAL_DEFAULT" | "FALLBACK";
+
+export type OutreachPollResultMessage = {
+  message_id: string | null;
+  resolution_tier: PollResultResolutionTier;
+  primary_message: string;
+  cta_label: string;
 };
 
 export type OutreachPollGetResult =
@@ -80,11 +95,14 @@ function toOptions(value: unknown): OutreachPollOption[] {
   return value
     .map((entry) => {
       if (!isPlainObject(entry)) return null;
+      const id =
+        typeof entry.id === "string" && UUID_REGEX.test(entry.id.trim()) ? entry.id.trim().toLowerCase() : null;
       const optionKey = typeof entry.option_key === "string" ? entry.option_key.trim() : "";
       const label = typeof entry.label === "string" ? entry.label.trim() : "";
       const position = parseNumber(entry.position) ?? 0;
       if (!optionKey || !label) return null;
       return {
+        id,
         option_key: optionKey,
         label,
         position,
@@ -96,6 +114,8 @@ function toOptions(value: unknown): OutreachPollOption[] {
 
 function parsePollDefinition(value: unknown): OutreachPollDefinition | null {
   if (!isPlainObject(value)) return null;
+  const id =
+    typeof value.id === "string" && UUID_REGEX.test(value.id.trim()) ? value.id.trim().toLowerCase() : null;
   const pageKey = typeof value.page_key === "string" ? value.page_key.trim() : "";
   const title = typeof value.title === "string" ? value.title.trim() : "";
   const question = typeof value.question === "string" ? value.question.trim() : "";
@@ -103,6 +123,7 @@ function parsePollDefinition(value: unknown): OutreachPollDefinition | null {
     typeof value.description === "string" ? value.description.trim() || null : null;
   if (!pageKey || !title || !question) return null;
   return {
+    id,
     page_key: pageKey,
     title,
     question,
@@ -307,5 +328,143 @@ export async function fetchOutreachPollResults(
     };
   } catch {
     return null;
+  }
+}
+
+type PollResultMessageRow = {
+  id: string | null;
+  source_id_resolved: string | null;
+  utm_campaign: string | null;
+  primary_message: string;
+  cta_label: string;
+};
+
+function parseNullableText(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  const trimmed = value.trim();
+  return trimmed || null;
+}
+
+function parsePollResultMessageRow(value: unknown): PollResultMessageRow | null {
+  if (!isPlainObject(value)) return null;
+
+  const primaryMessage = typeof value.primary_message === "string" ? value.primary_message.trim() : "";
+  const ctaLabel = typeof value.cta_label === "string" ? value.cta_label.trim() : "";
+  if (!primaryMessage || !ctaLabel) return null;
+
+  const id =
+    typeof value.id === "string" && UUID_REGEX.test(value.id.trim()) ? value.id.trim().toLowerCase() : null;
+
+  return {
+    id,
+    source_id_resolved: parseNullableText(value.source_id_resolved),
+    utm_campaign: parseNullableText(value.utm_campaign),
+    primary_message: primaryMessage,
+    cta_label: ctaLabel,
+  };
+}
+
+function fallbackPollResultMessage(): OutreachPollResultMessage {
+  return {
+    message_id: null,
+    resolution_tier: "FALLBACK",
+    primary_message: FALLBACK_PRIMARY_MESSAGE,
+    cta_label: FALLBACK_CTA_LABEL,
+  };
+}
+
+function normalizeContextValue(value: string | null | undefined): string | null {
+  const trimmed = (value ?? "").trim();
+  return trimmed || null;
+}
+
+export async function fetchOutreachPollResultMessage(
+  params: {
+    pollId: string | null | undefined;
+    optionId: string | null | undefined;
+    sourceIdResolved: string | null | undefined;
+    utmCampaign: string | null | undefined;
+  },
+  fetcher: FetchLike | null | undefined = typeof fetch !== "undefined" ? fetch : null,
+): Promise<OutreachPollResultMessage> {
+  const config = getSupabaseConfig();
+  if (!config || !fetcher) return fallbackPollResultMessage();
+
+  const pollId = normalizeContextValue(params.pollId);
+  const optionId = normalizeContextValue(params.optionId);
+  if (!pollId || !optionId) return fallbackPollResultMessage();
+
+  const sourceIdResolved = normalizeContextValue(params.sourceIdResolved);
+  const utmCampaign = normalizeContextValue(params.utmCampaign);
+
+  const query = new URLSearchParams({
+    select: "id,source_id_resolved,utm_campaign,primary_message,cta_label",
+    poll_id: `eq.${pollId}`,
+    option_id: `eq.${optionId}`,
+    active: "eq.true",
+    limit: "20",
+  });
+
+  try {
+    const response = await fetcher(
+      `${config.supabaseUrl}/rest/v1/outreach_poll_result_messages?${query.toString()}`,
+      {
+        method: "GET",
+        headers: {
+          apikey: config.supabaseAnonKey,
+          Authorization: `Bearer ${config.supabaseAnonKey}`,
+        },
+        cache: "no-store",
+      },
+    );
+    if (!response.ok) return fallbackPollResultMessage();
+
+    const payload = await response.json().catch(() => null);
+    if (!Array.isArray(payload) || payload.length === 0) return fallbackPollResultMessage();
+
+    const rows = payload
+      .map(parsePollResultMessageRow)
+      .filter((row): row is PollResultMessageRow => Boolean(row));
+    if (rows.length === 0) return fallbackPollResultMessage();
+
+    const exact = rows.find(
+      (row) => row.source_id_resolved === sourceIdResolved && row.utm_campaign === utmCampaign,
+    );
+    if (exact) {
+      return {
+        message_id: exact.id,
+        resolution_tier: "EXACT",
+        primary_message: exact.primary_message,
+        cta_label: exact.cta_label,
+      };
+    }
+
+    const sourceOnly = rows.find(
+      (row) => row.source_id_resolved === sourceIdResolved && row.utm_campaign === null,
+    );
+    if (sourceOnly) {
+      return {
+        message_id: sourceOnly.id,
+        resolution_tier: "SOURCE_ONLY",
+        primary_message: sourceOnly.primary_message,
+        cta_label: sourceOnly.cta_label,
+      };
+    }
+
+    const globalDefault = rows.find(
+      (row) => row.source_id_resolved === null && row.utm_campaign === null,
+    );
+    if (globalDefault) {
+      return {
+        message_id: globalDefault.id,
+        resolution_tier: "GLOBAL_DEFAULT",
+        primary_message: globalDefault.primary_message,
+        cta_label: globalDefault.cta_label,
+      };
+    }
+
+    return fallbackPollResultMessage();
+  } catch {
+    return fallbackPollResultMessage();
   }
 }

@@ -1,4 +1,4 @@
-import { ScenarioConfig } from "../ScenarioLandingClient";
+﻿import { ScenarioConfig } from "../ScenarioLandingClient";
 import { freshersConfig } from "./freshers";
 import { internationalStartConfig } from "./internationalStart";
 import { takeawayBudgetFlatsConfig } from "./takeawayBudget";
@@ -8,6 +8,7 @@ import { liveInLandlordConfig } from "./liveInLandlord";
 import { homestayOwnerConfig } from "./homestayOwner";
 import { headTenantConfig } from "./headTenant";
 import { flatAgreementsConfig } from "./flatAgreements";
+import { sgHouseOwnerHelperAlignmentConfig } from "./sgHouseOwnerHelperAlignment";
 
 export const scenarioConfigs: Record<string, ScenarioConfig> = {
   freshers: freshersConfig,
@@ -19,6 +20,7 @@ export const scenarioConfigs: Record<string, ScenarioConfig> = {
   "homestay-owner": homestayOwnerConfig,
   "head-tenant": headTenantConfig,
   "flat-agreements": flatAgreementsConfig,
+  "sg-helper-alignment": sgHouseOwnerHelperAlignmentConfig,
 };
 
 export const ENTRY_TO_SCENARIO: Record<string, keyof typeof scenarioConfigs> = {
@@ -31,6 +33,7 @@ export const ENTRY_TO_SCENARIO: Record<string, keyof typeof scenarioConfigs> = {
   "homestay-owner": "homestay-owner",
   "head-tenant": "head-tenant",
   "flat-agreements": "flat-agreements",
+  "sg-helper-alignment": "sg-helper-alignment",
 };
 
 export function getScenarioConfig(entry?: string | string[] | null): ScenarioConfig | null {
@@ -42,3 +45,4 @@ export function getScenarioConfig(entry?: string | string[] | null): ScenarioCon
   if (!scenarioKey) return null;
   return scenarioConfigs[scenarioKey] ?? null;
 }
+

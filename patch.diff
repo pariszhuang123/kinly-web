@@ -1,18 +1,111 @@
 ﻿*** Begin Patch
-*** Update File: tests/interest_capture.spec.ts
-@@
--  await expect(page.getByText(/Too many attempts\. Please try again in \d+s\./)).toBeVisible();
--  await expect(page.getByText(/Please wait .*s before trying again\./)).toBeVisible();
-+  await expect(page.getByText(/Too many attempts/)).toBeVisible();
-+  await expect(page.getByText(/Please wait \d+s before trying again\./)).toBeVisible();
-@@
--  await page.getByRole("button", { name: "Request access" }).click();
--
--  await expect(page.getByText(/Thanks .* we got it\./)).toBeVisible();
--  await expect(page.getByText(/let you know when Kinly is ready in your area/)).toBeVisible();
-+  await page.getByRole("button", { name: "Request access" }).click();
+*** Add File: contracts/contracts/product/kinly/web/growth/market_scenarios_v1.md
++---
++Domain: product
++Capability: market_scenarios
++Scope: frontend
++Artifact-Type: contract
++Stability: evolving
++Status: active
++Version: v1.0
++Audience: public
++Last updated: 2026-03-03
++---
 +
-+  await expect(page.getByText(/Thanks/)).toBeVisible();
-+  await expect(page.getByText(/ready in your area/i)).toBeVisible();
- });
++# Contract - Kinly Market Scenario Surfaces v1.0
++
++## Purpose
++
++Define the canonical behavior for scenario-specific marketing surfaces hosted
++under `/kinly/market/*`.
++
++These pages tailor recognition-first copy to specific shared-living situations
++without changing Kinly's core positioning, safety boundaries, or routing model.
++
++## Canonical Namespace (Normative)
++
++All scenario landing pages MUST live under:
++
++- `/kinly/market/<scenario_slug>`
++
++Scenario previews MAY also be resolved through:
++
++- `/kinly/general?entry=<scenario_slug>`
++
++When both routes are available, `/kinly/market/<scenario_slug>` is canonical.
++
++## Scenario Descriptor (Normative)
++
++Each scenario MUST define:
++
++- `scenario_slug`: URL-safe slug used in `/kinly/market/<scenario_slug>`
++- `entry_alias`: query alias accepted by `/kinly/general?entry=...`
++- `page_key`: outreach tracking key for scenario page analytics
++- `status`: `active` | `deprecated`
++
++Constraints:
++
++- `scenario_slug` and `entry_alias` MUST be lowercase kebab-case.
++- `page_key` MUST be lowercase snake_case.
++- `page_key` MUST be stable once published.
++- `scenario_slug`, `entry_alias`, and `page_key` MUST be unique.
++
++## Active Scenario Set (v1)
++
++| scenario_slug                      | entry_alias                        | page_key                            | status |
++| ---------------------------------- | ---------------------------------- | ----------------------------------- | ------ |
++| `freshers`                         | `freshers`                         | `kinly_market_freshers`             | Active |
++| `new-place`                        | `new-place`                        | `kinly_market_new_place`            | Active |
++| `takeaway-budget`                  | `takeaway-budget`                  | `takeaway_budget_flats`             | Active |
++| `low-talk`                         | `low-talk`                         | `kinly_market_low_talk`             | Active |
++| `student-wellbeing-infrastructure` | `student-wellbeing-infrastructure` | `student_wellbeing_infrastructure`  | Active |
++| `live-in-landlord`                 | `live-in-landlord`                 | `live_in_landlord`                  | Active |
++| `homestay-owner`                   | `homestay-owner`                   | `homestay_owner`                    | Active |
++| `head-tenant`                      | `head-tenant`                      | `head_tenant_shared_responsibility` | Active |
++| `flat-agreements`                  | `flat-agreements`                  | `flat_agreements`                   | Active |
++
++## Content Guardrails (Normative)
++
++Scenario pages MUST comply with:
++
++- `growth/marketing_landing_recognition_first_v1_2.md`
++- `../../../design/copy/kinly/web/scenario_landing_copy_contract_v1.md`
++
++Scenario pages MUST NOT:
++
++- imply surveillance, coercion, punishment, or scoring
++- bypass region gating behavior
++- add additional capture forms beyond approved growth contracts
++
++## Tracking Guardrails (Normative)
++
++Scenario pages MUST emit outreach events using their configured `page_key`.
++
++Tracking behavior is governed by:
++
++- `growth/outreach_tracking_v1_1.md`
++
++## Region Gating Guardrails (Normative)
++
++Scenario pages MUST use the active supported-region allowlist from:
++
++- `../links/links_region_gate_v1_3.md`
++
++## Change Rules
++
++The following are behavioral changes and REQUIRE a new contract version:
++
++- adding/removing a scenario slug
++- changing a slug, entry alias, or page key
++- changing canonical route namespace
++- changing scenario safety boundaries
++
++## Non-Goals
++
++This contract does not define:
++
++- deep-link internals
++- app-side behavior
++- mobile onboarding logic
++- scenario copy wording line-by-line
 *** End Patch

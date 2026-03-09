@@ -76,7 +76,11 @@ function asPublishedVersion(value: unknown): string | null {
 
 function asLocaleBase(value: unknown): string | null {
   if (typeof value !== "string") return null;
-  const normalized = value.trim().toLowerCase();
+  const normalized = value
+    .trim()
+    .toLowerCase()
+    .replace(/_/g, "-")
+    .split("-")[0] ?? "";
   return LOCALE_BASE_REGEX.test(normalized) ? normalized : null;
 }
 
