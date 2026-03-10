@@ -78,7 +78,7 @@ test("shows store badges when no suppression marker exists", async () => {
 });
 
 test("shows store badges when detected country is supported", async () => {
-  const { container, unmount } = render(<LandingClient detectedCountryCode="NZ" />);
+  const { container, unmount } = render(<LandingClient detectedCountryCode="SG" />);
   await flushEffects();
 
   const ios = container.querySelectorAll('a[aria-label="Download on the App Store"]');
@@ -97,7 +97,7 @@ test("suppresses store badges when interest marker is unsupported", async () => 
   window.localStorage.setItem(
     "kinly_interest_status",
     JSON.stringify({
-      country_code: "US", // unsupported region per contract (supported: NZ, SG)
+      country_code: "US", // unsupported region (supported: SG, MY)
       ui_locale: "en-US",
       captured_at: new Date().toISOString(),
     }),
