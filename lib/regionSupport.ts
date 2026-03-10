@@ -1,4 +1,4 @@
-const SUPPORTED_REGION_CODES = ["NZ", "SG", "MY"] as const;
+const SUPPORTED_REGION_CODES = ["SG", "MY"] as const;
 
 type AvailabilityLocale = "en" | "es";
 
