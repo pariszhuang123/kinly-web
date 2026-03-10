@@ -3,6 +3,7 @@ import { afterEach, describe, expect, test } from "vitest";
 import {
   derivePollPageKeyFromSlug,
   fetchOutreachPoll,
+  fetchOutreachPollResultMessageForOption,
   fetchOutreachPollResultMessage,
   fetchOutreachPollResults,
   submitOutreachPollVote,
@@ -624,5 +625,93 @@ describe("fetchOutreachPollResultMessage", () => {
       () => Promise.reject(new Error("offline")),
     );
     expect(result.resolution_tier).toBe("FALLBACK");
+  });
+});
+
+describe("fetchOutreachPollResultMessageForOption", () => {
+  const originalEnv = {
+    url: process.env.NEXT_PUBLIC_SUPABASE_URL,
+    key: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+  };
+
+  afterEach(() => {
+    process.env.NEXT_PUBLIC_SUPABASE_URL = originalEnv.url;
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = originalEnv.key;
+  });
+
+  test("returns fallback when option key is missing", async () => {
+    process.env.NEXT_PUBLIC_SUPABASE_URL = "https://example.supabase.co";
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = "anon";
+
+    const result = await fetchOutreachPollResultMessageForOption({
+      pollId: "poll",
+      optionKey: " ",
+      options: [{ id: "95f7a40d-3fc5-4e24-b795-32ea15f4dce3", option_key: "a", label: "A", position: 1 }],
+      sourceIdResolved: "uc",
+      utmCampaign: "cmp",
+    });
+
+    expect(result.resolution_tier).toBe("FALLBACK");
+  });
+
+  test("returns fallback when selected option has no id", async () => {
+    process.env.NEXT_PUBLIC_SUPABASE_URL = "https://example.supabase.co";
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = "anon";
+
+    const result = await fetchOutreachPollResultMessageForOption({
+      pollId: "poll",
+      optionKey: "a",
+      options: [{ id: null, option_key: "a", label: "A", position: 1 }],
+      sourceIdResolved: "uc",
+      utmCampaign: "cmp",
+    });
+
+    expect(result.resolution_tier).toBe("FALLBACK");
+  });
+
+  test("resolves message for the selected option", async () => {
+    process.env.NEXT_PUBLIC_SUPABASE_URL = "https://example.supabase.co";
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = "anon";
+    const optionId = "95f7a40d-3fc5-4e24-b795-32ea15f4dce3";
+    const messageId = "a8e19516-4d5a-4aa3-9a8a-1f4066cb0cc7";
+    let requestedUrl = "";
+
+    const result = await fetchOutreachPollResultMessageForOption(
+      {
+        pollId: "poll",
+        optionKey: "a",
+        options: [
+          { id: optionId, option_key: "a", label: "A", position: 1 },
+          { id: "45f6fd0f-c17f-4e6f-9f47-2e8ece2f33f5", option_key: "b", label: "B", position: 2 },
+        ],
+        sourceIdResolved: "uc",
+        utmCampaign: "cmp",
+      },
+      (input: RequestInfo | URL) => {
+        requestedUrl = String(input);
+        return Promise.resolve(
+          new Response(
+            JSON.stringify([
+              {
+                id: messageId,
+                source_id_resolved: "uc",
+                utm_campaign: "cmp",
+                primary_message: "Option A message",
+                cta_label: "Option A CTA",
+              },
+            ]),
+            { status: 200 },
+          ),
+        );
+      },
+    );
+
+    expect(result).toEqual({
+      message_id: messageId,
+      resolution_tier: "EXACT",
+      primary_message: "Option A message",
+      cta_label: "Option A CTA",
+    });
+    expect(requestedUrl).toContain("option_id=eq.95f7a40d-3fc5-4e24-b795-32ea15f4dce3");
   });
 });

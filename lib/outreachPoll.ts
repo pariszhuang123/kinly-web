@@ -468,3 +468,32 @@ export async function fetchOutreachPollResultMessage(
     return fallbackPollResultMessage();
   }
 }
+
+export async function fetchOutreachPollResultMessageForOption(
+  params: {
+    pollId: string | null | undefined;
+    optionKey: string | null | undefined;
+    options: OutreachPollOption[];
+    sourceIdResolved: string | null | undefined;
+    utmCampaign: string | null | undefined;
+  },
+  fetcher: FetchLike | null | undefined = typeof fetch !== "undefined" ? fetch : null,
+): Promise<OutreachPollResultMessage> {
+  const normalizedOptionKey = normalizeContextValue(params.optionKey);
+  if (!normalizedOptionKey) return fallbackPollResultMessage();
+
+  const selectedOption = params.options.find(
+    (option) => option.option_key === normalizedOptionKey,
+  );
+  if (!selectedOption?.id) return fallbackPollResultMessage();
+
+  return fetchOutreachPollResultMessage(
+    {
+      pollId: params.pollId,
+      optionId: selectedOption.id,
+      sourceIdResolved: params.sourceIdResolved,
+      utmCampaign: params.utmCampaign,
+    },
+    fetcher,
+  );
+}

@@ -9,11 +9,11 @@ import {
 
 describe("regionSupport", () => {
   it("exposes supported region codes as uppercase ISO values", () => {
-    expect(getSupportedRegionCodes()).toEqual(["SG", "MY"]);
+    expect(getSupportedRegionCodes()).toEqual(["NZ", "SG", "MY"]);
   });
 
   it("checks support case-insensitively", () => {
-    expect(isSupportedRegion("NZ")).toBe(false);
+    expect(isSupportedRegion("NZ")).toBe(true);
     expect(isSupportedRegion("sg")).toBe(true);
     expect(isSupportedRegion("MY")).toBe(true);
     expect(isSupportedRegion("US")).toBe(false);

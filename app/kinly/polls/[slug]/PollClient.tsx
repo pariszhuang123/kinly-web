@@ -12,7 +12,7 @@ import {
 } from "../../../../components";
 import {
   derivePollPageKeyFromSlug,
-  fetchOutreachPollResultMessage,
+  fetchOutreachPollResultMessageForOption,
   fetchOutreachPoll,
   fetchOutreachPollResults,
   OutreachPollDefinition,
@@ -294,12 +294,10 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
 
   async function resolveResultMessage(optionKey: string): Promise<OutreachPollResultMessage | null> {
     if (!poll) return null;
-    const option = options.find((entry) => entry.option_key === optionKey);
-    if (!option) return null;
-
-    const resolvedMessage = await fetchOutreachPollResultMessage({
+    const resolvedMessage = await fetchOutreachPollResultMessageForOption({
       pollId: poll.id,
-      optionId: option.id,
+      optionKey,
+      options,
       sourceIdResolved: utmParams.utm_source,
       utmCampaign: utmParams.utm_campaign,
     });

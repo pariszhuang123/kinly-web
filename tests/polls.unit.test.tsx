@@ -23,6 +23,7 @@ vi.mock("../lib/outreachPoll", async () => {
   return {
     ...actual,
     fetchOutreachPoll: vi.fn(),
+    fetchOutreachPollResultMessageForOption: vi.fn(),
     fetchOutreachPollResultMessage: vi.fn(),
     fetchOutreachPollResults: vi.fn(),
     submitOutreachPollVote: vi.fn(),
@@ -128,6 +129,12 @@ beforeEach(() => {
     primary_message: "You do not have to carry all the follow-ups yourself.",
     cta_label: "Remove follow-ups",
   });
+  vi.mocked(outreachPoll.fetchOutreachPollResultMessageForOption).mockResolvedValue({
+    message_id: "2dc6be59-b472-40cf-b06d-2a2d0002234b",
+    resolution_tier: "GLOBAL_DEFAULT",
+    primary_message: "You do not have to carry all the follow-ups yourself.",
+    cta_label: "Remove follow-ups",
+  });
   vi.mocked(outreachPoll.submitOutreachPollVote).mockResolvedValue({
     ok: true,
     total_votes: 13,
@@ -196,7 +203,7 @@ test("without k_sc it shows results but does not write vote RPC", async () => {
 
   expect(outreachPoll.submitOutreachPollVote).not.toHaveBeenCalled();
   expect(outreachPoll.fetchOutreachPollResults).toHaveBeenCalled();
-  expect(outreachPoll.fetchOutreachPollResultMessage).toHaveBeenCalled();
+  expect(outreachPoll.fetchOutreachPollResultMessageForOption).toHaveBeenCalled();
 
   unmount();
 });
