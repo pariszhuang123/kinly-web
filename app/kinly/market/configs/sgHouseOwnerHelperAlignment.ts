@@ -6,45 +6,45 @@ export const sgHouseOwnerHelperAlignmentConfig: ScenarioConfig = {
   pageKey: "sg_house_owner_helper_alignment",
 
   recognition: {
-    heading: "You want a calm home, but standards stay unspoken.",
-    subtitle: "Different habits and cultures can create silent resentment.",
-    body: "Kinly makes expectations visible and shared so feedback feels clearer, earlier, and less personal.",
+    heading: "You should not have to repeat the same house instructions every week.",
+    subtitle: "Many home tensions start when standards are assumed, not written down.",
+    body: "Kinly helps make routines, preferences, and boundaries visible in one shared place so fewer things are forgotten, misunderstood, or taken personally.",
   },
 
   whatHeading: "What Kinly is",
   whatBody:
-    "Kinly is a shared living app designed for people who live together. It helps households align expectations and feedback in a neutral way without turning home life into policing.",
+    "Kinly is a shared home app for people living together. For Singapore homes with helpers, it gives everyone one clear reference point for routines, expectations, and household coordination so the home can run more smoothly with less repeated explaining.",
 
   hero: {
-    headline: "Shared clarity for Singapore homes with helpers.",
-    subhead: "Make expectations discussable before tension builds.",
-    body: "Kinly gives everyone the same reference point for routines, boundaries, and weekly feedback so misalignment is surfaced early and reset calmly.",
-    ctaHeading: "Align expectations calmly",
+    headline: "Explain house standards once. Kinly remembers them.",
+    subhead: "Reduce repeated instructions, avoidable mistakes, and everyday tension at home.",
+    body: "When routines and expectations live in one shared place, it becomes easier to refer back, reset calmly, and keep the household running without turning every correction into a personal confrontation.",
+    ctaHeading: "Set clearer house standards",
   },
 
   screens: [
     {
       title: "Today",
-      eyebrow: "Signal",
-      headline: "Notice friction before it hardens",
-      copy: "Daily rhythms, shared spaces, and small tensions in one neutral view.",
-      footer: "Early clarity lowers emotional load.",
+      eyebrow: "Daily clarity",
+      headline: "See what needs attention before frustration builds",
+      copy: "Keep daily routines, reminders, and shared household needs visible in one place.",
+      footer: "Fewer missed steps. Less repeated reminding.",
       image: LANDING_SCREEN_ASSETS.en.today,
     },
     {
       title: "Manage",
-      eyebrow: "Alignment",
-      headline: "Make expectations explicit, not assumed",
-      copy: "Capture household standards once so feedback is about alignment, not blame.",
-      footer: "Less guessing, less resentment.",
+      eyebrow: "House standards",
+      headline: "Write down expectations instead of repeating them",
+      copy: "Capture recurring instructions and household preferences once so people can refer back instead of guessing.",
+      footer: "Clearer standards. Fewer avoidable mistakes.",
       image: LANDING_SCREEN_ASSETS.en.manage,
     },
     {
       title: "Home Hub",
-      eyebrow: "Reference",
-      headline: "Keep boundaries and agreements visible",
-      copy: "One shared reference for routines, boundaries, and communication tone.",
-      footer: "Clarity first, pressure lower.",
+      eyebrow: "Shared reference",
+      headline: "Keep routines, boundaries, and household info in one place",
+      copy: "Use one shared reference point for how the home works, what matters, and how things should be done.",
+      footer: "Less confusion. More consistency.",
       image: LANDING_SCREEN_ASSETS.en.hub,
     },
   ],
@@ -52,65 +52,65 @@ export const sgHouseOwnerHelperAlignmentConfig: ScenarioConfig = {
   featureScreens: [
     {
       title: "Shared tasks",
-      benefit: "Keep recurring standards visible so expectations are clear before reminders feel personal.",
+      benefit: "Keep recurring routines visible so household standards are easier to follow without constant reminding.",
       image: LANDING_SCREEN_ASSETS.en.flows,
     },
     {
       title: "Shared groceries",
-      benefit: "Make household supply expectations explicit so requests stay practical and respectful.",
+      benefit: "Make supply expectations clear so household requests stay simple, practical, and easier to act on.",
       image: LANDING_SCREEN_ASSETS.en.groceries,
     },
     {
       title: "Shared bills",
-      benefit: "Keep shared costs transparent so money conversations remain factual and calm.",
+      benefit: "Keep household costs and due items visible so coordination stays factual and organized.",
       image: LANDING_SCREEN_ASSETS.en.bills,
     },
     {
-      title: "Calm check-ins",
-      benefit: "Use a weekly feedback rhythm to surface misalignment early and reset without confrontation.",
+      title: "Weekly check-ins",
+      benefit: "Create a simple rhythm to catch misalignment early before small frustrations harden into repeated conflict.",
       image: LANDING_SCREEN_ASSETS.en.checkins,
     },
   ],
 
   chips: [
-    "Standards exist, but no one says them clearly.",
-    "Cultural differences make feedback emotionally uncomfortable.",
-    "I want alignment, not silent resentment.",
+    "I keep repeating the same instructions.",
+    "Standards exist, but they are not written down clearly.",
+    "I want fewer misunderstandings at home.",
   ],
 
   rolePoints: [
-    "Creates one neutral reference point for expectations and boundaries.",
-    "Supports clearer feedback without turning anyone into the enforcer.",
+    "Creates one clear reference point for routines, preferences, and boundaries.",
+    "Helps reduce repeated explaining by making expectations easier to refer back to.",
   ],
 
   formingPoints: [
-    "Household dynamics shift; explicit expectations keep everyone aligned.",
-    "Small misalignments are easier to reset when feedback is regular and calm.",
+    "Household routines are easier to follow when expectations are visible, not implied.",
+    "Small issues are easier to reset early when people can refer to shared standards.",
   ],
 
   audience: [
-    "Homes where expectations are implied but not clearly shared.",
-    "Households balancing different routines, norms, and communication styles.",
+    "Singapore homes with helpers where expectations are often verbal, repeated, or assumed.",
+    "Households that want smoother routines, fewer avoidable mistakes, and less tension around daily standards.",
   ],
 
   notList: [
     "Not surveillance.",
-    "Not a punishment system.",
-    "Not a reporting tool.",
+    "Not a punishment tool.",
     "Not a scorecard.",
+    "Not a reporting system built around blame.",
   ],
 
   weekly: {
-    intro: "Kinly uses a weekly rhythm so expectation alignment and feedback stay human.",
+    intro: "Kinly uses a weekly rhythm so households can reset expectations before frustration keeps building.",
     points: [
-      "Check in weekly so tensions do not stack up in silence.",
-      "Reset expectations with shared wording, not personal blame.",
-      "Keep the home steady with clear boundaries and calmer conversations.",
+      "Catch repeated friction before it turns into scolding or resentment.",
+      "Refer back to shared expectations instead of relying only on memory.",
+      "Keep the home running with more consistency and less emotional strain.",
     ],
   },
 
   toolsIntro:
-    "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction without turning household life into enforcement.",
+    "Once expectations are clearer, Kinly adds simple household tools that reduce everyday friction without making the home feel like a workplace.",
 
   availability: {
     body: getScenarioAvailabilityBody("en"),
