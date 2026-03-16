@@ -91,14 +91,6 @@ export const internationalStartConfig: ScenarioConfig = {
     "Housemates who want calm clarity, not awkward conversations.",
   ],
   notList: ["Not a surveillance tool.", "Not a scorecard or leaderboard.", "Not a chore boss."],
-  weekly: {
-    intro: "Kinly uses a weekly rhythm so you can settle in without daily pressure.",
-    points: [
-      "Check in weekly, not daily - no streaks to maintain.",
-      "Reflections are for understanding, not grading anyone.",
-      "Kinly never forces conversations - it helps you decide when to talk.",
-    ],
-  },
   toolsIntro:
     "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction, without turning shared living into a task system.",
   availability: {
@@ -170,15 +162,6 @@ export const internationalStartConfig: ScenarioConfig = {
         "Companeros que quieren claridad tranquila, no conversaciones incomodas.",
       ],
       notList: ["No es vigilancia.", "No es marcador ni ranking.", "No es un jefe de tareas."],
-      weekly: {
-        intro: "Kinly usa un ritmo semanal para que te adaptes sin presion diaria.",
-        points: [
-          "Revisa semanalmente, no a diario - sin rachas que mantener.",
-          "Reflexiones para entender, no para juzgar.",
-          "Kinly nunca fuerza conversaciones - te ayuda a decidir cuando hablar.",
-        ],
-        heading: "Reflexion semanal, a ritmo humano",
-      },
       toolsIntro:
         "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la friccion diaria, sin convertir la vida compartida en un sistema de tareas.",
       sectionHeadings: {
@@ -259,15 +242,6 @@ export const internationalStartConfig: ScenarioConfig = {
         "Ø²Ù…Ù„Ø§Ø¡ Ø§Ù„Ø³ÙƒÙ† Ø§Ù„Ø°ÙŠÙ† ÙŠØ±ÙŠØ¯ÙˆÙ† ÙˆØ¶ÙˆØ­Ø§Ù‹ Ù‡Ø§Ø¯Ø¦Ø§Ù‹ØŒ Ù„Ø§ Ù…Ø­Ø§Ø¯Ø«Ø§Øª Ù…Ø­Ø±Ø¬Ø©.",
       ],
       notList: ["Ù„ÙŠØ³ Ø£Ø¯Ø§Ø© Ù…Ø±Ø§Ù‚Ø¨Ø©.", "Ù„ÙŠØ³ Ø¨Ø·Ø§Ù‚Ø© Ù†Ù‚Ø§Ø· Ø£Ùˆ Ù„ÙˆØ­Ø© ØµØ¯Ø§Ø±Ø©.", "Ù„ÙŠØ³ Ø±Ø¦ÙŠØ³ Ù…Ù‡Ø§Ù…."],
-      weekly: {
-        intro: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠØ³ØªØ®Ø¯Ù… Ø¥ÙŠÙ‚Ø§Ø¹Ø§Ù‹ Ø£Ø³Ø¨ÙˆØ¹ÙŠØ§Ù‹ Ø­ØªÙ‰ ØªØ³ØªÙ‚Ø± Ø¨Ø¯ÙˆÙ† Ø¶ØºØ· ÙŠÙˆÙ…ÙŠ.",
-        points: [
-          "Ø±Ø§Ø¬Ø¹ Ø£Ø³Ø¨ÙˆØ¹ÙŠØ§Ù‹ØŒ Ù„ÙŠØ³ ÙŠÙˆÙ…ÙŠØ§Ù‹ - Ù„Ø§ Ø³Ù„Ø§Ø³Ù„ Ù„Ù„Ø­ÙØ§Ø¸ Ø¹Ù„ÙŠÙ‡Ø§.",
-          "Ø§Ù„ØªØ£Ù…Ù„Ø§Øª Ù„Ù„ÙÙ‡Ù…ØŒ Ù„ÙŠØ³Øª Ù„ØªÙ‚ÙŠÙŠÙ… Ø£Ø­Ø¯.",
-          "ÙƒÙŠÙ†Ù„ÙŠ Ù„Ø§ ÙŠÙØ±Ø¶ Ù…Ø­Ø§Ø¯Ø«Ø§Øª - ÙŠØ³Ø§Ø¹Ø¯Ùƒ ØªÙ‚Ø±Ø± Ù…ØªÙ‰ ØªØªÙƒÙ„Ù….",
-        ],
-        heading: "ØªØ£Ù…Ù„ Ø£Ø³Ø¨ÙˆØ¹ÙŠØŒ Ø¨Ø¥ÙŠÙ‚Ø§Ø¹ Ø¨Ø´Ø±ÙŠ",
-      },
       toolsIntro:
         "Ø¨Ø¹Ø¯ Ø£Ù† ØªØªÙÙ‚ÙˆØ§ Ø¹Ù„Ù‰ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§ØªØŒ ÙŠÙ‚Ø¯Ù… ÙƒÙŠÙ†Ù„ÙŠ Ø£Ø¯ÙˆØ§Øª Ø¨Ø³ÙŠØ·Ø© ØªÙ‚Ù„Ù„ Ø§Ù„Ø§Ø­ØªÙƒØ§ÙƒØ§Øª Ø§Ù„ÙŠÙˆÙ…ÙŠØ©, Ø¨Ø¯ÙˆÙ† ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ø¹ÙŠØ´ Ø§Ù„Ù…Ø´ØªØ±Ùƒ Ø¥Ù„Ù‰ Ù†Ø¸Ø§Ù… Ù…Ù‡Ø§Ù….",
       sectionHeadings: {

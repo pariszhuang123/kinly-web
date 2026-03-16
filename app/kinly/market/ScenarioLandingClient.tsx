@@ -71,11 +71,6 @@ export type ScenarioConfig = {
   audience: string[];
   notList: string[];
   toolsIntro?: string;
-  weekly: {
-    intro: string;
-    points: string[];
-    heading?: string;
-  };
   sectionHeadings?: {
     howItWorks?: string;
     soundsLikeYou?: string;
@@ -126,7 +121,6 @@ const PLAY_STORE_LABEL = "Get it on Google Play";
 const CONTACT_EMAIL = "paris.zhuang@makinglifeeasie.com";
 const SUPPORTING_IMAGES = {
   friction: "/images/landing/friction-shared-home.webp",
-  calm: "/images/landing/calm-shared-home.webp",
 } as const;
 const DEFAULT_WHAT_HEADING = "What Kinly is";
 const DEFAULT_WHAT_BODY =
@@ -554,25 +548,6 @@ export default function ScenarioLandingClient({
                 {resolvedConfig.notList.map((item) => (
                   <li key={item} className={styles.bulletItem}>
                     <KinlyText variant="bodyMedium">{item}</KinlyText>
-                  </li>
-                ))}
-              </ul>
-            </KinlyStack>
-          </section>
-
-          <section className={`${styles.section} ${styles.sectionPanel}`}>
-            <KinlyStack direction="vertical" gap="s">
-              <KinlyHeading level={2}>
-                {resolvedConfig.weekly.heading ?? "Weekly reflection, human-paced"}
-              </KinlyHeading>
-              <div className={styles.storyImage} aria-hidden="true">
-                <img src={SUPPORTING_IMAGES.calm} alt="" loading="lazy" />
-              </div>
-              <KinlyText variant="bodyMedium">{resolvedConfig.weekly.intro}</KinlyText>
-              <ul className={styles.bulletList}>
-                {resolvedConfig.weekly.points.map((point) => (
-                  <li key={point} className={styles.bulletItem}>
-                    <KinlyText variant="bodyMedium">{point}</KinlyText>
                   </li>
                 ))}
               </ul>

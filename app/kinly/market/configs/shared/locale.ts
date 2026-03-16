@@ -26,11 +26,6 @@ export type LocaleCopy = {
   formingPoints: string[];
   audience: string[];
   notList: string[];
-  weekly: {
-    intro: string;
-    points: string[];
-    heading?: string;
-  };
   toolsIntro?: string;
   sectionHeadings?: {
     howItWorks?: string;

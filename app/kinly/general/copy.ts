@@ -45,9 +45,6 @@ export type LandingCopy = {
   audience: string[];
   notHeading: string;
   notList: string[];
-  weeklyHeading: string;
-  weeklyIntro: string;
-  weeklyPoints: string[];
   toolsIntro: string;
   availabilityHeading: string;
   availabilityBody: string;
@@ -156,13 +153,6 @@ const LANDING_COPY_EN: LandingCopy = {
   ],
   notHeading: "Kinly is not...",
   notList: ["...a surveillance tool.", "...a scorecard or leaderboard.", "...a chore boss."],
-  weeklyHeading: "Weekly reflection, human-paced",
-  weeklyIntro: "Kinly moves on a weekly rhythm. It notices the home mood without streaks, checklists, or pressure.",
-  weeklyPoints: [
-    "You can check in weekly, not daily. No streaks, no pressure to keep up.",
-    "Reflections are for understanding, not grading.",
-    "Kinly never forces conversations. It helps you understand before you decide whether to talk.",
-  ],
   toolsIntro:
     "Once expectations are aligned, Kinly offers simple tools to reduce everyday friction without turning shared living into a task system.",
   availabilityHeading: "Availability",
@@ -246,13 +236,6 @@ const LANDING_COPY_OVERRIDES: Record<string, Partial<LandingCopy>> = {
     ],
     notHeading: "Ã™Æ’Ã™Å Ã™â€ Ã™â€žÃ™Å  Ã™â€žÃ™Å Ã˜Â³...",
     notList: ["...Ã˜Â£Ã˜Â¯Ã˜Â§Ã˜Â© Ã™â€¦Ã˜Â±Ã˜Â§Ã™â€šÃ˜Â¨Ã˜Â©.", "...Ã˜Â¨Ã˜Â·Ã˜Â§Ã™â€šÃ˜Â© Ã™â€ Ã™â€šÃ˜Â§Ã˜Â· Ã˜Â£Ã™Ë† Ã™â€žÃ™Ë†Ã˜Â­Ã˜Â© Ã˜ÂµÃ˜Â¯Ã˜Â§Ã˜Â±Ã˜Â©.", "...Ã˜Â±Ã˜Â¦Ã™Å Ã˜Â³ Ã™â€¦Ã™â€¡Ã˜Â§Ã™â€¦."],
-    weeklyHeading: "Ã˜ÂªÃ˜Â£Ã™â€¦Ã™â€ž Ã˜Â£Ã˜Â³Ã˜Â¨Ã™Ë†Ã˜Â¹Ã™Å Ã˜Å’ Ã˜Â¨Ã˜Â¥Ã™Å Ã™â€šÃ˜Â§Ã˜Â¹ Ã˜Â¨Ã˜Â´Ã˜Â±Ã™Å ",
-    weeklyIntro: "Ã™Æ’Ã™Å Ã™â€ Ã™â€žÃ™Å  Ã™Å Ã˜ÂªÃ˜Â­Ã˜Â±Ã™Æ’ Ã˜Â¨Ã˜Â¥Ã™Å Ã™â€šÃ˜Â§Ã˜Â¹ Ã˜Â£Ã˜Â³Ã˜Â¨Ã™Ë†Ã˜Â¹Ã™Å . Ã™Å Ã™â€žÃ˜Â§Ã˜Â­Ã˜Â¸ Ã™â€¦Ã˜Â²Ã˜Â§Ã˜Â¬ Ã˜Â§Ã™â€žÃ™â€¦Ã™â€ Ã˜Â²Ã™â€ž Ã˜Â¨Ã˜Â¯Ã™Ë†Ã™â€  Ã˜Â³Ã™â€žÃ˜Â§Ã˜Â³Ã™â€ž Ã˜Â£Ã™Ë† Ã™â€šÃ™Ë†Ã˜Â§Ã˜Â¦Ã™â€¦ Ã™â€¦Ã˜Â±Ã˜Â§Ã˜Â¬Ã˜Â¹Ã˜Â© Ã˜Â£Ã™Ë† Ã˜Â¶Ã˜ÂºÃ˜Â·.",
-    weeklyPoints: [
-      "Ã™Å Ã™â€¦Ã™Æ’Ã™â€ Ã™Æ’ Ã˜Â§Ã™â€žÃ™â€¦Ã˜Â±Ã˜Â§Ã˜Â¬Ã˜Â¹Ã˜Â© Ã˜Â£Ã˜Â³Ã˜Â¨Ã™Ë†Ã˜Â¹Ã™Å Ã˜Â§Ã™â€¹Ã˜Å’ Ã™â€žÃ™Å Ã˜Â³ Ã™Å Ã™Ë†Ã™â€¦Ã™Å Ã˜Â§Ã™â€¹. Ã™â€žÃ˜Â§ Ã˜Â³Ã™â€žÃ˜Â§Ã˜Â³Ã™â€žÃ˜Å’ Ã™â€žÃ˜Â§ Ã˜Â¶Ã˜ÂºÃ˜Â· Ã™â€žÃ™â€žÃ™â€¦Ã˜ÂªÃ˜Â§Ã˜Â¨Ã˜Â¹Ã˜Â©.",
-      "Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â£Ã™â€¦Ã™â€žÃ˜Â§Ã˜Âª Ã™â€žÃ™â€žÃ™ÂÃ™â€¡Ã™â€¦Ã˜Å’ Ã™â€žÃ™Å Ã˜Â³ Ã™â€žÃ™â€žÃ˜ÂªÃ™â€šÃ™Å Ã™Å Ã™â€¦.",
-      "Ã™Æ’Ã™Å Ã™â€ Ã™â€žÃ™Å  Ã™â€žÃ˜Â§ Ã™Å Ã™ÂÃ˜Â±Ã˜Â¶ Ã™â€¦Ã˜Â­Ã˜Â§Ã˜Â¯Ã˜Â«Ã˜Â§Ã˜Âª ,  Ã™Å Ã˜Â³Ã˜Â§Ã˜Â¹Ã˜Â¯Ã™Æ’ Ã˜Â¹Ã™â€žÃ™â€° Ã˜Â§Ã™â€žÃ™ÂÃ™â€¡Ã™â€¦ Ã™â€šÃ˜Â¨Ã™â€ž Ã˜Â£Ã™â€  Ã˜ÂªÃ™â€šÃ˜Â±Ã˜Â± Ã™â€¦Ã˜Â§ Ã˜Â¥Ã˜Â°Ã˜Â§ Ã™Æ’Ã™â€ Ã˜Âª Ã˜ÂªÃ˜Â±Ã™Å Ã˜Â¯ Ã˜Â§Ã™â€žÃ˜ÂªÃ˜Â­Ã˜Â¯Ã˜Â«.",
-    ],
     availabilityHeading: "Ã˜Â§Ã™â€žÃ˜ÂªÃ™Ë†Ã™ÂÃ˜Â±",
     availabilityBody:
       "Ã™Æ’Ã™Å Ã™â€ Ã™â€žÃ™Å  Ã™â€¦Ã˜ÂªÃ˜Â§Ã˜Â­ Ã˜Â­Ã˜Â§Ã™â€žÃ™Å Ã˜Â§Ã™â€¹ Ã™ÂÃ™Å  Ã™â€ Ã™Å Ã™Ë†Ã˜Â²Ã™Å Ã™â€žÃ™â€ Ã˜Â¯Ã˜Â§ Ã™Ë†Ã˜Â³Ã™â€ Ã˜ÂºÃ˜Â§Ã™ÂÃ™Ë†Ã˜Â±Ã˜Â©. Ã˜Â³Ã™â€ Ã˜Â±Ã˜Â§Ã˜Â³Ã™â€žÃ™Æ’ Ã˜Â¹Ã™â€ Ã˜Â¯Ã™â€¦Ã˜Â§ Ã™Å Ã™ÂÃ˜ÂªÃ˜Â­ Ã™Æ’Ã™Å Ã™â€ Ã™â€žÃ™Å  Ã™ÂÃ™Å  Ã™â€¦Ã™â€ Ã˜Â·Ã™â€šÃ˜ÂªÃ™Æ’ ,  Ã˜Â¨Ã˜Â¯Ã™Ë†Ã™â€  Ã˜Â±Ã˜Â³Ã˜Â§Ã˜Â¦Ã™â€ž Ã™â€¦Ã˜Â²Ã˜Â¹Ã˜Â¬Ã˜Â©.",
@@ -333,13 +316,6 @@ const LANDING_COPY_OVERRIDES: Record<string, Partial<LandingCopy>> = {
     ],
     notHeading: "Kinly no es...",
     notList: ["...una herramienta de vigilancia.", "...un marcador o ranking.", "...un jefe de tareas."],
-    weeklyHeading: "ReflexiÃƒÂ³n semanal, a ritmo humano",
-    weeklyIntro: "Kinly sigue un ritmo semanal. Nota el ÃƒÂ¡nimo del hogar sin rachas, listas ni presiÃƒÂ³n.",
-    weeklyPoints: [
-      "Puedes revisar semanalmente, no a diario. Sin rachas ni presiÃƒÂ³n por mantenerlas.",
-      "Las reflexiones son para entender, no para calificar.",
-      "Kinly nunca fuerza conversaciones; te ayuda a entender antes de decidir hablar.",
-    ],
     availabilityHeading: "Disponibilidad",
     availabilityBody: getGeneralAvailabilityBody("es"),
     availabilityCta: "AvÃƒÂ­same cuando Kinly estÃƒÂ© disponible en mi zona.",

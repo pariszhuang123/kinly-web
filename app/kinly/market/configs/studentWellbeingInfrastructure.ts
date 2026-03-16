@@ -103,14 +103,6 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
     "Not a reporting tool.",
   ],
 
-  weekly: {
-    intro: "Kinly uses a weekly rhythm so support stays human-paced.",
-    points: [
-      "Check in weekly, not daily, no streaks to maintain.",
-      "Reflections are for understanding, not grading.",
-      "Reset calmly when the vibe shifts.",
-    ],
-  },
   toolsIntro:
     "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction, without turning wellbeing into monitoring.",
 
@@ -188,15 +180,6 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
         "No es un jefe de tareas.",
         "No es una herramienta de reportes.",
       ],
-      weekly: {
-        intro: "Kinly usa un ritmo semanal para que el apoyo sea a ritmo humano.",
-        points: [
-          "Revisa semanalmente, no a diario, sin rachas que mantener.",
-          "Las reflexiones son para entender, no para calificar.",
-          "Reinicia con calma cuando cambie el ambiente.",
-        ],
-        heading: "ReflexiÃ³n semanal, a ritmo humano",
-      },
       toolsIntro:
         "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la fricciÃ³n diaria, sin convertir el bienestar en monitoreo.",
       sectionHeadings: {
@@ -281,15 +264,6 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
         "Ù„ÙŠØ³Øª Ø±Ø¦ÙŠØ³ Ù…Ù‡Ø§Ù….",
         "Ù„ÙŠØ³Øª Ø£Ø¯Ø§Ø© ØªÙ‚Ø§Ø±ÙŠØ±.",
       ],
-      weekly: {
-        intro: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠØ³ØªØ®Ø¯Ù… Ø¥ÙŠÙ‚Ø§Ø¹Ø§Ù‹ Ø£Ø³Ø¨ÙˆØ¹ÙŠØ§Ù‹ Ù„ÙŠØ¨Ù‚Ù‰ Ø§Ù„Ø¯Ø¹Ù… Ø¨Ø¥ÙŠÙ‚Ø§Ø¹ Ø¨Ø´Ø±ÙŠ.",
-        points: [
-          "Ø±Ø§Ø¬Ø¹ÙˆØ§ Ø£Ø³Ø¨ÙˆØ¹ÙŠØ§Ù‹ØŒ Ù„Ø§ ÙŠÙˆÙ…ÙŠØ§Ù‹, Ø¨Ù„Ø§ Ø³Ù„Ø§Ø³Ù„ Ù„Ù„Ø­ÙØ§Ø¸ Ø¹Ù„ÙŠÙ‡Ø§.",
-          "Ø§Ù„ØªØ£Ù…Ù„Ø§Øª Ù„Ù„ÙÙ‡Ù…ØŒ Ù„Ø§ Ù„Ù„ØªÙ‚ÙŠÙŠÙ….",
-          "Ø£Ø¹ÙŠØ¯ÙˆØ§ Ø§Ù„Ø¶Ø¨Ø· Ø¨Ù‡Ø¯ÙˆØ¡ Ø¹Ù†Ø¯Ù…Ø§ ÙŠØªØºÙŠØ± Ø§Ù„Ø¬Ùˆ.",
-        ],
-        heading: "ØªØ£Ù…Ù„ Ø£Ø³Ø¨ÙˆØ¹ÙŠØŒ Ø¨Ø¥ÙŠÙ‚Ø§Ø¹ Ø¨Ø´Ø±ÙŠ",
-      },
       toolsIntro:
         "Ø¨Ø¹Ø¯ Ø£Ù† ØªØªÙÙ‚ÙˆØ§ Ø¹Ù„Ù‰ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§ØªØŒ ÙŠÙ‚Ø¯Ù… ÙƒÙŠÙ†Ù„ÙŠ Ø£Ø¯ÙˆØ§Øª Ø¨Ø³ÙŠØ·Ø© ØªÙ‚Ù„Ù„ Ø§Ù„Ø§Ø­ØªÙƒØ§ÙƒØ§Øª Ø§Ù„ÙŠÙˆÙ…ÙŠØ©, Ø¨Ø¯ÙˆÙ† ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ø±ÙØ§Ù‡ Ø¥Ù„Ù‰ Ù…Ø±Ø§Ù‚Ø¨Ø©.",
       sectionHeadings: {

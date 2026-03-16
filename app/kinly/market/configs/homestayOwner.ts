@@ -104,14 +104,6 @@ export const homestayOwnerConfig: ScenarioConfig = {
     "Not a chore boss.",
   ],
 
-  weekly: {
-    intro: "Kinly uses a weekly rhythm so hosting stays calm and fair.",
-    points: [
-      "Check in weekly so small issues do not stack up.",
-      "Adjust expectations without blame,just clarity.",
-      "Keep the welcome warm while staying aligned.",
-    ],
-  },
   toolsIntro:
     "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction, without turning hosting into a task system.",
 
@@ -189,15 +181,6 @@ export const homestayOwnerConfig: ScenarioConfig = {
         "No es un marcador.",
         "No es un jefe de tareas.",
       ],
-      weekly: {
-        intro: "Kinly usa un ritmo semanal para que la hospitalidad se mantenga calmada y justa.",
-        points: [
-          "Revisa semanalmente para que lo pequeÃ±o no se acumule.",
-          "Ajusta expectativas sin culpas,solo claridad.",
-          "MantÃ©n cÃ¡lida la bienvenida mientras siguen alineados.",
-        ],
-        heading: "ReflexiÃ³n semanal, a ritmo humano",
-      },
       toolsIntro:
         "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la fricciÃ³n diaria,sin convertir la hospitalidad en un sistema de tareas.",
       sectionHeadings: {
@@ -282,15 +265,6 @@ export const homestayOwnerConfig: ScenarioConfig = {
         "Ù„ÙŠØ³Øª Ù„ÙˆØ­Ø© Ù†Ù‚Ø§Ø·.",
         "Ù„ÙŠØ³Øª Ø±Ø¦ÙŠØ³ Ù…Ù‡Ø§Ù….",
       ],
-      weekly: {
-        intro: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠØ¹Ù…Ù„ Ø¨Ø¥ÙŠÙ‚Ø§Ø¹ Ø£Ø³Ø¨ÙˆØ¹ÙŠ Ù„ØªØ¨Ù‚Ù‰ Ø§Ù„Ø¶ÙŠØ§ÙØ© Ù‡Ø§Ø¯Ø¦Ø© ÙˆØ¹Ø§Ø¯Ù„Ø©.",
-        points: [
-          "Ø±Ø§Ø¬Ø¹ÙˆØ§ Ø£Ø³Ø¨ÙˆØ¹ÙŠØ§Ù‹ Ø­ØªÙ‰ Ù„Ø§ ØªØªØ±Ø§ÙƒÙ… Ø§Ù„Ø£Ù…ÙˆØ± Ø§Ù„ØµØºÙŠØ±Ø©.",
-          "Ø¹Ø¯Ù‘Ù„ÙˆØ§ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§Øª Ø¨Ù„Ø§ Ù„ÙˆÙ…,ÙÙ‚Ø· ÙˆØ¶ÙˆØ­.",
-          "Ø­Ø§ÙØ¸ÙˆØ§ Ø¹Ù„Ù‰ Ø¯ÙØ¡ Ø§Ù„ØªØ±Ø­ÙŠØ¨ Ù…Ø¹ Ø§Ù„Ø¨Ù‚Ø§Ø¡ Ù…ØªÙˆØ§ÙÙ‚ÙŠÙ†.",
-        ],
-        heading: "ØªØ£Ù…Ù„ Ø£Ø³Ø¨ÙˆØ¹ÙŠØŒ Ø¨Ø¥ÙŠÙ‚Ø§Ø¹ Ø¨Ø´Ø±ÙŠ",
-      },
       toolsIntro:
         "Ø¨Ø¹Ø¯ Ø£Ù† ØªØªÙÙ‚ÙˆØ§ Ø¹Ù„Ù‰ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§ØªØŒ ÙŠÙ‚Ø¯Ù… ÙƒÙŠÙ†Ù„ÙŠ Ø£Ø¯ÙˆØ§Øª Ø¨Ø³ÙŠØ·Ø© ØªÙ‚Ù„Ù„ Ø§Ù„Ø§Ø­ØªÙƒØ§ÙƒØ§Øª Ø§Ù„ÙŠÙˆÙ…ÙŠØ©,Ø¨Ø¯ÙˆÙ† ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ø¶ÙŠØ§ÙØ© Ø¥Ù„Ù‰ Ù†Ø¸Ø§Ù… Ù…Ù‡Ø§Ù….",
       sectionHeadings: {

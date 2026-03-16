@@ -1,6 +1,5 @@
 ﻿import { LANDING_SCREEN_ASSETS } from "../../shared/landingScreenAssets";
 import { ScenarioConfig } from "../ScenarioLandingClient";
-import { LocaleCopy } from "./shared/locale";
 import { getScenarioAvailabilityBody } from "../../../../lib/regionSupport";
 
 export const liveInLandlordConfig: ScenarioConfig = {
@@ -100,15 +99,6 @@ export const liveInLandlordConfig: ScenarioConfig = {
     "Not a scorecard.",
     "Not a chore boss.",
   ],
-
-  weekly: {
-    intro: "Kinly helps keep shared living calm and simple.",
-    points: [
-      "Check in weekly so small issues don't grow.",
-      "Adjust rules without arguments.",
-      "Keep the home peaceful for everyone.",
-    ],
-  },
 
   toolsIntro:
     "Once house rules are clear, Kinly adds simple tools that make shared living easier.",

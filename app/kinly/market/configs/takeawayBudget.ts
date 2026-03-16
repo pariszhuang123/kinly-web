@@ -104,14 +104,6 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
     "Not a chore boss.",
   ],
 
-  weekly: {
-    intro: "Kinly uses a weekly rhythm so money conversations stay calm and fair.",
-    points: [
-      "Check in weekly so small issues don't stack up.",
-      "Adjust expectations without blame, just clarity.",
-      "Agree next week's baseline and move on.",
-    ],
-  },
   toolsIntro:
     "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction, without turning shared living into a task system.",
 
@@ -189,15 +181,6 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
         "No es un marcador.",
         "No es un jefe de tareas.",
       ],
-      weekly: {
-        intro: "Kinly usa un ritmo semanal para que hablar de dinero sea calmado y justo.",
-        points: [
-          "Revisa semanalmente para que lo pequeÃ±o no se acumule.",
-          "Ajusta expectativas sin reproches, solo claridad.",
-          "Acordad la base de la semana y seguid adelante.",
-        ],
-        heading: "ReflexiÃ³n semanal, a ritmo humano",
-      },
       toolsIntro:
         "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la fricciÃ³n diaria, sin convertir la vida compartida en un sistema de tareas.",
       sectionHeadings: {
@@ -282,15 +265,6 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
         "Ù„ÙŠØ³ Ù„ÙˆØ­Ø© Ù†Ù‚Ø§Ø· Ø£Ùˆ ØªØ±ØªÙŠØ¨.",
         "Ù„ÙŠØ³ Ø±Ø¦ÙŠØ³ Ù…Ù‡Ø§Ù….",
       ],
-      weekly: {
-        intro: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠØ³ØªØ®Ø¯Ù… Ø¥ÙŠÙ‚Ø§Ø¹Ø§Ù‹ Ø£Ø³Ø¨ÙˆØ¹ÙŠØ§Ù‹ Ø­ØªÙ‰ ØªØ¨Ù‚Ù‰ Ø£Ø­Ø§Ø¯ÙŠØ« Ø§Ù„Ù…ØµØ±ÙˆÙ Ù‡Ø§Ø¯Ø¦Ø© ÙˆØ¹Ø§Ø¯Ù„Ø©.",
-        points: [
-          "ØªÙÙ‚Ø¯ÙˆØ§ Ø£Ø³Ø¨ÙˆØ¹ÙŠØ§Ù‹ Ø­ØªÙ‰ Ù„Ø§ ØªØªØ±Ø§ÙƒÙ… Ø§Ù„Ø£Ù…ÙˆØ± Ø§Ù„ØµØºÙŠØ±Ø©.",
-          "Ø¹Ø¯Ù‘Ù„ÙˆØ§ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§Øª Ø¨Ø¯ÙˆÙ† Ù„ÙˆÙ…, ÙÙ‚Ø· ÙˆØ¶ÙˆØ­.",
-          "Ø§ØªÙÙ‚ÙˆØ§ Ø¹Ù„Ù‰ Ø£Ø³Ø§Ø³ Ø§Ù„Ø£Ø³Ø¨ÙˆØ¹ Ø§Ù„Ù‚Ø§Ø¯Ù… ÙˆØ§Ù…Ø¶ÙˆØ§ Ù‚Ø¯Ù…Ø§Ù‹.",
-        ],
-        heading: "ØªØ£Ù…Ù„ Ø£Ø³Ø¨ÙˆØ¹ÙŠØŒ Ø¨Ø¥ÙŠÙ‚Ø§Ø¹ Ø¨Ø´Ø±ÙŠ",
-      },
       toolsIntro:
         "Ø¨Ø¹Ø¯ Ø£Ù† ØªØªÙÙ‚ÙˆØ§ Ø¹Ù„Ù‰ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§ØªØŒ ÙŠÙ‚Ø¯Ù… ÙƒÙŠÙ†Ù„ÙŠ Ø£Ø¯ÙˆØ§Øª Ø¨Ø³ÙŠØ·Ø© ØªÙ‚Ù„Ù„ Ø§Ù„Ø§Ø­ØªÙƒØ§ÙƒØ§Øª Ø§Ù„ÙŠÙˆÙ…ÙŠØ©, Ø¨Ø¯ÙˆÙ† ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ø¹ÙŠØ´ Ø§Ù„Ù…Ø´ØªØ±Ùƒ Ø¥Ù„Ù‰ Ù†Ø¸Ø§Ù… Ù…Ù‡Ø§Ù….",
       sectionHeadings: {

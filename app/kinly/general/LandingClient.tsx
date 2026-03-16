@@ -52,7 +52,6 @@ const CONTACT_EMAIL = "paris.zhuang@makinglifeeasie.com";
 const PAGE_KEY = "kinly_general";
 const SUPPORTING_IMAGES = {
   friction: "/images/landing/friction-shared-home.webp",
-  calm: "/images/landing/calm-shared-home.webp",
 } as const;
 
 type StoreCtasProps = {
@@ -424,23 +423,6 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
                 {copy.notList.map((item) => (
                   <li key={item} className={styles.bulletItem}>
                     <KinlyText variant="bodyMedium">{item}</KinlyText>
-                  </li>
-                ))}
-              </ul>
-            </KinlyStack>
-          </section>
-
-          <section className={`${styles.section} ${styles.sectionPanel}`}>
-            <KinlyStack direction="vertical" gap="s">
-              <KinlyHeading level={2}>{copy.weeklyHeading}</KinlyHeading>
-              <div className={styles.storyImage} aria-hidden="true">
-                <img src={SUPPORTING_IMAGES.calm} alt="" loading="lazy" />
-              </div>
-              <KinlyText variant="bodyMedium">{copy.weeklyIntro}</KinlyText>
-              <ul className={styles.bulletList}>
-                {copy.weeklyPoints.map((point) => (
-                  <li key={point} className={styles.bulletItem}>
-                    <KinlyText variant="bodyMedium">{point}</KinlyText>
                   </li>
                 ))}
               </ul>

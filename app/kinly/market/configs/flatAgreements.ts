@@ -103,14 +103,6 @@ export const flatAgreementsConfig: ScenarioConfig = {
     "Not a chore boss.",
   ],
 
-  weekly: {
-    intro: "Kinly runs on a weekly rhythm so agreements stay fresh and human.",
-    points: [
-      "Check in weekly so small issues don't stack up.",
-      "Adjust the baseline without blame, just clarity.",
-      "Keep guests/noise/cleaning aligned without long threads.",
-    ],
-  },
   toolsIntro:
     "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction, without turning shared living into a task system.",
 
@@ -188,15 +180,6 @@ export const flatAgreementsConfig: ScenarioConfig = {
         "No es un marcador.",
         "No es un jefe de tareas.",
       ],
-      weekly: {
-        intro: "Kinly usa un ritmo semanal para que los acuerdos sigan frescos y humanos.",
-        points: [
-          "Revisa semanalmente para que lo pequeÃ±o no se acumule.",
-          "Ajusta la base sin culpas ,solo claridad.",
-          "MantÃ©n alineados visitas/ruido/limpieza sin hilos eternos.",
-        ],
-        heading: "ReflexiÃ³n semanal, a ritmo humano",
-      },
       toolsIntro:
         "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la fricciÃ³n diaria ,sin convertir la vida compartida en un sistema de tareas.",
       sectionHeadings: {
@@ -281,15 +264,6 @@ export const flatAgreementsConfig: ScenarioConfig = {
         "Ù„ÙŠØ³ Ù„ÙˆØ­Ø© Ù†Ù‚Ø§Ø·.",
         "Ù„ÙŠØ³ Ø±Ø¦ÙŠØ³ Ù…Ù‡Ø§Ù….",
       ],
-      weekly: {
-        intro: "ÙƒÙŠÙ†Ù„ÙŠ ÙŠØ¹Ù…Ù„ Ø¨Ø¥ÙŠÙ‚Ø§Ø¹ Ø£Ø³Ø¨ÙˆØ¹ÙŠ Ù„ØªØ¨Ù‚Ù‰ Ø§Ù„Ø§ØªÙØ§Ù‚Ø§Øª Ø­Ø¯ÙŠØ«Ø© ÙˆØ¨Ø´Ø±ÙŠØ©.",
-        points: [
-          "Ø±Ø§Ø¬Ø¹ÙˆØ§ Ø£Ø³Ø¨ÙˆØ¹ÙŠØ§Ù‹ Ø­ØªÙ‰ Ù„Ø§ ØªØªØ±Ø§ÙƒÙ… Ø§Ù„Ø£Ù…ÙˆØ± Ø§Ù„ØµØºÙŠØ±Ø©.",
-          "Ø¹Ø¯Ù‘Ù„ÙˆØ§ Ø§Ù„Ø£Ø³Ø§Ø³ Ø¨Ø¯ÙˆÙ† Ù„ÙˆÙ… ,ÙÙ‚Ø· ÙˆØ¶ÙˆØ­.",
-          "Ø£Ø¨Ù‚ÙˆØ§ Ø§Ù„Ø¶ÙŠÙˆÙ/Ø§Ù„Ø¶ÙˆØ¶Ø§Ø¡/Ø§Ù„ØªÙ†Ø¸ÙŠÙ Ù…Ù†Ø³Ù‚Ø© Ø¯ÙˆÙ† Ø®ÙŠÙˆØ· Ø·ÙˆÙŠÙ„Ø©.",
-        ],
-        heading: "ØªØ£Ù…Ù„ Ø£Ø³Ø¨ÙˆØ¹ÙŠØŒ Ø¨Ø¥ÙŠÙ‚Ø§Ø¹ Ø¨Ø´Ø±ÙŠ",
-      },
       toolsIntro:
         "Ø¨Ø¹Ø¯ Ø£Ù† ØªØªÙÙ‚ÙˆØ§ Ø¹Ù„Ù‰ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§ØªØŒ ÙŠÙ‚Ø¯Ù… ÙƒÙŠÙ†Ù„ÙŠ Ø£Ø¯ÙˆØ§Øª Ø¨Ø³ÙŠØ·Ø© ØªÙ‚Ù„Ù„ Ø§Ù„Ø§Ø­ØªÙƒØ§ÙƒØ§Øª Ø§Ù„ÙŠÙˆÙ…ÙŠØ© ,Ø¨Ø¯ÙˆÙ† ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ø¹ÙŠØ´ Ø§Ù„Ù…Ø´ØªØ±Ùƒ Ø¥Ù„Ù‰ Ù†Ø¸Ø§Ù… Ù…Ù‡Ø§Ù….",
       sectionHeadings: {

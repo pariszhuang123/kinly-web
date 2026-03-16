@@ -100,15 +100,6 @@ export const headTenantConfig: ScenarioConfig = {
     "Not landlord-facing.",
   ],
 
-  weekly: {
-    intro: "Kinly helps keep shared responsibility simple.",
-    points: [
-      "Check in weekly so small issues do not pile up.",
-      "Reset house rules without making it personal.",
-      "Keep the flat calm without extra drama.",
-    ],
-  },
-
   toolsIntro:
     "Once house rules are clear, Kinly adds simple tools that make shared living easier every day.",
 

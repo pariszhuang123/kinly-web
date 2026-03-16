@@ -100,15 +100,6 @@ export const sgHouseOwnerHelperAlignmentConfig: ScenarioConfig = {
     "Not a scorecard.",
   ],
 
-  weekly: {
-    intro: "Kinly helps keep house routines clear.",
-    points: [
-      "Write house rules once.",
-      "Let people check instead of guessing.",
-      "Keep the home running smoothly.",
-    ],
-  },
-
   toolsIntro:
     "Once house rules are clear, Kinly adds simple tools that make everyday home life easier.",
 

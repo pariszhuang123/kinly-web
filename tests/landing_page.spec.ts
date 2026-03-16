@@ -63,11 +63,11 @@ test.describe("Marketing landing page", () => {
     await expect(page.getByRole("link", { name: "Get it on Google Play" })).toHaveCount(0);
   });
 
-  test("weekly reflection section displays heading and copy", async ({ page }) => {
+  test("weekly reflection section is not shown", async ({ page }) => {
     await page.goto("/kinly/general");
 
-    await expect(page.getByRole("heading", { name: "Weekly reflection, human-paced" })).toBeVisible();
-    await expect(page.getByText(/You can check in weekly/i)).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Weekly reflection, human-paced" })).toHaveCount(0);
+    await expect(page.getByText(/You can check in weekly/i)).toHaveCount(0);
   });
 
   test("scenario entry keeps CTA below fold with one store badge set", async ({ page }) => {
