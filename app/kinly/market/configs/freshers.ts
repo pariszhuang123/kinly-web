@@ -6,18 +6,18 @@ import { getScenarioAvailabilityBody } from "../../../../lib/regionSupport";
 export const freshersConfig: ScenarioConfig = {
   pageKey: "kinly_market_freshers",
   recognition: {
-    heading: "Move-in chaos without the tension.",
-    subtitle: "Keep the flat calm while everyone figures things out.",
-    body: "Kinly makes norms and shared plans visible so first-year flats stay kind, even when plans change.",
+    heading: "Someone always ends up running the flat. Is it you?",
+    subtitle: "You barely know each other yet — but somehow you are the one keeping things together.",
+    body: "Kinly makes norms and shared plans visible so no one person has to remember everything for the flat.",
   },
   whatHeading: "What Kinly is",
   whatBody:
     "Kinly is a shared living app designed for people who live together. For first-year flats, it keeps expectations clear and calm without turning your place into a chore chart.",
   hero: {
-    headline: "A calmer way to live together at uni.",
-    subhead: "See what the flat needs before it turns into drama.",
-    body: "Late labs, early lectures, and new roommates are messy. Kinly shows tonight's needs without pressure, scoring, or nagging.",
-    ctaHeading: "Start your first-year flat calm",
+    headline: "Your flat should not depend on one person's memory.",
+    subhead: "See what the flat needs before someone has to chase everyone.",
+    body: "Late labs, early lectures, and new roommates are messy. Kinly shows what needs doing so nobody has to be the flat manager.",
+    ctaHeading: "Give the flat a shared memory",
   },
   screens: [
     {
@@ -72,10 +72,10 @@ export const freshersConfig: ScenarioConfig = {
     },
   ],
   chips: [
-    "We never agreed on cleaning rules.",
-    "Exam weeks need quiet without resentment.",
-    "Guests policy is fuzzy and causes friction.",
-    "We care about each other but hate chore charts.",
+    "I ended up making the cleaning rota. Nobody asked me to.",
+    "I remind people about quiet hours during exams. Every time.",
+    "I know when the bins go out. Nobody else checks.",
+    "I care about my flatmates but I did not sign up to manage them.",
   ],
   rolePoints: [
     "Surfaces norms before conflict starts.",

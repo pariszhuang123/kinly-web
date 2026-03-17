@@ -6,18 +6,18 @@ import { getScenarioAvailabilityBody } from "../../../../lib/regionSupport";
 export const internationalStartConfig: ScenarioConfig = {
   pageKey: "kinly_market_new_place",
   recognition: {
-    heading: "New place, unclear norms.",
-    subtitle: "You want to fit in without asking awkward questions.",
-    body: "Kinly shows what matters in the home so you can contribute without guessing or overstepping.",
+    heading: "Moved somewhere new and nobody told you how things work here?",
+    subtitle: "You want to do the right thing — but you should not have to guess.",
+    body: "Kinly shows what the home expects so you do not have to keep asking or figure it out alone.",
   },
   whatHeading: "What Kinly is",
   whatBody:
     "Kinly is a shared living app designed for people who live together. When you move into a new place, it keeps expectations clear without turning the home into a checklist.",
   hero: {
-    headline: "Clarity in a new place.",
-    subhead: "See what the home needs before anyone has to explain it.",
-    body: "New routines, new people, new expectations. Kinly surfaces what matters so you can settle in calmly.",
-    ctaHeading: "Start settling in with clarity",
+    headline: "See how the home works — without waiting for someone to explain.",
+    subhead: "The norms are already there. You just need a way to see them.",
+    body: "New routines, new people, new expectations. Kinly shows what matters so you do not have to guess or keep asking.",
+    ctaHeading: "Know what is expected from day one",
   },
   screens: [
     {
@@ -72,10 +72,10 @@ export const internationalStartConfig: ScenarioConfig = {
     },
   ],
   chips: [
-    "I want to help but I am not sure what is expected.",
-    "Asking about norms feels awkward.",
-    "I do not want to overstep or underdo it.",
-    "I care but I need clarity, not guesswork.",
+    "I want to help but nobody told me what is expected.",
+    "I keep asking the same person — and I can tell they are tired of it.",
+    "I do not want to get it wrong. I just need it written down.",
+    "Everyone else seems to know the routine. I am still guessing.",
   ],
   rolePoints: [
     "Surfaces norms so you do not have to ask.",

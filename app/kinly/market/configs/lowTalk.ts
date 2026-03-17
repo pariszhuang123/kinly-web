@@ -6,18 +6,18 @@ import { getScenarioAvailabilityBody } from "../../../../lib/regionSupport";
 export const lowTalkConfig: ScenarioConfig = {
   pageKey: "kinly_market_low_talk",
   recognition: {
-    heading: "Signals over speeches.",
-    subtitle: "Keep the place clear without long conversations.",
-    body: "Kinly gives calm signals about what the home needs so no one has to rally a meeting or deliver a lecture.",
+    heading: "You would rather the house just worked — without another group chat essay.",
+    subtitle: "Nobody wants to nag. Nobody wants to be nagged. But someone always ends up doing it.",
+    body: "Kinly keeps what the home needs visible so nobody has to be the one who remembers — or the one who reminds.",
   },
   whatHeading: "What Kinly is",
   whatBody:
     "Kinly is a shared living app designed for people who live together. For low-talk homes, it keeps expectations clear without forcing group chats or sit-down talks.",
   hero: {
-    headline: "Clarity without long conversations.",
-    subhead: "See what needs doing and what can wait, without group-chat essays.",
-    body: "Kinly surfaces the signals that matter and drops the pressure to \"talk it out\" every time. No scoreboards, no policing, no guilt.",
-    ctaHeading: "Get the signal, skip the speech",
+    headline: "The house stays aligned — without anyone having to say it.",
+    subhead: "See what needs doing and what can wait. No group chat. No awkward reminder.",
+    body: "Kinly keeps what matters visible so nobody has to remember — and nobody has to be the one who brings it up.",
+    ctaHeading: "Let the house speak for itself",
   },
   screens: [
     {
@@ -72,9 +72,9 @@ export const lowTalkConfig: ScenarioConfig = {
   ],
 
   chips: [
-    "Need clarity without group-chat essays.",
-    "No one wants to nag - or be nagged.",
-    "We prefer signals to sit-down talks.",
+    "I noticed the issue but I do not want to be the one who says something. Again.",
+    "If nobody brings it up, it just... stays broken.",
+    "I would rather the house showed me what needs doing than wait for a group meeting.",
   ],
   rolePoints: [
     "Surfaces what matters with gentle signals, not speeches.",

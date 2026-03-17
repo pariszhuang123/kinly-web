@@ -7,9 +7,9 @@ export const homestayOwnerConfig: ScenarioConfig = {
   pageKey: "homestay_owner",
 
   recognition: {
-    heading: "You want guests to feel welcome,and your home to run smoothly.",
-    subtitle: "Clear house norms should feel warm, not formal.",
-    body: "Kinly keeps expectations visible in a calm, human way so hosting feels welcoming and fair.",
+    heading: "Tired of explaining the same house rules to every new guest?",
+    subtitle: "You have said it all before — but nobody remembers unless you repeat it.",
+    body: "Kinly keeps house expectations visible so you do not have to be the one who reminds everyone.",
   },
 
   whatHeading: "What Kinly is",
@@ -17,10 +17,10 @@ export const homestayOwnerConfig: ScenarioConfig = {
     "Kinly is a shared living app designed for people who live together. It keeps homestay expectations clear and calm without turning hosting into rule enforcement.",
 
   hero: {
-    headline: "A welcoming home with clear norms.",
-    subhead: "Set the baseline once, keep it warm and human.",
-    body: "Kinly shows guests and residents the same simple expectations for noise, shared spaces, and contributions,without awkward reminders.",
-    ctaHeading: "Host with clarity",
+    headline: "Explain it once. Kinly remembers for every guest after.",
+    subhead: "Your house rules stay visible — so you stop repeating yourself.",
+    body: "Kinly shows guests and residents the same simple expectations for noise, shared spaces, and contributions — without you having to say it again.",
+    ctaHeading: "Stop repeating yourself",
   },
 
   screens: [
@@ -77,9 +77,9 @@ export const homestayOwnerConfig: ScenarioConfig = {
   ],
 
   chips: [
-    "I want guests to feel welcome and informed.",
-    "I need clarity on noise, guests, and cleaning without sounding strict.",
-    "I do not want to chase people for shared costs.",
+    "I have explained the same rules to five different guests this year.",
+    "I remember every preference, every boundary — they forget by day two.",
+    "I do not want to chase people for shared costs. I just want it written down.",
   ],
 
   rolePoints: [

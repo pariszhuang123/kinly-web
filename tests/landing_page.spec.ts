@@ -73,8 +73,9 @@ test.describe("Marketing landing page", () => {
   test("scenario entry keeps CTA below fold with one store badge set", async ({ page }) => {
     await page.goto("/kinly/general?entry=homestay-owner");
 
-    await expect(page.getByRole("heading", { name: /A welcoming home with clear norms/i })).toBeVisible();
-    await expect(page.getByText(/Host with clarity/i)).toHaveCount(0);
+    await expect(
+      page.getByRole("heading", { name: /Tired of explaining the same house rules to every new guest\?/i }),
+    ).toBeVisible();
 
     const ios = page.getByRole("link", { name: "Download on the App Store" });
     const android = page.getByRole("link", { name: "Get it on Google Play" });

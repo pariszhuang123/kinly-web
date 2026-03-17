@@ -7,9 +7,9 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
   pageKey: "student_wellbeing_infrastructure",
 
   recognition: {
-    heading: "Wellbeing systems fail when they feel like surveillance.",
-    subtitle: "Students need calm visibility, not policing.",
-    body: "Kinly keeps shared norms visible and human-paced so student housing stays caring without pressure.",
+    heading: "One RA cannot remember the needs of every room. And they should not have to.",
+    subtitle: "Wellbeing works when the house shares the load — not when one person carries it all.",
+    body: "Kinly keeps shared norms visible so no single person has to be the one who remembers how everyone is doing.",
   },
 
   whatHeading: "What Kinly is",
@@ -17,10 +17,10 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
     "Kinly is a shared living app designed for people who live together. It keeps wellbeing expectations visible without turning student housing into monitoring.",
 
   hero: {
-    headline: "Calm shared living that supports wellbeing.",
-    subhead: "Visibility without surveillance; clarity without blame.",
-    body: "Kinly shows how the house is feeling and what needs attention, without scoreboards or enforcement.",
-    ctaHeading: "Keep the house steady",
+    headline: "One person should not have to track how every room is doing.",
+    subhead: "Shared visibility means shared responsibility — without surveillance.",
+    body: "Kinly shows what the house needs so support comes from the system, not from one person's memory.",
+    ctaHeading: "Share the load across the house",
   },
 
   screens: [
@@ -76,9 +76,9 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
   ],
 
   chips: [
-    "We want wellbeing without feeling watched.",
-    "Quiet hours, guests, and cleaning need one calm baseline.",
-    "Support should be proactive, not punitive.",
+    "I check in with every room. Nobody checks in with me.",
+    "If I miss something, nobody else catches it.",
+    "I want the house to notice what needs attention — not just me.",
   ],
 
   rolePoints: [

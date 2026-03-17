@@ -19,6 +19,7 @@ import {
   OutreachPollOption,
   OutreachPollResultMessage,
   OutreachPollResults,
+  POLL_OPTION_FALLBACKS,
   submitOutreachPollVote,
 } from "../../../../lib/outreachPoll";
 import {
@@ -165,8 +166,26 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
     () => normalizeCountryCode(detectedCountryCode),
     [detectedCountryCode],
   );
+  const optionFallback = useMemo(
+    () => (selectedOptionKey ? POLL_OPTION_FALLBACKS[selectedOptionKey] ?? null : null),
+    [selectedOptionKey],
+  );
+
   const ctaHref = useMemo(() => {
     if (!selectedOptionKey) return CTA_BASE_URL;
+
+    if (optionFallback?.scenario_path) {
+      const scenarioUrl = new URL(optionFallback.scenario_path, window.location.origin);
+      scenarioUrl.searchParams.set("src", "poll");
+      scenarioUrl.searchParams.set("poll", pageKey);
+      scenarioUrl.searchParams.set("opt", selectedOptionKey);
+      if (shortCode) scenarioUrl.searchParams.set("k_sc", shortCode);
+      if (utmParams.utm_campaign) scenarioUrl.searchParams.set("utm_campaign", utmParams.utm_campaign);
+      if (utmParams.utm_source) scenarioUrl.searchParams.set("utm_source", utmParams.utm_source);
+      if (utmParams.utm_medium) scenarioUrl.searchParams.set("utm_medium", utmParams.utm_medium);
+      return scenarioUrl.toString();
+    }
+
     return buildPollResultCtaHref({
       searchParams,
       pageKey,
@@ -181,6 +200,7 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
     });
   }, [
     normalizedCountry,
+    optionFallback,
     pageKey,
     searchParams,
     selectedOptionKey,
@@ -477,14 +497,14 @@ export default function PollClient({ slug, detectedCountryCode = null }: PollCli
                     </div>
                     <KinlyText variant="bodyMedium">
                       {resultMessage?.primary_message ??
-                        'Every flat has its own "how things get done." Kinly helps make it clearer and calmer.'}
+                        "You notice first — which usually means you end up reminding people. Kinly remembers so you do not have to."}
                     </KinlyText>
                     <KinlyButton
                       variant="filled"
                       href={ctaHref}
                       onClick={() => handleCtaClick("web")}
                     >
-                      {resultMessage?.cta_label ?? "Set your flat up in 5 minutes"}
+                      {resultMessage?.cta_label ?? "See how Kinly helps"}
                     </KinlyButton>
                   </KinlyStack>
                 ) : null}

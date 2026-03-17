@@ -7,9 +7,9 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
   pageKey: "takeaway_budget_flats",
 
   recognition: {
-    heading: "When money is tight, small unfairness becomes big tension.",
-    subtitle: "Power, heating, and shared groceries shouldn't turn into quiet resentment.",
-    body: "Kinly keeps shared expectations visible, so money-stress arguments don't start in the first place.",
+    heading: "You know who paid last time. Nobody else does.",
+    subtitle: "When money is tight, being the one who tracks everything feels heavier than the bills.",
+    body: "Kinly keeps shared costs and expectations visible so one person does not have to remember what everyone owes.",
   },
 
   whatHeading: "What Kinly is",
@@ -17,10 +17,10 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
     "Kinly is a shared living app designed for people who live together. For tight-budget flats, it keeps fairness clear without turning your home into a budgeting spreadsheet.",
 
   hero: {
-    headline: "Fair shared living, even on a tight budget.",
-    subhead: "Light structure for shared costs and shared standards, without awkward call-outs.",
-    body: "Agree what's shared, what's personal, and how to handle uneven weeks. Kinly helps the house reset calmly, so it stays fair.",
-    ctaHeading: "Keep it fair this week",
+    headline: "You track every shared cost in your head. That is the real burden.",
+    subhead: "When money is tight, the person who remembers who owes what carries the heaviest load.",
+    body: "Kinly keeps shared costs and expectations visible so one person does not have to be the house accountant.",
+    ctaHeading: "Stop tracking it all in your head",
   },
 
   screens: [
@@ -77,9 +77,9 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
   ],
 
   chips: [
-    "When budgets are tight, small unfairness feels personal.",
-    "Unequal usage (food, power, heating) builds resentment fast.",
-    "Weekly resets keep one hard week from becoming a house conflict.",
+    "I know exactly who has not paid their share. Nobody else is keeping track.",
+    "I remember what we spent last week. They do not even think about it.",
+    "If I stop tracking, it just becomes unfair — and I am the one who notices.",
   ],
 
   rolePoints: [

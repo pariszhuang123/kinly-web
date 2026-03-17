@@ -6,9 +6,9 @@ export const sgHouseOwnerHelperAlignmentConfig: ScenarioConfig = {
   pageKey: "sg_house_owner_helper_alignment",
 
   recognition: {
-    heading: "Do you keep repeating the same house instructions?",
-    subtitle: "Many home problems happen because house rules are not written down.",
-    body: "Kinly keeps your house rules and routines in one place so people can check instead of guessing.",
+    heading: "You have explained it three times this week. She still forgot.",
+    subtitle: "The problem is not people — it is that nothing is written down.",
+    body: "Kinly keeps house rules and routines in one place so people can check instead of relying on your memory.",
   },
 
   whatHeading: "What Kinly is",
@@ -16,10 +16,10 @@ export const sgHouseOwnerHelperAlignmentConfig: ScenarioConfig = {
     "Kinly is a simple home app. It keeps house rules, routines, and tasks in one place so everyone knows what to do.",
 
   hero: {
-    headline: "Explain your house rules once.",
-    subhead: "Kinly keeps them clear.",
-    body: "Write down routines and instructions so people can check instead of asking again.",
-    ctaHeading: "Create house rules",
+    headline: "Write it down once. She can check Kinly instead of asking you.",
+    subhead: "Your routines stay clear — even when you are not there to explain.",
+    body: "Kinly keeps house rules and instructions visible so she can check instead of relying on you.",
+    ctaHeading: "Explain it once, for good",
   },
 
   screens: [
@@ -73,9 +73,9 @@ export const sgHouseOwnerHelperAlignmentConfig: ScenarioConfig = {
   ],
 
   chips: [
-    "I keep repeating instructions.",
-    "House rules are not written anywhere.",
-    "I want fewer mistakes at home.",
+    "I explained the routine on Monday. By Wednesday she forgot.",
+    "Everything is in my head. If I am not home, nobody knows what to do.",
+    "I want the house to run even when I am not the one reminding her.",
   ],
 
   rolePoints: [

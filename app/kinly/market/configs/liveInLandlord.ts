@@ -6,9 +6,9 @@ export const liveInLandlordConfig: ScenarioConfig = {
   pageKey: "live_in_landlord",
 
   recognition: {
-    heading: "You live with your tenants. Clear house rules matter.",
-    subtitle: "You want a calm home, not awkward conversations.",
-    body: "Kinly keeps house rules and routines visible so everyone knows what is okay in the home.",
+    heading: "You keep repeating the same rules — and it still does not stick.",
+    subtitle: "You live here too. You should not have to be the one who remembers everything.",
+    body: "Kinly keeps house rules visible for everyone so you can stop repeating yourself.",
   },
 
   whatHeading: "What Kinly is",
@@ -16,10 +16,10 @@ export const liveInLandlordConfig: ScenarioConfig = {
     "Kinly is a shared living app. It keeps house rules, routines, and shared expectations in one place so you don't need to repeat them.",
 
   hero: {
-    headline: "A calmer home with your tenants.",
-    subhead: "Clear rules for noise, guests, and shared spaces.",
-    body: "Kinly shows the same house rules to you and your tenants so everyone understands how the home works.",
-    ctaHeading: "Set house rules",
+    headline: "Write the rules down once. Stop saying them every week.",
+    subhead: "Your tenants can check Kinly instead of checking with you.",
+    body: "Kinly shows the same house rules to you and your tenants — so you do not have to keep reminding people how the home works.",
+    ctaHeading: "Say it once, not every week",
   },
 
   screens: [
@@ -73,9 +73,9 @@ export const liveInLandlordConfig: ScenarioConfig = {
   ],
 
   chips: [
-    "I want clear rules without sounding like the boss.",
-    "I live here too. The home should feel fair.",
-    "Noise, guests, and cleaning should be clear.",
+    "I have told them about the noise three times. They still forget.",
+    "I live here too. I should not have to carry the house rules in my head.",
+    "If I do not bring it up, nobody will. And I am tired of bringing it up.",
   ],
 
   rolePoints: [

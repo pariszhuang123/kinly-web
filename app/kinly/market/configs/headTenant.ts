@@ -6,9 +6,9 @@ export const headTenantConfig: ScenarioConfig = {
   pageKey: "head_tenant_shared_responsibility",
 
   recognition: {
-    heading: "You did not sign up to manage the flat.",
-    subtitle: "If you say nothing, things slip. If you step in, people get annoyed.",
-    body: "Kinly keeps house rules, tasks, and reminders in one place so the flat does not rely on one person.",
+    heading: "You are the one who remembers everything — and nobody asked you to be.",
+    subtitle: "If you stop reminding, things slip. If you keep going, people resent you.",
+    body: "Kinly keeps house rules, tasks, and reminders in one place so the flat does not depend on your memory.",
   },
 
   whatHeading: "What Kinly is",
@@ -16,10 +16,10 @@ export const headTenantConfig: ScenarioConfig = {
     "Kinly is a shared living app. It keeps house rules, tasks, and shared reminders in one place so you do not have to carry the flat on your own.",
 
   hero: {
-    headline: "Stop being the unpaid flat manager.",
+    headline: "Put what you carry in your head somewhere everyone can see.",
     subhead: "Share the load without sounding like the boss.",
-    body: "Kinly helps everyone see the same house rules, tasks, and reminders so you do not have to keep chasing people.",
-    ctaHeading: "Share the load",
+    body: "Kinly keeps house rules, tasks, and reminders visible to everyone — so the flat stops depending on your memory.",
+    ctaHeading: "Stop being the flat's memory",
   },
 
   screens: [
@@ -73,9 +73,9 @@ export const headTenantConfig: ScenarioConfig = {
   ],
 
   chips: [
-    "If I do nothing, things fall apart.",
-    "If I step in, people resent me.",
-    "I want the flat to run smoothly.",
+    "If I stop reminding people, things fall apart.",
+    "I remember every bill date, every bin night, every rule we set.",
+    "I want the flat to run without me carrying it all in my head.",
   ],
 
   rolePoints: [

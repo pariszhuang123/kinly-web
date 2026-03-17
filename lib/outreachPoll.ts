@@ -6,8 +6,78 @@ type FetchLike = (input: RequestInfo | URL, init?: RequestInit) => Promise<Respo
 const APP_KEY = "kinly-web";
 const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const FALLBACK_PRIMARY_MESSAGE =
-  'Every flat has its own "how things get done." Kinly helps make it clearer and calmer.';
-const FALLBACK_CTA_LABEL = "Set your flat up in 5 minutes";
+  "You notice first — which usually means you end up reminding people. Kinly remembers so you do not have to.";
+const FALLBACK_CTA_LABEL = "See how Kinly helps";
+
+/**
+ * Per-option fallback copy for poll result messages.
+ * Used when the database does not have an option-specific message.
+ * Keyed by option_key (stable identifiers set in the poll definition).
+ */
+export type PollOptionFallback = {
+  primary_message: string;
+  cta_label: string;
+  scenario_path: string | null;
+};
+
+export const POLL_OPTION_FALLBACKS: Record<string, PollOptionFallback> = {
+  /* ── Toilet paper / shared supplies polls ── */
+  me: {
+    primary_message:
+      "You notice first — which usually means you end up reminding people. Kinly remembers the stuff your flat keeps forgetting.",
+    cta_label: "Stop being the flat's memory",
+    scenario_path: "/kinly/market/head-tenant",
+  },
+  notice: {
+    primary_message:
+      "If it depends on whoever notices, it usually falls on the same person. Kinly keeps things visible so it does not have to.",
+    cta_label: "Give your flat a shared memory",
+    scenario_path: "/kinly/market/flat-agreements",
+  },
+  not_notice: {
+    primary_message:
+      "Someone in your flat does notice. And they are probably tired of being the only one. Kinly makes expectations visible for everyone.",
+    cta_label: "See what your flat actually expects",
+    scenario_path: "/kinly/market/new-place",
+  },
+  share: {
+    primary_message:
+      "Replace what you use sounds fair — until nobody remembers what was used. Kinly keeps shared supplies visible so fairness is not guesswork.",
+    cta_label: "Make shared supplies visible",
+    scenario_path: "/kinly/market/flat-agreements",
+  },
+  chaos: {
+    primary_message:
+      "Fair game works until someone runs out and nobody replaces it. Kinly keeps shared expectations clear so it stays fair for real.",
+    cta_label: "Keep it fair without the arguments",
+    scenario_path: "/kinly/market/takeaway-budget",
+  },
+  individual: {
+    primary_message:
+      "Not sharing avoids friction — but the rest of flat life still needs alignment. Kinly handles the shared stuff nobody talks about.",
+    cta_label: "See what else your flat could align on",
+    scenario_path: "/kinly/market/low-talk",
+  },
+  /* ── Rent reminder poll ── */
+  system: {
+    primary_message:
+      "You have a system — that is rare. Kinly works the same way for everything else your flat needs to remember.",
+    cta_label: "Extend it to the rest of the flat",
+    scenario_path: "/kinly/market/low-talk",
+  },
+  person_reminder: {
+    primary_message:
+      "That someone is always the same person. And they did not sign up for the job. Kinly takes it off their plate.",
+    cta_label: "Stop depending on one person's memory",
+    scenario_path: "/kinly/market/head-tenant",
+  },
+  landlord_chase: {
+    primary_message:
+      "Rent is sorted — but who tracks the groceries, the bills, and the cleaning? Kinly handles the stuff the landlord does not.",
+    cta_label: "See what else Kinly remembers",
+    scenario_path: "/kinly/market/takeaway-budget",
+  },
+};
 
 export type OutreachPollDefinition = {
   id: string | null;

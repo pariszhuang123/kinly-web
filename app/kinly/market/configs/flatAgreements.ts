@@ -7,9 +7,9 @@ export const flatAgreementsConfig: ScenarioConfig = {
   pageKey: "flat_agreements",
 
   recognition: {
-    heading: "Agreements matter, but paperwork isn't the vibe.",
-    subtitle: "You need clarity on shared living without turning anyone into the boss.",
-    body: "Kinly keeps housemate agreements visible, calm, and human, no policing, no legalese.",
+    heading: "Tired of being the only one who remembers the house rules?",
+    subtitle: "You agreed on things once — but you are the only one who kept track.",
+    body: "Kinly keeps housemate agreements visible so nobody has to be the one who remembers everything.",
   },
 
   whatHeading: "What Kinly is",
@@ -17,10 +17,10 @@ export const flatAgreementsConfig: ScenarioConfig = {
     "Kinly is a shared living app designed for people who live together. It keeps agreements visible and calm without turning your shared home into contract talk.",
 
   hero: {
-    headline: "Clear agreements, human tone.",
-    subhead: "One place for house norms, shared costs, and expectations , no lecture required.",
-    body: "Kinly lets housemates see the same baseline for noise, guests, cleaning, and shared costs, while staying pressure-free.",
-    ctaHeading: "Set the baseline together",
+    headline: "Stop carrying the flat in your head.",
+    subhead: "One place for house norms, shared costs, and expectations — so you are not the only one who knows.",
+    body: "Kinly lets housemates see the same baseline for noise, guests, cleaning, and shared costs — without relying on one person to remember it all.",
+    ctaHeading: "Let the flat remember for itself",
   },
 
   screens: [
@@ -76,9 +76,9 @@ export const flatAgreementsConfig: ScenarioConfig = {
   ],
 
   chips: [
-    "We need clarity without turning into house politics.",
-    "Guests, noise, and cleaning need one baseline.",
-    "Keep it fair without nagging.",
+    "If I stop reminding people, nothing gets done.",
+    "I know the guest rules. Nobody else seems to.",
+    "I am tired of being the one who brings things up.",
   ],
 
   rolePoints: [
