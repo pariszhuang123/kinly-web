@@ -16,7 +16,7 @@ export const lowTalkConfig: ScenarioConfig = {
   hero: {
     headline: "The house stays aligned — without anyone having to say it.",
     subhead: "See what needs doing and what can wait. No group chat. No awkward reminder.",
-    body: "Kinly keeps what matters visible so nobody has to remember — and nobody has to be the one who brings it up.",
+    body: "Kinly keeps what matters visible so nobody has to remember or be the one who brings it up.",
     ctaHeading: "Let the house speak for itself",
   },
   screens: [
@@ -51,22 +51,22 @@ export const lowTalkConfig: ScenarioConfig = {
   featureScreens: [
     {
       title: "Shared tasks",
-      benefit: "Keep recurring tasks clear with context and photos so signals replace long explanations.",
+      benefit: "Keep recurring tasks clear so signals replace long explanations.",
       image: LANDING_SCREEN_ASSETS.en.flows,
     },
     {
       title: "Shared groceries",
-      benefit: "Surface what is needed in one place so shopping stays coordinated without extra chat.",
+      benefit: "Surface what is needed in one place so shopping stays coordinated.",
       image: LANDING_SCREEN_ASSETS.en.groceries,
     },
     {
       title: "Shared bills",
-      benefit: "Keep shared costs clear with simple context so fairness stays visible without call-outs.",
+      benefit: "Keep shared costs clear so fairness stays visible without call-outs.",
       image: LANDING_SCREEN_ASSETS.en.bills,
     },
     {
       title: "Calm check-ins",
-      benefit: "Use short weekly check-ins to surface concerns early without big talks.",
+      benefit: "Use short weekly check-ins to surface concerns early.",
       image: LANDING_SCREEN_ASSETS.en.checkins,
     },
   ],
@@ -82,7 +82,7 @@ export const lowTalkConfig: ScenarioConfig = {
   ],
   formingPoints: [
     "People move in and out - Kinly keeps shared signals steady.",
-    "Busy weeks happen; pausing tasks is normal, not a failure.",
+    "Busy weeks happen. Pausing tasks is normal, not a failure.",
   ],
   audience: [
     "Households that want calm clarity without long conversations.",
@@ -254,4 +254,3 @@ export const lowTalkConfig: ScenarioConfig = {
     } satisfies LocaleCopy,
   },
 };
-

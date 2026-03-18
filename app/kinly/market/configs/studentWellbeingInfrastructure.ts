@@ -7,19 +7,19 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
   pageKey: "student_wellbeing_infrastructure",
 
   recognition: {
-    heading: "One RA cannot remember the needs of every room. And they should not have to.",
-    subtitle: "Wellbeing works when the house shares the load — not when one person carries it all.",
-    body: "Kinly keeps shared norms visible so no single person has to be the one who remembers how everyone is doing.",
+    heading: "You keep checking in on every room. Nobody should have to hold that much in their head.",
+    subtitle: "When one person is the only one noticing tension, support starts to feel lonely.",
+    body: "Kinly keeps shared expectations visible so the house can rely less on one person's memory and more on a calm shared baseline.",
   },
 
   whatHeading: "What Kinly is",
   whatBody:
-    "Kinly is a shared living app designed for people who live together. It keeps wellbeing expectations visible without turning student housing into monitoring.",
+    "Kinly is a shared living app designed for people who live together. It keeps expectations visible and calm so support does not depend on one person repeating the same reminders.",
 
   hero: {
-    headline: "One person should not have to track how every room is doing.",
-    subhead: "Shared visibility means shared responsibility — without surveillance.",
-    body: "Kinly shows what the house needs so support comes from the system, not from one person's memory.",
+    headline: "Support lands better when the house can see the baseline for itself.",
+    subhead: "Shared visibility lowers the need for constant check-ins, repeated reminders, and awkward follow-ups.",
+    body: "Kinly makes quiet hours, shared-space expectations, and weekly resets visible so care feels shared instead of carried by one resident lead.",
     ctaHeading: "Share the load across the house",
   },
 
@@ -28,17 +28,17 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
       title: "Today",
       eyebrow: "Signals",
       headline: "What the house needs now",
-      copy: "Quiet hours, shared spaces, and any light tasks that keep the vibe steady.",
-      footer: "Support without pressure.",
+      copy: "Quiet hours, shared spaces, and small resets the house can notice without waiting for another reminder.",
+      footer: "Calm support, no pressure.",
       image:
         LANDING_SCREEN_ASSETS.en.today,
     },
     {
       title: "Manage",
       eyebrow: "Adjust",
-      headline: "Tweak norms without enforcement",
-      copy: "Update noise/guests/cleaning expectations as cohorts change, no one gets singled out.",
-      footer: "Neutral updates, student-friendly tone.",
+      headline: "Update the baseline when the house shifts",
+      copy: "Adjust noise, guests, or cleaning expectations as residents change so nobody has to repeat the same conversation room by room.",
+      footer: "Shared context, no singling out.",
       image:
         LANDING_SCREEN_ASSETS.en.manage,
     },
@@ -46,8 +46,8 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
       title: "Home Hub",
       eyebrow: "Reference",
       headline: "One calm reference for everyone",
-      copy: "Noise, guests, wellbeing notes, and shared costs in one place, no streaks or scores.",
-      footer: "Clarity that feels caring, not monitoring.",
+      copy: "Noise, guests, shared expectations, and weekly reset points in one place, without scores or surveillance vibes.",
+      footer: "Care made visible, not monitored.",
       image:
         LANDING_SCREEN_ASSETS.en.hub,
     },
@@ -55,45 +55,45 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
   featureScreens: [
     {
       title: "Shared tasks",
-      benefit: "Keep shared routines visible with context so support feels clear, not corrective.",
+      benefit: "Keep shared routines visible with context so residents can refer back instead of waiting to be reminded.",
       image: LANDING_SCREEN_ASSETS.en.flows,
     },
     {
       title: "Shared groceries",
-      benefit: "Keep shared supplies visible in one place so everyone can contribute without pressure.",
+      benefit: "Keep shared supplies visible in one place so contribution feels easy and does not depend on one person chasing.",
       image: LANDING_SCREEN_ASSETS.en.groceries,
     },
     {
       title: "Shared bills",
-      benefit: "Keep shared costs transparent with simple context so trust stays steady.",
+      benefit: "Keep shared costs transparent with simple context so fairness stays clear without repeated money conversations.",
       image: LANDING_SCREEN_ASSETS.en.bills,
     },
     {
       title: "Calm check-ins",
-      benefit: "Use weekly check-ins to surface pressure early and support calm resets.",
+      benefit: "Use weekly check-ins to surface pressure early so support happens before tension turns into another difficult follow-up.",
       image: LANDING_SCREEN_ASSETS.en.checkins,
     },
   ],
 
   chips: [
-    "I check in with every room. Nobody checks in with me.",
-    "If I miss something, nobody else catches it.",
-    "I want the house to notice what needs attention — not just me.",
+    "I keep checking in room by room because if I do not, small issues sit there.",
+    "I do not want support to depend on me remembering every tension point.",
+    "If the house could see the baseline clearly, I would not need to repeat the same reminders.",
   ],
 
   rolePoints: [
-    "Keeps expectations visible without surveillance.",
-    "Shares responsibility for care instead of singling people out.",
+    "Keeps expectations visible without turning care into monitoring.",
+    "Reduces the need for one person to carry every reminder and follow-up.",
   ],
 
   formingPoints: [
-    "Cohorts change; the baseline stays clear.",
-    "If things drift, reset next week without blame.",
+    "Cohorts change, but the baseline stays visible.",
+    "If things drift, the house can reset next week without blame or public call-outs.",
   ],
 
   audience: [
-    "Student housing teams and resident advisors.",
-    "Shared student homes that want calm wellbeing signals.",
+    "Resident leads carrying the emotional load of shared living across a student home.",
+    "Student homes that want calm visibility before tension grows.",
   ],
 
   notList: [
@@ -104,7 +104,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
   ],
 
   toolsIntro:
-    "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction, without turning wellbeing into monitoring.",
+    "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction, without turning student wellbeing into monitoring.",
 
   availability: {
     body: getScenarioAvailabilityBody("en"),
@@ -116,16 +116,16 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
     es: {
       whatHeading: "QuÃ© es Kinly",
       whatBody:
-        "Kinly es una app de convivencia para quienes viven juntos. Mantiene visibles las expectativas de bienestar sin convertir la vivienda estudiantil en monitoreo.",
+        "Kinly es una app de convivencia para quienes viven juntos. Mantiene visibles y tranquilas las expectativas para que el apoyo no dependa de repetir los mismos recordatorios.",
       recognition: {
-        heading: "Los sistemas de bienestar fallan cuando se sienten vigilancia.",
-        subtitle: "Los estudiantes necesitan visibilidad tranquila, no control.",
-        body: "Kinly mantiene visibles las normas con ritmo humano para que la vivienda estudiantil sea cuidada sin presiÃ³n.",
+        heading: "Terminas pendiente de cada habitaciÃ³n. Nadie deberÃ­a cargar con tanto.",
+        subtitle: "Cuando una sola persona nota toda la tensiÃ³n, cuidar tambiÃ©n se vuelve pesado.",
+        body: "Kinly mantiene visible la base compartida para que la casa dependa menos de la memoria de una sola persona.",
       },
       hero: {
-        headline: "Convivencia tranquila que apoya el bienestar.",
-        subhead: "Visibilidad sin vigilancia; claridad sin culpas.",
-        body: "Kinly muestra cÃ³mo se siente la casa y quÃ© necesita atenciÃ³n, sin marcadores ni enforcement.",
+        headline: "El apoyo funciona mejor cuando la casa puede ver la base por sÃ­ misma.",
+        subhead: "La visibilidad compartida reduce check-ins constantes, recordatorios repetidos y seguimientos incÃ³modos.",
+        body: "Kinly hace visibles el silencio, los espacios compartidos y los pequeÃ±os reinicios semanales para que el cuidado se comparta.",
         ctaHeading: "MantÃ©n la casa estable",
       },
       screens: [
@@ -133,17 +133,17 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
           title: "Hoy",
           eyebrow: "SeÃ±ales",
           headline: "QuÃ© necesita la casa ahora",
-          copy: "Horas de silencio, espacios comunes y tareas ligeras que mantienen el ambiente estable.",
-          footer: "Apoyo sin presiÃ³n.",
+          copy: "Horas de silencio, espacios comunes y pequeÃ±os reinicios que la casa puede notar sin otro recordatorio.",
+          footer: "Apoyo tranquilo, sin presiÃ³n.",
           image:
             LANDING_SCREEN_ASSETS.es.today,
         },
         {
           title: "Gestionar",
           eyebrow: "Ajustar",
-          headline: "Ajusta normas sin enforcement",
-          copy: "Actualiza ruido/visitas/limpieza cuando cambian las cohortes, nadie es seÃ±alado.",
-          footer: "Actualizaciones neutrales, tono estudiantil.",
+          headline: "Ajusta la base cuando cambia la casa",
+          copy: "Actualiza ruido, visitas o limpieza cuando cambian los residentes para no repetir la misma conversaciÃ³n cuarto por cuarto.",
+          footer: "Contexto compartido, sin seÃ±alar a nadie.",
           image:
             LANDING_SCREEN_ASSETS.es.manage,
         },
@@ -151,28 +151,28 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
           title: "Hub",
           eyebrow: "Referencia",
           headline: "Un referente tranquilo para todos",
-          copy: "Ruido, visitas, notas de bienestar y costos compartidos en un lugar, sin rachas ni puntajes.",
-          footer: "Claridad que se siente cuidado, no monitoreo.",
+          copy: "Ruido, visitas, expectativas compartidas y puntos de reinicio en un lugar, sin rachas ni puntajes.",
+          footer: "Cuidado visible, no monitoreo.",
           image:
             LANDING_SCREEN_ASSETS.es.hub,
         },
       ],
       chips: [
-        "Queremos bienestar sin sentirnos vigilados.",
-        "Silencio, visitas y limpieza necesitan una base tranquila.",
-        "El apoyo debe ser proactivo, no punitivo.",
+        "Voy habitaciÃ³n por habitaciÃ³n porque si no, las pequeÃ±as tensiones se quedan ahÃ­.",
+        "No quiero que el apoyo dependa de que yo recuerde cada punto de fricciÃ³n.",
+        "Si la casa viera clara la base, no tendrÃ­a que repetir lo mismo cada semana.",
       ],
       rolePoints: [
-        "Mantiene las expectativas visibles sin vigilancia.",
-        "Comparte la responsabilidad del cuidado en lugar de seÃ±alar a personas.",
+        "Mantiene visibles las expectativas sin convertir el cuidado en vigilancia.",
+        "Reduce la necesidad de que una persona cargue con todos los recordatorios y seguimientos.",
       ],
       formingPoints: [
-        "Las cohortes cambian; la base sigue clara.",
-        "Si se desvÃ­a, se reinicia la prÃ³xima semana sin culpas.",
+        "Las cohortes cambian; la base sigue visible.",
+        "Si se desvÃ­a, se reinicia la prÃ³xima semana sin culpas ni seÃ±alamientos.",
       ],
       audience: [
-        "Equipos de vivienda estudiantil y RAs.",
-        "Casas de estudiantes que quieren seÃ±ales de bienestar tranquilas.",
+        "RAs, lÃ­deres residentes y equipos de vivienda estudiantil que cargan con el peso emocional de la convivencia.",
+        "Casas de estudiantes que quieren visibilidad tranquila antes de que crezca la tensiÃ³n.",
       ],
       notList: [
         "No es vigilancia.",
@@ -181,7 +181,7 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
         "No es una herramienta de reportes.",
       ],
       toolsIntro:
-        "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la fricciÃ³n diaria, sin convertir el bienestar en monitoreo.",
+        "Cuando ya acordaron expectativas, Kinly ofrece herramientas sencillas que reducen la fricciÃ³n diaria, sin convertir el bienestar estudiantil en monitoreo.",
       sectionHeadings: {
         howItWorks: "CÃ³mo funciona Kinly",
         soundsLikeYou: "Â¿Te suena familiar?",
@@ -282,4 +282,3 @@ export const studentWellbeingInfrastructureConfig: ScenarioConfig = {
     } satisfies LocaleCopy,
   },
 };
-

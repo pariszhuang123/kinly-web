@@ -19,7 +19,7 @@ export const homestayOwnerConfig: ScenarioConfig = {
   hero: {
     headline: "Explain it once. Kinly remembers for every guest after.",
     subhead: "Your house rules stay visible — so you stop repeating yourself.",
-    body: "Kinly shows guests and residents the same simple expectations for noise, shared spaces, and contributions — without you having to say it again.",
+    body: "Kinly shows guests and residents the same expectations for noise, shared spaces, and contributions — without you having to say it again.",
     ctaHeading: "Stop repeating yourself",
   },
 
@@ -37,7 +37,7 @@ export const homestayOwnerConfig: ScenarioConfig = {
       title: "Manage",
       eyebrow: "Adjust",
       headline: "Update norms without tension",
-      copy: "Tweak house rules or hosting notes as guests change,no awkward talks.",
+      copy: "Tweak house rules or hosting notes as guests change.",
       footer: "One place to keep everyone aligned.",
       image:
         LANDING_SCREEN_ASSETS.en.manage,
@@ -61,24 +61,24 @@ export const homestayOwnerConfig: ScenarioConfig = {
     },
     {
       title: "Shared groceries",
-      benefit: "Clarify shared kitchen and supply expectations so requests stay simple and respectful.",
+      benefit: "Clarify shared kitchen and supply expectations so requests stay simple.",
       image: LANDING_SCREEN_ASSETS.en.groceries,
     },
     {
       title: "Shared bills",
-      benefit: "Keep shared contributions clear with context so conversations stay fair and warm.",
+      benefit: "Keep shared contributions clear so conversations stay fair and warm.",
       image: LANDING_SCREEN_ASSETS.en.bills,
     },
     {
       title: "Calm check-ins",
-      benefit: "Use weekly check-ins to reset small friction early while keeping the home welcoming.",
+      benefit: "Use weekly check-ins to reset small friction early.",
       image: LANDING_SCREEN_ASSETS.en.checkins,
     },
   ],
 
   chips: [
     "I have explained the same rules to five different guests this year.",
-    "I remember every preference, every boundary — they forget by day two.",
+    "I remember every preference and boundary. They forget by day two.",
     "I do not want to chase people for shared costs. I just want it written down.",
   ],
 
@@ -283,5 +283,4 @@ export const homestayOwnerConfig: ScenarioConfig = {
     } satisfies LocaleCopy,
   },
 };
-
 

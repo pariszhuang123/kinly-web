@@ -55,7 +55,7 @@ export const flatAgreementsConfig: ScenarioConfig = {
   featureScreens: [
     {
       title: "Shared tasks",
-      benefit: "Keep recurring standards visible so housemate agreements stay clear without reminders.",
+      benefit: "Keep recurring standards visible so agreements stay clear without reminders.",
       image: LANDING_SCREEN_ASSETS.en.flows,
     },
     {
@@ -65,12 +65,12 @@ export const flatAgreementsConfig: ScenarioConfig = {
     },
     {
       title: "Shared bills",
-      benefit: "Keep shared costs transparent with dates and context so fairness stays calm.",
+      benefit: "Keep shared costs transparent so fairness stays calm.",
       image: LANDING_SCREEN_ASSETS.en.bills,
     },
     {
       title: "Calm check-ins",
-      benefit: "Use weekly check-ins to reset guests/noise/cleaning expectations before friction grows.",
+      benefit: "Use weekly check-ins to reset guests, noise, or cleaning expectations before friction grows.",
       image: LANDING_SCREEN_ASSETS.en.checkins,
     },
   ],
@@ -282,4 +282,3 @@ export const flatAgreementsConfig: ScenarioConfig = {
     } satisfies LocaleCopy,
   },
 };
-

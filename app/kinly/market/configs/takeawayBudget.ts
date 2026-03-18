@@ -60,25 +60,24 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
     },
     {
       title: "Shared groceries",
-      benefit:
-        "Clarify shared grocery expectations, quantities, and notes before shops so spending stays fair.",
+      benefit: "Clarify shared grocery expectations before shops so spending stays fair.",
       image: LANDING_SCREEN_ASSETS.en.groceries,
     },
     {
       title: "Shared bills",
-      benefit: "Keep shared costs transparent with dates and amounts so budget pressure feels manageable.",
+      benefit: "Keep shared costs transparent so budget pressure feels manageable.",
       image: LANDING_SCREEN_ASSETS.en.bills,
     },
     {
       title: "Calm check-ins",
-      benefit: "Use weekly check-ins to reset money tension early before it compounds.",
+      benefit: "Use weekly check-ins to reset money tension early.",
       image: LANDING_SCREEN_ASSETS.en.checkins,
     },
   ],
 
   chips: [
     "I know exactly who has not paid their share. Nobody else is keeping track.",
-    "I remember what we spent last week. They do not even think about it.",
+    "I remember what we spent last week. They do not.",
     "If I stop tracking, it just becomes unfair — and I am the one who notices.",
   ],
 
@@ -283,4 +282,3 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
     } satisfies LocaleCopy,
   },
 };
-

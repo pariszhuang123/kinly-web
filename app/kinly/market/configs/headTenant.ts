@@ -18,7 +18,7 @@ export const headTenantConfig: ScenarioConfig = {
   hero: {
     headline: "Put what you carry in your head somewhere everyone can see.",
     subhead: "Share the load without sounding like the boss.",
-    body: "Kinly keeps house rules, tasks, and reminders visible to everyone — so the flat stops depending on your memory.",
+    body: "Kinly keeps house rules, tasks, and reminders visible so the flat stops depending on your memory.",
     ctaHeading: "Stop being the flat's memory",
   },
 

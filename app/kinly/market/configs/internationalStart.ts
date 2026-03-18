@@ -51,23 +51,22 @@ export const internationalStartConfig: ScenarioConfig = {
   featureScreens: [
     {
       title: "Shared tasks",
-      benefit:
-        "Surface home routines and context so new housemates can contribute without awkward guesswork.",
+      benefit: "Surface home routines so new housemates can contribute without awkward guesswork.",
       image: LANDING_SCREEN_ASSETS.en.flows,
     },
     {
       title: "Shared groceries",
-      benefit: "Clarify what is shared and what is personal before shopping, so no one oversteps.",
+      benefit: "Clarify what is shared and what is personal before shopping.",
       image: LANDING_SCREEN_ASSETS.en.groceries,
     },
     {
       title: "Shared bills",
-      benefit: "Keep contributions visible with simple context so fairness is clear in a new home.",
+      benefit: "Keep contributions visible so fairness is clear in a new home.",
       image: LANDING_SCREEN_ASSETS.en.bills,
     },
     {
       title: "Calm check-ins",
-      benefit: "Use weekly check-ins to reset expectations as routines settle, without pressure.",
+      benefit: "Use weekly check-ins to reset expectations as routines settle.",
       image: LANDING_SCREEN_ASSETS.en.checkins,
     },
   ],
@@ -82,7 +81,7 @@ export const internationalStartConfig: ScenarioConfig = {
     "Keeps contributions visible without pressure or judgement.",
   ],
   formingPoints: [
-    "Settling in takes time - Kinly keeps context as you adjust.",
+    "Settling in takes time. Kinly keeps the baseline clear as you adjust.",
     "New routines are normal, not failures.",
   ],
   audience: [
@@ -260,5 +259,4 @@ export const internationalStartConfig: ScenarioConfig = {
     } satisfies LocaleCopy,
   },
 };
-
 

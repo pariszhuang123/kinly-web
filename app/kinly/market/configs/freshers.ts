@@ -8,15 +8,15 @@ export const freshersConfig: ScenarioConfig = {
   recognition: {
     heading: "Someone always ends up running the flat. Is it you?",
     subtitle: "You barely know each other yet — but somehow you are the one keeping things together.",
-    body: "Kinly makes norms and shared plans visible so no one person has to remember everything for the flat.",
+    body: "Kinly makes the flat baseline visible so no one person has to remember everything.",
   },
   whatHeading: "What Kinly is",
   whatBody:
-    "Kinly is a shared living app designed for people who live together. For first-year flats, it keeps expectations clear and calm without turning your place into a chore chart.",
+    "Kinly is a shared living app designed for people who live together. For first-year flats, it keeps expectations visible so you can set them once and refer back later without turning your place into a chore chart.",
   hero: {
     headline: "Your flat should not depend on one person's memory.",
     subhead: "See what the flat needs before someone has to chase everyone.",
-    body: "Late labs, early lectures, and new roommates are messy. Kinly shows what needs doing so nobody has to be the flat manager.",
+    body: "Late labs, early lectures, and new roommates are messy. Kinly shows what the flat needs so nobody has to be the flat manager.",
     ctaHeading: "Give the flat a shared memory",
   },
   screens: [
@@ -51,38 +51,37 @@ export const freshersConfig: ScenarioConfig = {
   featureScreens: [
     {
       title: "Shared tasks",
-      benefit:
-        "Keep move-in basics and weekly routines visible so new housemates know what good looks like.",
+      benefit: "Keep move-in basics and weekly routines visible so new housemates know the baseline.",
       image: LANDING_SCREEN_ASSETS.en.flows,
     },
     {
       title: "Shared groceries",
-      benefit: "Clarify shared food expectations before busy campus days so shops stay fair.",
+      benefit: "Clarify shared food expectations before busy campus days so shopping stays fair.",
       image: LANDING_SCREEN_ASSETS.en.groceries,
     },
     {
       title: "Shared bills",
-      benefit: "Keep shared costs clear by week so tight student budgets stay predictable.",
+      benefit: "Keep shared costs clear by week so tight budgets stay predictable.",
       image: LANDING_SCREEN_ASSETS.en.bills,
     },
     {
       title: "Calm check-ins",
-      benefit: "Use short weekly check-ins to reset after exam weeks or schedule chaos without blame.",
+      benefit: "Use short weekly check-ins to reset after exam weeks or schedule chaos.",
       image: LANDING_SCREEN_ASSETS.en.checkins,
     },
   ],
   chips: [
     "I ended up making the cleaning rota. Nobody asked me to.",
     "I remind people about quiet hours during exams. Every time.",
-    "I know when the bins go out. Nobody else checks.",
+    "I know when the bins go out. Nobody else does.",
     "I care about my flatmates but I did not sign up to manage them.",
   ],
   rolePoints: [
-    "Surfaces norms before conflict starts.",
-    "Keeps tasks light - no points, no leaderboards.",
+    "Makes the flat baseline visible before conflict starts.",
+    "Keeps expectations easy to check - no points, no leaderboards.",
   ],
   formingPoints: [
-    "New flatmates each semester - Kinly keeps context as people come and go.",
+    "New flatmates come and go. Kinly keeps the baseline clear.",
     "Late nights, early mornings, and tight weeks are normal, not failures.",
   ],
   audience: ["First-year uni flats and dorm suites.", "Shared rentals near campus.", "Roommates who want calm, not drama."],
@@ -256,5 +255,3 @@ export const freshersConfig: ScenarioConfig = {
     } satisfies LocaleCopy,
   },
 };
-
-
