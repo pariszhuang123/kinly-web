@@ -1,5 +1,5 @@
 ﻿import { LANDING_SCREEN_ASSETS } from "../../shared/landingScreenAssets";
-import { ScenarioConfig } from "../ScenarioLandingClient";
+import type { ScenarioConfig } from "../scenarioLanding.types";
 import { getScenarioAvailabilityBody } from "../../../../lib/regionSupport";
 
 export const sgHouseOwnerHelperAlignmentConfig: ScenarioConfig = {

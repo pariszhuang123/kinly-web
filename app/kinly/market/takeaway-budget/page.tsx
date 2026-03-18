@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import ScenarioLandingContent from "../ScenarioLandingContent";
 import ScenarioLandingClient from "../ScenarioLandingClient";
 import { takeawayBudgetFlatsConfig } from "../configs/takeawayBudget";
 import { getDetectedCountryCode } from "../../../../lib/geo";
@@ -13,8 +14,11 @@ export const metadata: Metadata = {
 export default async function TakeawayBudgetPage() {
   const detectedCountryCode = await getDetectedCountryCode();
   return (
-    <Suspense fallback={null}>
-      <ScenarioLandingClient config={takeawayBudgetFlatsConfig} detectedCountryCode={detectedCountryCode} />
-    </Suspense>
+    <>
+      <ScenarioLandingContent config={takeawayBudgetFlatsConfig} />
+      <Suspense fallback={null}>
+        <ScenarioLandingClient config={takeawayBudgetFlatsConfig} detectedCountryCode={detectedCountryCode} />
+      </Suspense>
+    </>
   );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import ScenarioLandingContent from "../ScenarioLandingContent";
 import ScenarioLandingClient from "../ScenarioLandingClient";
 import { lowTalkConfig } from "../configs/lowTalk";
 import { getDetectedCountryCode } from "../../../../lib/geo";
@@ -13,8 +14,11 @@ export const metadata: Metadata = {
 export default async function LowTalkPage() {
   const detectedCountryCode = await getDetectedCountryCode();
   return (
-    <Suspense fallback={null}>
-      <ScenarioLandingClient config={lowTalkConfig} detectedCountryCode={detectedCountryCode} />
-    </Suspense>
+    <>
+      <ScenarioLandingContent config={lowTalkConfig} />
+      <Suspense fallback={null}>
+        <ScenarioLandingClient config={lowTalkConfig} detectedCountryCode={detectedCountryCode} />
+      </Suspense>
+    </>
   );
 }

@@ -1,17 +1,25 @@
-import type { ScenarioFeatureScreen, ScenarioScreen } from "../../ScenarioLandingClient";
+export type ScenarioScreen = {
+  title: string;
+  eyebrow: string;
+  headline: string;
+  copy: string;
+  footer: string;
+  image: string;
+};
 
-/**
- * Type for locale-specific copy. Used to enforce complete translations
- * for any language (es, zh, fr, etc.).
- */
-export type LocaleCopy = {
+export type ScenarioFeatureScreen = {
+  title: string;
+  benefit: string;
+  image: string;
+};
+
+export type ScenarioConfig = {
+  pageKey: string;
   recognition: {
     heading: string;
     subtitle: string;
     body: string;
   };
-  whatHeading?: string;
-  whatBody?: string;
   hero: {
     headline: string;
     subhead: string;
@@ -19,6 +27,8 @@ export type LocaleCopy = {
     ctaHeading?: string;
     privacyNote?: string;
   };
+  whatHeading?: string;
+  whatBody?: string;
   featureScreens?: ScenarioFeatureScreen[];
   screens: ScenarioScreen[];
   chips: string[];

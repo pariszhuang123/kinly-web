@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import ScenarioLandingContent from "../ScenarioLandingContent";
 import ScenarioLandingClient from "../ScenarioLandingClient";
 import { homestayOwnerConfig } from "../configs/homestayOwner";
 import { getDetectedCountryCode } from "../../../../lib/geo";
@@ -13,8 +14,11 @@ export const metadata: Metadata = {
 export default async function HomestayOwnerPage() {
   const detectedCountryCode = await getDetectedCountryCode();
   return (
-    <Suspense fallback={null}>
-      <ScenarioLandingClient config={homestayOwnerConfig} detectedCountryCode={detectedCountryCode} />
-    </Suspense>
+    <>
+      <ScenarioLandingContent config={homestayOwnerConfig} />
+      <Suspense fallback={null}>
+        <ScenarioLandingClient config={homestayOwnerConfig} detectedCountryCode={detectedCountryCode} />
+      </Suspense>
+    </>
   );
 }

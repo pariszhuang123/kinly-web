@@ -1,4 +1,4 @@
-﻿import { ScenarioConfig } from "../ScenarioLandingClient";
+﻿import type { ScenarioConfig } from "../scenarioLanding.types";
 import { freshersConfig } from "./freshers";
 import { internationalStartConfig } from "./internationalStart";
 import { takeawayBudgetFlatsConfig } from "./takeawayBudget";
