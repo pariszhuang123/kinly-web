@@ -4,6 +4,7 @@ import ScenarioLandingContent from "../ScenarioLandingContent";
 import ScenarioLandingClient from "../ScenarioLandingClient";
 import { lowTalkConfig } from "../configs/lowTalk";
 import { getDetectedCountryCode } from "../../../../lib/geo";
+import { getDetectedPlatform } from "../../../../lib/platform";
 
 export const metadata: Metadata = {
   title: "Kinly | Signals over speeches",
@@ -12,12 +13,19 @@ export const metadata: Metadata = {
 };
 
 export default async function LowTalkPage() {
-  const detectedCountryCode = await getDetectedCountryCode();
+  const [detectedCountryCode, detectedPlatform] = await Promise.all([
+    getDetectedCountryCode(),
+    getDetectedPlatform(),
+  ]);
   return (
     <>
       <ScenarioLandingContent config={lowTalkConfig} />
       <Suspense fallback={null}>
-        <ScenarioLandingClient config={lowTalkConfig} detectedCountryCode={detectedCountryCode} />
+        <ScenarioLandingClient
+          config={lowTalkConfig}
+          detectedCountryCode={detectedCountryCode}
+          detectedPlatform={detectedPlatform}
+        />
       </Suspense>
     </>
   );

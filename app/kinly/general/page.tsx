@@ -3,7 +3,9 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import LandingClient from "./LandingClient";
 import { getDetectedCountryCode } from "../../../lib/geo";
+import { getDetectedPlatform } from "../../../lib/platform";
 import ScenarioLandingClient from "../market/ScenarioLandingClient";
+import ScenarioLandingContent from "../market/ScenarioLandingContent";
 import { getScenarioConfig } from "../market/configs";
 
 export const metadata: Metadata = {
@@ -17,7 +19,10 @@ type PageProps = {
 };
 
 export default async function KinlyGeneralPage({ searchParams }: PageProps) {
-  const detectedCountryCode = await getDetectedCountryCode();
+  const [detectedCountryCode, detectedPlatform] = await Promise.all([
+    getDetectedCountryCode(),
+    getDetectedPlatform(),
+  ]);
   const params = await searchParams;
   const rawEntry = params?.entry ?? null;
   const entry = Array.isArray(rawEntry) ? rawEntry[0] ?? null : rawEntry;
@@ -25,9 +30,16 @@ export default async function KinlyGeneralPage({ searchParams }: PageProps) {
 
   if (scenarioConfig) {
     return (
-      <Suspense fallback={null}>
-        <ScenarioLandingClient config={scenarioConfig} detectedCountryCode={detectedCountryCode} />
-      </Suspense>
+      <>
+        <ScenarioLandingContent config={scenarioConfig} />
+        <Suspense fallback={null}>
+          <ScenarioLandingClient
+            config={scenarioConfig}
+            detectedCountryCode={detectedCountryCode}
+            detectedPlatform={detectedPlatform}
+          />
+        </Suspense>
+      </>
     );
   }
 

@@ -4,6 +4,7 @@ import ScenarioLandingContent from "../ScenarioLandingContent";
 import ScenarioLandingClient from "../ScenarioLandingClient";
 import { flatAgreementsConfig } from "../configs/flatAgreements";
 import { getDetectedCountryCode } from "../../../../lib/geo";
+import { getDetectedPlatform } from "../../../../lib/platform";
 
 export const metadata: Metadata = {
   title: "Kinly | Know what your housemates agree on",
@@ -12,12 +13,19 @@ export const metadata: Metadata = {
 };
 
 export default async function FlatAgreementsPage() {
-  const detectedCountryCode = await getDetectedCountryCode();
+  const [detectedCountryCode, detectedPlatform] = await Promise.all([
+    getDetectedCountryCode(),
+    getDetectedPlatform(),
+  ]);
   return (
     <>
       <ScenarioLandingContent config={flatAgreementsConfig} />
       <Suspense fallback={null}>
-        <ScenarioLandingClient config={flatAgreementsConfig} detectedCountryCode={detectedCountryCode} />
+        <ScenarioLandingClient
+          config={flatAgreementsConfig}
+          detectedCountryCode={detectedCountryCode}
+          detectedPlatform={detectedPlatform}
+        />
       </Suspense>
     </>
   );

@@ -4,6 +4,7 @@ import ScenarioLandingContent from "../ScenarioLandingContent";
 import ScenarioLandingClient from "../ScenarioLandingClient";
 import { homestayOwnerConfig } from "../configs/homestayOwner";
 import { getDetectedCountryCode } from "../../../../lib/geo";
+import { getDetectedPlatform } from "../../../../lib/platform";
 
 export const metadata: Metadata = {
   title: "Kinly | A gentler welcome for homestay families",
@@ -12,12 +13,19 @@ export const metadata: Metadata = {
 };
 
 export default async function HomestayOwnerPage() {
-  const detectedCountryCode = await getDetectedCountryCode();
+  const [detectedCountryCode, detectedPlatform] = await Promise.all([
+    getDetectedCountryCode(),
+    getDetectedPlatform(),
+  ]);
   return (
     <>
       <ScenarioLandingContent config={homestayOwnerConfig} />
       <Suspense fallback={null}>
-        <ScenarioLandingClient config={homestayOwnerConfig} detectedCountryCode={detectedCountryCode} />
+        <ScenarioLandingClient
+          config={homestayOwnerConfig}
+          detectedCountryCode={detectedCountryCode}
+          detectedPlatform={detectedPlatform}
+        />
       </Suspense>
     </>
   );

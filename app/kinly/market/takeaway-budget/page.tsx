@@ -4,6 +4,7 @@ import ScenarioLandingContent from "../ScenarioLandingContent";
 import ScenarioLandingClient from "../ScenarioLandingClient";
 import { takeawayBudgetFlatsConfig } from "../configs/takeawayBudget";
 import { getDetectedCountryCode } from "../../../../lib/geo";
+import { getDetectedPlatform } from "../../../../lib/platform";
 
 export const metadata: Metadata = {
   title: "Kinly | Takeaway nights without awkwardness",
@@ -12,12 +13,19 @@ export const metadata: Metadata = {
 };
 
 export default async function TakeawayBudgetPage() {
-  const detectedCountryCode = await getDetectedCountryCode();
+  const [detectedCountryCode, detectedPlatform] = await Promise.all([
+    getDetectedCountryCode(),
+    getDetectedPlatform(),
+  ]);
   return (
     <>
       <ScenarioLandingContent config={takeawayBudgetFlatsConfig} />
       <Suspense fallback={null}>
-        <ScenarioLandingClient config={takeawayBudgetFlatsConfig} detectedCountryCode={detectedCountryCode} />
+        <ScenarioLandingClient
+          config={takeawayBudgetFlatsConfig}
+          detectedCountryCode={detectedCountryCode}
+          detectedPlatform={detectedPlatform}
+        />
       </Suspense>
     </>
   );

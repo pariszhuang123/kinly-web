@@ -4,6 +4,7 @@ import ScenarioLandingContent from "../ScenarioLandingContent";
 import ScenarioLandingClient from "../ScenarioLandingClient";
 import { sgHouseOwnerHelperAlignmentConfig } from "../configs/sgHouseOwnerHelperAlignment";
 import { getDetectedCountryCode } from "../../../../lib/geo";
+import { getDetectedPlatform } from "../../../../lib/platform";
 
 export const metadata: Metadata = {
   title: "Kinly | Calm alignment for SG homes with helpers",
@@ -12,7 +13,10 @@ export const metadata: Metadata = {
 };
 
 export default async function SgHelperAlignmentPage() {
-  const detectedCountryCode = await getDetectedCountryCode();
+  const [detectedCountryCode, detectedPlatform] = await Promise.all([
+    getDetectedCountryCode(),
+    getDetectedPlatform(),
+  ]);
   return (
     <>
       <ScenarioLandingContent config={sgHouseOwnerHelperAlignmentConfig} />
@@ -20,6 +24,7 @@ export default async function SgHelperAlignmentPage() {
         <ScenarioLandingClient
           config={sgHouseOwnerHelperAlignmentConfig}
           detectedCountryCode={detectedCountryCode}
+          detectedPlatform={detectedPlatform}
         />
       </Suspense>
     </>

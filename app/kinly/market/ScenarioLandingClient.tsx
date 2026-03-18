@@ -3,7 +3,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { KinlyStack } from "../../../components";
+import { KinlyCard, KinlyHeading, KinlyStack, KinlyText } from "../../../components";
 import {
   buildClientEventId,
   detectUiLocale,
@@ -29,6 +29,7 @@ type InterestMarker = {
 
 type ScenarioLandingProps = {
   detectedCountryCode?: string | null;
+  detectedPlatform?: "ios" | "android" | "web";
   config: ScenarioConfig;
 };
 
@@ -40,30 +41,40 @@ const PLAY_STORE_URL =
 const APP_STORE_LABEL = "Download on the App Store";
 const PLAY_STORE_LABEL = "Get it on Google Play";
 
-function StoreCtas({ onClick }: { onClick: (store: OutreachStore) => void }) {
+function StoreCtas({
+  onClick,
+  detectedPlatform = "web",
+}: {
+  onClick: (store: OutreachStore) => void;
+  detectedPlatform?: "ios" | "android" | "web";
+}) {
   return (
     <div className={styles.storeCtas}>
       <KinlyStack direction="horizontal" gap="s" wrap>
-        <a
-          className={styles.storeBadgeLink}
-          href={APP_STORE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={APP_STORE_LABEL}
-          onClick={() => onClick("ios_app_store")}
-        >
-          <img src="/apple-store.svg" alt={APP_STORE_LABEL} className={styles.storeBadge} />
-        </a>
-        <a
-          className={styles.storeBadgeLink}
-          href={PLAY_STORE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={PLAY_STORE_LABEL}
-          onClick={() => onClick("google_play")}
-        >
-          <img src="/google-play.svg" alt={PLAY_STORE_LABEL} className={styles.storeBadge} />
-        </a>
+        {detectedPlatform !== "android" ? (
+          <a
+            className={styles.storeBadgeLink}
+            href={APP_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={APP_STORE_LABEL}
+            onClick={() => onClick("ios_app_store")}
+          >
+            <img src="/apple-store.svg" alt={APP_STORE_LABEL} className={styles.storeBadge} />
+          </a>
+        ) : null}
+        {detectedPlatform !== "ios" ? (
+          <a
+            className={styles.storeBadgeLink}
+            href={PLAY_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={PLAY_STORE_LABEL}
+            onClick={() => onClick("google_play")}
+          >
+            <img src="/google-play.svg" alt={PLAY_STORE_LABEL} className={styles.storeBadge} />
+          </a>
+        ) : null}
       </KinlyStack>
     </div>
   );
@@ -89,6 +100,7 @@ function readInterestMarker(): InterestMarker | null {
 
 export default function ScenarioLandingClient({
   detectedCountryCode = null,
+  detectedPlatform = "web",
   config,
 }: ScenarioLandingProps) {
   const [hasHydrated, setHasHydrated] = useState(false);
@@ -115,10 +127,7 @@ export default function ScenarioLandingClient({
   );
   const normalizedCountry = useMemo(() => normalizeCountryCode(regionCountry), [regionCountry]);
 
-  const suppressStoreCtas = useMemo(() => {
-    if (!regionCountry) return false;
-    return !isSupportedRegion(regionCountry);
-  }, [regionCountry]);
+  const showStoreCtas = useMemo(() => isSupportedRegion(regionCountry), [regionCountry]);
 
   useEffect(() => {
     if (!sessionId) return;
@@ -163,11 +172,36 @@ export default function ScenarioLandingClient({
     });
   }
 
-  if (!hasHydrated || suppressStoreCtas) return null;
+  if (!hasHydrated) return null;
 
   return (
-    <div className={styles.storeSection}>
-      <StoreCtas onClick={handleCtaClick} />
-    </div>
+    <>
+      {!showStoreCtas && config.availability ? (
+        <section className={styles.section}>
+          <KinlyCard variant="surface">
+            <KinlyStack direction="vertical" gap="s">
+              <KinlyHeading level={2}>{config.availability.heading ?? "Availability"}</KinlyHeading>
+              <KinlyText variant="bodyMedium">{config.availability.body}</KinlyText>
+            </KinlyStack>
+          </KinlyCard>
+        </section>
+      ) : null}
+      {showStoreCtas ? (
+        <section className={styles.storeSection}>
+          <KinlyCard variant="surfaceContainerHigh">
+            <KinlyStack direction="vertical" gap="m">
+              <KinlyHeading level={2}>
+                {config.sectionHeadings?.readyHeading ?? "When you are ready"}
+              </KinlyHeading>
+              <KinlyText variant="bodyMedium" tone="muted">
+                {config.sectionHeadings?.readySubtitle ??
+                  "Kinly lives in the app - start on iOS or Android."}
+              </KinlyText>
+              <StoreCtas onClick={handleCtaClick} detectedPlatform={detectedPlatform} />
+            </KinlyStack>
+          </KinlyCard>
+        </section>
+      ) : null}
+    </>
   );
 }

@@ -219,31 +219,6 @@ export default function ScenarioLandingContent({ config }: ScenarioLandingConten
             </KinlyStack>
           </section>
 
-          {config.availability ? (
-            <section className={styles.section}>
-              <KinlyCard variant="surface">
-                <KinlyStack direction="vertical" gap="s">
-                  <KinlyHeading level={2}>{config.availability.heading ?? "Availability"}</KinlyHeading>
-                  <KinlyText variant="bodyMedium">{config.availability.body}</KinlyText>
-                </KinlyStack>
-              </KinlyCard>
-            </section>
-          ) : null}
-
-          <section className={styles.storeSection}>
-            <KinlyCard variant="surfaceContainerHigh">
-              <KinlyStack direction="vertical" gap="m">
-                <KinlyHeading level={2}>
-                  {config.sectionHeadings?.readyHeading ?? "When you are ready"}
-                </KinlyHeading>
-                <KinlyText variant="bodyMedium" tone="muted">
-                  {config.sectionHeadings?.readySubtitle ??
-                    "Kinly lives in the app - start on iOS or Android."}
-                </KinlyText>
-              </KinlyStack>
-            </KinlyCard>
-          </section>
-
           <section className={styles.contactSection}>
             <KinlyText variant="bodyMedium" tone="muted">
               <a className={styles.contactLink} href="mailto:paris.zhuang@makinglifeeasie.com">

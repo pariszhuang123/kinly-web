@@ -4,6 +4,7 @@ import ScenarioLandingContent from "../ScenarioLandingContent";
 import ScenarioLandingClient from "../ScenarioLandingClient";
 import { headTenantConfig } from "../configs/headTenant";
 import { getDetectedCountryCode } from "../../../../lib/geo";
+import { getDetectedPlatform } from "../../../../lib/platform";
 
 export const metadata: Metadata = {
   title: "Kinly | Share the load without being the boss",
@@ -12,12 +13,19 @@ export const metadata: Metadata = {
 };
 
 export default async function HeadTenantPage() {
-  const detectedCountryCode = await getDetectedCountryCode();
+  const [detectedCountryCode, detectedPlatform] = await Promise.all([
+    getDetectedCountryCode(),
+    getDetectedPlatform(),
+  ]);
   return (
     <>
       <ScenarioLandingContent config={headTenantConfig} />
       <Suspense fallback={null}>
-        <ScenarioLandingClient config={headTenantConfig} detectedCountryCode={detectedCountryCode} />
+        <ScenarioLandingClient
+          config={headTenantConfig}
+          detectedCountryCode={detectedCountryCode}
+          detectedPlatform={detectedPlatform}
+        />
       </Suspense>
     </>
   );

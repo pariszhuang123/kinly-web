@@ -4,6 +4,7 @@ import ScenarioLandingContent from "../ScenarioLandingContent";
 import ScenarioLandingClient from "../ScenarioLandingClient";
 import { freshersConfig } from "../configs/freshers";
 import { getDetectedCountryCode } from "../../../../lib/geo";
+import { getDetectedPlatform } from "../../../../lib/platform";
 
 export const metadata: Metadata = {
   title: "Kinly | First-year flat calm",
@@ -12,12 +13,19 @@ export const metadata: Metadata = {
 };
 
 export default async function FreshersPage() {
-  const detectedCountryCode = await getDetectedCountryCode();
+  const [detectedCountryCode, detectedPlatform] = await Promise.all([
+    getDetectedCountryCode(),
+    getDetectedPlatform(),
+  ]);
   return (
     <>
       <ScenarioLandingContent config={freshersConfig} />
       <Suspense fallback={null}>
-        <ScenarioLandingClient config={freshersConfig} detectedCountryCode={detectedCountryCode} />
+        <ScenarioLandingClient
+          config={freshersConfig}
+          detectedCountryCode={detectedCountryCode}
+          detectedPlatform={detectedPlatform}
+        />
       </Suspense>
     </>
   );
