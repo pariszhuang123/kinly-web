@@ -43,5 +43,5 @@ export default async function KinlyGeneralPage({ searchParams }: PageProps) {
     );
   }
 
-  return <LandingClient detectedCountryCode={detectedCountryCode} />;
+  return <LandingClient detectedCountryCode={detectedCountryCode} detectedPlatform={detectedPlatform} />;
 }

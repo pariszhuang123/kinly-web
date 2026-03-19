@@ -138,11 +138,11 @@ export default function ScenarioLandingContent({ config }: ScenarioLandingConten
               </KinlyHeading>
               <KinlyText variant="bodyMedium">{config.toolsIntro ?? DEFAULT_TOOLS_INTRO}</KinlyText>
               <div className={styles.featureRailWrap}>
-                <div className={styles.featureRail}>
+                <div className={styles.featureRail} data-testid="feature-rail">
                   {featureScreens.map((feature) => (
                     <div key={feature.title} className={styles.featureRailItem}>
                       <KinlyCard variant="surfaceContainerHigh">
-                        <div className={styles.featureCard}>
+                        <div className={styles.featureCard} data-testid="feature-card">
                           <KinlyText variant="labelMedium" as="div">
                             {feature.title}
                           </KinlyText>

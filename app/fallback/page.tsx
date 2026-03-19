@@ -1,20 +1,9 @@
-import { headers } from "next/headers";
-import { resolveFallbackContent } from "./copy";
-import { FallbackView } from "./FallbackView";
+import { FallbackClient } from "./FallbackClient";
 
 export const metadata = {
   title: "Fallback | Kinly",
 };
 
-export default async function FallbackPage() {
-  const requestHeaders = await headers();
-  const preferredLanguage = requestHeaders.get("accept-language");
-  const { copy, isRtl } = resolveFallbackContent(preferredLanguage);
-
-  return (
-    <FallbackView
-      copy={copy}
-      isRtl={isRtl}
-    />
-  );
+export default function FallbackPage() {
+  return <FallbackClient />;
 }

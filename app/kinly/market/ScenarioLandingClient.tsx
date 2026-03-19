@@ -41,6 +41,18 @@ const PLAY_STORE_URL =
 const APP_STORE_LABEL = "Download on the App Store";
 const PLAY_STORE_LABEL = "Get it on Google Play";
 
+function getStoreSectionSubhead(detectedPlatform: "ios" | "android" | "web") {
+  if (detectedPlatform === "ios") {
+    return "Kinly lives in the app - start on iPhone.";
+  }
+
+  if (detectedPlatform === "android") {
+    return "Kinly lives in the app - start on Android.";
+  }
+
+  return "Kinly lives in the app - start on iOS or Android.";
+}
+
 function StoreCtas({
   onClick,
   detectedPlatform = "web",
@@ -127,7 +139,10 @@ export default function ScenarioLandingClient({
   );
   const normalizedCountry = useMemo(() => normalizeCountryCode(regionCountry), [regionCountry]);
 
-  const showStoreCtas = useMemo(() => isSupportedRegion(regionCountry), [regionCountry]);
+  const showStoreCtas = useMemo(() => {
+    if (!regionCountry) return true;
+    return isSupportedRegion(regionCountry);
+  }, [regionCountry]);
 
   useEffect(() => {
     if (!sessionId) return;
@@ -194,8 +209,7 @@ export default function ScenarioLandingClient({
                 {config.sectionHeadings?.readyHeading ?? "When you are ready"}
               </KinlyHeading>
               <KinlyText variant="bodyMedium" tone="muted">
-                {config.sectionHeadings?.readySubtitle ??
-                  "Kinly lives in the app - start on iOS or Android."}
+                {config.sectionHeadings?.readySubtitle ?? getStoreSectionSubhead(detectedPlatform)}
               </KinlyText>
               <StoreCtas onClick={handleCtaClick} detectedPlatform={detectedPlatform} />
             </KinlyStack>

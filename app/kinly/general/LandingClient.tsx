@@ -35,6 +35,7 @@ type InterestMarker = {
 
 type LandingClientProps = {
   detectedCountryCode?: string | null;
+  detectedPlatform?: "ios" | "android" | "web";
 };
 
 type FeatureCard = {
@@ -59,36 +60,53 @@ type StoreCtasProps = {
   onClick: (store: OutreachStore) => void;
   labels: { app: string; play: string };
   badges: { apple: string; play: string };
+  detectedPlatform?: "ios" | "android" | "web";
 };
 
-function StoreCtas({ suppress, onClick, labels, badges }: StoreCtasProps) {
+function StoreCtas({ suppress, onClick, labels, badges, detectedPlatform = "web" }: StoreCtasProps) {
   if (suppress) return null;
   return (
     <div className={styles.storeCtas}>
       <KinlyStack direction="horizontal" gap="s" wrap>
-        <a
-          className={styles.storeBadgeLink}
-          href={APP_STORE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={labels.app}
-          onClick={() => onClick("ios_app_store")}
-        >
-          <img src={badges.apple} alt={labels.app} className={styles.storeBadge} />
-        </a>
-        <a
-          className={styles.storeBadgeLink}
-          href={PLAY_STORE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={labels.play}
-          onClick={() => onClick("google_play")}
-        >
-          <img src={badges.play} alt={labels.play} className={styles.storeBadge} />
-        </a>
+        {detectedPlatform !== "android" ? (
+          <a
+            className={styles.storeBadgeLink}
+            href={APP_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={labels.app}
+            onClick={() => onClick("ios_app_store")}
+          >
+            <img src={badges.apple} alt={labels.app} className={styles.storeBadge} />
+          </a>
+        ) : null}
+        {detectedPlatform !== "ios" ? (
+          <a
+            className={styles.storeBadgeLink}
+            href={PLAY_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={labels.play}
+            onClick={() => onClick("google_play")}
+          >
+            <img src={badges.play} alt={labels.play} className={styles.storeBadge} />
+          </a>
+        ) : null}
       </KinlyStack>
     </div>
   );
+}
+
+function getStoreSectionSubhead(baseSubhead: string, detectedPlatform: "ios" | "android" | "web") {
+  if (detectedPlatform === "ios") {
+    return "Kinly lives in the app - start on iPhone.";
+  }
+
+  if (detectedPlatform === "android") {
+    return "Kinly lives in the app - start on Android.";
+  }
+
+  return baseSubhead;
 }
 
 function readInterestMarker(): InterestMarker | null {
@@ -109,7 +127,10 @@ function readInterestMarker(): InterestMarker | null {
   }
 }
 
-export default function LandingClient({ detectedCountryCode = null }: LandingClientProps) {
+export default function LandingClient({
+  detectedCountryCode = null,
+  detectedPlatform = "web",
+}: LandingClientProps) {
   const [hasHydrated, setHasHydrated] = useState(false);
   const [activeFeatureIndex, setActiveFeatureIndex] = useState(0);
   const featureRailRef = useRef<HTMLDivElement | null>(null);
@@ -446,13 +467,14 @@ export default function LandingClient({ detectedCountryCode = null }: LandingCli
                 <KinlyStack direction="vertical" gap="m">
                   <KinlyHeading level={2}>{copy.storeSectionHeading}</KinlyHeading>
                   <KinlyText variant="bodyMedium" tone="muted">
-                    {copy.storeSectionSubhead}
+                    {getStoreSectionSubhead(copy.storeSectionSubhead, detectedPlatform)}
                   </KinlyText>
                   <StoreCtas
                     suppress={suppressStoreCtas}
                     onClick={handleCtaClick}
                     labels={copy.storeLabels}
                     badges={storeBadges}
+                    detectedPlatform={detectedPlatform}
                   />
                 </KinlyStack>
               </KinlyCard>
