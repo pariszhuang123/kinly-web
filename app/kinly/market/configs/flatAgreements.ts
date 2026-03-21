@@ -6,9 +6,9 @@ export const flatAgreementsConfig: ScenarioConfig = {
   pageKey: "flat_agreements",
 
   recognition: {
-    heading: "Tired of being the only one who remembers the house rules?",
-    subtitle: "You agreed on things once — but you are the only one who kept track.",
-    body: "Kinly keeps housemate agreements visible so nobody has to be the one who remembers everything.",
+    heading: "The flat agreed on things once. But the agreements were never visible.",
+    subtitle: "It is not that people forgot — it is that the rules only existed in one conversation.",
+    body: "Kinly keeps housemate agreements visible so everyone can check what was agreed — without anyone having to remember it all.",
   },
 
   whatHeading: "What Kinly is",
@@ -75,9 +75,9 @@ export const flatAgreementsConfig: ScenarioConfig = {
   ],
 
   chips: [
-    "If I stop reminding people, nothing gets done.",
-    "I know the guest rules. Nobody else seems to.",
-    "I am tired of being the one who brings things up.",
+    "We agreed on the rules once. But nobody wrote them down.",
+    "The guest rules exist — they are just not visible to everyone.",
+    "Nobody wants to be the one who brings things up. So nobody does.",
   ],
 
   rolePoints: [

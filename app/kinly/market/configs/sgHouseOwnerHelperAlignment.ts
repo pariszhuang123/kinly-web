@@ -1,4 +1,4 @@
-﻿import { LANDING_SCREEN_ASSETS } from "../../shared/landingScreenAssets";
+import { LANDING_SCREEN_ASSETS } from "../../shared/landingScreenAssets";
 import type { ScenarioConfig } from "../scenarioLanding.types";
 import { getScenarioAvailabilityBody } from "../../../../lib/regionSupport";
 
@@ -6,45 +6,45 @@ export const sgHouseOwnerHelperAlignmentConfig: ScenarioConfig = {
   pageKey: "sg_house_owner_helper_alignment",
 
   recognition: {
-    heading: "You already explained it three times this week. You should not need to say it again.",
-    subtitle: "When the household baseline lives only in your head, every correction sounds harsher than you meant.",
-    body: "Kinly keeps home expectations visible so your helper can check the same baseline instead of waiting for another reminder from you.",
+    heading: "Everyone in the family gives different instructions. Your helper has no single source of truth.",
+    subtitle: "It is not that your helper is confused — it is that the household has no shared reference.",
+    body: "Kinly puts household expectations in one visible place so every family member and your helper see the same thing.",
   },
 
   whatHeading: "What Kinly is",
   whatBody:
-    "Kinly is a shared living app for people who live together. In Singapore homes with a helper, it keeps household expectations visible so you can write them once and refer back later.",
+    "Kinly is a shared living app for people who live together. In Singapore homes with a helper and multiple family members, it keeps expectations in one shared place — so instructions are consistent and clear.",
 
   hero: {
-    headline: "Set the household baseline once. Stop repeating the same home routines every few days.",
-    subhead: "Shared visibility keeps routines clear without another awkward employer-helper exchange.",
-    body: "Kinly keeps cleaning routines, kitchen expectations, shopping notes, and house rules in one place so your helper can check instead of ask again.",
-    ctaHeading: "Explain it once, for good",
+    headline: "One household. One shared reference. No conflicting instructions.",
+    subhead: "When everyone sees the same expectations, the home runs calmer for everyone — including your helper.",
+    body: "Kinly keeps cleaning routines, kitchen preferences, shopping notes, and house rules visible to all. Your helper checks one reference — not three different people with three different answers.",
+    ctaHeading: "Give your home one shared baseline",
   },
 
   screens: [
     {
       title: "Today",
       eyebrow: "Daily view",
-      headline: "See what needs attention today",
-      copy: "Daily routines, shopping notes, and small resets in one calm view people can check before asking again.",
-      footer: "Less forgetting. Less repeating.",
+      headline: "What the home needs today",
+      copy: "Daily routines and expectations — the same view for every family member and your helper.",
+      footer: "One source. No conflicting instructions.",
       image: LANDING_SCREEN_ASSETS.en.today,
     },
     {
       title: "Manage",
       eyebrow: "House rules",
-      headline: "Keep routines current without another talk",
-      copy: "Update cleaning, kitchen, guest, or shopping routines as life shifts so expectations stay clear without another correction.",
-      footer: "Clear baseline. Fewer corrections.",
+      headline: "Update expectations in one place",
+      copy: "When something changes, update it once. Everyone sees the change — including your helper.",
+      footer: "Consistent expectations. No mixed signals.",
       image: LANDING_SCREEN_ASSETS.en.manage,
     },
     {
       title: "Home Hub",
       eyebrow: "House info",
-      headline: "One shared reference for the home",
-      copy: "Routines, house rules, and useful notes in one place your helper can check before asking the same question again.",
-      footer: "Simple to see. Easy to refer back to.",
+      headline: "One shared reference for the whole household",
+      copy: "Routines, preferences, and house rules — agreed once, visible to all.",
+      footer: "Your helper checks here. Not three different people.",
       image: LANDING_SCREEN_ASSETS.en.hub,
     },
   ],
@@ -52,56 +52,63 @@ export const sgHouseOwnerHelperAlignmentConfig: ScenarioConfig = {
   featureScreens: [
     {
       title: "Shared tasks",
-      benefit: "Keep recurring household routines visible so your helper can refer back instead of waiting for another reminder.",
+      benefit: "Household routines are defined once — so your helper follows one set of expectations, not three.",
       image: LANDING_SCREEN_ASSETS.en.flows,
     },
     {
       title: "Shared groceries",
-      benefit: "Clarify kitchen, shopping, and supply expectations so the same issues do not keep coming back.",
+      benefit: "Shopping and kitchen expectations are shared — so preferences are clear without conflicting requests.",
       image: LANDING_SCREEN_ASSETS.en.groceries,
     },
     {
       title: "Shared bills",
-      benefit: "Keep household costs and purchase context visible so money conversations stay shorter and calmer.",
+      benefit: "Household purchases have shared context — so everyone is aligned on what was bought and why.",
       image: LANDING_SCREEN_ASSETS.en.bills,
     },
     {
       title: "Weekly check-ins",
-      benefit: "Use weekly resets to catch small tensions early before they turn into another repeated conversation.",
+      benefit: "Surface small misalignments early — before they become frustration for anyone.",
       image: LANDING_SCREEN_ASSETS.en.checkins,
     },
   ],
 
   chips: [
-    "I explained the kitchen routine on Monday. By Wednesday I was explaining it again.",
-    "If I am not there to remind, the same household details slip.",
-    "I want the home baseline somewhere my helper can check without coming back to me every time.",
+    "Mum says one thing. Grandma says another. My helper does not know whose instructions to follow.",
+    "We all have different standards — but we never sat down and agreed on one baseline.",
+    "It is not fair to our helper. She gets different instructions from different people every day.",
   ],
 
   rolePoints: [
-    "Keeps household expectations visible in one place for both employer and helper.",
-    "Helps your helper check the baseline instead of guessing or waiting for another reminder.",
+    "Gives the whole household one shared reference — so instructions are consistent.",
+    "Your helper follows one baseline, not conflicting directions from multiple family members.",
   ],
 
   formingPoints: [
-    "Homes run calmer when repeated routines are written down once and easy to check later.",
-    "Visible expectations reduce confusion, awkwardness, and repeated reminders across the home.",
+    "Family dynamics shift — someone travels, grandparents visit, routines change. The reference stays current.",
+    "Weekly check-ins keep the household aligned so small conflicts do not build up.",
   ],
 
   audience: [
-    "Singapore home employers living with a helper and repeating the same household routines.",
-    "Homes that want calmer handovers and fewer repeated corrections.",
+    "Singapore households where multiple family members give instructions to a helper.",
+    "Multi-generational homes that need one consistent household baseline.",
   ],
 
   notList: [
     "Not surveillance.",
     "Not employee monitoring software.",
-    "Not punishment.",
+    "Not a punishment system.",
     "Not a scorecard.",
   ],
 
   toolsIntro:
-    "Once expectations are aligned, Kinly offers simple tools that reduce everyday household friction without turning the home into a command system.",
+    "Once the household has one shared baseline, Kinly adds simple tools that keep everyone aligned — without turning the home into a command system.",
+
+  sectionHeadings: {
+    soundsLikeYou: "Does this sound like your home?",
+    roleHeading: "Kinly role: one shared baseline",
+    formingHeading: "When the household shifts",
+    audienceHeading: "Who this is for",
+  },
 
   availability: {
     body: getScenarioAvailabilityBody("en"),

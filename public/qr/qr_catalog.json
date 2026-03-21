@@ -57,7 +57,27 @@
       },
       {
         "key": "sg-helper-alignment",
-        "valueStatement": "Align expectations and feedback calmly in SG homes with helpers."
+        "valueStatement": "One shared baseline when multiple family members give instructions."
+      },
+      {
+        "key": "sg-helper-onboarding",
+        "valueStatement": "Give your new helper a visible starting point from day one."
+      },
+      {
+        "key": "sg-helper-drift",
+        "valueStatement": "Reset expectations calmly with your long-term helper."
+      },
+      {
+        "key": "family",
+        "valueStatement": "Share the invisible load of running a home."
+      },
+      {
+        "key": "family-teens",
+        "valueStatement": "Stop repeating yourself to your teenagers."
+      },
+      {
+        "key": "family-adults",
+        "valueStatement": "Clear expectations when adult children still live at home."
       }
     ],
     "utm_campaigns": [
@@ -209,7 +229,52 @@
       "utm_medium": "qr",
       "utm_source": "offline_event",
       "url": "https://go.makinglifeeasie.com/kinly/market/sg-helper-alignment?utm_campaign=singapore_working_holiday&utm_medium=qr&utm_source=offline_event",
-      "valueStatement": "Align expectations and feedback calmly in SG homes with helpers."
+      "valueStatement": "One shared baseline when multiple family members give instructions."
+    },
+    {
+      "qr_id": "sg_helper_onboarding",
+      "pageKey": "sg-helper-onboarding",
+      "utm_campaign": "singapore_working_holiday",
+      "utm_medium": "qr",
+      "utm_source": "offline_event",
+      "url": "https://go.makinglifeeasie.com/kinly/market/sg-helper-onboarding?utm_campaign=singapore_working_holiday&utm_medium=qr&utm_source=offline_event",
+      "valueStatement": "Give your new helper a visible starting point from day one."
+    },
+    {
+      "qr_id": "sg_helper_drift",
+      "pageKey": "sg-helper-drift",
+      "utm_campaign": "singapore_working_holiday",
+      "utm_medium": "qr",
+      "utm_source": "offline_event",
+      "url": "https://go.makinglifeeasie.com/kinly/market/sg-helper-drift?utm_campaign=singapore_working_holiday&utm_medium=qr&utm_source=offline_event",
+      "valueStatement": "Reset expectations calmly with your long-term helper."
+    },
+    {
+      "qr_id": "family_partnership",
+      "pageKey": "family",
+      "utm_campaign": "early_interest_2026",
+      "utm_medium": "qr",
+      "utm_source": "offline_event",
+      "url": "https://go.makinglifeeasie.com/kinly/market/family?utm_campaign=early_interest_2026&utm_medium=qr&utm_source=offline_event",
+      "valueStatement": "Share the invisible load of running a home."
+    },
+    {
+      "qr_id": "family_teens",
+      "pageKey": "family-teens",
+      "utm_campaign": "early_interest_2026",
+      "utm_medium": "qr",
+      "utm_source": "offline_event",
+      "url": "https://go.makinglifeeasie.com/kinly/market/family-teens?utm_campaign=early_interest_2026&utm_medium=qr&utm_source=offline_event",
+      "valueStatement": "Stop repeating yourself to your teenagers."
+    },
+    {
+      "qr_id": "family_adults",
+      "pageKey": "family-adults",
+      "utm_campaign": "early_interest_2026",
+      "utm_medium": "qr",
+      "utm_source": "offline_event",
+      "url": "https://go.makinglifeeasie.com/kinly/market/family-adults?utm_campaign=early_interest_2026&utm_medium=qr&utm_source=offline_event",
+      "valueStatement": "Clear expectations when adult children still live at home."
     }
   ]
 }

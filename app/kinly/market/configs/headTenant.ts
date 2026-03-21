@@ -6,9 +6,9 @@ export const headTenantConfig: ScenarioConfig = {
   pageKey: "head_tenant_shared_responsibility",
 
   recognition: {
-    heading: "You are the one who remembers everything — and nobody asked you to be.",
-    subtitle: "If you stop reminding, things slip. If you keep going, people resent you.",
-    body: "Kinly keeps house rules, tasks, and reminders in one place so the flat does not depend on your memory.",
+    heading: "The flat runs on systems only you can see.",
+    subtitle: "It is not that nobody cares — it is that the expectations were never made visible.",
+    body: "Kinly keeps house rules, tasks, and reminders in one shared place so the flat stops depending on one person's memory.",
   },
 
   whatHeading: "What Kinly is",
@@ -73,14 +73,14 @@ export const headTenantConfig: ScenarioConfig = {
   ],
 
   chips: [
-    "If I stop reminding people, things fall apart.",
-    "I remember every bill date, every bin night, every rule we set.",
-    "I want the flat to run without me carrying it all in my head.",
+    "The flat works because I carry it in my head. That is not sustainable.",
+    "Every bill date, every bin night, every rule — it is all invisible to everyone but me.",
+    "I want the flat to run on a shared system, not on my memory.",
   ],
 
   rolePoints: [
-    "Keeps house rules and shared jobs visible for everyone.",
-    "Reduces the need for one person to keep chasing the flat.",
+    "Makes the flat's invisible systems visible to everyone.",
+    "Shared responsibility works when everyone can see what the home needs.",
   ],
 
   formingPoints: [
@@ -89,8 +89,8 @@ export const headTenantConfig: ScenarioConfig = {
   ],
 
   audience: [
-    "Head tenants who keep the flat running.",
-    "People doing the house admin no one else wants to do.",
+    "Head tenants carrying the flat's invisible admin.",
+    "Flats that want shared responsibility, not one person managing everything.",
   ],
 
   notList: [

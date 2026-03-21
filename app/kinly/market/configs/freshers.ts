@@ -70,10 +70,10 @@ export const freshersConfig: ScenarioConfig = {
     },
   ],
   chips: [
-    "I ended up making the cleaning rota. Nobody asked me to.",
-    "I remind people about quiet hours during exams. Every time.",
-    "I know when the bins go out. Nobody else does.",
-    "I care about my flatmates but I did not sign up to manage them.",
+    "Someone had to make the cleaning rota. There was no system, so it ended up being me.",
+    "Quiet hours during exams — everyone wants them, but nobody made them visible.",
+    "I know when the bins go out. That knowledge should not live in one person's head.",
+    "We all want the flat to work. We just need a shared way to see what it needs.",
   ],
   rolePoints: [
     "Makes the flat baseline visible before conflict starts.",

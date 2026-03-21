@@ -9,6 +9,11 @@ import { homestayOwnerConfig } from "./homestayOwner";
 import { headTenantConfig } from "./headTenant";
 import { flatAgreementsConfig } from "./flatAgreements";
 import { sgHouseOwnerHelperAlignmentConfig } from "./sgHouseOwnerHelperAlignment";
+import { familyConfig } from "./family";
+import { familyTeensConfig } from "./familyTeens";
+import { familyAdultsConfig } from "./familyAdults";
+import { sgHelperOnboardingConfig } from "./sgHelperOnboarding";
+import { sgHelperDriftConfig } from "./sgHelperDrift";
 
 export const scenarioConfigs: Record<string, ScenarioConfig> = {
   freshers: freshersConfig,
@@ -21,6 +26,11 @@ export const scenarioConfigs: Record<string, ScenarioConfig> = {
   "head-tenant": headTenantConfig,
   "flat-agreements": flatAgreementsConfig,
   "sg-helper-alignment": sgHouseOwnerHelperAlignmentConfig,
+  family: familyConfig,
+  "family-teens": familyTeensConfig,
+  "family-adults": familyAdultsConfig,
+  "sg-helper-onboarding": sgHelperOnboardingConfig,
+  "sg-helper-drift": sgHelperDriftConfig,
 };
 
 export const ENTRY_TO_SCENARIO: Record<string, keyof typeof scenarioConfigs> = {
@@ -34,6 +44,11 @@ export const ENTRY_TO_SCENARIO: Record<string, keyof typeof scenarioConfigs> = {
   "head-tenant": "head-tenant",
   "flat-agreements": "flat-agreements",
   "sg-helper-alignment": "sg-helper-alignment",
+  family: "family",
+  "family-teens": "family-teens",
+  "family-adults": "family-adults",
+  "sg-helper-onboarding": "sg-helper-onboarding",
+  "sg-helper-drift": "sg-helper-drift",
 };
 
 export function getScenarioConfig(entry?: string | string[] | null): ScenarioConfig | null {
