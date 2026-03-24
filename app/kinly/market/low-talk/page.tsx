@@ -5,12 +5,13 @@ import ScenarioLandingClient from "../ScenarioLandingClient";
 import { lowTalkConfig } from "../configs/lowTalk";
 import { getDetectedCountryCode } from "../../../../lib/geo";
 import { getDetectedPlatform } from "../../../../lib/platform";
+import { buildScenarioMetadata } from "../pageMetadata";
 
-export const metadata: Metadata = {
-  title: "Kinly | Signals over speeches",
-  description:
-    "Clarity without long conversations. See what needs doing without group-chat essays. Kinly gives calm signals, not pressure.",
-};
+export const metadata: Metadata = buildScenarioMetadata(
+  "/kinly/market/low-talk",
+  "Kinly | Signals over speeches",
+  "Clarity without long conversations. See what needs doing without group-chat essays. Kinly gives calm signals, not pressure.",
+);
 
 export default async function LowTalkPage() {
   const [detectedCountryCode, detectedPlatform] = await Promise.all([

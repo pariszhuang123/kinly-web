@@ -7,12 +7,14 @@ import { getDetectedPlatform } from "../../../lib/platform";
 import ScenarioLandingClient from "../market/ScenarioLandingClient";
 import ScenarioLandingContent from "../market/ScenarioLandingContent";
 import { getScenarioConfig } from "../market/configs";
+import { buildPublicMetadata } from "../../../lib/publicMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPublicMetadata({
   title: { absolute: "Kinly | Shared living gets lighter" },
   description:
     "A calmer way to live together. Notice what the home needs before anyone feels blamed. Private by default, no ads, no surveillance.",
-};
+  path: "/kinly/general",
+});
 
 type PageProps = {
   searchParams: Promise<{ entry?: string | string[] | null }>;

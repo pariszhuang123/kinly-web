@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 
 import { KinlyButton, KinlyCard, KinlyHeading, KinlyShell, KinlyStack, KinlyText } from "../components";
+import { buildPublicMetadata } from "../lib/publicMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPublicMetadata({
   title: { absolute: "MakingLifeEasie" },
   description: "Company home for MakingLifeEasie and its products.",
-};
+  path: "/",
+});
 
 export default function HomePage() {
   return (

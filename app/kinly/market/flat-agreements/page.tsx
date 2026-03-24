@@ -5,12 +5,13 @@ import ScenarioLandingClient from "../ScenarioLandingClient";
 import { flatAgreementsConfig } from "../configs/flatAgreements";
 import { getDetectedCountryCode } from "../../../../lib/geo";
 import { getDetectedPlatform } from "../../../../lib/platform";
+import { buildScenarioMetadata } from "../pageMetadata";
 
-export const metadata: Metadata = {
-  title: "Kinly | Know what your housemates agree on",
-  description:
-    "Make shared expectations visible without house politics. Kinly keeps shared homes fair and predictable.",
-};
+export const metadata: Metadata = buildScenarioMetadata(
+  "/kinly/market/flat-agreements",
+  "Kinly | Know what your housemates agree on",
+  "Make shared expectations visible without house politics. Kinly keeps shared homes fair and predictable.",
+);
 
 export default async function FlatAgreementsPage() {
   const [detectedCountryCode, detectedPlatform] = await Promise.all([

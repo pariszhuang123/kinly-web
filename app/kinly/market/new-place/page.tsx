@@ -5,12 +5,13 @@ import ScenarioLandingClient from "../ScenarioLandingClient";
 import { internationalStartConfig } from "../configs/internationalStart";
 import { getDetectedCountryCode } from "../../../../lib/geo";
 import { getDetectedPlatform } from "../../../../lib/platform";
+import { buildScenarioMetadata } from "../pageMetadata";
 
-export const metadata: Metadata = {
-  title: "Kinly | Clarity in a new place",
-  description:
-    "New place, unclear norms. See what the home needs before anyone has to explain it. Settle in calmly with shared clarity.",
-};
+export const metadata: Metadata = buildScenarioMetadata(
+  "/kinly/market/new-place",
+  "Kinly | Clarity in a new place",
+  "New place, unclear norms. See what the home needs before anyone has to explain it. Settle in calmly with shared clarity.",
+);
 
 export default async function NewPlacePage() {
   const [detectedCountryCode, detectedPlatform] = await Promise.all([

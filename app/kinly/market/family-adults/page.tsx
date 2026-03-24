@@ -5,12 +5,13 @@ import ScenarioLandingClient from "../ScenarioLandingClient";
 import { familyAdultsConfig } from "../configs/familyAdults";
 import { getDetectedCountryCode } from "../../../../lib/geo";
 import { getDetectedPlatform } from "../../../../lib/platform";
+import { buildScenarioMetadata } from "../pageMetadata";
 
-export const metadata: Metadata = {
-  title: "Kinly | When your adult children still live at home",
-  description:
-    "Shared household expectations without pulling rank. Kinly helps families with adult children set clear contributions without awkward conversations.",
-};
+export const metadata: Metadata = buildScenarioMetadata(
+  "/kinly/market/family-adults",
+  "Kinly | When your adult children still live at home",
+  "Shared household expectations without pulling rank. Kinly helps families with adult children set clear contributions without awkward conversations.",
+);
 
 export default async function FamilyAdultsPage() {
   const [detectedCountryCode, detectedPlatform] = await Promise.all([

@@ -3,12 +3,14 @@ import { Suspense } from "react";
 import GetClient from "./GetClient";
 import { KinlyShell, KinlyText } from "../../../components";
 import { getDetectedCountryCode } from "../../../lib/geo";
+import { buildPublicMetadata } from "../../../lib/publicMetadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPublicMetadata({
   title: "Kinly | Get the app",
   description:
-    "Download Kinly for iOS or Android. Express interest if Kinly is not yet available in your area — we will email you when it opens.",
-};
+    "Download Kinly for iOS or Android. Express interest if Kinly is not yet available in your area - we will email you when it opens.",
+  path: "/kinly/get",
+});
 
 type Props = {
   searchParams: Promise<Record<string, string | string[] | undefined>>;

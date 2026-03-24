@@ -5,12 +5,13 @@ import ScenarioLandingClient from "../ScenarioLandingClient";
 import { liveInLandlordConfig } from "../configs/liveInLandlord";
 import { getDetectedCountryCode } from "../../../../lib/geo";
 import { getDetectedPlatform } from "../../../../lib/platform";
+import { buildScenarioMetadata } from "../pageMetadata";
 
-export const metadata: Metadata = {
-  title: "Kinly | Calm shared living for live-in landlords",
-  description:
-    "Reduce emotional load and keep shared expectations clear without surveillance. Kinly keeps the home calm and responsible.",
-};
+export const metadata: Metadata = buildScenarioMetadata(
+  "/kinly/market/live-in-landlord",
+  "Kinly | Calm shared living for live-in landlords",
+  "Reduce emotional load and keep shared expectations clear without surveillance. Kinly keeps the home calm and responsible.",
+);
 
 export default async function LiveInLandlordPage() {
   const [detectedCountryCode, detectedPlatform] = await Promise.all([

@@ -5,12 +5,13 @@ import ScenarioLandingClient from "../ScenarioLandingClient";
 import { familyTeensConfig } from "../configs/familyTeens";
 import { getDetectedCountryCode } from "../../../../lib/geo";
 import { getDetectedPlatform } from "../../../../lib/platform";
+import { buildScenarioMetadata } from "../pageMetadata";
 
-export const metadata: Metadata = {
-  title: "Kinly | Stop repeating yourself to your teenagers",
-  description:
-    "Household expectations visible to everyone — so you stop being the nag and they start seeing what needs doing.",
-};
+export const metadata: Metadata = buildScenarioMetadata(
+  "/kinly/market/family-teens",
+  "Kinly | Stop repeating yourself to your teenagers",
+  "Household expectations visible to everyone - so you stop being the nag and they start seeing what needs doing.",
+);
 
 export default async function FamilyTeensPage() {
   const [detectedCountryCode, detectedPlatform] = await Promise.all([

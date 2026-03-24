@@ -2,13 +2,19 @@ import type { Metadata } from "next";
 
 import "./styles/generated/tokens.css";
 import "./globals.css";
+import { getPublicMetadataBase } from "../lib/publicMetadata";
 
 export const metadata: Metadata = {
+  metadataBase: getPublicMetadataBase(),
   title: {
     default: "Kinly",
     template: "%s - Kinly",
   },
   description: "Living together feels lighter.",
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 /**

@@ -5,12 +5,13 @@ import ScenarioLandingClient from "../ScenarioLandingClient";
 import { takeawayBudgetFlatsConfig } from "../configs/takeawayBudget";
 import { getDetectedCountryCode } from "../../../../lib/geo";
 import { getDetectedPlatform } from "../../../../lib/platform";
+import { buildScenarioMetadata } from "../pageMetadata";
 
-export const metadata: Metadata = {
-  title: "Kinly | Takeaway nights without awkwardness",
-  description:
-    "Take turns on dinner without tracking who owes what. Kinly shows who covers tonight and keeps things fair over time.",
-};
+export const metadata: Metadata = buildScenarioMetadata(
+  "/kinly/market/takeaway-budget",
+  "Kinly | Takeaway nights without awkwardness",
+  "Take turns on dinner without tracking who owes what. Kinly shows who covers tonight and keeps things fair over time.",
+);
 
 export default async function TakeawayBudgetPage() {
   const [detectedCountryCode, detectedPlatform] = await Promise.all([

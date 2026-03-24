@@ -5,12 +5,13 @@ import ScenarioLandingClient from "../ScenarioLandingClient";
 import { homestayOwnerConfig } from "../configs/homestayOwner";
 import { getDetectedCountryCode } from "../../../../lib/geo";
 import { getDetectedPlatform } from "../../../../lib/platform";
+import { buildScenarioMetadata } from "../pageMetadata";
 
-export const metadata: Metadata = {
-  title: "Kinly | A gentler welcome for homestay families",
-  description:
-    "Reduce emotional labour while keeping family rhythms clear. Kinly supports calm, caring homestays without monitoring or scoring.",
-};
+export const metadata: Metadata = buildScenarioMetadata(
+  "/kinly/market/homestay-owner",
+  "Kinly | A gentler welcome for homestay families",
+  "Reduce emotional labour while keeping family rhythms clear. Kinly supports calm, caring homestays without monitoring or scoring.",
+);
 
 export default async function HomestayOwnerPage() {
   const [detectedCountryCode, detectedPlatform] = await Promise.all([
