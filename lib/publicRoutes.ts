@@ -6,6 +6,7 @@ const STATIC_PUBLIC_PATHS = [
   "/fallback",
   "/kinly/general",
   "/kinly/get",
+  "/kinly/market",
 ];
 
 export function getPublicSiteBaseUrl(): string {

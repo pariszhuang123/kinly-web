@@ -10,6 +10,7 @@ export const metadata: Metadata = buildPublicMetadata({
   description:
     "Download Kinly for iOS or Android. Express interest if Kinly is not yet available in your area - we will email you when it opens.",
   path: "/kinly/get",
+  siteName: "Kinly by MakingLifeEasie",
 });
 
 type Props = {

@@ -8,12 +8,14 @@ import ScenarioLandingClient from "../market/ScenarioLandingClient";
 import ScenarioLandingContent from "../market/ScenarioLandingContent";
 import { getScenarioConfig } from "../market/configs";
 import { buildPublicMetadata } from "../../../lib/publicMetadata";
+import { createSoftwareApplicationStructuredData, StructuredDataScript } from "../../../lib/structuredData";
 
 export const metadata: Metadata = buildPublicMetadata({
-  title: { absolute: "Kinly | Shared living gets lighter" },
+  title: { absolute: "Kinly by MakingLifeEasie | Shared living gets lighter" },
   description:
-    "A calmer way to live together. Notice what the home needs before anyone feels blamed. Private by default, no ads, no surveillance.",
+    "Kinly is a shared living app from MakingLifeEasie. Notice what the home needs before anyone feels blamed. Private by default, no ads, no surveillance.",
   path: "/kinly/general",
+  siteName: "Kinly by MakingLifeEasie",
 });
 
 type PageProps = {
@@ -33,6 +35,7 @@ export default async function KinlyGeneralPage({ searchParams }: PageProps) {
   if (scenarioConfig) {
     return (
       <>
+        <StructuredDataScript data={createSoftwareApplicationStructuredData()} />
         <ScenarioLandingContent config={scenarioConfig} />
         <Suspense fallback={null}>
           <ScenarioLandingClient
@@ -45,5 +48,10 @@ export default async function KinlyGeneralPage({ searchParams }: PageProps) {
     );
   }
 
-  return <LandingClient detectedCountryCode={detectedCountryCode} detectedPlatform={detectedPlatform} />;
+  return (
+    <>
+      <StructuredDataScript data={createSoftwareApplicationStructuredData()} />
+      <LandingClient detectedCountryCode={detectedCountryCode} detectedPlatform={detectedPlatform} />
+    </>
+  );
 }

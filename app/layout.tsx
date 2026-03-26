@@ -2,20 +2,9 @@ import type { Metadata } from "next";
 
 import "./styles/generated/tokens.css";
 import "./globals.css";
-import { getPublicMetadataBase } from "../lib/publicMetadata";
+import { buildSiteMetadata } from "../lib/siteMetadata";
 
-export const metadata: Metadata = {
-  metadataBase: getPublicMetadataBase(),
-  title: {
-    default: "Kinly",
-    template: "%s - Kinly",
-  },
-  description: "Living together feels lighter.",
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+export const metadata: Metadata = buildSiteMetadata();
 
 /**
  * Theme initialization script (runs before first paint).

@@ -3,12 +3,12 @@
 Public link and landing layer for Kinly.
 
 This repository powers the public entry points into Kinly:
-- platform-neutral share links (work on iOS, Android, desktop)
-- deep-link mapping into the Kinly app (user-initiated)
-- region gating (NZ/SG supported in v1)
+- platform-neutral share links that work on iOS, Android, and desktop
+- deep-link mapping into the Kinly app through user action
+- region gating for install availability
 - interest capture for unsupported regions
-- public house norms pages (when a home chooses to publish them)
-- safe fallback behavior (never dead-end)
+- public house norms pages when a home chooses to publish them
+- safe fallback behavior so users never dead-end
 
 Primary domain: `go.makinglifeeasie.com`
 
@@ -16,29 +16,29 @@ Primary domain: `go.makinglifeeasie.com`
 
 ## Why this exists
 
-Sharing platform-specific links breaks onboarding.
-Example: an Android user shares a link that routes only to Google Play, leaving iOS users stuck.
+Sharing platform-specific links breaks onboarding. An Android-only link leaves iOS users stuck, and an app-only route is not readable on desktop.
 
-Kinly Web provides a **single, neutral URL** that:
-- always shows both app stores
-- opens the app when possible
-- degrades safely when it cannot
+Kinly Web provides a single neutral URL surface that:
+- stays readable in any browser
+- opens the app when appropriate
+- shows install options when appropriate
+- degrades safely when it cannot continue
 
 This repo is intentionally separate from:
-- the mobile app (Flutter)
-- the marketing site (WordPress / future Vercel)
+- the mobile app
+- any future full marketing site
 
 ---
 
 ## What this repo is (and is not)
 
-### ✅ This repo is
+### This repo is
 - a public, unauthenticated web surface
-- a routing + policy enforcement layer
-- an intake point for interest capture (via Edge Function → RPC)
-- allowed to render **public** content only
+- a routing and policy enforcement layer
+- an intake point for interest capture through Edge Function to RPC
+- allowed to render public content only
 
-### ❌ This repo is not
+### This repo is not
 - the full marketing site
 - an authenticated web client
 - allowed to write directly to the database
@@ -46,48 +46,47 @@ This repo is intentionally separate from:
 
 ---
 
-## Architecture (high level)
+## Architecture
 
-Browser
-↓
-Next.js (Vercel)
-↓
-Supabase Edge Function (HTTP)
-↓
+Browser  
+Next.js (Vercel)  
+Supabase Edge Function (HTTP)  
 Postgres RPC (SECURITY DEFINER)
 
-
-All writes are recorded via RPC.  
-Tables are RLS-enabled with no direct policies.
+All writes are recorded via RPC. Tables are RLS-enabled with no direct client write path.
 
 ---
 
-## Contracts & authority
+## Contracts and authority
 
 Behavior is defined by versioned contracts under `/contracts`.
 
-- Routes, edge functions, and deep-link behavior MUST conform to contracts.
+- Routes, edge functions, and deep-link behavior MUST conform to active contracts.
 - Behavioral changes require a contract version bump.
 
 Start here:
-- `contracts/contracts_registry.md`
+- `contracts/contracts/product/kinly/web/contracts_registry.md`
 - `AGENTS.md`
 
 ---
 
-## Routes (v1)
+## Routes
 
-- `/join/:inviteCode` — join a home
-- `/home/:homePublicId` — open a home
-- `/kinly/norms/:homePublicId` — public house norms (if published)
-- `/interest` — capture email + country for unsupported regions
-- `/fallback` — safe fallback
-- `/` — generic landing
+- `/` - MakingLifeEasie company home
+- `/kinly/general` - primary Kinly landing page
+- `/kinly/market` - crawlable Kinly scenario hub
+- `/kinly/market/:slug` - scenario-specific Kinly landing pages
+- `/kinly/get` - install and interest-capture surface
+- `/kinly/join/:inviteCode` - join a home
+- `/kinly/norms/:homePublicId` - public house norms
+- `/fallback` - safe fallback
 
 ---
 
 ## Local development
 
 ### Install
+
 ```bash
 npm install
+```

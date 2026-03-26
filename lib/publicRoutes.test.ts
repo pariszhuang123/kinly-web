@@ -30,6 +30,7 @@ describe("getPublicSitePaths", () => {
 
     expect(paths).toContain("/");
     expect(paths).toContain("/kinly/general");
+    expect(paths).toContain("/kinly/market");
     expect(paths).toContain("/kinly/market/sg-helper-alignment");
     expect(paths).toContain("/kinly/market/freshers");
   });

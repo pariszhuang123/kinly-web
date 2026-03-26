@@ -281,6 +281,11 @@
   margin-top: var(--spacing-xl, 24px);
 }
 
+.discoveryLinks {
+  display: grid;
+  gap: var(--spacing-xs, 8px);
+}
+
 .contactSection {
   position: relative;
   z-index: 1;

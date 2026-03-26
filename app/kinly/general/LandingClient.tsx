@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import {
   KinlyCard,
   KinlyHeading,
+  KinlyLink,
   KinlyShell,
   KinlyStack,
   KinlyText,
@@ -54,6 +55,11 @@ const PAGE_KEY = "kinly_general";
 const SUPPORTING_IMAGES = {
   friction: "/images/landing/friction-shared-home.webp",
 } as const;
+const DISCOVERY_LINKS = [
+  { href: "/kinly/market", label: "Browse all shared living situations" },
+  { href: "/kinly/market/flat-agreements", label: "House agreements and expectations" },
+  { href: "/kinly/market/freshers", label: "Moving in with new flatmates" },
+];
 
 type StoreCtasProps = {
   suppress: boolean;
@@ -482,11 +488,23 @@ export default function LandingClient({
           )}
 
           <section className={styles.contactSection}>
-            <KinlyText variant="bodyMedium" tone="muted">
-              <a className={styles.contactLink} href={`mailto:${CONTACT_EMAIL}`}>
-                Contact us
-              </a>
-            </KinlyText>
+            <KinlyStack direction="vertical" gap="xs">
+              <KinlyText variant="bodyMedium" tone="muted">
+                Shared living situations:
+              </KinlyText>
+              <div className={styles.discoveryLinks}>
+                {DISCOVERY_LINKS.map((link) => (
+                  <KinlyLink key={link.href} href={link.href}>
+                    {link.label}
+                  </KinlyLink>
+                ))}
+              </div>
+              <KinlyText variant="bodyMedium" tone="muted">
+                <a className={styles.contactLink} href={`mailto:${CONTACT_EMAIL}`}>
+                  Contact us
+                </a>
+              </KinlyText>
+            </KinlyStack>
           </section>
         </KinlyStack>
       </KinlyShell>

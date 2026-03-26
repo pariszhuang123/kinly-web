@@ -71,6 +71,7 @@ test("shows store badges when no suppression marker exists", async () => {
   expect(android[0].getAttribute("href")).toContain("play.google.com");
   expect(container.textContent || "").toMatch(/How Kinly helps in practice/i);
   expect(container.textContent || "").toMatch(/Shared tasks/i);
+  expect(container.querySelector('a[href="/kinly/market"]')).not.toBeNull();
   expect(container.textContent || "").not.toMatch(/Supported by practical tools/i);
   expect(container.textContent || "").not.toMatch(/Ready to start/i);
 

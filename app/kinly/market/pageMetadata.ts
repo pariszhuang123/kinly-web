@@ -7,5 +7,6 @@ export function buildScenarioMetadata(path: string, title: string, description: 
     title,
     description,
     path,
+    siteName: "Kinly by MakingLifeEasie",
   });
 }
