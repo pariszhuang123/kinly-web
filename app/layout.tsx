@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./styles/generated/tokens.css";
 import "./globals.css";
 import { buildSiteMetadata } from "../lib/siteMetadata";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = buildSiteMetadata();
 
@@ -41,7 +42,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: themeInitScript }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
