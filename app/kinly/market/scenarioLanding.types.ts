@@ -15,6 +15,10 @@ export type ScenarioFeatureScreen = {
 
 export type ScenarioConfig = {
   pageKey: string;
+  action?: {
+    href: string;
+    label: string;
+  };
   recognition: {
     heading: string;
     subtitle: string;

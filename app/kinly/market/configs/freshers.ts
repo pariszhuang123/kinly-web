@@ -5,44 +5,44 @@ import { getScenarioAvailabilityBody } from "../../../../lib/regionSupport";
 export const freshersConfig: ScenarioConfig = {
   pageKey: "kinly_market_freshers",
   recognition: {
-    heading: "Someone always ends up running the flat. Is it you?",
-    subtitle: "You barely know each other yet — but somehow you are the one keeping things together.",
-    body: "Kinly makes the flat baseline visible so no one person has to remember everything.",
+    heading: "You got put together three weeks ago. Nobody said how this is supposed to work.",
+    subtitle: "You chose uni. You did not choose these people. And nobody gave you a framework for sharing a home with them.",
+    body: "Kinly gives your flat a shared baseline so you are not inventing the rules from scratch while also figuring out everything else.",
   },
   whatHeading: "What Kinly is",
   whatBody:
-    "Kinly is a shared living app designed for people who live together. For first-year flats, it keeps expectations visible so you can set them once and refer back later without turning your place into a chore chart.",
+    "Kinly is a shared living app designed for people who live together. For first-year flats, it fills the gap between being placed together and knowing how to actually live together.",
   hero: {
-    headline: "Your flat should not depend on one person's memory.",
-    subhead: "See what the flat needs before someone has to chase everyone.",
-    body: "Late labs, early lectures, and new roommates are messy. Kinly shows what the flat needs so nobody has to be the flat manager.",
-    ctaHeading: "Give the flat a shared memory",
+    headline: "You are living with strangers. Nobody explained how.",
+    subhead: "You were assigned a flat. You were not given a way to run it.",
+    body: "Late labs, early lectures, and people you met last month. Kinly gives your flat a structure so you do not have to invent one while everything else is already overwhelming.",
+    ctaHeading: "Give your flat a starting point",
   },
   screens: [
     {
       title: "Today",
       eyebrow: "Right now",
-      headline: "What needs attention",
-      copy: "Quiet hours for exam weeks, bins before pickup, who is hosting tonight.",
-      footer: "Things to do and notice without blame.",
+      headline: "What the flat needs today",
+      copy: "Quiet hours for exam weeks, bins before pickup, who is hosting tonight — visible without anyone having to ask.",
+      footer: "Structure you were never given, without the awkwardness.",
       image:
         LANDING_SCREEN_ASSETS.en.today,
     },
     {
       title: "Manage",
       eyebrow: "Switch",
-      headline: "Swap turns without awkwardness",
-      copy: "If someone is on a late shift or out of cash this week, reassign quietly.",
-      footer: "You are always in control - nothing is locked in.",
+      headline: "Adjust without the awkward conversation",
+      copy: "If someone is on a late shift or out of cash this week, reassign quietly — no guilt, no confrontation.",
+      footer: "Flexibility for people still learning how to share space.",
       image:
         LANDING_SCREEN_ASSETS.en.manage,
     },
     {
       title: "Home Hub",
       eyebrow: "Shared home",
-      headline: "House rules everyone sees",
-      copy: "Quiet hours, guests, cleaning standards, and shared costs in one calm place.",
-      footer: "No surprises, no chore charts.",
+      headline: "The framework nobody provided",
+      copy: "Quiet hours, guests, cleaning, and shared costs — the basics you were expected to figure out alone.",
+      footer: "A starting point, not a rulebook.",
       image:
         LANDING_SCREEN_ASSETS.en.hub,
     },
@@ -50,43 +50,43 @@ export const freshersConfig: ScenarioConfig = {
   featureScreens: [
     {
       title: "Shared tasks",
-      benefit: "Keep move-in basics and weekly routines visible so new housemates know the baseline.",
+      benefit: "Give move-in basics and weekly routines a structure so nobody has to invent one from nothing.",
       image: LANDING_SCREEN_ASSETS.en.flows,
     },
     {
       title: "Shared groceries",
-      benefit: "Clarify shared food expectations before busy campus days so shopping stays fair.",
+      benefit: "Set shared food expectations early so shopping does not become a source of resentment.",
       image: LANDING_SCREEN_ASSETS.en.groceries,
     },
     {
       title: "Shared bills",
-      benefit: "Keep shared costs clear by week so tight budgets stay predictable.",
+      benefit: "Keep shared costs visible by week so tight budgets do not turn into silent tension.",
       image: LANDING_SCREEN_ASSETS.en.bills,
     },
     {
       title: "Calm check-ins",
-      benefit: "Use short weekly check-ins to reset after exam weeks or schedule chaos.",
+      benefit: "Use short weekly check-ins to surface problems before they become the thing nobody talks about.",
       image: LANDING_SCREEN_ASSETS.en.checkins,
     },
   ],
   chips: [
     "Someone had to make the cleaning rota. There was no system, so it ended up being me.",
-    "Quiet hours during exams — everyone wants them, but nobody made them visible.",
-    "I know when the bins go out. That knowledge should not live in one person's head.",
-    "We all want the flat to work. We just need a shared way to see what it needs.",
+    "We all want the flat to work. We just never agreed on what that looks like.",
+    "Nobody told us how to share a kitchen, a bathroom, or a living room. We are just guessing.",
+    "I do not know these people well enough to have the hard conversations yet.",
   ],
   rolePoints: [
-    "Makes the flat baseline visible before conflict starts.",
-    "Keeps expectations easy to check - no points, no leaderboards.",
+    "Gives the flat a framework before anyone has to improvise one.",
+    "Keeps expectations visible so new housemates do not have to guess.",
   ],
   formingPoints: [
-    "New flatmates come and go. Kinly keeps the baseline clear.",
-    "Late nights, early mornings, and tight weeks are normal, not failures.",
+    "New flatmates come and go. The baseline stays even when the people change.",
+    "Late nights, early mornings, and tight weeks are normal — not reasons for conflict.",
   ],
-  audience: ["First-year uni flats and dorm suites.", "Shared rentals near campus.", "Roommates who want calm, not drama."],
+  audience: ["First-year uni flats and dorm suites.", "Shared rentals near campus.", "Roommates thrown together without a playbook."],
   notList: ["Not a surveillance tool.", "Not a scorecard or leaderboard.", "Not a chore boss."],
   toolsIntro:
-    "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction, without turning your flat into a task system.",
+    "Once your flat has a shared baseline, Kinly offers simple tools that keep it working — without turning your home into a task system.",
   availability: {
     body: getScenarioAvailabilityBody("en"),
   },

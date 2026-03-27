@@ -6,6 +6,8 @@ import { metadata as generalMetadata } from "../app/kinly/general/page";
 import { metadata as getMetadata } from "../app/kinly/get/page";
 import { metadata as marketIndexMetadata } from "../app/kinly/market/page";
 import { metadata as flatAgreementsMetadata } from "../app/kinly/market/flat-agreements/page";
+import { metadata as flatmateFitCheckMetadata } from "../app/kinly/market/flatmate-fit-check/page";
+import { metadata as fitCheckMetadata } from "../app/kinly/fit-check/page";
 import { buildSiteMetadata } from "../lib/siteMetadata";
 
 function getTwitterCard(value: unknown) {
@@ -37,6 +39,14 @@ describe("public metadata", () => {
     expect(flatAgreementsMetadata.alternates?.canonical).toBe("/kinly/market/flat-agreements");
     expect(flatAgreementsMetadata.robots).toMatchObject({ index: true, follow: true });
     expect(flatAgreementsMetadata.openGraph?.siteName).toBe("Kinly by MakingLifeEasie");
+
+    expect(flatmateFitCheckMetadata.alternates?.canonical).toBe("/kinly/market/flatmate-fit-check");
+    expect(flatmateFitCheckMetadata.robots).toMatchObject({ index: true, follow: true });
+    expect(flatmateFitCheckMetadata.openGraph?.siteName).toBe("Kinly by MakingLifeEasie");
+
+    expect(fitCheckMetadata.alternates?.canonical).toBe("/kinly/fit-check");
+    expect(fitCheckMetadata.robots).toMatchObject({ index: true, follow: true });
+    expect(fitCheckMetadata.openGraph?.siteName).toBe("Kinly by MakingLifeEasie");
   });
 
   test("serves explicit crawler rules for the public site", () => {

@@ -57,6 +57,7 @@ const SUPPORTING_IMAGES = {
 } as const;
 const DISCOVERY_LINKS = [
   { href: "/kinly/market", label: "Browse all shared living situations" },
+  { href: "/kinly/market/flatmate-fit-check", label: "Anonymous flat vibe check before interviews" },
   { href: "/kinly/market/flat-agreements", label: "House agreements and expectations" },
   { href: "/kinly/market/freshers", label: "Moving in with new flatmates" },
 ];

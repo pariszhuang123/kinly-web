@@ -74,7 +74,9 @@ test.describe("Marketing landing page", () => {
     await page.goto("/kinly/general?entry=homestay-owner");
 
     await expect(
-      page.getByRole("heading", { name: /Every guest is new to your home/i }),
+      page.getByRole("heading", {
+        name: /You opened your home to guests\. Every new one starts from zero/i,
+      }),
     ).toBeVisible();
 
     const ios = page.getByRole("link", { name: "Download on the App Store" });

@@ -6,45 +6,45 @@ export const sgHelperOnboardingConfig: ScenarioConfig = {
   pageKey: "sg_helper_onboarding",
 
   recognition: {
-    heading: "Your home runs on hundreds of small routines. They are invisible until you try to explain them to someone new.",
-    subtitle: "A new helper cannot learn your household from conversations alone — there is too much to remember.",
-    body: "Kinly puts your home routines in one visible place so your new helper has a reference from day one — not just your memory.",
+    heading: "You welcomed someone into your home. Now you realise the way it works was never written down.",
+    subtitle: "Your previous helper knew everything. That knowledge walked out the door with her — and none of it was ever documented.",
+    body: "Kinly helps you externalise your home's invisible operating system so your new helper has a real reference — not just whatever you can remember to say out loud.",
   },
 
   whatHeading: "What Kinly is",
   whatBody:
-    "Kinly is a shared living app for people who live together. For Singapore homes welcoming a new helper, it keeps household routines and expectations visible — so onboarding is calm and complete.",
+    "Kinly is a shared living app for people who live together. For Singapore homes welcoming a new helper, it turns the hundreds of routines in your head into a visible, shared reference — so onboarding does not depend on your memory.",
 
   hero: {
-    headline: "Write it down once. Your new helper can check it anytime.",
-    subhead: "A visible baseline means fewer repeated explanations in the first weeks.",
-    body: "Kinly keeps cleaning routines, kitchen preferences, shopping notes, and house rules in one place. Your helper can check instead of ask — and you can stop repeating yourself.",
-    ctaHeading: "Give your helper a visible starting point",
+    headline: "Your home runs on hundreds of invisible routines. Your new helper cannot see any of them.",
+    subhead: "You committed to bringing someone new into your household. Now you realise how much was never written down.",
+    body: "Kinly gives you a place to capture cleaning routines, kitchen preferences, shopping notes, and house rules — so your helper has something to check instead of guessing or asking again.",
+    ctaHeading: "Write down what was always in your head",
   },
 
   screens: [
     {
       title: "Today",
       eyebrow: "Daily view",
-      headline: "What the home needs today",
-      copy: "Daily routines, shopping notes, and small reminders — all checkable.",
-      footer: "Less guessing. Less asking. Less repeating.",
+      headline: "What the home needs today — documented",
+      copy: "Daily routines your previous helper just knew, now visible and checkable for your new one.",
+      footer: "No more relying on memory. No more repeating yourself.",
       image: LANDING_SCREEN_ASSETS.en.today,
     },
     {
       title: "Manage",
       eyebrow: "House rules",
-      headline: "Keep routines current as they settle in",
-      copy: "Update cleaning, kitchen, or shopping routines as your helper learns the home.",
-      footer: "Simple adjustments. No awkward corrections.",
+      headline: "Capture routines as you remember them",
+      copy: "You will not think of everything on day one. Add and adjust as gaps surface — the reference grows with you.",
+      footer: "Document once. Stop explaining forever.",
       image: LANDING_SCREEN_ASSETS.en.manage,
     },
     {
       title: "Home Hub",
       eyebrow: "House info",
-      headline: "One shared reference for the home",
-      copy: "Routines, preferences, and house rules your helper can check from day one.",
-      footer: "Everything in one place. Nothing lost in conversation.",
+      headline: "Your home's operating system, externalised",
+      copy: "Routines, preferences, and house rules — finally outside your head and visible to your helper.",
+      footer: "Everything she needs. One place to find it.",
       image: LANDING_SCREEN_ASSETS.en.hub,
     },
   ],
@@ -52,56 +52,56 @@ export const sgHelperOnboardingConfig: ScenarioConfig = {
   featureScreens: [
     {
       title: "Shared tasks",
-      benefit: "Household routines are visible and checkable — so your helper can refer back without asking again.",
+      benefit: "Household routines that were never documented now have a home — so your helper checks instead of asks.",
       image: LANDING_SCREEN_ASSETS.en.flows,
     },
     {
       title: "Shared groceries",
-      benefit: "Shopping preferences and supply notes in one place — so the right things come home.",
+      benefit: "Shopping preferences and brand choices your last helper memorised — now written down for this one.",
       image: LANDING_SCREEN_ASSETS.en.groceries,
     },
     {
       title: "Shared bills",
-      benefit: "Household purchases and costs are tracked — clear context for both sides.",
+      benefit: "Household purchases have clear context — so your new helper does not have to guess what is expected.",
       image: LANDING_SCREEN_ASSETS.en.bills,
     },
     {
       title: "Weekly check-ins",
-      benefit: "Catch small misunderstandings early — before they become patterns.",
+      benefit: "Surface what was missed or misunderstood early — before gaps harden into habits.",
       image: LANDING_SCREEN_ASSETS.en.checkins,
     },
   ],
 
   chips: [
-    "There are hundreds of small routines in this home. I cannot explain them all in the first week.",
-    "My previous helper knew everything. Now I realise none of it was written down.",
-    "I want my new helper to feel confident — not constantly checking with me.",
+    "My previous helper knew everything. Now I realise none of it was ever written down.",
+    "I want her to feel confident — not constantly checking with me because nothing is documented.",
+    "I keep saying things like 'not that one, the other brand' — and I can hear how exhausting it is for both of us.",
   ],
 
   rolePoints: [
-    "Gives your new helper a visible reference instead of relying on memory and repetition.",
-    "Makes onboarding calmer for both of you — expectations are clear from day one.",
+    "Turns the invisible knowledge your last helper carried into a visible reference for this one.",
+    "Your new helper gets clarity from day one — instead of piecing things together from scattered conversations.",
   ],
 
   formingPoints: [
-    "The first weeks are the hardest. A visible baseline makes them smoother.",
-    "As your helper settles in, routines evolve together — and the reference stays current.",
+    "The first weeks expose every gap. Kinly lets you capture routines as you discover they were never documented.",
+    "As your helper settles in, the reference grows — so the home's operating system finally exists outside your head.",
   ],
 
   audience: [
-    "Singapore households welcoming a new helper.",
-    "Families where a previous helper left and the household knowledge left with them.",
+    "Singapore households welcoming a new helper and realising how much was never written down.",
+    "Families where a previous helper left and took the household knowledge with her.",
   ],
 
   notList: [
     "Not surveillance or monitoring software.",
     "Not a performance tracker.",
     "Not a punishment system.",
-    "Not a replacement for conversation — just a foundation for it.",
+    "Not a replacement for conversation — just the documentation your home never had.",
   ],
 
   toolsIntro:
-    "Once expectations are visible, Kinly adds simple tools that help the household settle in — without turning the home into a command system.",
+    "Once your home's invisible routines are documented, Kinly adds simple tools that keep the household running — so your new helper does not have to rely on memory alone.",
 
   sectionHeadings: {
     soundsLikeYou: "Does this sound like your home?",

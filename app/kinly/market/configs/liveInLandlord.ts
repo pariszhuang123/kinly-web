@@ -6,45 +6,45 @@ export const liveInLandlordConfig: ScenarioConfig = {
   pageKey: "live_in_landlord",
 
   recognition: {
-    heading: "The house rules exist — but only in your head.",
-    subtitle: "You live here too. The expectations should be visible to everyone, not carried by one person.",
-    body: "Kinly puts house rules in one shared place so everyone can see them — and you can stop repeating yourself.",
+    heading: "You opened your home to someone. Now you cannot relax in it.",
+    subtitle: "The rules were obvious to you. You never said them out loud. Now everything feels tense.",
+    body: "Kinly makes the expectations you assumed were obvious into something everyone can actually see — so you stop carrying it alone.",
   },
 
   whatHeading: "What Kinly is",
   whatBody:
-    "Kinly is a shared living app. It keeps house rules, routines, and shared expectations visible to everyone — so the home runs on a shared system, not on one person's memory.",
+    "Kinly is a shared living app. You agreed to share your home — Kinly helps you agree on how. House rules, routines, and shared expectations in one place so the home stays yours without the tension.",
 
   hero: {
-    headline: "Write the rules down once. Everyone sees them.",
-    subhead: "When house rules are visible, people follow them without being reminded.",
-    body: "Kinly shows the same house rules to you and your tenants. The expectations are clear, so conversations stay calm and nobody has to chase anyone.",
-    ctaHeading: "Give the home a shared reference",
+    headline: "You agreed to share your home. You never agreed on how.",
+    subhead: "The things that bother you were never said out loud. That is where the tension starts.",
+    body: "Kinly puts the unspoken rules into one shared place. Your tenants see the same expectations you do — so you stop repeating yourself and start feeling at home again.",
+    ctaHeading: "Say it once. Everyone sees it.",
   },
 
   screens: [
     {
       title: "Today",
       eyebrow: "Right now",
-      headline: "See what needs attention today",
-      copy: "Quiet hours, shared spaces, and small reminders.",
-      footer: "Clear without confrontation.",
+      headline: "See what was supposed to happen today",
+      copy: "Quiet hours, shared spaces, and the things nobody remembered.",
+      footer: "No chasing. No confrontation.",
       image: LANDING_SCREEN_ASSETS.en.today,
     },
     {
       title: "Manage",
       eyebrow: "Update rules",
-      headline: "Change house rules easily",
-      copy: "Adjust rules when schedules or tenants change.",
-      footer: "Simple updates. Everyone stays aligned.",
+      headline: "Change the rules when life changes",
+      copy: "New tenant, new schedule, new arrangement — update once, everyone sees it.",
+      footer: "Your home, your rules. Still visible.",
       image: LANDING_SCREEN_ASSETS.en.manage,
     },
     {
       title: "Home Hub",
       eyebrow: "House rules",
-      headline: "Keep house rules in one place",
-      copy: "Noise, guests, cleaning, and shared costs.",
-      footer: "Everyone sees the same rules.",
+      headline: "Everything you assumed was obvious — written down",
+      copy: "Noise, guests, cleaning, and shared costs in one place.",
+      footer: "No more hoping they just know.",
       image: LANDING_SCREEN_ASSETS.en.hub,
     },
   ],
@@ -52,56 +52,56 @@ export const liveInLandlordConfig: ScenarioConfig = {
   featureScreens: [
     {
       title: "Shared tasks",
-      benefit: "Keep shared space routines visible for everyone.",
+      benefit: "Make shared space routines visible so you are not the only one who notices.",
       image: LANDING_SCREEN_ASSETS.en.flows,
     },
     {
       title: "Shared groceries",
-      benefit: "Make kitchen expectations clear and shared.",
+      benefit: "Kitchen expectations stop being a guessing game.",
       image: LANDING_SCREEN_ASSETS.en.groceries,
     },
     {
       title: "Shared bills",
-      benefit: "Keep shared costs simple and visible for everyone.",
+      benefit: "Shared costs stay simple so money never becomes the awkward conversation.",
       image: LANDING_SCREEN_ASSETS.en.bills,
     },
     {
       title: "Weekly check-ins",
-      benefit: "Small things surface early — before they grow into problems.",
+      benefit: "Small frustrations surface early — before they become resentment.",
       image: LANDING_SCREEN_ASSETS.en.checkins,
     },
   ],
 
   chips: [
-    "The rules are clear to me — but they were never written down for anyone else.",
-    "I live here too. I should not have to carry every house rule in my head.",
-    "It is not that they do not care. They just cannot see what I see.",
+    "I opened my home to someone. Now I feel like a guest in it.",
+    "The rules were obvious to me. I never said them out loud. Now everything is tense.",
+    "We agreed to live together — but we never agreed on how.",
   ],
 
   rolePoints: [
-    "Keeps house rules visible for everyone — not just the person who set them.",
-    "Reduces awkward reminders by making expectations shared.",
+    "Makes the rules you assumed were obvious into something everyone can see.",
+    "Reduces the tension of repeating yourself by making expectations shared.",
   ],
 
   formingPoints: [
-    "Tenants may change, but house rules stay visible.",
-    "If something drifts, the weekly check-in resets it calmly.",
+    "Tenants change, but the way your home works stays written down.",
+    "If things drift, the weekly check-in surfaces it before it becomes resentment.",
   ],
 
   audience: [
-    "Live-in landlords sharing their home with tenants.",
-    "Resident owners who want visible shared expectations.",
+    "Live-in landlords who opened their home and lost the peace that came with it.",
+    "Resident owners who want shared expectations without awkward confrontation.",
   ],
 
   notList: [
     "Not a legal document.",
     "Not surveillance.",
     "Not a scorecard.",
-    "Not a chore boss.",
+    "Not a way to control people.",
   ],
 
   toolsIntro:
-    "Once house rules are visible, Kinly adds simple tools that make shared living easier for everyone.",
+    "Once the unspoken rules are finally said, Kinly adds simple tools that keep shared living working day to day.",
 
   availability: {
     body: getScenarioAvailabilityBody("en"),

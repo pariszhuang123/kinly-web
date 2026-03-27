@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import {
+  KinlyButton,
   KinlyCard,
   KinlyHeading,
   KinlyShell,
@@ -81,6 +82,13 @@ export default function ScenarioLandingContent({ config }: ScenarioLandingConten
                   <KinlyText variant="bodyMedium" tone="muted">
                     {config.hero.privacyNote ?? "Private by default. No ads. No surveillance."}
                   </KinlyText>
+                  {config.action ? (
+                    <div>
+                      <KinlyButton href={config.action.href} variant="filled">
+                        {config.action.label}
+                      </KinlyButton>
+                    </div>
+                  ) : null}
                 </KinlyStack>
               </div>
 

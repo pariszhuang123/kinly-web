@@ -14,15 +14,15 @@ vi.mock("../app/kinly/market/ScenarioLandingClient", () => ({
   default: () => null,
 }));
 
-import FlatAgreementsPage from "../app/kinly/market/flat-agreements/page";
+import FlatmateFitCheckPage from "../app/kinly/market/flatmate-fit-check/page";
 
-test("renders flat agreements copy in server HTML without client hydration", async () => {
-  const element = await FlatAgreementsPage();
+test("renders flatmate fit check copy in server HTML without client hydration", async () => {
+  const element = await FlatmateFitCheckPage();
   const html = renderToStaticMarkup(element as ReactElement);
 
-  expect(html).toContain("You talked about it once. Nobody remembers the same version.");
-  expect(html).toContain("You agreed on the rules. Nobody wrote them down.");
-  expect(html).toContain("We had the conversation. Somehow everyone remembers a different version.");
+  expect(html).toContain("You are about to invite someone into your home. The interview will not show you where the friction will be.");
+  expect(html).toContain("Start the fit check");
+  expect(html).toContain("I need more than gut feel before I commit to sharing my home.");
   expect(html).toContain("What Kinly is");
   expect(html).toContain("How Kinly helps in practice");
 });

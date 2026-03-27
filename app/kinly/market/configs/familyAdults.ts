@@ -6,20 +6,20 @@ export const familyAdultsConfig: ScenarioConfig = {
   pageKey: "family_adults",
 
   recognition: {
-    heading: "Everyone lives here. But nobody made the expectations visible.",
-    subtitle: "It is not that they do not care — it is that the household runs on systems nobody wrote down.",
-    body: "Kinly gives your household a shared structure so contributions and expectations are clear — without anyone having to be the one who brings it up.",
+    heading: "Everyone lives here as adults. Nobody agreed on what that means.",
+    subtitle: "It is not that anyone is being difficult. You just never sat down and defined what contribution looks like.",
+    body: "Kinly gives your household the conversation it skipped — what the home needs, who does what, and how it all stays fair — without anyone having to be the one who brings it up.",
   },
 
   whatHeading: "What Kinly is",
   whatBody:
-    "Kinly is a shared living app for people who live together. It keeps household expectations neutral and visible — so everyone can see what the home needs and contribute as adults.",
+    "Kinly is a shared living app for households with adults under one roof. It replaces the agreement you never made with a shared structure everyone can see — so contribution is clear without anyone pulling rank.",
 
   hero: {
-    headline: "Make the household work like adults sharing a home.",
-    subhead: "Clear expectations. No awkward conversations. No pulling rank.",
-    body: "Kinly shows the same household expectations to every member — bills, routines, groceries, and shared space norms. Everyone sees the same thing. Everyone can step up.",
-    ctaHeading: "Give the home a shared structure",
+    headline: "You all live here as adults. Nobody defined what that means.",
+    subhead: "The decision to share a home happened. The conversation about how never did.",
+    body: "Kinly makes contributions, routines, and shared costs visible to every adult in the household — so nobody has to guess, nobody has to nag, and nobody has to pretend the home runs itself.",
+    ctaHeading: "Have the conversation the home has been missing",
   },
 
   screens: [
@@ -27,24 +27,24 @@ export const familyAdultsConfig: ScenarioConfig = {
       title: "Today",
       eyebrow: "Right now",
       headline: "What the home needs today",
-      copy: "Bills, shared space, and small contributions — visible to every adult.",
-      footer: "No one has to ask. No one has to guess.",
+      copy: "Bills, shared space, and contributions — visible to every adult, not just the one who notices.",
+      footer: "Nobody has to bring it up. It is already there.",
       image: LANDING_SCREEN_ASSETS.en.today,
     },
     {
       title: "Manage",
       eyebrow: "Adjust",
-      headline: "Update expectations as things change",
-      copy: "Someone starts working. Someone is between jobs. Life shifts. The home adapts.",
-      footer: "Fair adjustments. No confrontation.",
+      headline: "Define what contribution looks like — together",
+      copy: "Someone starts working. Someone is between jobs. The agreement updates without an awkward conversation.",
+      footer: "Fair adjustments. No pulling rank.",
       image: LANDING_SCREEN_ASSETS.en.manage,
     },
     {
       title: "Home Hub",
       eyebrow: "Shared reference",
-      headline: "One place for how the household works",
-      copy: "Bills, cleaning, groceries, noise, and shared costs.",
-      footer: "Neutral and visible to everyone.",
+      headline: "The agreement the household never had — in one place",
+      copy: "Bills, cleaning, groceries, noise, and shared costs — defined, not assumed.",
+      footer: "Neutral ground. Visible to everyone.",
       image: LANDING_SCREEN_ASSETS.en.hub,
     },
   ],
@@ -52,56 +52,56 @@ export const familyAdultsConfig: ScenarioConfig = {
   featureScreens: [
     {
       title: "Shared tasks",
-      benefit: "Household responsibilities are visible. Everyone can see what needs doing.",
+      benefit: "Household responsibilities are defined and visible — not assumed by default.",
       image: LANDING_SCREEN_ASSETS.en.flows,
     },
     {
       title: "Shared groceries",
-      benefit: "Shared supplies are tracked. Everyone knows what is needed.",
+      benefit: "Shared supplies are tracked. Nobody has to be the one who always notices.",
       image: LANDING_SCREEN_ASSETS.en.groceries,
     },
     {
       title: "Shared bills",
-      benefit: "Financial contributions are visible. Clear and fair for everyone.",
+      benefit: "Financial contributions are explicit. No silent scorekeeping.",
       image: LANDING_SCREEN_ASSETS.en.bills,
     },
     {
       title: "Weekly check-ins",
-      benefit: "Small things surface early — before they become tension.",
+      benefit: "Small imbalances surface early — before they turn into resentment nobody mentions.",
       image: LANDING_SCREEN_ASSETS.en.checkins,
     },
   ],
 
   chips: [
-    "Nobody is being difficult. The expectations were just never written down.",
-    "Everyone assumes the home runs itself. It does not — one person carries it.",
-    "We are all adults here. We just need a shared view of what the home needs.",
+    "Nobody is being difficult. We just never sat down and said — this is how the home works now.",
+    "Everyone lives here. Nobody agreed on what contributing actually means.",
+    "The home runs because one person quietly decided it had to. That was never the plan.",
   ],
 
   rolePoints: [
-    "Provides a neutral shared structure — not parent rules, but household expectations.",
-    "Everyone sees the same thing. Contributions are visible without anyone having to ask.",
+    "Replaces the agreement you never made with a shared structure everyone can see.",
+    "Contributions are defined, not assumed — so nobody has to nag and nobody has to guess.",
   ],
 
   formingPoints: [
-    "Someone moves out. Someone moves back. The structure adapts without drama.",
-    "If contributions drift, the check-in resets things calmly.",
+    "Someone moves out. Someone moves back. The agreement updates without drama.",
+    "If contributions drift, the check-in brings it back — calmly, as equals.",
   ],
 
   audience: [
-    "Families with adult children sharing a home.",
-    "Multi-generational households where everyone contributes.",
+    "Families with adult children who share a home but never agreed on how.",
+    "Multi-generational households where contribution was assumed but never defined.",
   ],
 
   notList: [
     "Not parent rules dressed up as an app.",
     "Not surveillance or monitoring.",
     "Not about proving who does more.",
-    "Not a confrontation tool.",
+    "Not a confrontation tool — it is the conversation that replaces confrontation.",
   ],
 
   toolsIntro:
-    "Once expectations are shared, Kinly adds simple tools so the household runs like adults sharing a home — because that is what it is.",
+    "Once the household has a shared agreement, Kinly adds simple tools so the home runs the way adults sharing a space actually need it to.",
 
   sectionHeadings: {
     soundsLikeYou: "Does this sound like your home?",

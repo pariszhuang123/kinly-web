@@ -6,20 +6,20 @@ export const familyTeensConfig: ScenarioConfig = {
   pageKey: "family_teens",
 
   recognition: {
-    heading: "They are learning to share a home — but no one showed them what that looks like.",
-    subtitle: "The expectations are in your head. They cannot follow what they cannot see.",
-    body: "Kinly makes household expectations visible so your teenagers can see what the home needs — without waiting to be told.",
+    heading: "They live under this roof. But nobody showed them what sharing a home actually looks like.",
+    subtitle: "The expectations are all in your head. Of course they do not meet them — they have never seen them.",
+    body: "Kinly takes the unspoken rules out of your head and puts them somewhere your teenagers can actually see — so they can step up without waiting to be told.",
   },
 
   whatHeading: "What Kinly is",
   whatBody:
-    "Kinly is a shared living app for people who live together. It makes household expectations visible so everyone — including teenagers learning to contribute — can see what the home needs.",
+    "Kinly is a shared living app for families. It turns the expectations you have been carrying in your head into something your teenagers can see and follow — so the home stops depending on you saying it out loud every time.",
 
   hero: {
-    headline: "Show them how the home works. Once.",
-    subhead: "Teenagers can step up when they can see what is needed.",
-    body: "Kinly keeps household expectations visible for everyone — routines, shared spaces, and the small things that keep a home running. They do not need reminders. They need a system they can check.",
-    ctaHeading: "Give the home a shared system",
+    headline: "They live under this roof. Nobody showed them what that means.",
+    subhead: "You expected them to know. But you never made it visible.",
+    body: "Kinly surfaces the routines, shared spaces, and small responsibilities that you assumed they understood — so they can see what the home needs without you having to say it again.",
+    ctaHeading: "Show them what the home needs",
   },
 
   screens: [
@@ -27,24 +27,24 @@ export const familyTeensConfig: ScenarioConfig = {
       title: "Today",
       eyebrow: "Right now",
       headline: "What the home needs today",
-      copy: "Bins, tidying, and shared space expectations — visible to everyone.",
-      footer: "No reminders needed. It is already there.",
+      copy: "Bins, tidying, and shared space expectations — finally somewhere they can see them.",
+      footer: "No repeating yourself. It is already there.",
       image: LANDING_SCREEN_ASSETS.en.today,
     },
     {
       title: "Manage",
       eyebrow: "Update",
-      headline: "Adjust expectations as they grow",
-      copy: "Add responsibilities as teenagers get older. Remove what no longer applies.",
+      headline: "Adjust expectations as they grow up",
+      copy: "What a thirteen-year-old handles is different from a seventeen-year-old. The system grows with them.",
       footer: "Fair and clear. Everyone sees the same thing.",
       image: LANDING_SCREEN_ASSETS.en.manage,
     },
     {
       title: "Home Hub",
       eyebrow: "House expectations",
-      headline: "One place for how the home works",
-      copy: "Tidying, noise, shared spaces, and contributions.",
-      footer: "Everyone sees the same expectations.",
+      headline: "The expectations that were never written down — in one place",
+      copy: "Tidying, noise, shared spaces, and contributions — out of your head and onto shared ground.",
+      footer: "They can see it. You do not have to say it.",
       image: LANDING_SCREEN_ASSETS.en.hub,
     },
   ],
@@ -52,56 +52,56 @@ export const familyTeensConfig: ScenarioConfig = {
   featureScreens: [
     {
       title: "Shared tasks",
-      benefit: "Household jobs are visible — everyone can see what needs doing without being told.",
+      benefit: "The things you expected them to just know — now visible and clear.",
       image: LANDING_SCREEN_ASSETS.en.flows,
     },
     {
       title: "Shared groceries",
-      benefit: "The list is shared. Anyone can check it and help.",
+      benefit: "The list is shared. They can check it without asking you.",
       image: LANDING_SCREEN_ASSETS.en.groceries,
     },
     {
       title: "Shared bills",
-      benefit: "If they contribute, it is tracked. Clear and fair for everyone.",
+      benefit: "If they contribute, it is tracked. No ambiguity about what counts.",
       image: LANDING_SCREEN_ASSETS.en.bills,
     },
     {
       title: "Weekly check-ins",
-      benefit: "Small things surface early — before they become friction.",
+      benefit: "Small things surface before they become the argument you have had ten times.",
       image: LANDING_SCREEN_ASSETS.en.checkins,
     },
   ],
 
   chips: [
-    "The expectations are all in my head. Of course they do not follow them — they cannot see them.",
-    "They are not lazy. They just do not know what the home needs unless someone says it.",
-    "I want them to learn to share a home — but there is nothing showing them what that means.",
+    "The expectations are all in my head. Of course they do not follow them — they have never seen them.",
+    "They are not difficult. I just expected them to know things I never actually showed them.",
+    "I live with them every day. But we never once talked about how the home is supposed to work.",
   ],
 
   rolePoints: [
-    "Makes household expectations visible — so teenagers can see what the home needs.",
-    "Builds shared responsibility as a skill, not a punishment.",
+    "Takes the expectations out of your head and puts them where your teenagers can see them.",
+    "Teaches them to share a home — not by punishment, but by making the home visible.",
   ],
 
   formingPoints: [
-    "As they get older, expectations grow with them. The system adjusts naturally.",
-    "If something slips, the check-in catches it — calmly, not as a confrontation.",
+    "As they get older, expectations grow with them. What you show them adjusts naturally.",
+    "If something slips, the check-in catches it — calmly, not as a lecture.",
   ],
 
   audience: [
-    "Families with teenagers learning to contribute to the home.",
-    "Households where expectations need to become visible so they can be shared.",
+    "Families with teenagers who share a home but were never shown what that means.",
+    "Households where the expectations exist — they just live in one person's head.",
   ],
 
   notList: [
     "Not a punishment system.",
     "Not surveillance or monitoring.",
     "Not a chore chart with gold stars.",
-    "Not about proving who did more.",
+    "Not about catching them out — it is about showing them in.",
   ],
 
   toolsIntro:
-    "Once expectations are visible, Kinly adds simple tools so the household runs as a shared effort — not a one-person operation.",
+    "Once they can see what the home needs, Kinly adds simple tools so they can actually participate — instead of waiting to be told.",
 
   sectionHeadings: {
     soundsLikeYou: "Does this sound like your home?",

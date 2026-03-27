@@ -6,47 +6,47 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
   pageKey: "takeaway_budget_flats",
 
   recognition: {
-    heading: "You know who paid last time. Nobody else does.",
-    subtitle: "When money is tight, being the one who tracks everything feels heavier than the bills.",
-    body: "Kinly keeps shared costs and expectations visible so one person does not have to remember what everyone owes.",
+    heading: "You agreed to split everything. Nobody agreed on what fair looks like.",
+    subtitle: "The decision to share costs was easy. Living inside that decision — tracking, reminding, absorbing the gaps — is the part nobody planned for.",
+    body: "Kinly keeps shared costs and expectations visible so the person who tracks everything does not have to carry it alone.",
   },
 
   whatHeading: "What Kinly is",
   whatBody:
-    "Kinly is a shared living app designed for people who live together. For tight-budget flats, it keeps fairness clear without turning your home into a budgeting spreadsheet.",
+    "Kinly is a shared living app designed for people who live together. For tight-budget flats, it closes the gap between agreeing to split costs and actually splitting them fairly.",
 
   hero: {
-    headline: "You track every shared cost in your head. That is the real burden.",
-    subhead: "When money is tight, the person who remembers who owes what carries the heaviest load.",
-    body: "Kinly keeps shared costs and expectations visible so one person does not have to be the house accountant.",
-    ctaHeading: "Stop tracking it all in your head",
+    headline: "You split the costs. You carry the tracking.",
+    subhead: "You all agreed to share. But only one person knows what that actually means week to week.",
+    body: "Kinly keeps shared costs visible to everyone so fairness does not depend on one person remembering, chasing, and absorbing the difference.",
+    ctaHeading: "Make fair visible to everyone",
   },
 
   screens: [
     {
       title: "Today",
       eyebrow: "Right now",
-      headline: "What's stressing the house this week?",
-      copy: "Groceries, heating, power, and the little things that quietly add up.",
-      footer: "Notice friction early, before it turns into an argument.",
+      headline: "What is adding up this week",
+      copy: "Groceries, heating, power, and the costs that quietly become one person's problem.",
+      footer: "Shared costs stay shared when everyone can see them.",
       image:
         LANDING_SCREEN_ASSETS.en.today,
     },
     {
       title: "Manage",
       eyebrow: "Reset",
-      headline: "Set the baseline once",
-      copy: "What counts as shared, how to handle uneven usage, and how to adjust when someone is stretched.",
-      footer: "Less blaming. More clarity. Everyone stays on the same page.",
+      headline: "Agree on what fair means",
+      copy: "What counts as shared, how to handle uneven weeks, and how to adjust when someone is stretched.",
+      footer: "Fair stops being a feeling. It becomes something you can point to.",
       image:
         LANDING_SCREEN_ASSETS.en.manage,
     },
     {
       title: "Home Hub",
       eyebrow: "Shared norms",
-      headline: "Make expectations easy to see",
-      copy: "Simple house standards, so nobody has to hint, nag, or keep score.",
-      footer: "Fairness feels lighter when it's visible.",
+      headline: "The agreement everyone can check",
+      copy: "What is shared, what is not, and how the house adjusts — visible so nobody has to keep score in their head.",
+      footer: "Fairness works when it is not one person's job to enforce it.",
       image:
         LANDING_SCREEN_ASSETS.en.hub,
     },
@@ -54,44 +54,44 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
   featureScreens: [
     {
       title: "Shared tasks",
-      benefit: "Keep recurring home standards visible so uneven weeks do not turn into blame.",
+      benefit: "Keep recurring responsibilities visible so uneven effort does not quietly become resentment.",
       image: LANDING_SCREEN_ASSETS.en.flows,
     },
     {
       title: "Shared groceries",
-      benefit: "Clarify shared grocery expectations before shops so spending stays fair.",
+      benefit: "Make shared grocery expectations clear before the shop so the bill does not surprise anyone.",
       image: LANDING_SCREEN_ASSETS.en.groceries,
     },
     {
       title: "Shared bills",
-      benefit: "Keep shared costs transparent so budget pressure feels manageable.",
+      benefit: "Keep shared costs transparent so the person tracking everything can finally stop.",
       image: LANDING_SCREEN_ASSETS.en.bills,
     },
     {
       title: "Calm check-ins",
-      benefit: "Use weekly check-ins to reset money tension early.",
+      benefit: "Use weekly check-ins to address money tension before it turns into the thing nobody talks about.",
       image: LANDING_SCREEN_ASSETS.en.checkins,
     },
   ],
 
   chips: [
-    "I know exactly who has not paid their share. Nobody else is keeping track.",
-    "I remember what we spent last week. They do not.",
-    "If I stop tracking, it just becomes unfair — and I am the one who notices.",
+    "We said we would split things. I am the only one who remembers what that means.",
+    "I know who owes what. Nobody else is keeping count.",
+    "The agreement was to share. The reality is that I track and they forget.",
   ],
 
   rolePoints: [
-    "Makes shared expectations visible so you don't have to call people out.",
+    "Makes the cost-sharing agreement visible so one person does not have to enforce it.",
     "Helps the house adjust fairly when someone is week-to-week.",
   ],
 
   formingPoints: [
-    "New flatmates and changing schedules, the baseline stays clear.",
+    "New flatmates and changing schedules — the agreement stays visible.",
     "If it slips, you reset next week without shame or blame.",
   ],
 
   audience: [
-    "Student flats living week-to-week.",
+    "Student flats where splitting costs sounded simple but became one person's burden.",
     "Shared homes where groceries, heating, or power cause repeated tension.",
   ],
 
@@ -103,7 +103,7 @@ export const takeawayBudgetFlatsConfig: ScenarioConfig = {
   ],
 
   toolsIntro:
-    "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction, without turning shared living into a task system.",
+    "Once the agreement is visible, Kinly offers simple tools that keep it working — without turning shared living into a spreadsheet.",
 
   availability: {
     body: getScenarioAvailabilityBody("en"),

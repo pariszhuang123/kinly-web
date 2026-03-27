@@ -6,47 +6,47 @@ export const flatAgreementsConfig: ScenarioConfig = {
   pageKey: "flat_agreements",
 
   recognition: {
-    heading: "The flat agreed on things once. But the agreements were never visible.",
-    subtitle: "It is not that people forgot — it is that the rules only existed in one conversation.",
-    body: "Kinly keeps housemate agreements visible so everyone can check what was agreed — without anyone having to remember it all.",
+    heading: "You talked about it once. Nobody remembers the same version.",
+    subtitle: "The conversation happened. But what was agreed only exists in separate memories — and none of them match.",
+    body: "Kinly turns spoken agreements into a shared record so everyone can see the same version — without anyone having to prove what was said.",
   },
 
   whatHeading: "What Kinly is",
   whatBody:
-    "Kinly is a shared living app designed for people who live together. It keeps agreements visible and calm without turning your shared home into contract talk.",
+    "Kinly is a shared living app designed for people who live together. It gives your agreements a home so the gap between what was said and what was heard stops causing friction.",
 
   hero: {
-    headline: "Stop carrying the flat in your head.",
-    subhead: "One place for house norms, shared costs, and expectations — so you are not the only one who knows.",
-    body: "Kinly lets housemates see the same baseline for noise, guests, cleaning, and shared costs — without relying on one person to remember it all.",
-    ctaHeading: "Let the flat remember for itself",
+    headline: "You agreed on the rules. Nobody wrote them down.",
+    subhead: "The problem is not that you never talked about it. The problem is that the conversation disappeared the moment it ended.",
+    body: "Kinly keeps what was agreed visible to everyone — so the rules do not live in one person's memory and come out only during arguments.",
+    ctaHeading: "Give your agreements a shared record",
   },
 
   screens: [
     {
       title: "Today",
       eyebrow: "Right now",
-      headline: "What needs attention",
-      copy: "Noise, guests, shared chores and quick resets ,without sounding bossy.",
-      footer: "Clear signals, no policing.",
+      headline: "What was actually agreed",
+      copy: "Noise, guests, shared chores — the version everyone can check, not the version everyone remembers differently.",
+      footer: "One record, no conflicting memories.",
       image:
         LANDING_SCREEN_ASSETS.en.today,
     },
     {
       title: "Manage",
       eyebrow: "Adjust",
-      headline: "Keep agreements current",
-      copy: "Tweak quiet hours, guest rules, or cleaning standards as people and routines change.",
-      footer: "Everyone stays aligned, nothing is locked in.",
+      headline: "Update agreements without re-arguing",
+      copy: "When routines change, adjust what was agreed — without reopening the original conversation.",
+      footer: "Agreements evolve. They do not have to be re-fought.",
       image:
         LANDING_SCREEN_ASSETS.en.manage,
     },
     {
       title: "Home Hub",
       eyebrow: "Reference",
-      headline: "One calm reference",
-      copy: "Noise, guests, bills, and cleaning expectations in one place ,no group-chat essays.",
-      footer: "Shared clarity, human tone.",
+      headline: "The record everyone can see",
+      copy: "Noise, guests, bills, and cleaning expectations written down once — not remembered differently by each person.",
+      footer: "Shared record, no more competing versions.",
       image:
         LANDING_SCREEN_ASSETS.en.hub,
     },
@@ -54,45 +54,45 @@ export const flatAgreementsConfig: ScenarioConfig = {
   featureScreens: [
     {
       title: "Shared tasks",
-      benefit: "Keep recurring standards visible so agreements stay clear without reminders.",
+      benefit: "Keep agreed responsibilities visible so nobody can say they remember it differently.",
       image: LANDING_SCREEN_ASSETS.en.flows,
     },
     {
       title: "Shared groceries",
-      benefit: "Clarify shared shopping expectations so everyone sees the same baseline.",
+      benefit: "Record shared shopping expectations so the agreement does not vanish after the conversation ends.",
       image: LANDING_SCREEN_ASSETS.en.groceries,
     },
     {
       title: "Shared bills",
-      benefit: "Keep shared costs transparent so fairness stays calm.",
+      benefit: "Keep cost-sharing agreements visible so fairness does not depend on one person's memory.",
       image: LANDING_SCREEN_ASSETS.en.bills,
     },
     {
       title: "Calm check-ins",
-      benefit: "Use weekly check-ins to reset guests, noise, or cleaning expectations before friction grows.",
+      benefit: "Use weekly check-ins to confirm what was agreed before mismatched memories turn into conflict.",
       image: LANDING_SCREEN_ASSETS.en.checkins,
     },
   ],
 
   chips: [
-    "We agreed on the rules once. But nobody wrote them down.",
-    "The guest rules exist — they are just not visible to everyone.",
-    "Nobody wants to be the one who brings things up. So nobody does.",
+    "We had the conversation. Somehow everyone remembers a different version.",
+    "The rules exist — in three different heads, in three different forms.",
+    "I know what we agreed. But without a record, it is my word against theirs.",
   ],
 
   rolePoints: [
-    "Keeps agreements visible without turning anyone into the enforcer.",
-    "Makes adjustments easy when people and routines change.",
+    "Turns spoken agreements into a shared reference anyone can check.",
+    "Makes updating agreements easy so they do not stay frozen in a past conversation.",
   ],
 
   formingPoints: [
-    "New housemates can see the baseline on day one.",
-    "If it drifts, you reset next week without blame.",
+    "New housemates see what was agreed from day one — not a retelling.",
+    "If memories drift, the record is there to reset from.",
   ],
 
   audience: [
-    "Housemates aligning home norms without heavy paperwork.",
-    "Groups who want clarity on guests/noise/cleaning without policing.",
+    "Housemates who agreed on things but have no shared record to check.",
+    "Groups tired of re-arguing rules that were already settled.",
   ],
 
   notList: [
@@ -103,7 +103,7 @@ export const flatAgreementsConfig: ScenarioConfig = {
   ],
 
   toolsIntro:
-    "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction, without turning shared living into a task system.",
+    "Once your agreements are written down, Kinly offers simple tools that keep them working — without turning shared living into a task system.",
 
   availability: {
     body: getScenarioAvailabilityBody("en"),

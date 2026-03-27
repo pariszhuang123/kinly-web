@@ -5,44 +5,44 @@ import { getScenarioAvailabilityBody } from "../../../../lib/regionSupport";
 export const lowTalkConfig: ScenarioConfig = {
   pageKey: "kinly_market_low_talk",
   recognition: {
-    heading: "You would rather the house just worked — without another group chat essay.",
-    subtitle: "Nobody wants to nag. Nobody wants to be nagged. But someone always ends up doing it.",
-    body: "Kinly keeps what the home needs visible so nobody has to be the one who remembers — or the one who reminds.",
+    heading: "You all live here. Nobody wants to be the one who brings it up.",
+    subtitle: "Everyone sees the same problems. Nobody says anything. The house stays broken because speaking up feels worse than the problem itself.",
+    body: "Kinly makes what the home needs visible so the issue gets addressed — without anyone having to be the person who said it.",
   },
   whatHeading: "What Kinly is",
   whatBody:
-    "Kinly is a shared living app designed for people who live together. For low-talk homes, it keeps expectations clear without forcing group chats or sit-down talks.",
+    "Kinly is a shared living app designed for people who live together. For homes where silence is easier than confrontation, it surfaces what needs attention so nobody has to break the quiet.",
   hero: {
-    headline: "The house stays aligned — without anyone having to say it.",
-    subhead: "See what needs doing and what can wait. No group chat. No awkward reminder.",
-    body: "Kinly keeps what matters visible so nobody has to remember or be the one who brings it up.",
-    ctaHeading: "Let the house speak for itself",
+    headline: "The house stays broken because nobody wants to say it.",
+    subhead: "You all see the same problems. The cost of raising them feels higher than the cost of living with them.",
+    body: "Kinly makes what needs attention visible so the house can address problems without anyone having to be the one who speaks first.",
+    ctaHeading: "Let the house say what nobody will",
   },
   screens: [
     {
       title: "Today",
       eyebrow: "Signal",
-      headline: "What needs attention now",
-      copy: "Light-touch cues for noise, guests, or a quick reset before the day starts.",
-      footer: "Actionable without turning into a meeting.",
+      headline: "What everyone already sees",
+      copy: "The issues that nobody mentions — noise, guests, overdue resets — surfaced without anyone having to raise them.",
+      footer: "Visible problems do not need a spokesperson.",
       image:
         LANDING_SCREEN_ASSETS.en.today,
     },
     {
       title: "Manage",
       eyebrow: "Adjust",
-      headline: "Tweak without debate",
-      copy: "Shift turns or pause a task when someone is slammed - no guilt trips.",
-      footer: "Everyone stays informed without reminders.",
+      headline: "Fix things without the conversation",
+      copy: "Shift turns or pause a task when someone is stretched — no guilt trips, no awkward ask.",
+      footer: "Adjustments happen. Nobody had to bring it up.",
       image:
         LANDING_SCREEN_ASSETS.en.manage,
     },
     {
       title: "Home Hub",
       eyebrow: "Reference",
-      headline: "Shared clarity in one place",
-      copy: "Quiet hours, guest signals, and quick norms that keep the vibe steady.",
-      footer: "Signals stay visible; no speeches required.",
+      headline: "The thing nobody had to say out loud",
+      copy: "Quiet hours, guest norms, and shared expectations — written down so silence does not mean acceptance.",
+      footer: "Clarity without confrontation.",
       image:
         LANDING_SCREEN_ASSETS.en.hub,
     },
@@ -50,46 +50,46 @@ export const lowTalkConfig: ScenarioConfig = {
   featureScreens: [
     {
       title: "Shared tasks",
-      benefit: "Keep recurring tasks clear so signals replace long explanations.",
+      benefit: "Keep recurring responsibilities visible so problems surface without someone having to point them out.",
       image: LANDING_SCREEN_ASSETS.en.flows,
     },
     {
       title: "Shared groceries",
-      benefit: "Surface what is needed in one place so shopping stays coordinated.",
+      benefit: "Surface what is needed in one place so nobody has to be the one who asks.",
       image: LANDING_SCREEN_ASSETS.en.groceries,
     },
     {
       title: "Shared bills",
-      benefit: "Keep shared costs clear so fairness stays visible without call-outs.",
+      benefit: "Keep shared costs visible so fairness does not depend on someone being willing to say it.",
       image: LANDING_SCREEN_ASSETS.en.bills,
     },
     {
       title: "Calm check-ins",
-      benefit: "Use short weekly check-ins to surface concerns early.",
+      benefit: "Use short weekly check-ins to surface what everyone already notices but nobody mentions.",
       image: LANDING_SCREEN_ASSETS.en.checkins,
     },
   ],
 
   chips: [
-    "I noticed the issue but I do not want to be the one who says something. Again.",
-    "If nobody brings it up, it just... stays broken.",
-    "I would rather the house showed me what needs doing than wait for a group meeting.",
+    "I noticed the issue. I do not want to be the one who says something. Again.",
+    "If nobody brings it up, it just stays broken.",
+    "Everyone sees the same problem. We are all waiting for someone else to say it first.",
   ],
   rolePoints: [
-    "Surfaces what matters with gentle signals, not speeches.",
-    "Keeps plans fair without blame, scoreboards, or guilt.",
+    "Surfaces what needs attention so nobody has to be the one who raises it.",
+    "Keeps the house fair without anyone having to call someone out.",
   ],
   formingPoints: [
-    "People move in and out - Kinly keeps shared signals steady.",
-    "Busy weeks happen. Pausing tasks is normal, not a failure.",
+    "People move in and out — Kinly keeps expectations visible regardless.",
+    "Busy weeks happen. Problems get surfaced, not buried in silence.",
   ],
   audience: [
-    "Households that want calm clarity without long conversations.",
-    "Busy sharers who prefer signals over reminders.",
+    "Households where everyone sees the problem but nobody speaks.",
+    "Sharers who would rather fix things quietly than have the conversation.",
   ],
   notList: ["Not a scoreboard.", "Not policing.", "Not a nagging tool."],
   toolsIntro:
-    "Once expectations are aligned, Kinly offers simple tools that reduce everyday friction, without turning shared living into a task system.",
+    "Once what needs attention is visible, Kinly offers simple tools to act on it — without turning shared living into a confrontation.",
   availability: {
     body: getScenarioAvailabilityBody("en"),
   },

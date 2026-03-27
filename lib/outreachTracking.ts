@@ -11,7 +11,10 @@ export type OutreachEventType =
   | "poll_page_view"
   | "poll_vote"
   | "poll_results_view"
-  | "cta_click";
+  | "cta_click"
+  | "fit_check_draft_start"
+  | "fit_check_share_generated"
+  | "fit_check_submission_complete";
 
 export type OutreachStore = "ios_app_store" | "google_play" | "web" | "unknown";
 

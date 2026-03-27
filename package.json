@@ -23,6 +23,7 @@
     "e2e:report": "playwright show-report"
   },
   "dependencies": {
+    "@vercel/speed-insights": "^2.0.0",
     "file-saver": "^2.0.5",
     "jszip": "^3.10.1",
     "nanoid": "^5.1.6",

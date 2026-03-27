@@ -6,90 +6,90 @@ export const homestayOwnerConfig: ScenarioConfig = {
   pageKey: "homestay_owner",
 
   recognition: {
-    heading: "Every guest is new to your home. The expectations should not have to be.",
-    subtitle: "You have explained it all before — but every guest starts from zero.",
-    body: "Kinly keeps house expectations in one visible place so every guest arrives to the same clear baseline — without you having to repeat yourself.",
+    heading: "You opened your home to guests. Every new one starts from zero — and you start explaining all over again.",
+    subtitle: "The commitment to host was the easy part. The repetition is what wears you down.",
+    body: "Kinly keeps your house expectations in one visible place so every guest arrives to the same clear baseline — without you having to say it all again.",
   },
 
   whatHeading: "What Kinly is",
   whatBody:
-    "Kinly is a shared living app designed for people who live together. For homestays, it keeps expectations visible and warm — so hosting stays welcoming without turning into rule enforcement.",
+    "Kinly is a shared living app designed for people who live together. For homestays, it absorbs the repetition that comes after the decision to host — so every guest sees the same expectations without you carrying that load each time.",
 
   hero: {
-    headline: "Explain it once. Every guest sees the same thing.",
-    subhead: "Your house expectations stay visible — so the welcome stays warm.",
-    body: "Kinly shows guests and residents the same baseline for noise, shared spaces, and contributions. The expectations are always there — calm, clear, and consistent.",
-    ctaHeading: "Give your home a visible welcome",
+    headline: "You chose to host. You did not choose to repeat yourself every time.",
+    subhead: "Your house expectations stay visible — so the welcome does not depend on your energy that day.",
+    body: "Kinly shows every guest the same baseline for noise, shared spaces, and contributions. You explain it once. The home remembers for you.",
+    ctaHeading: "Stop repeating yourself to every new guest",
   },
 
   screens: [
     {
       title: "Today",
       eyebrow: "Welcome",
-      headline: "What guests should know now",
-      copy: "Quiet hours, shared spaces, and today's simple asks.",
-      footer: "Clarity keeps the welcome warm.",
+      headline: "What this guest needs to know now",
+      copy: "Quiet hours, shared spaces, and today's expectations — visible without you having to say them again.",
+      footer: "The welcome stays warm because you are not exhausted by repetition.",
       image: LANDING_SCREEN_ASSETS.en.today,
     },
     {
       title: "Manage",
       eyebrow: "Adjust",
-      headline: "Update norms without tension",
-      copy: "Tweak house rules or hosting notes as guests change.",
-      footer: "One place to keep everyone aligned.",
+      headline: "Update once, not once per guest",
+      copy: "When house expectations change, update them in one place. Every current and future guest sees the same thing.",
+      footer: "One update replaces a dozen conversations.",
       image: LANDING_SCREEN_ASSETS.en.manage,
     },
     {
       title: "Home Hub",
       eyebrow: "Reference",
-      headline: "One calm reference for hosts and guests",
-      copy: "Noise, guests, cleaning standards, and shared costs visible to all.",
-      footer: "Welcoming, not policing.",
+      headline: "One calm reference that outlasts any single guest",
+      copy: "Noise, guests, cleaning standards, and shared costs visible to everyone — without you standing in the kitchen explaining it again.",
+      footer: "Hosting, not lecturing.",
       image: LANDING_SCREEN_ASSETS.en.hub,
     },
   ],
   featureScreens: [
     {
       title: "Shared tasks",
-      benefit: "Keep hosting routines visible so every guest understands the baseline from day one.",
+      benefit: "Keep hosting routines visible so you do not have to walk each new guest through the same expectations from scratch.",
       image: LANDING_SCREEN_ASSETS.en.flows,
     },
     {
       title: "Shared groceries",
-      benefit: "Clarify shared kitchen and supply expectations so requests stay simple.",
+      benefit: "Clarify shared kitchen and supply expectations once — so the same question does not come up with every new arrival.",
       image: LANDING_SCREEN_ASSETS.en.groceries,
     },
     {
       title: "Shared bills",
-      benefit: "Keep shared contributions clear so conversations stay fair and warm.",
+      benefit: "Keep shared contributions clear so you are not having the same money conversation every time someone moves in.",
       image: LANDING_SCREEN_ASSETS.en.bills,
     },
     {
       title: "Calm check-ins",
-      benefit: "Weekly check-ins catch small things early — keeping the hosting relationship warm.",
+      benefit: "Weekly check-ins catch small things early — before they become the kind of issue you have already dealt with three guests ago.",
       image: LANDING_SCREEN_ASSETS.en.checkins,
     },
   ],
 
   chips: [
-    "Every new guest starts from zero. The expectations need a home, not just a conversation.",
-    "I want hosting to feel warm — not like I am reading out a rulebook every time.",
-    "The house runs well when everyone can see how it works. That should not depend on me explaining it.",
+    "Every new guest starts from zero. I am tired of explaining the same things.",
+    "I want hosting to feel warm — not like reading out a rulebook every time someone arrives.",
+    "I chose to open my home. I did not choose to become a broken record.",
   ],
 
   rolePoints: [
-    "Keeps expectations visible so hosting stays welcoming, not enforcing.",
-    "Gives every guest the same calm baseline from day one.",
+    "Absorbs the repetition so hosting stays welcoming instead of draining.",
+    "Gives every new guest the same clear baseline without depending on your energy.",
   ],
 
   formingPoints: [
-    "Guests change. The baseline stays visible and consistent.",
-    "If something slips, the check-in resets it warmly — no awkwardness.",
+    "Guests change. The expectations stay visible — you do not start over each time.",
+    "If something slips, the check-in catches it before you have to repeat the conversation yourself.",
   ],
 
   audience: [
-    "Homestay owners who want calm, visible expectations.",
-    "Households hosting guests while living together.",
+    "Homestay owners worn down by explaining the same expectations to every new guest.",
+    "Households hosting guests who want the welcome to stay warm without the repetition.",
   ],
 
   notList: [
@@ -100,7 +100,7 @@ export const homestayOwnerConfig: ScenarioConfig = {
   ],
 
   toolsIntro:
-    "Once expectations are visible, Kinly offers simple tools that reduce everyday friction — keeping hosting warm without turning it into a task system.",
+    "Once you have said it once, Kinly holds it for every guest after. These tools reduce the repetition that comes after the commitment to host — keeping it warm without wearing you out.",
 
   availability: {
     body: getScenarioAvailabilityBody("en"),

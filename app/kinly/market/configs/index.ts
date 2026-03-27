@@ -8,6 +8,7 @@ import { liveInLandlordConfig } from "./liveInLandlord";
 import { homestayOwnerConfig } from "./homestayOwner";
 import { headTenantConfig } from "./headTenant";
 import { flatAgreementsConfig } from "./flatAgreements";
+import { flatmateFitCheckConfig } from "./flatmateFitCheck";
 import { sgHouseOwnerHelperAlignmentConfig } from "./sgHouseOwnerHelperAlignment";
 import { familyConfig } from "./family";
 import { familyTeensConfig } from "./familyTeens";
@@ -25,6 +26,7 @@ export const scenarioConfigs: Record<string, ScenarioConfig> = {
   "homestay-owner": homestayOwnerConfig,
   "head-tenant": headTenantConfig,
   "flat-agreements": flatAgreementsConfig,
+  "flatmate-fit-check": flatmateFitCheckConfig,
   "sg-helper-alignment": sgHouseOwnerHelperAlignmentConfig,
   family: familyConfig,
   "family-teens": familyTeensConfig,
@@ -43,6 +45,7 @@ export const ENTRY_TO_SCENARIO: Record<string, keyof typeof scenarioConfigs> = {
   "homestay-owner": "homestay-owner",
   "head-tenant": "head-tenant",
   "flat-agreements": "flat-agreements",
+  "flatmate-fit-check": "flatmate-fit-check",
   "sg-helper-alignment": "sg-helper-alignment",
   family: "family",
   "family-teens": "family-teens",
@@ -60,4 +63,3 @@ export function getScenarioConfig(entry?: string | string[] | null): ScenarioCon
   if (!scenarioKey) return null;
   return scenarioConfigs[scenarioKey] ?? null;
 }
-
