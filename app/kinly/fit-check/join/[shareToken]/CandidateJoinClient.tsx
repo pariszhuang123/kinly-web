@@ -25,6 +25,8 @@ import {
 import {
   getFitCheckCityOptions,
   getFitCheckCountryOptions,
+  getFitCheckOtherCityOptions,
+  getFitCheckPriorityCityOptions,
   isValidFitCheckCity,
 } from "../../../../../lib/fitCheckLocations";
 import {
@@ -46,13 +48,11 @@ type Props = {
 
 type LoadState = "loading" | "ready" | "unavailable" | "error";
 type SubmitState = "idle" | "submitting" | "error";
-type CandidateStep = "questions" | "location";
 
 export default function CandidateJoinClient({ shareToken, detectedCountryCode = null }: Props) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [loadState, setLoadState] = useState<LoadState>("loading");
-  const [step, setStep] = useState<CandidateStep>("questions");
   const [displayName, setDisplayName] = useState("");
   const [answers, setAnswers] = useState<PartialFitCheckAnswers>({});
   const [entryPromptKey, setEntryPromptKey] = useState<string | null>(null);
@@ -68,9 +68,20 @@ export default function CandidateJoinClient({ shareToken, detectedCountryCode = 
   const normalizedCountry = useMemo(() => normalizeCountryCode(detectedCountryCode), [detectedCountryCode]);
   const countryOptions = useMemo(() => getFitCheckCountryOptions(uiLocale), [uiLocale]);
   const cityOptions = useMemo(() => getFitCheckCityOptions(countryCode, cityQuery), [countryCode, cityQuery]);
+  const priorityCityOptions = useMemo(
+    () => getFitCheckPriorityCityOptions(countryCode, cityQuery),
+    [countryCode, cityQuery],
+  );
+  const otherCityOptions = useMemo(() => getFitCheckOtherCityOptions(countryCode, cityQuery), [countryCode, cityQuery]);
   const answersPayload = useMemo(() => toFitCheckAnswersPayload(answers), [answers]);
   const hasValidLocation = Boolean(countryCode) && isValidFitCheckCity(countryCode, cityName);
   const canSubmit = Boolean(displayName.trim()) && Boolean(answersPayload) && hasValidLocation;
+  const [currentStep, setCurrentStep] = useState(0);
+  const totalSteps = FIT_CHECK_SCENARIOS.length + 1;
+  const isLocationStep = currentStep === FIT_CHECK_SCENARIOS.length;
+  const activeScenario = FIT_CHECK_SCENARIOS[Math.min(currentStep, FIT_CHECK_SCENARIOS.length - 1)];
+  const activeAnswer = activeScenario ? answers[activeScenario.id] : undefined;
+  const progressPercent = ((currentStep + 1) / totalSteps) * 100;
 
   useEffect(() => {
     let cancelled = false;
@@ -135,8 +146,8 @@ export default function CandidateJoinClient({ shareToken, detectedCountryCode = 
     }
   }
 
-  function handleContinueToLocation() {
-    if (!displayName.trim() || !answersPayload) {
+  function handleNextStep() {
+    if (!isLocationStep && (!activeScenario || typeof activeAnswer !== "number")) {
       setSubmitState("error");
       setError(mapFitCheckErrorMessage("FIT_CHECK_INVALID_INPUTS"));
       return;
@@ -144,7 +155,13 @@ export default function CandidateJoinClient({ shareToken, detectedCountryCode = 
 
     setError(null);
     setSubmitState("idle");
-    setStep("location");
+    setCurrentStep((current) => Math.min(current + 1, totalSteps - 1));
+  }
+
+  function handleBackStep() {
+    setError(null);
+    setSubmitState("idle");
+    setCurrentStep((current) => Math.max(current - 1, 0));
   }
 
   async function handleSubmit(event: React.FormEvent) {
@@ -238,47 +255,44 @@ export default function CandidateJoinClient({ shareToken, detectedCountryCode = 
             <KinlyCard variant="surface">
               <form onSubmit={handleSubmit}>
                 <KinlyStack direction="vertical" gap="l">
-                  {step === "questions" ? (
+                  {!isLocationStep ? (
                     <>
-                      <KinlyInput
-                        label={fitCheckCopy.candidate.displayNameLabel}
-                        hint={fitCheckCopy.candidate.displayNameHint}
-                        value={displayName}
-                        onChange={(event) => setDisplayName(event.target.value)}
-                        placeholder={fitCheckCopy.candidate.displayNamePlaceholder}
-                        required
-                      />
+                      {currentStep === 0 ? (
+                        <KinlyInput
+                          label={fitCheckCopy.candidate.displayNameLabel}
+                          hint={fitCheckCopy.candidate.displayNameHint}
+                          value={displayName}
+                          onChange={(event) => setDisplayName(event.target.value)}
+                          placeholder={fitCheckCopy.candidate.displayNamePlaceholder}
+                          required
+                        />
+                      ) : null}
 
-                      {FIT_CHECK_SCENARIOS.map((scenario) => {
-                        const activeAnswer = answers[scenario.id];
-                        return (
-                          <div key={scenario.id} className={styles.questionGrid}>
-                            <KinlyStack direction="vertical" gap="xs">
-                              <KinlyHeading level={2}>{scenario.prompt}</KinlyHeading>
-                              <div className={styles.optionGroup}>
-                                {scenario.options.map((option, index) => {
-                                  const optionIndex = index as 0 | 1 | 2;
-                                  const isActive = activeAnswer === optionIndex;
-                                  return (
-                                    <div
-                                      key={`${scenario.id}-${option}`}
-                                      className={`${styles.optionFrame} ${isActive ? styles.optionFrameActive : ""}`.trim()}
-                                    >
-                                      <KinlyButton
-                                        type="button"
-                                        variant={isActive ? "filled" : "outlined"}
-                                        onClick={() => setAnswer(scenario.id, optionIndex)}
-                                      >
-                                        {option}
-                                      </KinlyButton>
-                                    </div>
-                                  );
-                                })}
-                              </div>
-                            </KinlyStack>
+                      <div className={styles.questionGrid}>
+                        <KinlyStack direction="vertical" gap="xs">
+                          <KinlyHeading level={2}>{activeScenario.prompt}</KinlyHeading>
+                          <div className={styles.optionGroup}>
+                            {activeScenario.options.map((option, index) => {
+                              const optionIndex = index as 0 | 1 | 2;
+                              const isActive = activeAnswer === optionIndex;
+                              return (
+                                <div
+                                  key={`${activeScenario.id}-${option}`}
+                                  className={`${styles.optionFrame} ${isActive ? styles.optionFrameActive : ""}`.trim()}
+                                >
+                                  <KinlyButton
+                                    type="button"
+                                    variant={isActive ? "filled" : "outlined"}
+                                    onClick={() => setAnswer(activeScenario.id, optionIndex)}
+                                  >
+                                    {option}
+                                  </KinlyButton>
+                                </div>
+                              );
+                            })}
                           </div>
-                        );
-                      })}
+                        </KinlyStack>
+                      </div>
                     </>
                   ) : (
                     <KinlyStack direction="vertical" gap="m">
@@ -322,23 +336,71 @@ export default function CandidateJoinClient({ shareToken, detectedCountryCode = 
                           required
                         />
                         {cityOptions.length > 0 ? (
-                          <div className={styles.optionGroup} role="listbox" aria-label={fitCheckCopy.candidate.cityLabel}>
-                            {cityOptions.map((city) => (
-                              <div key={city} className={`${styles.optionFrame} ${cityName === city ? styles.optionFrameActive : ""}`.trim()}>
-                                <KinlyButton
-                                  type="button"
-                                  variant={cityName === city ? "filled" : "outlined"}
-                                  onClick={() => {
-                                    setCityName(city);
-                                    setCityQuery(city);
-                                  }}
-                                  aria-selected={cityName === city ? "true" : "false"}
+                          <>
+                            {priorityCityOptions.length > 0 ? (
+                              <div className={styles.cityGroup}>
+                                <KinlyText variant="bodyMedium" tone="muted">
+                                  {fitCheckCopy.candidate.priorityCitiesTitle}
+                                </KinlyText>
+                                <div
+                                  className={styles.optionGroup}
+                                  role="listbox"
+                                  aria-label={fitCheckCopy.candidate.priorityCitiesTitle}
                                 >
-                                  {city}
-                                </KinlyButton>
+                                  {priorityCityOptions.map((city) => (
+                                    <div
+                                      key={city}
+                                      className={`${styles.optionFrame} ${cityName === city ? styles.optionFrameActive : ""}`.trim()}
+                                    >
+                                      <KinlyButton
+                                        type="button"
+                                        variant={cityName === city ? "filled" : "outlined"}
+                                        onClick={() => {
+                                          setCityName(city);
+                                          setCityQuery(city);
+                                        }}
+                                        aria-selected={cityName === city ? "true" : "false"}
+                                      >
+                                        {city}
+                                      </KinlyButton>
+                                    </div>
+                                  ))}
+                                </div>
                               </div>
-                            ))}
-                          </div>
+                            ) : null}
+
+                            {otherCityOptions.length > 0 ? (
+                              <div className={styles.cityGroup}>
+                                <KinlyText variant="bodyMedium" tone="muted">
+                                  {fitCheckCopy.candidate.otherCitiesTitle}
+                                </KinlyText>
+                                <div
+                                  className={styles.optionGroup}
+                                  role="listbox"
+                                  aria-label={fitCheckCopy.candidate.otherCitiesTitle}
+                                >
+                                  {otherCityOptions.map((city) => (
+                                    <div
+                                      key={city}
+                                      className={`${styles.optionFrame} ${cityName === city ? styles.optionFrameActive : ""}`.trim()}
+                                    >
+                                      <KinlyButton
+                                        type="button"
+                                        variant={cityName === city ? "filled" : "outlined"}
+                                        onClick={() => {
+                                          setCityName(city);
+                                          setCityQuery(city);
+                                        }}
+                                        aria-selected={cityName === city ? "true" : "false"}
+                                      >
+                                        {city}
+                                      </KinlyButton>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            ) : null}
+                          </>
                         ) : (
                           <KinlyText variant="bodyMedium" tone="muted">
                             {fitCheckCopy.candidate.cityEmpty}
@@ -354,25 +416,50 @@ export default function CandidateJoinClient({ shareToken, detectedCountryCode = 
                     </KinlyText>
                   ) : null}
 
-                  {step === "questions" ? (
+                  <div className={styles.progressBlock}>
+                    <KinlyText variant="bodyMedium" tone="muted">
+                      {fitCheckCopy.candidate.progressLabel} {currentStep + 1} of {totalSteps}
+                    </KinlyText>
+                    <div className={styles.progressBar} aria-hidden="true">
+                      <div className={styles.progressFill} style={{ width: `${progressPercent}%` }} />
+                    </div>
+                  </div>
+
+                  <div className={styles.navigationRow}>
                     <KinlyButton
                       type="button"
-                      variant="filled"
-                      disabled={!displayName.trim() || !answersPayload}
-                      onClick={handleContinueToLocation}
+                      variant="outlined"
+                      disabled={currentStep === 0 || submitState === "submitting"}
+                      onClick={handleBackStep}
                     >
-                      {fitCheckCopy.candidate.continueToLocation}
+                      {fitCheckCopy.candidate.back}
                     </KinlyButton>
-                  ) : (
-                    <KinlyButton
-                      type="submit"
-                      variant="filled"
-                      isLoading={submitState === "submitting"}
-                      disabled={!canSubmit || submitState === "submitting"}
-                    >
-                      {fitCheckCopy.candidate.submit}
-                    </KinlyButton>
-                  )}
+                    {!isLocationStep ? (
+                      <KinlyButton
+                        type="button"
+                        variant="filled"
+                        disabled={
+                          (!displayName.trim() && currentStep === 0) ||
+                          typeof activeAnswer !== "number" ||
+                          submitState === "submitting"
+                        }
+                        onClick={handleNextStep}
+                      >
+                        {currentStep === FIT_CHECK_SCENARIOS.length - 1
+                          ? fitCheckCopy.candidate.continueToLocation
+                          : fitCheckCopy.candidate.next}
+                      </KinlyButton>
+                    ) : (
+                      <KinlyButton
+                        type="submit"
+                        variant="filled"
+                        isLoading={submitState === "submitting"}
+                        disabled={!canSubmit || submitState === "submitting"}
+                      >
+                        {fitCheckCopy.candidate.submit}
+                      </KinlyButton>
+                    )}
+                  </div>
                 </KinlyStack>
               </form>
             </KinlyCard>

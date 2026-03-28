@@ -112,8 +112,11 @@ test("owner flow creates a share link and shows app-gated review CTA", async () 
   await flushEffects();
 
   await clickByText(container, "Clean it straight away");
+  await clickByText(container, "Next");
   await clickByText(container, "Chill - TV or music");
+  await clickByText(container, "Next");
   await clickByText(container, "Roster or system");
+  await clickByText(container, "Next");
   await clickByText(container, "Wait a bit, then raise it");
 
   const form = container.querySelector("form");

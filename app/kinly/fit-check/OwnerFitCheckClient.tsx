@@ -58,12 +58,16 @@ export default function OwnerFitCheckClient({
   const [copied, setCopied] = useState(false);
   const [hasSavedDraft, setHasSavedDraft] = useState(() => Boolean(initialDraft));
   const [resumeInfo, setResumeInfo] = useState<ReturnType<typeof getOwnerDraftSession>>(() => initialDraft);
+  const [currentStep, setCurrentStep] = useState(0);
 
   const sessionId = useMemo(() => ensureSessionId(), []);
   const uiLocale = useMemo(() => detectUiLocale() ?? "en", []);
   const utmParams = useMemo(() => readUtmParams(searchParams), [searchParams]);
   const normalizedCountry = useMemo(() => normalizeCountryCode(detectedCountryCode), [detectedCountryCode]);
   const isComplete = Boolean(toFitCheckAnswersPayload(answers));
+  const activeScenario = FIT_CHECK_SCENARIOS[currentStep];
+  const activeAnswer = activeScenario ? answers[activeScenario.id] : undefined;
+  const progressPercent = ((currentStep + 1) / FIT_CHECK_SCENARIOS.length) * 100;
 
   useEffect(() => {
     if (!sessionId) return;
@@ -99,6 +103,24 @@ export default function OwnerFitCheckClient({
       ui_locale: uiLocale,
       client_event_id: buildClientEventId(),
     });
+  }
+
+  function handleNextStep() {
+    if (!activeScenario || typeof activeAnswer !== "number") {
+      setStatus("error");
+      setError(fitCheckCopy.owner.missingAnswers);
+      return;
+    }
+
+    setError(null);
+    setStatus("idle");
+    setCurrentStep((current) => Math.min(current + 1, FIT_CHECK_SCENARIOS.length - 1));
+  }
+
+  function handleBackStep() {
+    setError(null);
+    setStatus("idle");
+    setCurrentStep((current) => Math.max(current - 1, 0));
   }
 
   async function handleSubmit(event: React.FormEvent) {
@@ -210,37 +232,31 @@ export default function OwnerFitCheckClient({
             <KinlyCard variant="surface">
               <form onSubmit={handleSubmit}>
                 <KinlyStack direction="vertical" gap="l">
-                  {FIT_CHECK_SCENARIOS.map((scenario) => {
-                    const activeAnswer = answers[scenario.id];
-
-                    return (
-                      <div key={scenario.id} className={styles.questionGrid}>
-                        <KinlyStack direction="vertical" gap="xs">
-                          <KinlyHeading level={2}>{scenario.prompt}</KinlyHeading>
-                          <div className={styles.optionGroup}>
-                            {scenario.options.map((option, index) => {
-                              const optionIndex = index as 0 | 1 | 2;
-                              const isActive = activeAnswer === optionIndex;
-                              return (
-                                <div
-                                  key={`${scenario.id}-${option}`}
-                                  className={`${styles.optionFrame} ${isActive ? styles.optionFrameActive : ""}`.trim()}
-                                >
-                                  <KinlyButton
-                                    type="button"
-                                    variant={isActive ? "filled" : "outlined"}
-                                    onClick={() => setAnswer(scenario.id, optionIndex)}
-                                  >
-                                    {option}
-                                  </KinlyButton>
-                                </div>
-                              );
-                            })}
-                          </div>
-                        </KinlyStack>
+                  <div className={styles.questionGrid}>
+                    <KinlyStack direction="vertical" gap="xs">
+                      <KinlyHeading level={2}>{activeScenario.prompt}</KinlyHeading>
+                      <div className={styles.optionGroup}>
+                        {activeScenario.options.map((option, index) => {
+                          const optionIndex = index as 0 | 1 | 2;
+                          const isActive = activeAnswer === optionIndex;
+                          return (
+                            <div
+                              key={`${activeScenario.id}-${option}`}
+                              className={`${styles.optionFrame} ${isActive ? styles.optionFrameActive : ""}`.trim()}
+                            >
+                              <KinlyButton
+                                type="button"
+                                variant={isActive ? "filled" : "outlined"}
+                                onClick={() => setAnswer(activeScenario.id, optionIndex)}
+                              >
+                                {option}
+                              </KinlyButton>
+                            </div>
+                          );
+                        })}
                       </div>
-                    );
-                  })}
+                    </KinlyStack>
+                  </div>
 
                   {error ? (
                     <div className={styles.errorCard}>
@@ -252,14 +268,44 @@ export default function OwnerFitCheckClient({
                     </div>
                   ) : null}
 
-                  <KinlyButton
-                    type="submit"
-                    variant="filled"
-                    isLoading={status === "submitting"}
-                    disabled={!isComplete || status === "submitting"}
-                  >
-                    {hasSavedDraft ? fitCheckCopy.owner.update : fitCheckCopy.owner.submit}
-                  </KinlyButton>
+                  <div className={styles.progressBlock}>
+                    <KinlyText variant="bodyMedium" tone="muted">
+                      {fitCheckCopy.owner.progressLabel} {currentStep + 1} of {FIT_CHECK_SCENARIOS.length}
+                    </KinlyText>
+                    <div className={styles.progressBar} aria-hidden="true">
+                      <div className={styles.progressFill} style={{ width: `${progressPercent}%` }} />
+                    </div>
+                  </div>
+
+                  <div className={styles.navigationRow}>
+                    <KinlyButton
+                      type="button"
+                      variant="outlined"
+                      disabled={currentStep === 0 || status === "submitting"}
+                      onClick={handleBackStep}
+                    >
+                      {fitCheckCopy.owner.back}
+                    </KinlyButton>
+                    {currentStep < FIT_CHECK_SCENARIOS.length - 1 ? (
+                      <KinlyButton
+                        type="button"
+                        variant="filled"
+                        disabled={typeof activeAnswer !== "number" || status === "submitting"}
+                        onClick={handleNextStep}
+                      >
+                        {fitCheckCopy.owner.next}
+                      </KinlyButton>
+                    ) : (
+                      <KinlyButton
+                        type="submit"
+                        variant="filled"
+                        isLoading={status === "submitting"}
+                        disabled={!isComplete || status === "submitting"}
+                      >
+                        {hasSavedDraft ? fitCheckCopy.owner.update : fitCheckCopy.owner.submit}
+                      </KinlyButton>
+                    )}
+                  </div>
                 </KinlyStack>
               </form>
             </KinlyCard>

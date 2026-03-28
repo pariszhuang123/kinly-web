@@ -3,6 +3,8 @@ import {
   getFitCheckCityOptions,
   getFitCheckCountryOptions,
   getFitCheckLocationLabel,
+  getFitCheckOtherCityOptions,
+  getFitCheckPriorityCityOptions,
   isValidFitCheckCity,
 } from "./fitCheckLocations";
 
@@ -14,9 +16,16 @@ describe("fitCheckLocations", () => {
   });
 
   test("filters city options by country and query", () => {
-    expect(getFitCheckCityOptions("NZ")).toContain("Auckland");
+    expect(getFitCheckCityOptions("NZ").slice(0, 3)).toEqual(["Auckland", "Christchurch", "Nelson"]);
     expect(getFitCheckCityOptions("NZ", "well")).toEqual(["Wellington"]);
     expect(getFitCheckCityOptions("FR")).toEqual([]);
+  });
+
+  test("splits priority cities from other cities", () => {
+    expect(getFitCheckPriorityCityOptions("NZ")).toEqual(["Auckland", "Christchurch", "Nelson"]);
+    expect(getFitCheckOtherCityOptions("NZ")).toEqual(["Wellington", "Hamilton", "Dunedin", "Tauranga"]);
+    expect(getFitCheckPriorityCityOptions("NZ", "auk")).toEqual(["Auckland"]);
+    expect(getFitCheckOtherCityOptions("NZ", "auk")).toEqual([]);
   });
 
   test("validates and formats location labels across fallback cases", () => {

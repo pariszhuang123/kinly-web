@@ -156,8 +156,11 @@ test("candidate flow submits and redirects to personalized result page", async (
   await flushEffects();
 
   await clickByText(container, "Clean it straight away");
+  await clickByText(container, "Next");
   await clickByText(container, "Quiet, early night");
+  await clickByText(container, "Next");
   await clickByText(container, "Roster or system");
+  await clickByText(container, "Next");
   await clickByText(container, "Bring it up early");
   await clickByText(container, "Continue to location");
   await clickByText(container, "Auckland");
