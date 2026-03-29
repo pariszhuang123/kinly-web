@@ -23,6 +23,8 @@ export type FitCheckDraftSession = {
   claimUrl: string | null;
   answers: FitCheckAnswers;
   summaryLabels: string[];
+  countryCode?: string;
+  cityName?: string;
 };
 
 export type FitCheckErrorCode =

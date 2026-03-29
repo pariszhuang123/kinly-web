@@ -78,6 +78,22 @@
   gap: var(--spacing-m, 12px);
 }
 
+.previewList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-s, 10px);
+}
+
+.previewRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-xs, 8px);
+  padding: var(--spacing-m, 12px);
+  border-radius: var(--radius-md, 12px);
+  background: color-mix(in srgb, var(--color-primary) 5%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 10%, transparent);
+}
+
 .matchRow {
   display: grid;
   grid-template-columns: 1fr;
@@ -266,6 +282,11 @@
   }
 
   .questionItemRow {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+
+  .previewRow {
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
   }

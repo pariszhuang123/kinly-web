@@ -115,6 +115,7 @@ test("owner flow creates a share link and shows app-gated review CTA", async () 
   await clickByText(container, "Chill - TV or music");
   await clickByText(container, "Roster or system");
   await clickByText(container, "Wait a bit, then raise it");
+  await clickByText(container, "Auckland");
 
   const form = container.querySelector("form");
   expect(form).not.toBeNull();
@@ -124,11 +125,14 @@ test("owner flow creates a share link and shows app-gated review CTA", async () 
   await flushEffects();
 
   expect(container.textContent || "").toContain("Share this applicant link");
-  expect(container.textContent || "").toContain("Match against real applicants");
+  expect(container.textContent || "").toContain("Track real applicants in Kinly");
+  expect(container.textContent || "").not.toContain("Draft found on this browser");
 
   const storedDraft = window.localStorage.getItem("kinly.fit_check.owner_draft") || "";
   expect(storedDraft).toContain("token123");
   expect(storedDraft).toContain("draft-session-1");
+  expect(storedDraft).toContain("\"countryCode\":\"NZ\"");
+  expect(storedDraft).toContain("\"cityName\":\"Auckland\"");
 
   unmount();
 });
