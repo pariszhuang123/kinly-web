@@ -68,6 +68,7 @@ export default function OwnerFitCheckClient({
   const [cityQuery, setCityQuery] = useState(() => initialDraft?.cityName ?? "");
   const [cityName, setCityName] = useState(() => initialDraft?.cityName ?? "");
   const [showComparisonPreview, setShowComparisonPreview] = useState(false);
+  const [showInterviewQuestions, setShowInterviewQuestions] = useState(false);
   const [currentStep, setCurrentStep] = useState(() =>
     initialDraft ? FIT_CHECK_SCENARIOS.length : 0,
   );
@@ -269,6 +270,25 @@ export default function OwnerFitCheckClient({
             </KinlyStack>
           </section>
 
+          <section className={styles.section}>
+            <KinlyCard variant="surfaceContainer">
+              <KinlyStack direction="vertical" gap="s">
+                <KinlyHeading level={2}>{fitCheckCopy.owner.valueTitle}</KinlyHeading>
+                <ul className={styles.questionList}>
+                  <li>
+                    <KinlyText variant="bodySmall">{fitCheckCopy.owner.valuePoint1}</KinlyText>
+                  </li>
+                  <li>
+                    <KinlyText variant="bodySmall">{fitCheckCopy.owner.valuePoint2}</KinlyText>
+                  </li>
+                  <li>
+                    <KinlyText variant="bodySmall">{fitCheckCopy.owner.valuePoint3}</KinlyText>
+                  </li>
+                </ul>
+              </KinlyStack>
+            </KinlyCard>
+          </section>
+
           {resumeInfo ? (
             null
           ) : null}
@@ -361,44 +381,58 @@ export default function OwnerFitCheckClient({
                         <KinlyText variant="bodyMedium" tone="muted">
                           {fitCheckCopy.owner.questionsSubtitle}
                         </KinlyText>
-                        <KinlyText variant="bodySmall" tone="muted">
-                          {fitCheckCopy.owner.questionsHelper}
-                        </KinlyText>
-                        {previewResults.filter((r) => r.match !== "match").map((result) => {
-                          const questions = result.match === "clash"
-                            ? result.interviewQuestions
-                            : result.interviewQuestions.slice(0, 1);
-                          return (
-                            <KinlyStack key={result.scenarioId} direction="vertical" gap="xs">
-                              <KinlyText variant="bodyMedium">{result.prompt}</KinlyText>
-                              <ul className={styles.questionList}>
-                                {questions.map((q, index) => {
-                                  const questionKey = `${result.scenarioId}:${index}:${q}`;
-                                  const isAsked = Boolean(askedQuestions[questionKey]);
-                                  return (
-                                  <li key={questionKey} className={styles.questionItem}>
-                                    <div className={styles.questionItemRow}>
-                                      <div className={isAsked ? styles.questionTextAsked : undefined}>
-                                        <KinlyText variant="bodySmall" tone={isAsked ? "muted" : undefined}>
-                                          {q}
-                                        </KinlyText>
-                                      </div>
-                                      <KinlyButton
-                                        type="button"
-                                        variant={isAsked ? "filled" : "outlined"}
-                                        aria-pressed={isAsked}
-                                        onClick={() => toggleAskedQuestion(questionKey)}
-                                      >
-                                        {isAsked ? fitCheckCopy.owner.questionAsked : fitCheckCopy.owner.questionMarkAsked}
-                                      </KinlyButton>
-                                    </div>
-                                  </li>
-                                  );
-                                })}
-                              </ul>
-                            </KinlyStack>
-                          );
-                        })}
+                        <KinlyButton
+                          type="button"
+                          variant="outlined"
+                          aria-pressed={showInterviewQuestions}
+                          onClick={() => setShowInterviewQuestions((current) => !current)}
+                        >
+                          {showInterviewQuestions
+                            ? fitCheckCopy.owner.questionsPreviewClose
+                            : fitCheckCopy.owner.questionsPreviewOpen}
+                        </KinlyButton>
+                        {showInterviewQuestions ? (
+                          <>
+                            <KinlyText variant="bodySmall" tone="muted">
+                              {fitCheckCopy.owner.questionsHelper}
+                            </KinlyText>
+                            {previewResults.filter((r) => r.match !== "match").map((result) => {
+                              const questions = result.match === "clash"
+                                ? result.interviewQuestions
+                                : result.interviewQuestions.slice(0, 1);
+                              return (
+                                <KinlyStack key={result.scenarioId} direction="vertical" gap="xs">
+                                  <KinlyText variant="bodyMedium">{result.prompt}</KinlyText>
+                                  <ul className={styles.questionList}>
+                                    {questions.map((q, index) => {
+                                      const questionKey = `${result.scenarioId}:${index}:${q}`;
+                                      const isAsked = Boolean(askedQuestions[questionKey]);
+                                      return (
+                                      <li key={questionKey} className={styles.questionItem}>
+                                        <div className={styles.questionItemRow}>
+                                          <div className={isAsked ? styles.questionTextAsked : undefined}>
+                                            <KinlyText variant="bodySmall" tone={isAsked ? "muted" : undefined}>
+                                              {q}
+                                            </KinlyText>
+                                          </div>
+                                          <KinlyButton
+                                            type="button"
+                                            variant={isAsked ? "filled" : "outlined"}
+                                            aria-pressed={isAsked}
+                                            onClick={() => toggleAskedQuestion(questionKey)}
+                                          >
+                                            {isAsked ? fitCheckCopy.owner.questionAsked : fitCheckCopy.owner.questionMarkAsked}
+                                          </KinlyButton>
+                                        </div>
+                                      </li>
+                                      );
+                                    })}
+                                  </ul>
+                                </KinlyStack>
+                              );
+                            })}
+                          </>
+                        ) : null}
                       </KinlyStack>
                     </KinlyCard>
                   </section>
