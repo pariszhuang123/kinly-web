@@ -149,6 +149,102 @@ export const FIT_CHECK_SCENARIOS: FitCheckScenarioDefinition[] = [
   },
 ];
 
+export type FitCheckMatchResult = {
+  scenarioId: FitCheckScenarioId;
+  prompt: string;
+  ownerLabel: string;
+  applicantLabel: string;
+  match: "match" | "close" | "clash";
+  interviewQuestions: string[];
+};
+
+const SCENARIO_INTERVIEW_QUESTIONS: Record<FitCheckScenarioId, string[]> = {
+  fit_cleanliness: [
+    "What does 'clean enough' look like to you in a shared kitchen?",
+    "Would you be happy with a cleaning roster, or do you prefer people just handle it?",
+    "If dishes sat in the sink for two days, what would you do first — clean them or say something?",
+  ],
+  fit_rhythm: [
+    "How often do you have friends or a partner stay over during the week?",
+    "Are you okay with noise after 10 pm on a weeknight?",
+    "Would you want a heads-up before someone has guests over?",
+  ],
+  fit_chores: [
+    "Who takes out the bins and buys shared supplies like toilet paper — is that something you'd split?",
+    "Have you shared chores before? What worked and what didn't?",
+    "If a housemate wasn't pulling their weight, how would you handle it?",
+  ],
+  fit_conflict: [
+    "Can you think of a time a living situation got awkward — what happened and how did you handle it?",
+    "If something small kept bugging you, how long before you'd bring it up?",
+    "Would you rather sort things out face to face, or over text?",
+  ],
+};
+
+export type BonusInterviewQuestion = {
+  category: string;
+  questions: string[];
+};
+
+export const BONUS_INTERVIEW_QUESTIONS: BonusInterviewQuestion[] = [
+  {
+    category: "Money and bills",
+    questions: [
+      "Are you comfortable paying bond and rent in advance before moving in?",
+      "How do you prefer to split bills — evenly, by usage, or another way?",
+      "Have you ever been late on rent or bills? What happened?",
+    ],
+  },
+  {
+    category: "Guests and partners",
+    questions: [
+      "How often would your partner or friends stay over?",
+      "Would you check with the house before having someone stay multiple nights?",
+      "Have you ever had a situation where guests became an issue in a flat?",
+    ],
+  },
+  {
+    category: "Honesty and deal-breakers",
+    questions: [
+      "Is there anything about how you live that's easier to mention now than discover later?",
+      "Do you smoke, vape, or use anything you'd want the house to know about?",
+      "Do you have any allergies or dietary needs that could affect shared spaces?",
+    ],
+  },
+  {
+    category: "Long-term fit",
+    questions: [
+      "How long are you planning to stay?",
+      "What does a good flatting situation look like for you?",
+      "Have you ever left a flat early? What was the reason?",
+    ],
+  },
+];
+
+export function simulateMatchPreview(ownerAnswers: FitCheckAnswers): FitCheckMatchResult[] {
+  const simulatedApplicant: FitCheckAnswers = {
+    fit_cleanliness: 0,
+    fit_rhythm: 0,
+    fit_chores: 0,
+    fit_conflict: 0,
+  };
+
+  return FIT_CHECK_SCENARIOS.map((scenario) => {
+    const ownerVal = ownerAnswers[scenario.id];
+    const applicantVal = simulatedApplicant[scenario.id];
+    const diff = Math.abs(ownerVal - applicantVal);
+
+    return {
+      scenarioId: scenario.id,
+      prompt: scenario.prompt,
+      ownerLabel: scenario.options[ownerVal],
+      applicantLabel: scenario.options[applicantVal],
+      match: diff === 0 ? "match" : diff === 1 ? "close" : "clash",
+      interviewQuestions: SCENARIO_INTERVIEW_QUESTIONS[scenario.id],
+    };
+  });
+}
+
 const OWNER_DRAFT_STORAGE_KEY = "kinly.fit_check.owner_draft";
 const CANDIDATE_RESULT_STORAGE_KEY = "kinly.fit_check.candidate_results";
 const APP_STORE_URL =
