@@ -44,6 +44,7 @@ type Props = {
 };
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
+const ASKED_QUESTIONS_STORAGE_KEY = "kinly.fit_check.owner_asked_questions";
 
 export default function OwnerFitCheckClient({
   detectedCountryCode = null,
@@ -57,13 +58,30 @@ export default function OwnerFitCheckClient({
   const [copied, setCopied] = useState(false);
   const [hasSavedDraft, setHasSavedDraft] = useState(() => Boolean(initialDraft));
   const [resumeInfo, setResumeInfo] = useState<ReturnType<typeof getOwnerDraftSession>>(() => initialDraft);
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(() =>
+    initialDraft ? FIT_CHECK_SCENARIOS.length - 1 : 0,
+  );
+  const [askedQuestions, setAskedQuestions] = useState<Record<string, boolean>>(() => {
+    if (typeof window === "undefined") return {};
+    try {
+      const raw = window.sessionStorage.getItem(ASKED_QUESTIONS_STORAGE_KEY);
+      if (!raw) return {};
+      return JSON.parse(raw) as Record<string, boolean>;
+    } catch {
+      return {};
+    }
+  });
 
   const sessionId = useMemo(() => ensureSessionId(), []);
   const uiLocale = useMemo(() => detectUiLocale() ?? "en", []);
   const utmParams = useMemo(() => readUtmParams(searchParams), [searchParams]);
   const normalizedCountry = useMemo(() => normalizeCountryCode(detectedCountryCode), [detectedCountryCode]);
-  const isComplete = Boolean(toFitCheckAnswersPayload(answers));
+  const completedAnswers = useMemo(() => toFitCheckAnswersPayload(answers), [answers]);
+  const previewResults = useMemo(
+    () => (completedAnswers ? simulateMatchPreview(completedAnswers) : []),
+    [completedAnswers],
+  );
+  const isComplete = Boolean(completedAnswers);
   const activeScenario = FIT_CHECK_SCENARIOS[currentStep];
   const activeAnswer = activeScenario ? answers[activeScenario.id] : undefined;
   const progressPercent = ((currentStep + 1) / FIT_CHECK_SCENARIOS.length) * 100;
@@ -84,6 +102,15 @@ export default function OwnerFitCheckClient({
       ui_locale: uiLocale,
     });
   }, [normalizedCountry, sessionId, uiLocale, utmParams.utm_campaign, utmParams.utm_medium, utmParams.utm_source]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      window.sessionStorage.setItem(ASKED_QUESTIONS_STORAGE_KEY, JSON.stringify(askedQuestions));
+    } catch {
+      // ignore storage failures
+    }
+  }, [askedQuestions]);
 
   function setAnswer(scenarioId: (typeof FIT_CHECK_SCENARIOS)[number]["id"], optionIndex: 0 | 1 | 2) {
     setAnswers((current) => ({ ...current, [scenarioId]: optionIndex }));
@@ -179,6 +206,13 @@ export default function OwnerFitCheckClient({
     window.setTimeout(() => setCopied(false), 2000);
   }
 
+  function toggleAskedQuestion(questionKey: string) {
+    setAskedQuestions((current) => ({
+      ...current,
+      [questionKey]: !current[questionKey],
+    }));
+  }
+
   return (
     <main className={styles.page}>
       <KinlyShell as="section">
@@ -242,7 +276,7 @@ export default function OwnerFitCheckClient({
                 </section>
               ) : null}
 
-              {toFitCheckAnswersPayload(answers) ? (
+              {completedAnswers ? (
                 <>
                   <section className={styles.section}>
                     <KinlyCard variant="surfaceContainer">
@@ -252,7 +286,7 @@ export default function OwnerFitCheckClient({
                           {fitCheckCopy.owner.summarySubtitle}
                         </KinlyText>
                         <div className={styles.summaryList}>
-                          {simulateMatchPreview(toFitCheckAnswersPayload(answers)!).map((result) => {
+                          {previewResults.map((result) => {
                             const badgeClass =
                               result.match === "match" ? styles.badgeMatch :
                               result.match === "close" ? styles.badgeClose :
@@ -289,18 +323,44 @@ export default function OwnerFitCheckClient({
                         <KinlyText variant="bodyMedium" tone="muted">
                           {fitCheckCopy.owner.questionsSubtitle}
                         </KinlyText>
-                        {simulateMatchPreview(toFitCheckAnswersPayload(answers)!).filter((r) => r.match !== "match").map((result) => (
-                          <KinlyStack key={result.scenarioId} direction="vertical" gap="xs">
-                            <KinlyText variant="bodyMedium">{result.prompt}</KinlyText>
-                            <ul className={styles.questionList}>
-                              {result.interviewQuestions.map((q) => (
-                                <li key={q}>
-                                  <KinlyText variant="bodySmall">{q}</KinlyText>
-                                </li>
-                              ))}
-                            </ul>
-                          </KinlyStack>
-                        ))}
+                        <KinlyText variant="bodySmall" tone="muted">
+                          {fitCheckCopy.owner.questionsHelper}
+                        </KinlyText>
+                        {previewResults.filter((r) => r.match !== "match").map((result) => {
+                          const questions = result.match === "clash"
+                            ? result.interviewQuestions
+                            : result.interviewQuestions.slice(0, 1);
+                          return (
+                            <KinlyStack key={result.scenarioId} direction="vertical" gap="xs">
+                              <KinlyText variant="bodyMedium">{result.prompt}</KinlyText>
+                              <ul className={styles.questionList}>
+                                {questions.map((q, index) => {
+                                  const questionKey = `${result.scenarioId}:${index}:${q}`;
+                                  const isAsked = Boolean(askedQuestions[questionKey]);
+                                  return (
+                                  <li key={questionKey} className={styles.questionItem}>
+                                    <div className={styles.questionItemRow}>
+                                      <div className={isAsked ? styles.questionTextAsked : undefined}>
+                                        <KinlyText variant="bodySmall" tone={isAsked ? "muted" : undefined}>
+                                          {q}
+                                        </KinlyText>
+                                      </div>
+                                      <KinlyButton
+                                        type="button"
+                                        variant={isAsked ? "filled" : "outlined"}
+                                        aria-pressed={isAsked}
+                                        onClick={() => toggleAskedQuestion(questionKey)}
+                                      >
+                                        {isAsked ? fitCheckCopy.owner.questionAsked : fitCheckCopy.owner.questionMarkAsked}
+                                      </KinlyButton>
+                                    </div>
+                                  </li>
+                                  );
+                                })}
+                              </ul>
+                            </KinlyStack>
+                          );
+                        })}
                       </KinlyStack>
                     </KinlyCard>
                   </section>

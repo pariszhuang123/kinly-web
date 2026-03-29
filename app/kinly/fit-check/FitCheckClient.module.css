@@ -130,6 +130,23 @@
   color: var(--color-on-surface);
 }
 
+.questionItem {
+  list-style: disc;
+}
+
+.questionItemRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-s, 10px);
+  align-items: start;
+}
+
+.questionTextAsked {
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+  text-decoration-color: color-mix(in srgb, var(--color-on-surface) 50%, transparent);
+}
+
 .pill {
   padding: var(--spacing-s, 10px) var(--spacing-m, 12px);
   border-radius: 999px;
@@ -246,5 +263,10 @@
   .shareRow {
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: end;
+  }
+
+  .questionItemRow {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
   }
 }

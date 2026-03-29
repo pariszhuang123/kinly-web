@@ -172,7 +172,7 @@ const SCENARIO_INTERVIEW_QUESTIONS: Record<FitCheckScenarioId, string[]> = {
   fit_chores: [
     "Who takes out the bins and buys shared supplies like toilet paper — is that something you'd split?",
     "Have you shared chores before? What worked and what didn't?",
-    "If a housemate wasn't pulling their weight, how would you handle it?",
+    "What would you do if you felt like shared chores weren't being split fairly?",
   ],
   fit_conflict: [
     "Can you think of a time a living situation got awkward — what happened and how did you handle it?",
