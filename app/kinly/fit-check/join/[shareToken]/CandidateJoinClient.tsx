@@ -343,7 +343,7 @@ export default function CandidateJoinClient({ shareToken, detectedCountryCode = 
                                   {fitCheckCopy.candidate.priorityCitiesTitle}
                                 </KinlyText>
                                 <div
-                                  className={styles.optionGroup}
+                                  className={`${styles.optionGroup} ${styles.cityOptions}`}
                                   role="listbox"
                                   aria-label={fitCheckCopy.candidate.priorityCitiesTitle}
                                 >
@@ -375,7 +375,7 @@ export default function CandidateJoinClient({ shareToken, detectedCountryCode = 
                                   {fitCheckCopy.candidate.otherCitiesTitle}
                                 </KinlyText>
                                 <div
-                                  className={styles.optionGroup}
+                                  className={`${styles.optionGroup} ${styles.cityOptions}`}
                                   role="listbox"
                                   aria-label={fitCheckCopy.candidate.otherCitiesTitle}
                                 >

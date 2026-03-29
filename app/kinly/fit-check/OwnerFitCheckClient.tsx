@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
@@ -67,6 +67,7 @@ export default function OwnerFitCheckClient({
   const [countryCode, setCountryCode] = useState(() => initialDraft?.countryCode ?? normalizeCountryCode(detectedCountryCode) ?? "");
   const [cityQuery, setCityQuery] = useState(() => initialDraft?.cityName ?? "");
   const [cityName, setCityName] = useState(() => initialDraft?.cityName ?? "");
+  const [showValueFraming, setShowValueFraming] = useState(false);
   const [showComparisonPreview, setShowComparisonPreview] = useState(false);
   const [showInterviewQuestions, setShowInterviewQuestions] = useState(false);
   const [currentStep, setCurrentStep] = useState(() =>
@@ -260,31 +261,42 @@ export default function OwnerFitCheckClient({
               <KinlyText variant="bodyMedium" tone="muted">
                 {fitCheckCopy.owner.subtitle}
               </KinlyText>
-              <KinlyText variant="bodyMedium">{fitCheckCopy.owner.intro}</KinlyText>
-              <KinlyText variant="bodySmall" tone="muted">
-                {fitCheckCopy.owner.statText} —{" "}
-                <KinlyLink href={fitCheckCopy.owner.statUrl} external>
-                  {fitCheckCopy.owner.statSource}
-                </KinlyLink>
-              </KinlyText>
             </KinlyStack>
           </section>
 
           <section className={styles.section}>
             <KinlyCard variant="surfaceContainer">
               <KinlyStack direction="vertical" gap="s">
-                <KinlyHeading level={2}>{fitCheckCopy.owner.valueTitle}</KinlyHeading>
-                <ul className={styles.questionList}>
-                  <li>
-                    <KinlyText variant="bodySmall">{fitCheckCopy.owner.valuePoint1}</KinlyText>
-                  </li>
-                  <li>
-                    <KinlyText variant="bodySmall">{fitCheckCopy.owner.valuePoint2}</KinlyText>
-                  </li>
-                  <li>
-                    <KinlyText variant="bodySmall">{fitCheckCopy.owner.valuePoint3}</KinlyText>
-                  </li>
-                </ul>
+                <KinlyButton
+                  type="button"
+                  variant="outlined"
+                  aria-pressed={showValueFraming}
+                  onClick={() => setShowValueFraming((current) => !current)}
+                >
+                  {showValueFraming ? fitCheckCopy.owner.valueClose : fitCheckCopy.owner.valueOpen}
+                </KinlyButton>
+                {showValueFraming ? (
+                  <>
+                    <KinlyHeading level={2}>{fitCheckCopy.owner.valueTitle}</KinlyHeading>
+                    <ul className={styles.questionList}>
+                      <li>
+                        <KinlyText variant="bodySmall">{fitCheckCopy.owner.valuePoint1}</KinlyText>
+                      </li>
+                      <li>
+                        <KinlyText variant="bodySmall">{fitCheckCopy.owner.valuePoint2}</KinlyText>
+                      </li>
+                      <li>
+                        <KinlyText variant="bodySmall">{fitCheckCopy.owner.valuePoint3}</KinlyText>
+                      </li>
+                    </ul>
+                    <KinlyText variant="bodySmall" tone="muted">
+                      {fitCheckCopy.owner.statText} —{" "}
+                      <KinlyLink href={fitCheckCopy.owner.statUrl} external>
+                        {fitCheckCopy.owner.statSource}
+                      </KinlyLink>
+                    </KinlyText>
+                  </>
+                ) : null}
               </KinlyStack>
             </KinlyCard>
           </section>
@@ -325,55 +337,39 @@ export default function OwnerFitCheckClient({
                 </section>
               ) : null}
 
+              <section className={styles.section}>
+                <KinlyCard variant="surfaceContainerHigh">
+                  <KinlyStack direction="vertical" gap="m">
+                    <div className={styles.signInLogo}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src="/logo-kinly.svg" alt="Kinly logo" className={styles.logo} />
+                    </div>
+                    <KinlyHeading level={2}>{fitCheckCopy.owner.signInTitle}</KinlyHeading>
+                    <KinlyText variant="bodyMedium" tone="muted">
+                      {fitCheckCopy.owner.signInBody}
+                    </KinlyText>
+                    <KinlyStack direction="vertical" gap="s">
+                      <KinlyButton
+                        type="button"
+                        variant="outlined"
+                        onClick={() => {/* TODO: Google sign-in */}}
+                      >
+                        {fitCheckCopy.owner.signInGoogle}
+                      </KinlyButton>
+                      <KinlyButton
+                        type="button"
+                        variant="outlined"
+                        onClick={() => {/* TODO: Apple sign-in */}}
+                      >
+                        {fitCheckCopy.owner.signInApple}
+                      </KinlyButton>
+                    </KinlyStack>
+                  </KinlyStack>
+                </KinlyCard>
+              </section>
+
               {completedAnswers ? (
                 <>
-                  <section className={styles.section}>
-                    <KinlyCard variant="surfaceContainer">
-                      <KinlyStack direction="vertical" gap="m">
-                        <KinlyHeading level={2}>{fitCheckCopy.owner.comparisonPreviewTitle}</KinlyHeading>
-                        <KinlyText variant="bodyMedium" tone="muted">
-                          {fitCheckCopy.owner.comparisonPreviewBody}
-                        </KinlyText>
-                        <KinlyButton
-                          type="button"
-                          variant="outlined"
-                          aria-pressed={showComparisonPreview}
-                          onClick={() => setShowComparisonPreview((current) => !current)}
-                        >
-                          {showComparisonPreview
-                            ? fitCheckCopy.owner.comparisonPreviewClose
-                            : fitCheckCopy.owner.comparisonPreviewOpen}
-                        </KinlyButton>
-                        {showComparisonPreview ? (
-                          <KinlyStack direction="vertical" gap="s">
-                            <KinlyText variant="bodySmall" tone="muted">
-                              {fitCheckCopy.owner.comparisonPreviewHint}
-                            </KinlyText>
-                            <div className={styles.previewList}>
-                              {previewResults.map((result) => {
-                                const previewLabel =
-                                  result.match === "match" ? fitCheckCopy.owner.comparisonAligned :
-                                  result.match === "close" ? fitCheckCopy.owner.comparisonAskMore :
-                                  fitCheckCopy.owner.comparisonMismatch;
-                                const previewClass =
-                                  result.match === "match" ? styles.badgeMatch :
-                                  result.match === "close" ? styles.badgeClose :
-                                  styles.badgeClash;
-
-                                return (
-                                  <div key={result.scenarioId} className={styles.previewRow}>
-                                    <KinlyText variant="bodyMedium">{result.prompt}</KinlyText>
-                                    <span className={`${styles.matchBadge} ${previewClass}`}>{previewLabel}</span>
-                                  </div>
-                                );
-                              })}
-                            </div>
-                          </KinlyStack>
-                        ) : null}
-                      </KinlyStack>
-                    </KinlyCard>
-                  </section>
-
                   <section className={styles.section}>
                     <KinlyCard variant="surfaceContainer">
                       <KinlyStack direction="vertical" gap="m">
@@ -436,39 +432,55 @@ export default function OwnerFitCheckClient({
                       </KinlyStack>
                     </KinlyCard>
                   </section>
+
+                  <section className={styles.section}>
+                    <KinlyCard variant="surfaceContainer">
+                      <KinlyStack direction="vertical" gap="m">
+                        <KinlyHeading level={2}>{fitCheckCopy.owner.comparisonPreviewTitle}</KinlyHeading>
+                        <KinlyText variant="bodyMedium" tone="muted">
+                          {fitCheckCopy.owner.comparisonPreviewBody}
+                        </KinlyText>
+                        <KinlyButton
+                          type="button"
+                          variant="outlined"
+                          aria-pressed={showComparisonPreview}
+                          onClick={() => setShowComparisonPreview((current) => !current)}
+                        >
+                          {showComparisonPreview
+                            ? fitCheckCopy.owner.comparisonPreviewClose
+                            : fitCheckCopy.owner.comparisonPreviewOpen}
+                        </KinlyButton>
+                        {showComparisonPreview ? (
+                          <KinlyStack direction="vertical" gap="s">
+                            <KinlyText variant="bodySmall" tone="muted">
+                              {fitCheckCopy.owner.comparisonPreviewHint}
+                            </KinlyText>
+                            <div className={styles.previewList}>
+                              {previewResults.map((result) => {
+                                const previewLabel =
+                                  result.match === "match" ? fitCheckCopy.owner.comparisonAligned :
+                                  result.match === "close" ? fitCheckCopy.owner.comparisonAskMore :
+                                  fitCheckCopy.owner.comparisonMismatch;
+                                const previewClass =
+                                  result.match === "match" ? styles.badgeMatch :
+                                  result.match === "close" ? styles.badgeClose :
+                                  styles.badgeClash;
+
+                                return (
+                                  <div key={result.scenarioId} className={styles.previewRow}>
+                                    <KinlyText variant="bodyMedium">{result.prompt}</KinlyText>
+                                    <span className={`${styles.matchBadge} ${previewClass}`}>{previewLabel}</span>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          </KinlyStack>
+                        ) : null}
+                      </KinlyStack>
+                    </KinlyCard>
+                  </section>
                 </>
               ) : null}
-
-              <section className={styles.section}>
-                <KinlyCard variant="surfaceContainerHigh">
-                  <KinlyStack direction="vertical" gap="m">
-                    <div className={styles.signInLogo}>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src="/logo-kinly.svg" alt="Kinly logo" className={styles.logo} />
-                    </div>
-                    <KinlyHeading level={2}>{fitCheckCopy.owner.signInTitle}</KinlyHeading>
-                    <KinlyText variant="bodyMedium" tone="muted">
-                      {fitCheckCopy.owner.signInBody}
-                    </KinlyText>
-                    <KinlyStack direction="vertical" gap="s">
-                      <KinlyButton
-                        type="button"
-                        variant="outlined"
-                        onClick={() => {/* TODO: Google sign-in */}}
-                      >
-                        {fitCheckCopy.owner.signInGoogle}
-                      </KinlyButton>
-                      <KinlyButton
-                        type="button"
-                        variant="outlined"
-                        onClick={() => {/* TODO: Apple sign-in */}}
-                      >
-                        {fitCheckCopy.owner.signInApple}
-                      </KinlyButton>
-                    </KinlyStack>
-                  </KinlyStack>
-                </KinlyCard>
-              </section>
             </>
           ) : (
             <section className={styles.section}>
@@ -554,7 +566,7 @@ export default function OwnerFitCheckClient({
                                   <KinlyText variant="bodyMedium" tone="muted">
                                     {fitCheckCopy.owner.priorityCitiesTitle}
                                   </KinlyText>
-                                  <div className={styles.optionGroup} role="listbox" aria-label={fitCheckCopy.owner.priorityCitiesTitle}>
+                                  <div className={`${styles.optionGroup} ${styles.cityOptions}`} role="listbox" aria-label={fitCheckCopy.owner.priorityCitiesTitle}>
                                     {priorityCityOptions.map((city) => (
                                       <div
                                         key={city}
@@ -582,7 +594,7 @@ export default function OwnerFitCheckClient({
                                   <KinlyText variant="bodyMedium" tone="muted">
                                     {fitCheckCopy.owner.otherCitiesTitle}
                                   </KinlyText>
-                                  <div className={styles.optionGroup} role="listbox" aria-label={fitCheckCopy.owner.otherCitiesTitle}>
+                                  <div className={`${styles.optionGroup} ${styles.cityOptions}`} role="listbox" aria-label={fitCheckCopy.owner.otherCitiesTitle}>
                                     {otherCityOptions.map((city) => (
                                       <div
                                         key={city}
