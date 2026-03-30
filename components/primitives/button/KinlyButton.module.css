@@ -67,6 +67,16 @@
   border: 0;
 }
 
+:global([data-theme="dark"]) .outlined {
+  background: color-mix(in srgb, var(--color-on-surface) 6%, transparent);
+  color: var(--color-on-surface);
+  border-color: color-mix(in srgb, var(--color-on-surface) 32%, transparent);
+}
+
+:global([data-theme="dark"]) .ghost {
+  color: var(--color-on-surface);
+}
+
 /* Disabled */
 .base:disabled,
 .base[aria-disabled="true"] {

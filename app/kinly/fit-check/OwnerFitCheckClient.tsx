@@ -354,12 +354,9 @@ export default function OwnerFitCheckClient({
                     <KinlyStack direction="vertical" gap="m">
                       <KinlyHeading level={2}>{fitCheckCopy.owner.shareTitle}</KinlyHeading>
                       <KinlyText variant="bodyMedium">{fitCheckCopy.owner.shareHelp}</KinlyText>
-                      <div className={styles.shareRow}>
-                        <KinlyInput label="Applicant link" value={shareUrl} readOnly />
-                        <KinlyButton type="button" variant="outlined" onClick={() => void handleCopyLink()}>
-                          {copied ? fitCheckCopy.owner.copied : fitCheckCopy.owner.copyLink}
-                        </KinlyButton>
-                      </div>
+                      <KinlyButton type="button" variant="outlined" onClick={() => void handleCopyLink()}>
+                        {copied ? fitCheckCopy.owner.copied : fitCheckCopy.owner.copyLink}
+                      </KinlyButton>
                     </KinlyStack>
                   </KinlyCard>
                 </section>
