@@ -51,6 +51,12 @@ type Props = {
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
 const ASKED_QUESTIONS_STORAGE_KEY = "kinly.fit_check.owner_asked_questions";
+const INTERVIEW_CATEGORY_LABELS: Record<string, string> = {
+  fit_cleanliness: "Cleanliness",
+  fit_rhythm: "Weeknight rhythm",
+  fit_chores: "Chores",
+  fit_conflict: "Conflict",
+};
 
 export default function OwnerFitCheckClient({
   detectedCountryCode = null,
@@ -373,69 +379,6 @@ export default function OwnerFitCheckClient({
                   <section className={styles.section}>
                     <KinlyCard variant="surfaceContainer">
                       <KinlyStack direction="vertical" gap="m">
-                        <KinlyHeading level={2}>{fitCheckCopy.owner.questionsTitle}</KinlyHeading>
-                        <KinlyText variant="bodyMedium" tone="muted">
-                          {fitCheckCopy.owner.questionsSubtitle}
-                        </KinlyText>
-                        <KinlyButton
-                          type="button"
-                          variant="outlined"
-                          aria-pressed={showInterviewQuestions}
-                          onClick={() => setShowInterviewQuestions((current) => !current)}
-                        >
-                          {showInterviewQuestions
-                            ? fitCheckCopy.owner.questionsPreviewClose
-                            : fitCheckCopy.owner.questionsPreviewOpen}
-                        </KinlyButton>
-                        {showInterviewQuestions ? (
-                          <>
-                            <KinlyText variant="bodySmall" tone="muted">
-                              {fitCheckCopy.owner.questionsHelper}
-                            </KinlyText>
-                            {previewResults.filter((r) => r.match !== "match").map((result) => {
-                              const questions = result.match === "clash"
-                                ? result.interviewQuestions
-                                : result.interviewQuestions.slice(0, 1);
-                              return (
-                                <KinlyStack key={result.scenarioId} direction="vertical" gap="xs">
-                                  <KinlyText variant="bodyMedium">{result.prompt}</KinlyText>
-                                  <ul className={styles.questionList}>
-                                    {questions.map((q, index) => {
-                                      const questionKey = `${result.scenarioId}:${index}:${q}`;
-                                      const isAsked = Boolean(askedQuestions[questionKey]);
-                                      return (
-                                      <li key={questionKey} className={styles.questionItem}>
-                                        <div className={styles.questionItemRow}>
-                                          <div className={isAsked ? styles.questionTextAsked : undefined}>
-                                            <KinlyText variant="bodySmall" tone={isAsked ? "muted" : undefined}>
-                                              {q}
-                                            </KinlyText>
-                                          </div>
-                                          <KinlyButton
-                                            type="button"
-                                            variant={isAsked ? "filled" : "outlined"}
-                                            aria-pressed={isAsked}
-                                            onClick={() => toggleAskedQuestion(questionKey)}
-                                          >
-                                            {isAsked ? fitCheckCopy.owner.questionAsked : fitCheckCopy.owner.questionMarkAsked}
-                                          </KinlyButton>
-                                        </div>
-                                      </li>
-                                      );
-                                    })}
-                                  </ul>
-                                </KinlyStack>
-                              );
-                            })}
-                          </>
-                        ) : null}
-                      </KinlyStack>
-                    </KinlyCard>
-                  </section>
-
-                  <section className={styles.section}>
-                    <KinlyCard variant="surfaceContainer">
-                      <KinlyStack direction="vertical" gap="m">
                         <KinlyHeading level={2}>{fitCheckCopy.owner.comparisonPreviewTitle}</KinlyHeading>
                         <KinlyText variant="bodyMedium" tone="muted">
                           {fitCheckCopy.owner.comparisonPreviewBody}
@@ -475,6 +418,76 @@ export default function OwnerFitCheckClient({
                               })}
                             </div>
                           </KinlyStack>
+                        ) : null}
+                      </KinlyStack>
+                    </KinlyCard>
+                  </section>
+
+                  <section className={styles.section}>
+                    <KinlyCard variant="surfaceContainer">
+                      <KinlyStack direction="vertical" gap="m">
+                        <KinlyHeading level={2}>{fitCheckCopy.owner.questionsTitle}</KinlyHeading>
+                        <KinlyText variant="bodyMedium" tone="muted">
+                          {fitCheckCopy.owner.questionsSubtitle}
+                        </KinlyText>
+                        <KinlyButton
+                          type="button"
+                          variant="outlined"
+                          aria-pressed={showInterviewQuestions}
+                          onClick={() => setShowInterviewQuestions((current) => !current)}
+                        >
+                          {showInterviewQuestions
+                            ? fitCheckCopy.owner.questionsPreviewClose
+                            : fitCheckCopy.owner.questionsPreviewOpen}
+                        </KinlyButton>
+                        {showInterviewQuestions ? (
+                          <>
+                            <KinlyText variant="bodySmall" tone="muted">
+                              {fitCheckCopy.owner.questionsHelper}
+                            </KinlyText>
+                            {previewResults.filter((r) => r.match !== "match").map((result) => {
+                              const questions = result.match === "clash"
+                                ? result.interviewQuestions
+                                : result.interviewQuestions.slice(0, 1);
+                              const categoryLabel = INTERVIEW_CATEGORY_LABELS[result.scenarioId] ?? result.prompt;
+
+                              return (
+                                <KinlyStack key={result.scenarioId} direction="vertical" gap="xs">
+                                  <KinlyText variant="bodyMedium">{categoryLabel}</KinlyText>
+                                  <ul className={styles.questionListCompact}>
+                                    {questions.map((q, index) => {
+                                      const questionKey = `${result.scenarioId}:${index}:${q}`;
+                                      const isAsked = Boolean(askedQuestions[questionKey]);
+                                      return (
+                                        <li key={questionKey} className={styles.questionChecklistItem}>
+                                          <div className={styles.questionChecklistRow}>
+                                            <KinlyButton
+                                              type="button"
+                                              variant={isAsked ? "filled" : "outlined"}
+                                              aria-pressed={isAsked}
+                                              aria-label={
+                                                isAsked
+                                                  ? fitCheckCopy.owner.questionToggleChecked
+                                                  : fitCheckCopy.owner.questionToggleUnchecked
+                                              }
+                                              onClick={() => toggleAskedQuestion(questionKey)}
+                                            >
+                                              {isAsked ? "✓" : "○"}
+                                            </KinlyButton>
+                                            <div className={isAsked ? styles.questionTextAsked : undefined}>
+                                              <KinlyText variant="bodySmall" tone={isAsked ? "muted" : undefined}>
+                                                {q}
+                                              </KinlyText>
+                                            </div>
+                                          </div>
+                                        </li>
+                                      );
+                                    })}
+                                  </ul>
+                                </KinlyStack>
+                              );
+                            })}
+                          </>
                         ) : null}
                       </KinlyStack>
                     </KinlyCard>

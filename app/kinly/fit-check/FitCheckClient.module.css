@@ -146,6 +146,14 @@
   color: var(--color-on-surface);
 }
 
+.questionListCompact {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-s, 10px);
+  padding-left: 0;
+  list-style: none;
+}
+
 .questionItem {
   list-style: disc;
 }
@@ -161,6 +169,17 @@
   text-decoration: line-through;
   text-decoration-thickness: 1.5px;
   text-decoration-color: color-mix(in srgb, var(--color-on-surface) 50%, transparent);
+}
+
+.questionChecklistItem {
+  list-style: none;
+}
+
+.questionChecklistRow {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--spacing-s, 10px);
+  align-items: start;
 }
 
 .pill {
