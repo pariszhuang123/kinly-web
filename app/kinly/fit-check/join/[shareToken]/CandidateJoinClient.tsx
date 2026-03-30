@@ -52,21 +52,36 @@ type SubmitState = "idle" | "submitting" | "error";
 export default function CandidateJoinClient({ shareToken, detectedCountryCode = null }: Props) {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const uiLocale = useMemo(() => detectUiLocale() ?? "en", []);
   const [loadState, setLoadState] = useState<LoadState>("loading");
   const [displayName, setDisplayName] = useState("");
   const [answers, setAnswers] = useState<PartialFitCheckAnswers>({});
   const [entryPromptKey, setEntryPromptKey] = useState<string | null>(null);
   const [countryCode, setCountryCode] = useState("");
+  const [countryQuery, setCountryQuery] = useState("");
+  const [showCountryOptions, setShowCountryOptions] = useState(false);
   const [cityQuery, setCityQuery] = useState("");
   const [cityName, setCityName] = useState("");
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const [error, setError] = useState<string | null>(null);
 
   const sessionId = useMemo(() => ensureSessionId(), []);
-  const uiLocale = useMemo(() => detectUiLocale() ?? "en", []);
   const utmParams = useMemo(() => readUtmParams(searchParams), [searchParams]);
   const normalizedCountry = useMemo(() => normalizeCountryCode(detectedCountryCode), [detectedCountryCode]);
   const countryOptions = useMemo(() => getFitCheckCountryOptions(uiLocale), [uiLocale]);
+  const selectedCountry = useMemo(
+    () => countryOptions.find((country) => country.code === countryCode) ?? null,
+    [countryCode, countryOptions],
+  );
+  const selectedCountryLabel = selectedCountry ? `${selectedCountry.name} (${selectedCountry.code})` : "";
+  const countryInputValue = showCountryOptions ? countryQuery : (selectedCountryLabel || countryQuery);
+  const filteredCountryOptions = useMemo(() => {
+    const query = countryQuery.trim().toLowerCase();
+    if (!query || !showCountryOptions) return [];
+    return countryOptions.filter((country) =>
+      country.name.toLowerCase().includes(query) || country.code.toLowerCase().includes(query),
+    );
+  }, [countryOptions, countryQuery, showCountryOptions]);
   const cityOptions = useMemo(() => getFitCheckCityOptions(countryCode, cityQuery), [countryCode, cityQuery]);
   const priorityCityOptions = useMemo(
     () => getFitCheckPriorityCityOptions(countryCode, cityQuery),
@@ -104,7 +119,9 @@ export default function CandidateJoinClient({ shareToken, detectedCountryCode = 
         result.data.fit_check_public.location?.suggested_country_code ?? detectedCountryCode,
       );
       if (suggestedCountryCode) {
+        const selectedCountry = countryOptions.find((country) => country.code === suggestedCountryCode);
         setCountryCode((current) => current || suggestedCountryCode);
+        setCountryQuery((current) => current || (selectedCountry ? `${selectedCountry.name} (${selectedCountry.code})` : suggestedCountryCode));
       }
       setLoadState("ready");
     }
@@ -113,7 +130,7 @@ export default function CandidateJoinClient({ shareToken, detectedCountryCode = 
     return () => {
       cancelled = true;
     };
-  }, [detectedCountryCode, shareToken, uiLocale]);
+  }, [countryOptions, detectedCountryCode, shareToken, uiLocale]);
 
   useEffect(() => {
     if (!sessionId) return;
@@ -137,7 +154,10 @@ export default function CandidateJoinClient({ shareToken, detectedCountryCode = 
   }
 
   function handleCountrySelect(nextCountryCode: string) {
+    const selectedCountry = countryOptions.find((country) => country.code === nextCountryCode);
     setCountryCode(nextCountryCode);
+    setCountryQuery(selectedCountry ? `${selectedCountry.name} (${selectedCountry.code})` : nextCountryCode);
+    setShowCountryOptions(false);
     setCityName("");
     setCityQuery("");
     if (error === fitCheckCopy.candidate.missingLocation) {
@@ -304,14 +324,20 @@ export default function CandidateJoinClient({ shareToken, detectedCountryCode = 
                         <KinlyInput
                           label={fitCheckCopy.candidate.countryLabel}
                           hint={fitCheckCopy.candidate.countryHint}
-                          value={countryCode}
-                          onChange={(event) => handleCountrySelect(event.target.value.trim().toUpperCase())}
-                          placeholder="NZ"
-                          maxLength={2}
+                          value={countryInputValue}
+                          onChange={(event) => {
+                            setCountryQuery(event.target.value);
+                            setShowCountryOptions(true);
+                            setCountryCode("");
+                            setCityName("");
+                            setCityQuery("");
+                          }}
+                          placeholder="Type your country"
                           required
                         />
+                        {filteredCountryOptions.length > 0 ? (
                         <div className={styles.countryList} role="listbox" aria-label={fitCheckCopy.candidate.countryLabel}>
-                          {countryOptions.map((country) => (
+                          {filteredCountryOptions.map((country) => (
                             <div key={country.code} className={styles.countryOption}>
                               <KinlyButton
                                 type="button"
@@ -324,6 +350,7 @@ export default function CandidateJoinClient({ shareToken, detectedCountryCode = 
                             </div>
                           ))}
                         </div>
+                        ) : null}
                       </div>
 
                       <div className={styles.citySection}>

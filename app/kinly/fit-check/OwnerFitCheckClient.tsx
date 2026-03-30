@@ -63,6 +63,7 @@ export default function OwnerFitCheckClient({
 }: Props) {
   const searchParams = useSearchParams();
   const initialDraft = useMemo(() => getOwnerDraftSession(), []);
+  const uiLocale = useMemo(() => detectUiLocale() ?? "en", []);
   const [answers, setAnswers] = useState<PartialFitCheckAnswers>(() => initialDraft?.answers ?? {});
   const [status, setStatus] = useState<SubmitState>("idle");
   const [error, setError] = useState<string | null>(null);
@@ -71,6 +72,8 @@ export default function OwnerFitCheckClient({
   const [hasSavedDraft, setHasSavedDraft] = useState(() => Boolean(initialDraft));
   const [resumeInfo, setResumeInfo] = useState<ReturnType<typeof getOwnerDraftSession>>(() => initialDraft);
   const [countryCode, setCountryCode] = useState(() => initialDraft?.countryCode ?? normalizeCountryCode(detectedCountryCode) ?? "");
+  const [countryQuery, setCountryQuery] = useState(() => initialDraft?.countryCode ?? normalizeCountryCode(detectedCountryCode) ?? "");
+  const [showCountryOptions, setShowCountryOptions] = useState(false);
   const [cityQuery, setCityQuery] = useState(() => initialDraft?.cityName ?? "");
   const [cityName, setCityName] = useState(() => initialDraft?.cityName ?? "");
   const [showValueFraming, setShowValueFraming] = useState(false);
@@ -91,10 +94,22 @@ export default function OwnerFitCheckClient({
   });
 
   const sessionId = useMemo(() => ensureSessionId(), []);
-  const uiLocale = useMemo(() => detectUiLocale() ?? "en", []);
   const utmParams = useMemo(() => readUtmParams(searchParams), [searchParams]);
   const normalizedCountry = useMemo(() => normalizeCountryCode(detectedCountryCode), [detectedCountryCode]);
   const countryOptions = useMemo(() => getFitCheckCountryOptions(uiLocale), [uiLocale]);
+  const selectedCountry = useMemo(
+    () => countryOptions.find((country) => country.code === countryCode) ?? null,
+    [countryCode, countryOptions],
+  );
+  const selectedCountryLabel = selectedCountry ? `${selectedCountry.name} (${selectedCountry.code})` : "";
+  const countryInputValue = showCountryOptions ? countryQuery : (selectedCountryLabel || countryQuery);
+  const filteredCountryOptions = useMemo(() => {
+    const query = countryQuery.trim().toLowerCase();
+    if (!query || !showCountryOptions) return [];
+    return countryOptions.filter((country) =>
+      country.name.toLowerCase().includes(query) || country.code.toLowerCase().includes(query),
+    );
+  }, [countryOptions, countryQuery, showCountryOptions]);
   const cityOptions = useMemo(() => getFitCheckCityOptions(countryCode, cityQuery), [countryCode, cityQuery]);
   const priorityCityOptions = useMemo(
     () => getFitCheckPriorityCityOptions(countryCode, cityQuery),
@@ -170,7 +185,10 @@ export default function OwnerFitCheckClient({
   }
 
   function handleCountrySelect(nextCountryCode: string) {
+    const selectedCountry = countryOptions.find((country) => country.code === nextCountryCode);
     setCountryCode(nextCountryCode);
+    setCountryQuery(selectedCountry ? `${selectedCountry.name} (${selectedCountry.code})` : nextCountryCode);
+    setShowCountryOptions(false);
     setCityName("");
     setCityQuery("");
     if (error === fitCheckCopy.owner.missingLocation) {
@@ -258,54 +276,58 @@ export default function OwnerFitCheckClient({
     <main className={styles.page}>
       <KinlyShell as="section">
         <KinlyStack direction="vertical" gap="xl">
-          <section className={`${styles.section} ${styles.hero}`}>
-            <KinlyStack direction="vertical" gap="s">
-              <KinlyText variant="labelMedium" tone="muted">
-                {fitCheckCopy.owner.eyebrow}
-              </KinlyText>
-              <KinlyHeading level={1}>{fitCheckCopy.owner.title}</KinlyHeading>
-              <KinlyText variant="bodyMedium" tone="muted">
-                {fitCheckCopy.owner.subtitle}
-              </KinlyText>
-            </KinlyStack>
-          </section>
+          {!isLocationStep && status !== "success" ? (
+            <>
+              <section className={`${styles.section} ${styles.hero}`}>
+                <KinlyStack direction="vertical" gap="s">
+                  <KinlyText variant="labelMedium" tone="muted">
+                    {fitCheckCopy.owner.eyebrow}
+                  </KinlyText>
+                  <KinlyHeading level={1}>{fitCheckCopy.owner.title}</KinlyHeading>
+                  <KinlyText variant="bodyMedium" tone="muted">
+                    {fitCheckCopy.owner.subtitle}
+                  </KinlyText>
+                </KinlyStack>
+              </section>
 
-          <section className={styles.section}>
-            <KinlyCard variant="surfaceContainer">
-              <KinlyStack direction="vertical" gap="s">
-                <KinlyButton
-                  type="button"
-                  variant="outlined"
-                  aria-pressed={showValueFraming}
-                  onClick={() => setShowValueFraming((current) => !current)}
-                >
-                  {showValueFraming ? fitCheckCopy.owner.valueClose : fitCheckCopy.owner.valueOpen}
-                </KinlyButton>
-                {showValueFraming ? (
-                  <>
-                    <KinlyHeading level={2}>{fitCheckCopy.owner.valueTitle}</KinlyHeading>
-                    <ul className={styles.questionList}>
-                      <li>
-                        <KinlyText variant="bodySmall">{fitCheckCopy.owner.valuePoint1}</KinlyText>
-                      </li>
-                      <li>
-                        <KinlyText variant="bodySmall">{fitCheckCopy.owner.valuePoint2}</KinlyText>
-                      </li>
-                      <li>
-                        <KinlyText variant="bodySmall">{fitCheckCopy.owner.valuePoint3}</KinlyText>
-                      </li>
-                    </ul>
-                    <KinlyText variant="bodySmall" tone="muted">
-                      {fitCheckCopy.owner.statText} —{" "}
-                      <KinlyLink href={fitCheckCopy.owner.statUrl} external>
-                        {fitCheckCopy.owner.statSource}
-                      </KinlyLink>
-                    </KinlyText>
-                  </>
-                ) : null}
-              </KinlyStack>
-            </KinlyCard>
-          </section>
+              <section className={styles.section}>
+                <KinlyCard variant="surfaceContainer">
+                  <KinlyStack direction="vertical" gap="s">
+                    <KinlyButton
+                      type="button"
+                      variant="outlined"
+                      aria-pressed={showValueFraming}
+                      onClick={() => setShowValueFraming((current) => !current)}
+                    >
+                      {showValueFraming ? fitCheckCopy.owner.valueClose : fitCheckCopy.owner.valueOpen}
+                    </KinlyButton>
+                    {showValueFraming ? (
+                      <>
+                        <KinlyHeading level={2}>{fitCheckCopy.owner.valueTitle}</KinlyHeading>
+                        <ul className={styles.questionList}>
+                          <li>
+                            <KinlyText variant="bodySmall">{fitCheckCopy.owner.valuePoint1}</KinlyText>
+                          </li>
+                          <li>
+                            <KinlyText variant="bodySmall">{fitCheckCopy.owner.valuePoint2}</KinlyText>
+                          </li>
+                          <li>
+                            <KinlyText variant="bodySmall">{fitCheckCopy.owner.valuePoint3}</KinlyText>
+                          </li>
+                        </ul>
+                        <KinlyText variant="bodySmall" tone="muted">
+                          {fitCheckCopy.owner.statText} —{" "}
+                          <KinlyLink href={fitCheckCopy.owner.statUrl} external>
+                            {fitCheckCopy.owner.statSource}
+                          </KinlyLink>
+                        </KinlyText>
+                      </>
+                    ) : null}
+                  </KinlyStack>
+                </KinlyCard>
+              </section>
+            </>
+          ) : null}
 
           {resumeInfo ? (
             null
@@ -538,14 +560,20 @@ export default function OwnerFitCheckClient({
                           <KinlyInput
                             label={fitCheckCopy.owner.countryLabel}
                             hint={fitCheckCopy.owner.countryHint}
-                            value={countryCode}
-                            onChange={(event) => handleCountrySelect(event.target.value.trim().toUpperCase())}
-                            placeholder="NZ"
-                            maxLength={2}
+                            value={countryInputValue}
+                            onChange={(event) => {
+                              setCountryQuery(event.target.value);
+                              setShowCountryOptions(true);
+                              setCountryCode("");
+                              setCityName("");
+                              setCityQuery("");
+                            }}
+                            placeholder="Type your country"
                             required
                           />
+                          {filteredCountryOptions.length > 0 ? (
                           <div className={styles.countryList} role="listbox" aria-label={fitCheckCopy.owner.countryLabel}>
-                            {countryOptions.map((country) => (
+                            {filteredCountryOptions.map((country) => (
                               <div key={country.code} className={styles.countryOption}>
                                 <KinlyButton
                                   type="button"
@@ -558,6 +586,7 @@ export default function OwnerFitCheckClient({
                               </div>
                             ))}
                           </div>
+                          ) : null}
                         </div>
 
                         <div className={styles.citySection}>
