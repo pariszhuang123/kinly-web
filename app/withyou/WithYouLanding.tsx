@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import {
@@ -74,6 +74,8 @@ export default function WithYouLanding({
   const [language, setLanguage] = useState<WithYouPreviewLanguage>("en");
   const clips = useMemo(() => getWithYouPreviewClips(config.scenarioFamily), [config.scenarioFamily]);
   const [activeClip, setActiveClip] = useState<WithYouClipId>(clips[0] ?? "primary");
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [shouldAutoplay, setShouldAutoplay] = useState(false);
   const [hasHydrated, setHasHydrated] = useState(false);
 
   useEffect(() => {
@@ -125,6 +127,16 @@ export default function WithYouLanding({
 
   const previewSrc = getWithYouPreviewAssetPath(language, config.scenarioFamily, activeClip);
 
+  useEffect(() => {
+    if (!shouldAutoplay) return;
+    const el = audioRef.current;
+    if (el) {
+      el.load();
+      void el.play();
+    }
+    setShouldAutoplay(false);
+  }, [previewSrc, shouldAutoplay]);
+
   function handleCtaClick(store: OutreachStore) {
     if (!sessionId) return;
 
@@ -156,22 +168,6 @@ export default function WithYouLanding({
                       <KinlyText variant="bodyMedium">{config.problemFraming[language]}</KinlyText>
                     </KinlyStack>
 
-                    <div className={styles.languageRow}>
-                      <KinlyButton
-                        variant={language === "en" ? "filled" : "outlined"}
-                        size="sm"
-                        onClick={() => setLanguage("en")}
-                      >
-                        English
-                      </KinlyButton>
-                      <KinlyButton
-                        variant={language === "zh" ? "filled" : "outlined"}
-                        size="sm"
-                        onClick={() => setLanguage("zh")}
-                      >
-                        中文
-                      </KinlyButton>
-                    </div>
                   </KinlyStack>
 
                   <KinlyCard variant="surface">
@@ -189,7 +185,10 @@ export default function WithYouLanding({
                                   key={clip}
                                   variant={activeClip === clip ? "filled" : "outlined"}
                                   size="sm"
-                                  onClick={() => setActiveClip(clip)}
+                                  onClick={() => {
+                                    setActiveClip(clip);
+                                    setShouldAutoplay(true);
+                                  }}
                                 >
                                   {config.timedLabels?.[clip as "stage_1" | "stage_2" | "stage_3"]?.[language] ?? clip}
                                 </KinlyButton>
@@ -197,15 +196,13 @@ export default function WithYouLanding({
                             </div>
                           ) : null}
                           <audio
+                            ref={audioRef}
                             controls
                             preload="none"
                             className={styles.audio}
                             data-testid="withyou-audio"
                             src={previewSrc}
                           />
-                          <KinlyText variant="bodySmall" tone="muted">
-                            {previewSrc}
-                          </KinlyText>
                         </div>
                       </KinlyStack>
                     </div>
