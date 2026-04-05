@@ -25,15 +25,21 @@
   gap: 12px;
 }
 
-.heroGrid,
-.detailGrid {
-  display: grid;
-  gap: 24px;
+.badgeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
 }
 
-.eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+.storeBadge {
+  height: 40px;
+  width: auto;
+}
+
+.heroGrid {
+  display: grid;
+  gap: 24px;
 }
 
 .audioBox {
@@ -54,9 +60,5 @@
   .heroGrid {
     grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.9fr);
     align-items: start;
-  }
-
-  .detailGrid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }

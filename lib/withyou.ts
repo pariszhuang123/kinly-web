@@ -14,10 +14,7 @@ export type WithYouScenarioConfig = {
   scenarioFamily: WithYouScenarioFamily;
   previewMode: WithYouPreviewMode;
   title: LocalizedText;
-  kicker: LocalizedText;
   problemFraming: LocalizedText;
-  whatTheyNeed: LocalizedText;
-  exampleOutcome: LocalizedText;
   previewHeading: LocalizedText;
   previewBody: LocalizedText;
   timedLabels?: LocalizedLabels;
@@ -79,21 +76,9 @@ export const withYouScenarios: Record<string, WithYouScenarioConfig> = {
       en: "Stay socially buffered in the ride",
       zh: "在车程里保持被陪伴的感觉",
     },
-    kicker: {
-      en: "Presence",
-      zh: "陪伴感",
-    },
     problemFraming: {
       en: "You do not want to make small talk in the car. You want a believable call that makes you look connected and harder to engage.",
       zh: "你不想在车里寒暄，只想有一通可信的来电，让你看起来有人在等你、也更不容易被搭话。",
-    },
-    whatTheyNeed: {
-      en: "A social buffer that keeps the ride calm without having to explain yourself.",
-      zh: "一个不需要解释、却能让车程更安静的社交缓冲。",
-    },
-    exampleOutcome: {
-      en: "The driver leaves you alone and the ride feels lighter.",
-      zh: "司机不再主动搭话，整段车程更轻松。",
     },
     previewHeading: {
       en: "Preview the presence call",
@@ -132,21 +117,9 @@ export const withYouScenarios: Record<string, WithYouScenarioConfig> = {
       en: "Feel less alone on the walk",
       zh: "走路时不再显得独自一人",
     },
-    kicker: {
-      en: "Presence",
-      zh: "陪伴感",
-    },
     problemFraming: {
       en: "You are walking alone and slightly uneasy. You want to look connected without escalating the moment.",
       zh: "你独自走路，心里有点不安。你希望看起来像在和别人保持联系，但又不想让情况升级。",
-    },
-    whatTheyNeed: {
-      en: "A passive safety signal that makes you feel less exposed.",
-      zh: "一个被动安全信号，让你不那么暴露。",
-    },
-    exampleOutcome: {
-      en: "You feel steadier, less isolated, and less available for unwanted engagement.",
-      zh: "你会感觉更稳、更不孤单，也更不容易被不必要地搭话。",
     },
     previewHeading: {
       en: "Preview the walk-home call",
@@ -185,21 +158,9 @@ export const withYouScenarios: Record<string, WithYouScenarioConfig> = {
       en: "Look occupied while you wait",
       zh: "等待时看起来更有目的感",
     },
-    kicker: {
-      en: "Presence",
-      zh: "陪伴感",
-    },
     problemFraming: {
       en: "You are waiting alone and do not want to look idle or easily approached.",
       zh: "你独自等待，不想看起来无所事事，也不想显得容易被搭话。",
-    },
-    whatTheyNeed: {
-      en: "An occupied appearance that creates a subtle boundary.",
-      zh: "一种让你看起来正在忙、同时形成边界感的状态。",
-    },
-    exampleOutcome: {
-      en: "You look more intentional and less open to interruption.",
-      zh: "你会显得更有目的，也更不容易被打扰。",
     },
     previewHeading: {
       en: "Preview the bus-stop call",
@@ -238,21 +199,9 @@ export const withYouScenarios: Record<string, WithYouScenarioConfig> = {
       en: "Leave the party without making it awkward",
       zh: "自然离开聚会，不必尴尬解释",
     },
-    kicker: {
-      en: "Social pull",
-      zh: "社交牵引",
-    },
     problemFraming: {
       en: "You are done with the event but want a believable reason to peel away naturally.",
       zh: "你已经不想继续待在聚会里，但希望有一个可信的理由自然离开。",
-    },
-    whatTheyNeed: {
-      en: "A staged social anchor that gives you somewhere else to go.",
-      zh: "一个分阶段出现的社交锚点，让你有别的地方可去。",
-    },
-    exampleOutcome: {
-      en: "You step out cleanly instead of lingering or over-explaining.",
-      zh: "你可以顺势离开，不必继续停留或过度解释。",
     },
     previewHeading: {
       en: "Preview the 3-part exit sequence",
@@ -263,9 +212,9 @@ export const withYouScenarios: Record<string, WithYouScenarioConfig> = {
       zh: "根据你当下准备离开的程度，选择最合适的一段。",
     },
     timedLabels: {
-      stage_1: { en: "A reason to drift away", zh: "给自己一个先离开的理由" },
-      stage_2: { en: "A stronger social anchor", zh: "更明确的社交锚点" },
-      stage_3: { en: "Time to leave now", zh: "现在就该离开了" },
+      stage_1: { en: "First call", zh: "第一通电话" },
+      stage_2: { en: "2nd call · ~3 min later", zh: "第二通 · 约3分钟后" },
+      stage_3: { en: "3rd call · ~5 min later", zh: "第三通 · 约5分钟后" },
     },
     storeHeading: {
       en: "Keep the full sequence in the app",
@@ -296,21 +245,9 @@ export const withYouScenarios: Record<string, WithYouScenarioConfig> = {
       en: "End a fading date smoothly",
       zh: "让逐渐冷场的约会自然收尾",
     },
-    kicker: {
-      en: "Social pull",
-      zh: "社交牵引",
-    },
     problemFraming: {
       en: "The date is not going anywhere and you want the exit to feel smooth instead of abrupt.",
       zh: "这次约会已经没有继续的感觉，你希望结束时更自然，而不是突然抽离。",
-    },
-    whatTheyNeed: {
-      en: "A soft exit that shifts the momentum without turning confrontational.",
-      zh: "一个柔和的离场方式，改变节奏而不是制造对抗。",
-    },
-    exampleOutcome: {
-      en: "You wrap up without tension and keep your energy intact.",
-      zh: "你可以没有拉扯地结束这一段，也保住自己的状态。",
     },
     previewHeading: {
       en: "Preview the 3-part date exit",
@@ -321,9 +258,9 @@ export const withYouScenarios: Record<string, WithYouScenarioConfig> = {
       zh: "先从轻一点的语气开始，如果有需要，再进入更明确的离开理由。",
     },
     timedLabels: {
-      stage_1: { en: "A gentle wrap-up", zh: "先温和收尾" },
-      stage_2: { en: "A clearer reason to go", zh: "给出更明确的离开理由" },
-      stage_3: { en: "Close it cleanly", zh: "干净利落地结束" },
+      stage_1: { en: "First call", zh: "第一通电话" },
+      stage_2: { en: "2nd call · ~3 min later", zh: "第二通 · 约3分钟后" },
+      stage_3: { en: "3rd call · ~5 min later", zh: "第三通 · 约5分钟后" },
     },
     storeHeading: {
       en: "Keep the full flow ready",
@@ -354,21 +291,9 @@ export const withYouScenarios: Record<string, WithYouScenarioConfig> = {
       en: "Walk into a new place with a social anchor",
       zh: "进入陌生场所时更有底气",
     },
-    kicker: {
-      en: "Social pull",
-      zh: "社交牵引",
-    },
     problemFraming: {
       en: "You are entering somewhere unfamiliar and want a believable sense that you already belong there.",
       zh: "你要进入一个陌生场所，希望自己看起来像已经和某个人有约、有方向。",
-    },
-    whatTheyNeed: {
-      en: "A confidence layer that pulls you forward instead of leaving you exposed.",
-      zh: "一种把你往前带的自信感，而不是让你显得无所依靠。",
-    },
-    exampleOutcome: {
-      en: "You move more naturally and look less unsure.",
-      zh: "你行动会更自然，也不会显得那么迟疑。",
     },
     previewHeading: {
       en: "Preview the 3-part arrival sequence",
@@ -379,9 +304,9 @@ export const withYouScenarios: Record<string, WithYouScenarioConfig> = {
       zh: "用分段来电让你一进入陌生场所就显得更有方向。",
     },
     timedLabels: {
-      stage_1: { en: "I am on my way in", zh: "我正要进来" },
-      stage_2: { en: "I know where I am headed", zh: "我知道我要去哪里" },
-      stage_3: { en: "I have someone to meet", zh: "我里面有人可找" },
+      stage_1: { en: "First call", zh: "第一通电话" },
+      stage_2: { en: "2nd call · ~3 min later", zh: "第二通 · 约3分钟后" },
+      stage_3: { en: "3rd call · ~5 min later", zh: "第三通 · 约5分钟后" },
     },
     storeHeading: {
       en: "Carry arrival flows offline",
@@ -412,21 +337,9 @@ export const withYouScenarios: Record<string, WithYouScenarioConfig> = {
       en: "Break out of the conversation cleanly",
       zh: "干净地退出困住你的对话",
     },
-    kicker: {
-      en: "Exit pressure",
-      zh: "快速脱身",
-    },
     problemFraming: {
       en: "You are stuck in a conversation and need a believable interruption that lets you step away now.",
       zh: "你被一段对话困住了，需要一个可信的打断理由，让你现在就能离开。",
-    },
-    whatTheyNeed: {
-      en: "An extraction signal that gives you a clean cut without debate.",
-      zh: "一个能让你干净脱身、不必争辩的抽离信号。",
-    },
-    exampleOutcome: {
-      en: "You stop the interaction and step out immediately.",
-      zh: "你能立刻结束互动并离开现场。",
     },
     previewHeading: {
       en: "Preview the extraction sequence",
@@ -437,9 +350,9 @@ export const withYouScenarios: Record<string, WithYouScenarioConfig> = {
       zh: "如果对方还在继续，就从打断逐步推进到明确离开。",
     },
     timedLabels: {
-      stage_1: { en: "Interrupt the moment", zh: "先打断当下节奏" },
-      stage_2: { en: "Make the reason stronger", zh: "把离开理由再加强" },
-      stage_3: { en: "Leave immediately", zh: "现在就离开" },
+      stage_1: { en: "First call", zh: "第一通电话" },
+      stage_2: { en: "2nd call · ~45s later", zh: "第二通 · 约45秒后" },
+      stage_3: { en: "3rd call · ~30s later", zh: "第三通 · 约30秒后" },
     },
     storeHeading: {
       en: "Keep stronger exits ready",
@@ -470,21 +383,9 @@ export const withYouScenarios: Record<string, WithYouScenarioConfig> = {
       en: "When someone keeps insisting you stay",
       zh: "当对方一直坚持不让你离开",
     },
-    kicker: {
-      en: "Exit pressure",
-      zh: "快速脱身",
-    },
     problemFraming: {
       en: "Someone keeps pushing back when you try to leave. You need a stronger reason than just saying you should go.",
       zh: "当你想离开时，对方一直试图挽留。你需要一个比“我该走了”更有力度的理由。",
-    },
-    whatTheyNeed: {
-      en: "A strong justification that breaks the social pressure fast.",
-      zh: "一个能迅速打破社交压力的强理由。",
-    },
-    exampleOutcome: {
-      en: "The pressure breaks and you get physical space again.",
-      zh: "对方的挽留压力被打断，你重新获得离开的空间。",
     },
     previewHeading: {
       en: "Preview the stronger exit sequence",
@@ -495,9 +396,9 @@ export const withYouScenarios: Record<string, WithYouScenarioConfig> = {
       zh: "先制造打断，如果对方继续施压，再逐步提高紧迫感。",
     },
     timedLabels: {
-      stage_1: { en: "I need to go soon", zh: "我得准备走了" },
-      stage_2: { en: "No, I really need to go", zh: "不，我真的得走" },
-      stage_3: { en: "I have to leave now", zh: "我现在必须离开" },
+      stage_1: { en: "First call", zh: "第一通电话" },
+      stage_2: { en: "2nd call · ~45s later", zh: "第二通 · 约45秒后" },
+      stage_3: { en: "3rd call · ~30s later", zh: "第三通 · 约30秒后" },
     },
     storeHeading: {
       en: "Keep urgent exits on hand",
@@ -528,21 +429,9 @@ export const withYouScenarios: Record<string, WithYouScenarioConfig> = {
       en: "Leave the bad date without explaining everything",
       zh: "不必解释太多，也能离开不舒服的约会",
     },
-    kicker: {
-      en: "Exit pressure",
-      zh: "快速脱身",
-    },
     problemFraming: {
       en: "The date feels uncomfortable and you need a non-confrontational exit that still gets you out quickly.",
       zh: "这次约会让你感到不舒服，你需要一个不必正面冲突、但能让你尽快离开的方式。",
-    },
-    whatTheyNeed: {
-      en: "A fast, believable extraction path that does not force you to justify your discomfort.",
-      zh: "一个快速又可信的脱身路径，不必让你为自己的不适做更多解释。",
-    },
-    exampleOutcome: {
-      en: "You leave politely, but decisively.",
-      zh: "你可以礼貌但明确地离开。",
     },
     previewHeading: {
       en: "Preview the bad-date exit",
@@ -553,9 +442,9 @@ export const withYouScenarios: Record<string, WithYouScenarioConfig> = {
       zh: "使用一套从打断到立即离开的分段音频。",
     },
     timedLabels: {
-      stage_1: { en: "I need to wrap up", zh: "我得开始收尾了" },
-      stage_2: { en: "Something came up", zh: "我这边临时有事" },
-      stage_3: { en: "I need to leave now", zh: "我现在必须离开" },
+      stage_1: { en: "First call", zh: "第一通电话" },
+      stage_2: { en: "2nd call · ~45s later", zh: "第二通 · 约45秒后" },
+      stage_3: { en: "3rd call · ~30s later", zh: "第三通 · 约30秒后" },
     },
     storeHeading: {
       en: "Keep the full exit flow ready",

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import {
   KinlyButton,
@@ -43,17 +44,6 @@ const APP_STORE_URL =
 const PLAY_STORE_URL =
   process.env.NEXT_PUBLIC_ANDROID_STORE_URL?.trim() ||
   "https://play.google.com/store/apps/details?id=com.makinglifeeasie.kinly";
-
-const SECTION_LABELS = {
-  en: {
-    whatYouNeed: "What you need",
-    exampleOutcome: "Example outcome",
-  },
-  zh: {
-    whatYouNeed: "你真正需要的是",
-    exampleOutcome: "可能达到的结果",
-  },
-} as const;
 
 function resolveInitialLanguage(searchParams: URLSearchParams | null): WithYouPreviewLanguage {
   const fromQuery = resolveWithYouPreviewLanguage(searchParams?.get("lang") ?? null);
@@ -134,7 +124,6 @@ export default function WithYouLanding({
   ]);
 
   const previewSrc = getWithYouPreviewAssetPath(language, config.scenarioFamily, activeClip);
-  const sectionLabels = SECTION_LABELS[language];
 
   function handleCtaClick(store: OutreachStore) {
     if (!sessionId) return;
@@ -163,9 +152,6 @@ export default function WithYouLanding({
                 <div className={styles.heroGrid}>
                   <KinlyStack direction="vertical" gap="m">
                     <KinlyStack direction="vertical" gap="xs">
-                      <KinlyText variant="labelMedium" tone="muted" as="div">
-                        <span className={styles.eyebrow}>{config.kicker[language]}</span>
-                      </KinlyText>
                       <KinlyHeading level={1}>{config.title[language]}</KinlyHeading>
                       <KinlyText variant="bodyMedium">{config.problemFraming[language]}</KinlyText>
                     </KinlyStack>
@@ -228,62 +214,59 @@ export default function WithYouLanding({
               </div>
             </KinlyCard>
 
-            <div className={styles.detailGrid}>
-              <KinlyCard variant="surface">
-                <div className={styles.detailPanel}>
-                  <KinlyHeading level={3}>{sectionLabels.whatYouNeed}</KinlyHeading>
-                  <KinlyText variant="bodyMedium">{config.whatTheyNeed[language]}</KinlyText>
+            <KinlyCard variant="surface">
+              <div className={styles.detailPanel}>
+                <KinlyHeading level={3}>{config.leadHeading[language]}</KinlyHeading>
+                <KinlyText variant="bodyMedium">{config.leadBody[language]}</KinlyText>
+                <div className={styles.ctaRow}>
+                  <KinlyButton
+                    href={`/withyou/get?next=/withyou/${config.slug}`}
+                    variant="outlined"
+                    onClick={() => handleCtaClick("web")}
+                  >
+                    {config.leadCta[language]}
+                  </KinlyButton>
                 </div>
-              </KinlyCard>
-              <KinlyCard variant="surface">
-                <div className={styles.detailPanel}>
-                  <KinlyHeading level={3}>{sectionLabels.exampleOutcome}</KinlyHeading>
-                  <KinlyText variant="bodyMedium">{config.exampleOutcome[language]}</KinlyText>
-                </div>
-              </KinlyCard>
-              <KinlyCard variant="surface">
-                <div className={styles.detailPanel}>
-                  <KinlyHeading level={3}>{config.leadHeading[language]}</KinlyHeading>
-                  <KinlyText variant="bodyMedium">{config.leadBody[language]}</KinlyText>
-                  <div className={styles.ctaRow}>
-                    <KinlyButton
-                      href={`/withyou/get?next=/withyou/${config.slug}`}
-                      variant="outlined"
-                      onClick={() => handleCtaClick("web")}
-                    >
-                      {config.leadCta[language]}
-                    </KinlyButton>
-                  </div>
-                </div>
-              </KinlyCard>
-            </div>
+              </div>
+            </KinlyCard>
 
             <KinlyCard variant="surfaceContainer">
               <div className={styles.ctaCard}>
                 <KinlyStack direction="vertical" gap="m">
                   <KinlyHeading level={2}>{config.storeHeading[language]}</KinlyHeading>
                   <KinlyText variant="bodyMedium">{config.storeBody[language]}</KinlyText>
-                  <div className={styles.ctaRow}>
+                  <div className={styles.badgeRow}>
                     {detectedPlatform !== "android" ? (
-                      <KinlyButton
+                      <a
                         href={APP_STORE_URL}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => handleCtaClick("ios_app_store")}
                       >
-                        App Store
-                      </KinlyButton>
+                        <Image
+                          src="/apple-store.svg"
+                          alt="Download on the App Store"
+                          width={120}
+                          height={40}
+                          className={styles.storeBadge}
+                        />
+                      </a>
                     ) : null}
                     {detectedPlatform !== "ios" ? (
-                      <KinlyButton
+                      <a
                         href={PLAY_STORE_URL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        variant="outlined"
                         onClick={() => handleCtaClick("google_play")}
                       >
-                        Google Play
-                      </KinlyButton>
+                        <Image
+                          src="/google-play.svg"
+                          alt="Get it on Google Play"
+                          width={135}
+                          height={40}
+                          className={styles.storeBadge}
+                        />
+                      </a>
                     ) : null}
                   </div>
                 </KinlyStack>
