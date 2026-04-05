@@ -26,7 +26,6 @@ import {
   getWithYouPreviewAssetPath,
   getWithYouPreviewClips,
   resolveWithYouPreviewLanguage,
-  WITHYOU_LANGUAGE_STORAGE_KEY,
   type WithYouClipId,
   type WithYouPreviewLanguage,
   type WithYouScenarioConfig,
@@ -50,9 +49,6 @@ function resolveInitialLanguage(searchParams: URLSearchParams | null): WithYouPr
   if (searchParams?.has("lang")) return fromQuery;
 
   if (typeof window !== "undefined") {
-    const stored = window.localStorage.getItem(WITHYOU_LANGUAGE_STORAGE_KEY);
-    if (stored) return resolveWithYouPreviewLanguage(stored);
-
     const browser =
       (Array.isArray(window.navigator.languages) && window.navigator.languages[0]) ||
       window.navigator.language ||
@@ -90,10 +86,7 @@ export default function WithYouLanding({
     setActiveClip(clips[0] ?? "primary");
   }, [clips]);
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    window.localStorage.setItem(WITHYOU_LANGUAGE_STORAGE_KEY, language);
-  }, [language]);
+
 
   const sessionId = useMemo(() => (hasHydrated ? ensureSessionId() : null), [hasHydrated]);
   const uiLocale = useMemo(() => (hasHydrated ? detectUiLocale() : null), [hasHydrated]);
