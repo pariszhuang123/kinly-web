@@ -1,5 +1,6 @@
 import { describe, expect, test } from "vitest";
 import {
+  compareFitCheckAnswers,
   fetchFitCheckPublicByToken,
   getFitCheckEntryText,
   getFitCheckAppUrls,
@@ -68,6 +69,48 @@ describe("flatmateFitCheck helpers", () => {
   test("returns default app store URLs", () => {
     expect(getFitCheckAppUrls().ios).toMatch(/apps\.apple\.com/);
     expect(getFitCheckAppUrls().android).toMatch(/play\.google\.com/);
+  });
+
+  test("uses direction-aware interview questions when the owner is more relaxed", () => {
+    const [cleanliness] = compareFitCheckAnswers(
+      {
+        fit_cleanliness: 2,
+        fit_rhythm: 1,
+        fit_chores: 1,
+        fit_conflict: 1,
+      },
+      {
+        fit_cleanliness: 0,
+        fit_rhythm: 1,
+        fit_chores: 1,
+        fit_conflict: 1,
+      },
+    );
+
+    expect(cleanliness.direction).toBe("owner_higher");
+    expect(cleanliness.match).toBe("clash");
+    expect(cleanliness.interviewQuestions[1]).toMatch(/too strict/i);
+  });
+
+  test("uses direction-aware interview questions when the candidate is more relaxed", () => {
+    const [cleanliness] = compareFitCheckAnswers(
+      {
+        fit_cleanliness: 0,
+        fit_rhythm: 1,
+        fit_chores: 1,
+        fit_conflict: 1,
+      },
+      {
+        fit_cleanliness: 2,
+        fit_rhythm: 1,
+        fit_chores: 1,
+        fit_conflict: 1,
+      },
+    );
+
+    expect(cleanliness.direction).toBe("candidate_higher");
+    expect(cleanliness.match).toBe("clash");
+    expect(cleanliness.interviewQuestions[1]).toMatch(/stressful/i);
   });
 
   test("normalizes rpc errors when config is missing", async () => {

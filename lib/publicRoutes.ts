@@ -1,4 +1,5 @@
 import { scenarioConfigs } from "../app/kinly/market/configs";
+import { withYouRouteSlugs } from "./withyou";
 import { PRODUCTION_HOST } from "./shortLinkResolver";
 
 const STATIC_PUBLIC_PATHS = [
@@ -8,6 +9,8 @@ const STATIC_PUBLIC_PATHS = [
   "/kinly/get",
   "/kinly/market",
   "/kinly/fit-check",
+  "/withyou",
+  "/withyou/get",
 ];
 
 export function getPublicSiteBaseUrl(): string {
@@ -27,7 +30,9 @@ export function getPublicSitePaths(): string[] {
     .sort((left, right) => left.localeCompare(right))
     .map((slug) => `/kinly/market/${slug}`);
 
-  return [...STATIC_PUBLIC_PATHS, ...marketPaths];
+  const withYouPaths = withYouRouteSlugs.map((slug) => `/withyou/${slug}`);
+
+  return [...STATIC_PUBLIC_PATHS, ...marketPaths, ...withYouPaths];
 }
 
 export function getPublicSiteUrls(): string[] {

@@ -33,6 +33,9 @@ describe("getPublicSitePaths", () => {
     expect(paths).toContain("/kinly/market");
     expect(paths).toContain("/kinly/market/sg-helper-alignment");
     expect(paths).toContain("/kinly/market/freshers");
+    expect(paths).toContain("/withyou");
+    expect(paths).toContain("/withyou/get");
+    expect(paths).toContain("/withyou/party-exit");
   });
 });
 
@@ -42,5 +45,6 @@ describe("getPublicSiteUrls", () => {
 
     const urls = getPublicSiteUrls();
     expect(urls).toContain("https://staging.makinglifeeasie.com/kinly/market/sg-helper-alignment");
+    expect(urls).toContain("https://staging.makinglifeeasie.com/withyou/trapped-conversation");
   });
 });

@@ -157,6 +157,7 @@ export type FitCheckMatchResult = {
   ownerLabel: string;
   applicantLabel: string;
   match: "match" | "close" | "clash";
+  direction: "aligned" | "owner_higher" | "candidate_higher";
   interviewQuestions: string[];
 };
 
@@ -181,6 +182,63 @@ const SCENARIO_INTERVIEW_QUESTIONS: Record<FitCheckScenarioId, string[]> = {
     "If something small kept bugging you, how long before you'd bring it up?",
     "Would you rather sort things out face to face, or over text?",
   ],
+};
+
+const DIRECTIONAL_INTERVIEW_QUESTIONS: Record<
+  FitCheckScenarioId,
+  {
+    owner_higher: string[];
+    candidate_higher: string[];
+  }
+> = {
+  fit_cleanliness: {
+    owner_higher: [
+      "What does 'clean enough' look like to you in a shared kitchen?",
+      "If someone wanted shared dishes cleaned straight away, would that feel reasonable or too strict to you?",
+      "Would you be happy with a clearer kitchen routine if the other person cared more about tidiness than you do?",
+    ],
+    candidate_higher: [
+      "What does 'clean enough' look like to you in a shared kitchen?",
+      "If shared dishes were left for a couple of days, would that feel fine or stressful to you?",
+      "Could you live comfortably with someone who is more relaxed about kitchen mess than you are?",
+    ],
+  },
+  fit_rhythm: {
+    owner_higher: [
+      "How often do you expect quiet nights during the week?",
+      "If the home was quieter and earlier than your usual routine, would that feel comfortable or restrictive?",
+      "How much notice would you want before having friends or a partner over on a weeknight?",
+    ],
+    candidate_higher: [
+      "How often do you have friends or a partner stay over during the week?",
+      "Are you okay with noise after 10 pm on a weeknight, or does that wear on you quickly?",
+      "Could you live with someone who has a more social or later routine than you do?",
+    ],
+  },
+  fit_chores: {
+    owner_higher: [
+      "How much structure do you want around shared chores and supplies?",
+      "If the house expected a roster or clearer system, would that feel helpful or unnecessary?",
+      "What would help you stick to shared chores if others wanted more consistency than you usually need?",
+    ],
+    candidate_higher: [
+      "How do you like shared chores and supplies to be organised?",
+      "If other people only handled their own things, how long would that feel workable for you?",
+      "Would you want a clearer chore system if the rest of the house was more hands-off than you are?",
+    ],
+  },
+  fit_conflict: {
+    owner_higher: [
+      "When something small is bothering you, how quickly do you want it raised?",
+      "If a housemate preferred to talk things through early, would that feel helpful or too direct?",
+      "How do you usually respond when someone brings up an issue before it has become serious?",
+    ],
+    candidate_higher: [
+      "If something small kept bugging you, how long before you'd want to bring it up?",
+      "Could you live comfortably with someone who avoids minor issues unless they become serious?",
+      "Would you rather sort things out face to face, or have a softer check-in first?",
+    ],
+  },
 };
 
 export type BonusInterviewQuestion = {
@@ -223,6 +281,33 @@ export const BONUS_INTERVIEW_QUESTIONS: BonusInterviewQuestion[] = [
   },
 ];
 
+export function compareFitCheckAnswers(
+  ownerAnswers: FitCheckAnswers,
+  applicantAnswers: FitCheckAnswers,
+): FitCheckMatchResult[] {
+  return FIT_CHECK_SCENARIOS.map((scenario) => {
+    const ownerVal = ownerAnswers[scenario.id];
+    const applicantVal = applicantAnswers[scenario.id];
+    const diff = Math.abs(ownerVal - applicantVal);
+    const direction =
+      diff === 0 ? "aligned" : ownerVal > applicantVal ? "owner_higher" : "candidate_higher";
+    const interviewQuestions =
+      direction === "aligned"
+        ? []
+        : DIRECTIONAL_INTERVIEW_QUESTIONS[scenario.id][direction] ?? SCENARIO_INTERVIEW_QUESTIONS[scenario.id];
+
+    return {
+      scenarioId: scenario.id,
+      prompt: scenario.prompt,
+      ownerLabel: scenario.options[ownerVal],
+      applicantLabel: scenario.options[applicantVal],
+      match: diff === 0 ? "match" : diff === 1 ? "close" : "clash",
+      direction,
+      interviewQuestions,
+    };
+  });
+}
+
 export function simulateMatchPreview(ownerAnswers: FitCheckAnswers): FitCheckMatchResult[] {
   const simulatedApplicant: FitCheckAnswers = {
     fit_cleanliness: 0,
@@ -231,20 +316,7 @@ export function simulateMatchPreview(ownerAnswers: FitCheckAnswers): FitCheckMat
     fit_conflict: 0,
   };
 
-  return FIT_CHECK_SCENARIOS.map((scenario) => {
-    const ownerVal = ownerAnswers[scenario.id];
-    const applicantVal = simulatedApplicant[scenario.id];
-    const diff = Math.abs(ownerVal - applicantVal);
-
-    return {
-      scenarioId: scenario.id,
-      prompt: scenario.prompt,
-      ownerLabel: scenario.options[ownerVal],
-      applicantLabel: scenario.options[applicantVal],
-      match: diff === 0 ? "match" : diff === 1 ? "close" : "clash",
-      interviewQuestions: SCENARIO_INTERVIEW_QUESTIONS[scenario.id],
-    };
-  });
+  return compareFitCheckAnswers(ownerAnswers, simulatedApplicant);
 }
 
 const OWNER_DRAFT_STORAGE_KEY = "kinly.fit_check.owner_draft";
