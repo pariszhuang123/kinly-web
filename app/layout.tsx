@@ -4,6 +4,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./styles/generated/tokens.css";
 import "./globals.css";
 import { buildSiteMetadata } from "../lib/siteMetadata";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = buildSiteMetadata();
 
