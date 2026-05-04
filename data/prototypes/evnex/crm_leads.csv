@@ -1,0 +1,5 @@
+lead_id,customer,country,city,sales_rep,lead_created_date,quote_status
+EVX-1001,Canterbury Solar Homes,NZ,Christchurch,Ava Chen,2025-03-02,ACCEPTED
+EVX-1010,Queenstown Alpine Living,NZ,Queenstown,Isla Morgan,2025-03-02,ACCEPTED
+EVX-1036,North Shore Prospect,NZ,Auckland,Ava Chen,2025-03-17,PENDING
+EVX-1037,Waipukurau Rural Homes,NZ,Waipukurau,Noah Patel,2025-02-03,CLOSED_LOST

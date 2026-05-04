@@ -1,0 +1,4 @@
+lead_id,scheduled_date,install_date,technician,status
+EVX-1001,2025-03-25,,Mia Hall,BACKLOG
+EVX-1024,2025-02-27,2025-03-04,Harper Young,FAILED
+EVX-1028,2025-02-08,2025-02-10,Harper Young,COMPLETE
