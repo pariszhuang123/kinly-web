@@ -51,7 +51,11 @@
   gap: var(--spacing-s, 8px);
   padding: var(--spacing-l, 16px);
   border-radius: var(--radius-lg, 16px);
-  background: linear-gradient(180deg, color-mix(in srgb, #0f766e 8%, white), color-mix(in srgb, #164e63 4%, white));
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, #0f766e 8%, var(--color-surface-container-high, #ffffff)),
+    color-mix(in srgb, #164e63 4%, var(--color-surface-container-high, #ffffff))
+  );
   border: 1px solid color-mix(in srgb, #0f766e 16%, transparent);
 }
 
@@ -146,7 +150,11 @@
 }
 
 .storyCard {
-  background: linear-gradient(180deg, color-mix(in srgb, #f59e0b 10%, white), color-mix(in srgb, #0f766e 6%, white));
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, #f59e0b 10%, var(--color-surface-container-high, #ffffff)),
+    color-mix(in srgb, #0f766e 6%, var(--color-surface-container-high, #ffffff))
+  );
 }
 
 .storyBody {
@@ -158,11 +166,19 @@
   display: grid;
   gap: var(--spacing-m, 12px);
   min-height: 100%;
-  background: linear-gradient(180deg, color-mix(in srgb, #164e63 8%, white), color-mix(in srgb, #0f766e 5%, white));
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, #164e63 8%, var(--color-surface-container-high, #ffffff)),
+    color-mix(in srgb, #0f766e 5%, var(--color-surface-container-high, #ffffff))
+  );
 }
 
 .decisionCard {
-  background: linear-gradient(180deg, color-mix(in srgb, #f59e0b 14%, white), color-mix(in srgb, #dc2626 7%, white));
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, #f59e0b 14%, var(--color-surface-container-high, #ffffff)),
+    color-mix(in srgb, #dc2626 7%, var(--color-surface-container-high, #ffffff))
+  );
   border: 1px solid color-mix(in srgb, #dc2626 16%, transparent);
 }
 
@@ -256,7 +272,7 @@
 .table thead th {
   position: sticky;
   top: 0;
-  background: color-mix(in srgb, #e2e8f0 68%, white);
+  background: color-mix(in srgb, var(--color-surface-container-high, #ffffff) 92%, var(--color-surface, #ffffff));
   backdrop-filter: blur(6px);
 }
 
@@ -374,7 +390,7 @@
   gap: 6px;
   padding: var(--spacing-m, 12px);
   border-radius: var(--radius-md, 12px);
-  background: color-mix(in srgb, #0f766e 7%, white);
+  background: color-mix(in srgb, #0f766e 7%, var(--color-surface-container-high, #ffffff));
 }
 
 .proofGrid {
@@ -398,6 +414,46 @@
 
 .arrow {
   color: color-mix(in srgb, var(--color-on-surface, #111827) 45%, transparent);
+}
+
+:global([data-theme="dark"]) .heroAside {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, #0f766e 18%, var(--color-surface-container-high, #262a28)),
+    color-mix(in srgb, #164e63 12%, var(--color-surface-container-high, #262a28))
+  );
+}
+
+:global([data-theme="dark"]) .storyCard {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, #f59e0b 14%, var(--color-surface-container-high, #262a28)),
+    color-mix(in srgb, #0f766e 12%, var(--color-surface-container-high, #262a28))
+  );
+}
+
+:global([data-theme="dark"]) .spotlightCard {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, #164e63 18%, var(--color-surface-container-high, #262a28)),
+    color-mix(in srgb, #0f766e 14%, var(--color-surface-container-high, #262a28))
+  );
+}
+
+:global([data-theme="dark"]) .decisionCard {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, #f59e0b 18%, var(--color-surface-container-high, #262a28)),
+    color-mix(in srgb, #dc2626 12%, var(--color-surface-container-high, #262a28))
+  );
+}
+
+:global([data-theme="dark"]) .table thead th {
+  background: color-mix(in srgb, var(--color-surface-container-high, #262a28) 94%, var(--color-surface, #101312));
+}
+
+:global([data-theme="dark"]) .summaryStat {
+  background: color-mix(in srgb, #0f766e 14%, var(--color-surface-container-high, #262a28));
 }
 
 @media (max-width: 900px) {
