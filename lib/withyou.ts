@@ -15,6 +15,8 @@ export type WithYouScenarioConfig = {
   previewMode: WithYouPreviewMode;
   title: LocalizedText;
   problemFraming: LocalizedText;
+  whatTheyNeed?: LocalizedText;
+  exampleOutcome?: LocalizedText;
   previewHeading: LocalizedText;
   previewBody: LocalizedText;
   timedLabels?: LocalizedLabels;

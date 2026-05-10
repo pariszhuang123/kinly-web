@@ -38,6 +38,54 @@ type WithYouLandingProps = {
   detectedCountryCode?: string | null;
 };
 
+const DEFAULT_TIMED_LABELS: Record<
+  "social_pull" | "exit_pressure",
+  Record<"stage_1" | "stage_2" | "stage_3", Record<WithYouPreviewLanguage, string>>
+> = {
+  social_pull: {
+    stage_1: {
+      en: "A reason to drift away",
+      zh: "先给自己一个离开的理由",
+    },
+    stage_2: {
+      en: "A stronger social anchor",
+      zh: "给自己一个更稳的社交锚点",
+    },
+    stage_3: {
+      en: "Time to leave now",
+      zh: "现在就可以离开了",
+    },
+  },
+  exit_pressure: {
+    stage_1: {
+      en: "Break the moment",
+      zh: "先打断一下当下的局面",
+    },
+    stage_2: {
+      en: "Create urgency",
+      zh: "让离开的紧迫感更清楚",
+    },
+    stage_3: {
+      en: "Leave now",
+      zh: "快速脱身",
+    },
+  },
+};
+
+const DETAIL_HEADINGS: Record<
+  "whatTheyNeed" | "exampleOutcome",
+  Record<WithYouPreviewLanguage, string>
+> = {
+  whatTheyNeed: {
+    en: "What you need",
+    zh: "你现在需要什么",
+  },
+  exampleOutcome: {
+    en: "Example outcome",
+    zh: "这会如何帮到你",
+  },
+};
+
 const APP_STORE_URL =
   process.env.NEXT_PUBLIC_IOS_STORE_URL?.trim() || "https://apps.apple.com/app/kinly/id6756508378";
 const PLAY_STORE_URL =
@@ -119,6 +167,16 @@ export default function WithYouLanding({
   ]);
 
   const previewSrc = getWithYouPreviewAssetPath(language, config.scenarioFamily, activeClip);
+  const timedLabels =
+    config.previewMode === "timed_sequence"
+      ? DEFAULT_TIMED_LABELS[config.scenarioFamily as "social_pull" | "exit_pressure"]
+      : null;
+  const whatTheyNeed =
+    config.whatTheyNeed?.[language] ??
+    config.previewBody[language];
+  const exampleOutcome =
+    config.exampleOutcome?.[language] ??
+    config.storeBody[language];
 
   useEffect(() => {
     if (!shouldAutoplay) return;
@@ -160,7 +218,20 @@ export default function WithYouLanding({
                       <KinlyHeading level={1}>{config.title[language]}</KinlyHeading>
                       <KinlyText variant="bodyMedium">{config.problemFraming[language]}</KinlyText>
                     </KinlyStack>
-
+                    <div className={styles.detailGrid}>
+                      <KinlyCard variant="surface">
+                        <div className={styles.detailPanel}>
+                          <KinlyHeading level={3}>{DETAIL_HEADINGS.whatTheyNeed[language]}</KinlyHeading>
+                          <KinlyText variant="bodyMedium">{whatTheyNeed}</KinlyText>
+                        </div>
+                      </KinlyCard>
+                      <KinlyCard variant="surface">
+                        <div className={styles.detailPanel}>
+                          <KinlyHeading level={3}>{DETAIL_HEADINGS.exampleOutcome[language]}</KinlyHeading>
+                          <KinlyText variant="bodyMedium">{exampleOutcome}</KinlyText>
+                        </div>
+                      </KinlyCard>
+                    </div>
                   </KinlyStack>
 
                   <KinlyCard variant="surface">
@@ -183,7 +254,9 @@ export default function WithYouLanding({
                                     setShouldAutoplay(true);
                                   }}
                                 >
-                                  {config.timedLabels?.[clip as "stage_1" | "stage_2" | "stage_3"]?.[language] ?? clip}
+                                  {timedLabels?.[clip as "stage_1" | "stage_2" | "stage_3"]?.[language] ??
+                                    config.timedLabels?.[clip as "stage_1" | "stage_2" | "stage_3"]?.[language] ??
+                                    clip}
                                 </KinlyButton>
                               ))}
                             </div>

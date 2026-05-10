@@ -7,6 +7,7 @@ import WithYouLanding from "../app/withyou/WithYouLanding";
 import { withYouScenarios } from "../lib/withyou";
 
 let mockSearchParams = new URLSearchParams("");
+let fetchSpy: ReturnType<typeof vi.spyOn>;
 
 vi.mock("next/navigation", () => ({
   useSearchParams: () => mockSearchParams,
@@ -35,6 +36,16 @@ function render(ui: React.ReactElement) {
   };
 }
 
+type ReactNodeProps = {
+  onClick?: (event: { preventDefault: () => void }) => void;
+};
+
+function getReactProps(node: Element): ReactNodeProps {
+  const key = Object.keys(node).find((prop) => prop.startsWith("__reactProps$"));
+  if (!key) return {};
+  return ((node as unknown as Record<string, unknown>)[key] as ReactNodeProps) ?? {};
+}
+
 async function flushEffects() {
   await act(async () => {
     await Promise.resolve();
@@ -48,6 +59,10 @@ beforeEach(() => {
   process.env.NEXT_PUBLIC_SUPABASE_URL = "https://example.com";
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = "anon-key";
   vi.restoreAllMocks();
+  fetchSpy = vi.spyOn(globalThis, "fetch").mockResolvedValue({
+    ok: true,
+    json: async () => ({ ok: true }),
+  } as Response);
 });
 
 test("presence routes render a single canonical preview clip", async () => {
@@ -95,10 +110,7 @@ test("query parameter can switch the public preview language without changing th
 });
 
 test("logs page view and CTA click through outreach tracking", async () => {
-  const fetchSpy = vi.spyOn(globalThis, "fetch").mockResolvedValue({
-    ok: true,
-    json: async () => ({ ok: true }),
-  } as unknown as Response);
+  fetchSpy.mockClear();
 
   mockSearchParams = new URLSearchParams("utm_campaign=withyou-launch&utm_source=instagram&utm_medium=social");
 
@@ -132,7 +144,7 @@ test("logs page view and CTA click through outreach tracking", async () => {
   expect(leadButton).toBeTruthy();
 
   act(() => {
-    leadButton?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    getReactProps(leadButton as Element).onClick?.({ preventDefault: () => {} });
   });
   await flushEffects();
 

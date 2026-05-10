@@ -1,0 +1,239 @@
+.page {
+  min-height: 100vh;
+  padding: var(--spacing-xxl, 32px) 0 var(--spacing-xxxl, 40px);
+  background:
+    radial-gradient(circle at top left, color-mix(in srgb, #d97706 18%, transparent), transparent 36%),
+    radial-gradient(circle at top right, color-mix(in srgb, #0f766e 14%, transparent), transparent 34%),
+    linear-gradient(180deg, color-mix(in srgb, #1f2937 5%, transparent) 0%, transparent 42%),
+    var(--color-surface, #f8fafc);
+}
+
+.controlBar {
+  position: sticky;
+  top: var(--spacing-m, 12px);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--spacing-m, 12px);
+}
+
+.controlPanel {
+  display: grid;
+  gap: var(--spacing-xs, 4px);
+  padding: var(--spacing-m, 12px);
+  border-radius: var(--radius-lg, 16px);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, #d97706 10%, var(--color-surface-container-high, #ffffff)),
+    color-mix(in srgb, #0f766e 6%, var(--color-surface-container-high, #ffffff))
+  );
+  border: 1px solid color-mix(in srgb, #0f766e 12%, transparent);
+}
+
+.jumpNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-s, 8px);
+  padding-bottom: var(--spacing-s, 8px);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-on-surface, #111827) 8%, transparent);
+}
+
+.section {
+  display: grid;
+  gap: var(--spacing-l, 16px);
+}
+
+.sectionHeader {
+  display: grid;
+  gap: var(--spacing-xs, 4px);
+}
+
+.questionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--spacing-m, 12px);
+}
+
+.questionCard,
+.optionCard,
+.optionCardRecommended,
+.listCard,
+.guardrailCard,
+.closeCard {
+  display: grid;
+  gap: var(--spacing-m, 12px);
+}
+
+.optionCardRecommended {
+  padding: var(--spacing-s, 8px);
+  border-radius: var(--radius-lg, 16px);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, #d97706 12%, var(--color-surface-container-high, #ffffff)),
+    color-mix(in srgb, #0f766e 8%, var(--color-surface-container-high, #ffffff))
+  );
+}
+
+.answerGrid,
+.optionGrid,
+.closeGrid,
+.promptGrid,
+.twoColumnGrid {
+  display: grid;
+  gap: var(--spacing-m, 12px);
+}
+
+.answerGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.optionGrid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.closeGrid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.promptGrid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.twoColumnGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.answerBlock,
+.answerPane,
+.redirectBlock,
+.promptCard {
+  display: grid;
+  gap: var(--spacing-xs, 4px);
+}
+
+.answerPane,
+.promptCard {
+  padding: var(--spacing-m, 12px);
+  border-radius: var(--radius-md, 12px);
+  background: color-mix(in srgb, #0f766e 6%, var(--color-surface-container-high, #ffffff));
+}
+
+.redirectBlock {
+  padding: var(--spacing-m, 12px);
+  border-radius: var(--radius-md, 12px);
+  background: color-mix(in srgb, #d97706 8%, var(--color-surface-container-high, #ffffff));
+}
+
+.disclosure {
+  border: 1px solid color-mix(in srgb, var(--color-on-surface, #111827) 10%, transparent);
+  border-radius: var(--radius-lg, 16px);
+  background: var(--color-surface-container, #ffffff);
+}
+
+.disclosureSummary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-m, 12px);
+  padding: var(--spacing-m, 12px) var(--spacing-l, 16px);
+  cursor: pointer;
+}
+
+.disclosureSummary::-webkit-details-marker {
+  display: none;
+}
+
+.disclosureTitle {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.disclosureToggle {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  background: color-mix(in srgb, #0f766e 10%, transparent);
+  color: #0f766e;
+}
+
+.disclosure[open] .disclosureToggle::after {
+  content: "Hide";
+}
+
+.disclosure:not([open]) .disclosureToggle::after {
+  content: "Show";
+}
+
+.disclosureBody {
+  display: grid;
+  gap: var(--spacing-m, 12px);
+  padding: 0 var(--spacing-l, 16px) var(--spacing-l, 16px);
+}
+
+.bulletList {
+  display: grid;
+  gap: var(--spacing-s, 8px);
+}
+
+.bulletItem {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--spacing-s, 8px);
+  align-items: start;
+}
+
+.bullet,
+.bulletDanger {
+  width: 10px;
+  height: 10px;
+  margin-top: 8px;
+  border-radius: 999px;
+}
+
+.bullet {
+  background: linear-gradient(180deg, #0f766e, #164e63);
+}
+
+.bulletDanger {
+  background: linear-gradient(180deg, #dc2626, #b91c1c);
+}
+
+:global([data-theme="dark"]) .controlPanel {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, #d97706 16%, var(--color-surface-container-high, #262a28)),
+    color-mix(in srgb, #0f766e 14%, var(--color-surface-container-high, #262a28))
+  );
+}
+
+:global([data-theme="dark"]) .optionCardRecommended {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, #d97706 18%, var(--color-surface-container-high, #262a28)),
+    color-mix(in srgb, #0f766e 16%, var(--color-surface-container-high, #262a28))
+  );
+}
+
+:global([data-theme="dark"]) .answerPane,
+:global([data-theme="dark"]) .promptCard {
+  background: color-mix(in srgb, #0f766e 14%, var(--color-surface-container-high, #262a28));
+}
+
+:global([data-theme="dark"]) .redirectBlock {
+  background: color-mix(in srgb, #d97706 16%, var(--color-surface-container-high, #262a28));
+}
+
+@media (max-width: 900px) {
+  .controlBar,
+  .answerGrid,
+  .twoColumnGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .page {
+    padding-top: var(--spacing-xl, 24px);
+  }
+}

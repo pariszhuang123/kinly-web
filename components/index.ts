@@ -23,3 +23,4 @@ export { EvnexActionCentre } from "./prototypes/evnex/EvnexActionCentre";
 export { EvnexIssueDetail } from "./prototypes/evnex/EvnexIssueDetail";
 export { EvnexLifecycleSummary } from "./prototypes/evnex/EvnexLifecycleSummary";
 export { EvnexTodayStory } from "./prototypes/evnex/EvnexTodayStory";
+export { ContractorNegotiationPlaybook } from "./prototypes/negotiation/ContractorNegotiationPlaybook";
