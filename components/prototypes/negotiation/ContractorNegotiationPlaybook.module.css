@@ -8,6 +8,11 @@
     var(--color-surface, #f8fafc);
 }
 
+.wideShell {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+}
+
 .controlBar {
   position: sticky;
   top: var(--spacing-m, 12px);

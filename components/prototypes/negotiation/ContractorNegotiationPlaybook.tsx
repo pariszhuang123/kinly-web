@@ -23,7 +23,8 @@ import styles from "./ContractorNegotiationPlaybook.module.css";
 export function ContractorNegotiationPlaybook() {
   return (
     <main className={styles.page}>
-      <KinlyShell>
+      <KinlyShell as="div">
+        <div className={styles.wideShell}>
         <KinlyStack direction="vertical" gap="xl">
           <PageIntro
             eyebrow="Private negotiation playbook"
@@ -361,6 +362,7 @@ export function ContractorNegotiationPlaybook() {
             </div>
           </KinlyCard>
         </KinlyStack>
+        </div>
       </KinlyShell>
     </main>
   );
