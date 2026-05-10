@@ -30,6 +30,8 @@ describe("public discovery surfaces", () => {
     expect(markup).toContain('"@type":"Organization"');
     expect(markup).toContain('"@type":"WebSite"');
     expect(markup).toContain('"@type":"SoftwareApplication"');
+    expect(markup).toContain('href="/withyou"');
+    expect(markup).toContain('href="/tools/qr"');
   });
 
   test("emits software application JSON-LD on the main Kinly landing page", async () => {

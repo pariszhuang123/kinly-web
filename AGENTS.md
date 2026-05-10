@@ -121,6 +121,12 @@ If a change alters:
 
 â†’ the corresponding contract MUST be updated or explicitly reaffirmed.
 
+## Git Publishing
+
+- If the user explicitly says to publish directly to production, `main`, or "github prod", treat that as approval to commit and push straight to `origin/main`.
+- Do NOT ask a follow-up question offering a branch or draft PR instead when the user has already explicitly chosen direct production publishing.
+- Still run the required validation commands before pushing unless the user explicitly waives them.
+
 
 ## JSON Editing
 
