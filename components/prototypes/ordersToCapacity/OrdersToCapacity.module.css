@@ -1,0 +1,170 @@
+.page {
+  min-height: 100vh;
+  padding: var(--spacing-xxl, 32px) var(--spacing-l, 16px) var(--spacing-xxxl, 40px);
+  background:
+    radial-gradient(circle at top left, color-mix(in srgb, #b45309 14%, transparent), transparent 34%),
+    linear-gradient(180deg, color-mix(in srgb, #854d0e 10%, transparent) 0%, transparent 36%),
+    var(--color-surface, #f8fafc);
+}
+
+.shell {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: var(--spacing-xl, 24px);
+}
+
+.sectionCard {
+  display: grid;
+  gap: var(--spacing-m, 12px);
+}
+
+.sectionHeader {
+  display: grid;
+  gap: var(--spacing-xs, 4px);
+}
+
+.twoColumnGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: var(--spacing-l, 16px);
+}
+
+.threeColumnGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-m, 12px);
+}
+
+.kpiGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--spacing-m, 12px);
+}
+
+.heroList {
+  display: grid;
+  gap: var(--spacing-s, 8px);
+}
+
+.proofLine {
+  display: flex;
+  gap: var(--spacing-s, 8px);
+  align-items: start;
+}
+
+.proofDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  margin-top: 8px;
+  background: linear-gradient(180deg, #b45309, #92400e);
+  flex: 0 0 auto;
+}
+
+.recommendationCard {
+  display: grid;
+  gap: var(--spacing-m, 12px);
+  padding: var(--spacing-l, 16px);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, #f59e0b 14%, var(--color-surface-container-high, #ffffff)),
+    color-mix(in srgb, #b45309 8%, var(--color-surface-container-high, #ffffff))
+  );
+  border: 1px solid color-mix(in srgb, #b45309 18%, transparent);
+}
+
+.metaRow {
+  display: flex;
+  gap: var(--spacing-s, 8px);
+  flex-wrap: wrap;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  background: color-mix(in srgb, #b45309 12%, transparent);
+  color: #92400e;
+}
+
+.bulletList {
+  display: grid;
+  gap: var(--spacing-s, 8px);
+}
+
+.bulletRow {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--spacing-s, 8px);
+  align-items: start;
+}
+
+.bulletMarker {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  margin-top: 9px;
+  background: #92400e;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  border-radius: var(--radius-lg, 16px);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+}
+
+.table th,
+.table td {
+  padding: var(--spacing-s, 8px) var(--spacing-m, 12px);
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-on-surface, #111827) 10%, transparent);
+}
+
+.table thead th {
+  background: color-mix(in srgb, var(--color-surface-container-high, #ffffff) 92%, var(--color-surface, #ffffff));
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-m, 12px);
+}
+
+.dataCard {
+  display: grid;
+  gap: var(--spacing-xs, 4px);
+  min-height: 100%;
+}
+
+.calloutCard {
+  display: grid;
+  gap: var(--spacing-s, 8px);
+  min-height: 100%;
+}
+
+.linkRow {
+  display: flex;
+  gap: var(--spacing-s, 8px);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  .page {
+    padding-top: var(--spacing-xl, 24px);
+  }
+
+  .twoColumnGrid,
+  .threeColumnGrid {
+    grid-template-columns: 1fr;
+  }
+}
