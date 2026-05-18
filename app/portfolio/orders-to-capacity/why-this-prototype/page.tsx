@@ -9,7 +9,7 @@ import styles from "../../../../components/prototypes/ordersToCapacity/OrdersToC
 
 export const metadata: Metadata = buildPublicMetadata({
   title: { absolute: "Kinly | Why Orders-to-Capacity Matters" },
-  description: "Rationale for the orders-to-capacity manufacturing reporting portfolio prototype.",
+  description: "Rationale for the orders-to-capacity manufacturing planning case study.",
   path: `${ORDERS_TO_CAPACITY_BASE_PATH}/why-this-prototype`,
   siteName: "Kinly by MakingLifeEasie",
 });
@@ -20,11 +20,11 @@ export default function WhyOrdersToCapacityPage() {
       <div className={styles.shell}>
         <KinlyStack direction="vertical" gap="xl">
           <PageIntro
-            eyebrow="Prototype rationale"
+            eyebrow="Rationale"
             title="Why Orders-to-Capacity Matters"
-            subtitle="This portfolio piece is designed to show requirement interpretation and reporting judgement, not just dashboard assembly."
+            subtitle="A concise rationale for the scope, measures, and reporting structure used in this case study."
             asideTitle="One-line positioning"
-            asideBody="A first-version management reporting model for a manufacturing planning environment, built from public role requirements and mock data only."
+            asideBody="A first-version reporting model for a manufacturing planning environment, using mock data only."
           />
 
           <div className={styles.threeColumnGrid}>
@@ -41,25 +41,24 @@ export default function WhyOrdersToCapacityPage() {
           <div className={styles.twoColumnGrid}>
             <KinlyCard variant="surfaceContainer">
               <div className={styles.sectionCard}>
-                <KinlyHeading level={2}>What I changed from the original draft</KinlyHeading>
+                <KinlyHeading level={2}>What this case study emphasises</KinlyHeading>
                 <div className={styles.bulletList}>
                   <div className={styles.bulletRow}>
                     <div className={styles.bulletMarker} />
                     <KinlyText variant="bodyMedium">
-                      I reduced scope from a broad four-page reporting suite to a smaller first-version operating view.
+                      A narrow first version with explicit management signals.
                     </KinlyText>
                   </div>
                   <div className={styles.bulletRow}>
                     <div className={styles.bulletMarker} />
                     <KinlyText variant="bodyMedium">
-                      I made variance analysis explicit, because the role is asking for plan-versus-actual judgement,
-                      not only descriptive reporting.
+                      Variance analysis as a decision tool, not only descriptive reporting.
                     </KinlyText>
                   </div>
                   <div className={styles.bulletRow}>
                     <div className={styles.bulletMarker} />
                     <KinlyText variant="bodyMedium">
-                      I treated reporting consistency as part of the solution, not only a background assumption.
+                      Reporting consistency across Sales, Finance, Inventory, and Production.
                     </KinlyText>
                   </div>
                 </div>
@@ -68,7 +67,7 @@ export default function WhyOrdersToCapacityPage() {
 
             <KinlyCard variant="surfaceContainer">
               <div className={styles.sectionCard}>
-                <KinlyHeading level={2}>What this prototype is not claiming</KinlyHeading>
+                <KinlyHeading level={2}>What this is not claiming</KinlyHeading>
                 <div className={styles.bulletList}>
                   <div className={styles.bulletRow}>
                     <div className={styles.bulletMarker} />

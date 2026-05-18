@@ -22,7 +22,7 @@ import styles from "../../../../components/prototypes/ordersToCapacity/OrdersToC
 
 export const metadata: Metadata = buildPublicMetadata({
   title: { absolute: "Kinly | Orders-to-Capacity Summary" },
-  description: "Executive summary for the orders-to-capacity manufacturing reporting portfolio prototype.",
+  description: "Executive summary for a manufacturing planning reporting case study.",
   path: `${ORDERS_TO_CAPACITY_BASE_PATH}/summary`,
   siteName: "Kinly by MakingLifeEasie",
 });
@@ -35,9 +35,9 @@ export default function OrdersToCapacitySummaryPage() {
           <PageIntro
             eyebrow="Management view"
             title="Orders-to-Capacity Summary"
-            subtitle="This mock operating view is ordered around the management questions first: where performance is off-plan, which work centre is constraining delivery, and what should happen next."
-            asideTitle="Default lens"
-            asideBody="Four-week fictional planning horizon with focus on variance, workload pressure, inventory exposure, and recommended action."
+            subtitle="A management view focused on plan variance, capacity pressure, delivery risk, and recommended action."
+            asideTitle="Planning window"
+            asideBody="Four-week fictional planning horizon."
           />
 
           <KinlyCard variant="surfaceContainerHigh">
@@ -49,7 +49,7 @@ export default function OrdersToCapacitySummaryPage() {
               <KinlyText variant="bodyLarge">
                 The headline shortfall in forecast revenue appears to be driven more by capacity execution and order
                 timing than by weak demand. The first management decision should be whether to absorb overload through
-                overtime, resequencing, or explicit delivery re-commitment.
+                overtime, resequencing, or delivery re-commitment.
               </KinlyText>
               <div className={styles.metaRow}>
                 <div className={styles.pill}>Primary bottleneck: Machining</div>
@@ -70,12 +70,12 @@ export default function OrdersToCapacitySummaryPage() {
           </KinlyCard>
 
           <section className={styles.sectionCard}>
-            <div className={styles.sectionHeader}>
-              <KinlyHeading level={2}>Executive signals</KinlyHeading>
-              <KinlyText variant="bodySmall" tone="muted">
-                A deliberately small KPI set focused on decision pressure rather than report volume.
-              </KinlyText>
-            </div>
+              <div className={styles.sectionHeader}>
+                <KinlyHeading level={2}>Executive view</KinlyHeading>
+                <KinlyText variant="bodySmall" tone="muted">
+                  A small KPI set focused on decision pressure rather than report volume.
+                </KinlyText>
+              </div>
             <div className={styles.kpiGrid}>
               {executiveMetrics.map((metric) => (
                 <KpiCard key={metric.label} label={metric.label} value={metric.value} note={metric.note} />
@@ -87,7 +87,7 @@ export default function OrdersToCapacitySummaryPage() {
             <KinlyCard variant="surfaceContainerHigh">
               <div className={styles.sectionCard}>
                 <div className={styles.sectionHeader}>
-                  <KinlyHeading level={2}>Capacity planning view</KinlyHeading>
+                  <KinlyHeading level={2}>Capacity view</KinlyHeading>
                   <KinlyText variant="bodySmall" tone="muted">
                     The deeper operational lens focuses on where demand stops being deliverable.
                   </KinlyText>
@@ -124,7 +124,7 @@ export default function OrdersToCapacitySummaryPage() {
             <KinlyCard variant="surfaceContainer">
               <div className={styles.sectionCard}>
                 <div className={styles.sectionHeader}>
-                  <KinlyHeading level={2}>Inventory health view</KinlyHeading>
+                  <KinlyHeading level={2}>Inventory view</KinlyHeading>
                   <KinlyText variant="bodySmall" tone="muted">
                     Inventory is shown here as a planning variable, not just a stockholding total.
                   </KinlyText>
@@ -146,8 +146,7 @@ export default function OrdersToCapacitySummaryPage() {
               <div className={styles.sectionHeader}>
                 <KinlyHeading level={2}>Variance analysis</KinlyHeading>
                 <KinlyText variant="bodySmall" tone="muted">
-                  This is the part the original draft needed most. The role asks for variance that becomes management
-                  recommendation, so the prototype makes that explicit.
+                  This view links plan variance to management implication.
                 </KinlyText>
               </div>
               <div className={styles.tableWrapper}>
@@ -180,10 +179,10 @@ export default function OrdersToCapacitySummaryPage() {
           <div className={styles.twoColumnGrid}>
             <KinlyCard variant="surfaceContainer">
               <div className={styles.sectionCard}>
-                <div className={styles.sectionHeader}>
-                  <KinlyHeading level={2}>Scenario planning examples</KinlyHeading>
-                  <KinlyText variant="bodySmall" tone="muted">
-                    Enough to show thinking, not so much that it pretends to be an optimisation engine.
+              <div className={styles.sectionHeader}>
+                <KinlyHeading level={2}>Scenario examples</KinlyHeading>
+                <KinlyText variant="bodySmall" tone="muted">
+                    A small set of examples to show planning logic.
                   </KinlyText>
                 </div>
                 <div className={styles.bulletList}>
@@ -200,11 +199,10 @@ export default function OrdersToCapacitySummaryPage() {
             <KinlyCard variant="surfaceContainer">
               <div className={styles.sectionCard}>
                 <div className={styles.sectionHeader}>
-                  <KinlyHeading level={2}>Power BI translation note</KinlyHeading>
+                  <KinlyHeading level={2}>Implementation note</KinlyHeading>
                   <KinlyText variant="bodyMedium">
-                    The website is only the review surface. The underlying model is designed around shared business
-                    definitions so the same logic could later sit on top of SQL data sources and feed Power BI, Excel,
-                    Jet Reports, or Crystal Reports with a more consistent reporting layer.
+                    The model is designed around shared business definitions so the same logic could later sit on top
+                    of SQL data sources and feed Power BI, Excel, Jet Reports, or Crystal Reports.
                   </KinlyText>
                 </div>
               </div>
@@ -212,11 +210,10 @@ export default function OrdersToCapacitySummaryPage() {
           </div>
 
           <section className={styles.sectionCard}>
-            <div className={styles.sectionHeader}>
-              <KinlyHeading level={2}>Mock data model</KinlyHeading>
-              <KinlyText variant="bodySmall" tone="muted">
-                The model is intentionally simple, but it is shared across departments rather than built as isolated
-                report extracts.
+              <div className={styles.sectionHeader}>
+                <KinlyHeading level={2}>Data model</KinlyHeading>
+                <KinlyText variant="bodySmall" tone="muted">
+                A simple shared model across Sales, Production, Inventory, and Finance.
               </KinlyText>
             </div>
             <div className={styles.cardGrid}>
