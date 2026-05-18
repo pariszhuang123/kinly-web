@@ -67,6 +67,12 @@ const primaryLinks: readonly PrimaryLink[] = [
 
 const portfolioLinks: readonly PortfolioLink[] = [
   {
+    name: "Orders to Capacity",
+    description: "Manufacturing planning case study covering capacity, inventory, forecast variance, and management action.",
+    href: "/portfolio/orders-to-capacity",
+    cta: "Open orders-to-capacity",
+  },
+  {
     name: "Evnex Control Tower",
     description: "Quote-to-active operational control prototype for pipeline visibility and action ownership.",
     href: "/portfolio/evnex-control-tower",
