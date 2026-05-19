@@ -6,9 +6,11 @@ const STATIC_PUBLIC_PATHS = [
   "/",
   "/fallback",
   "/kinly/general",
+  "/kinly/overview",
   "/kinly/get",
   "/kinly/market",
   "/kinly/fit-check",
+  "/portfolio",
   "/withyou",
   "/withyou/get",
 ];
