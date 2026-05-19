@@ -43,12 +43,6 @@ export default function HomePage() {
                       This page explains the quick-link categories and points to the relevant landing pages,
                       directories, and case studies.
                     </KinlyText>
-                    <div className={styles.heroActions}>
-                      <KinlyButton href="/withyou">Open withYou</KinlyButton>
-                      <KinlyButton href="/portfolio" variant="outlined">
-                        View portfolio
-                      </KinlyButton>
-                    </div>
                   </div>
                 </div>
               </KinlyCard>
