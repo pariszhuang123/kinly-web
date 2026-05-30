@@ -80,6 +80,27 @@ describe("submitInterest", () => {
     );
   });
 
+  it("passes through the piano page source", async () => {
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      json: () => Promise.resolve({ lead_id: "123" }),
+    });
+
+    await submitInterest({
+      email: "parent@example.com",
+      country_code: "NZ",
+      ui_locale: "en-NZ",
+      source: "piano_web",
+    });
+
+    expect(mockFetch).toHaveBeenCalledWith(
+      expect.any(String),
+      expect.objectContaining({
+        body: expect.stringContaining('"p_source":"piano_web"'),
+      })
+    );
+  });
+
   it("sends correct headers", async () => {
     mockFetch.mockResolvedValueOnce({
       ok: true,
